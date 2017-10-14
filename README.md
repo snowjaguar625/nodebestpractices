@@ -87,11 +87,11 @@
 
 ## ![✔] 1.6 Use environment aware, secure and hirearchical config
 
-**TL;DR:** The perfect and flawless configuration setup must include (a) keys that can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are only a few packages that can help tick all those boxes
+**TL;DR:** Monitoring is a game of finding out issues before our customers do – obviously this should be assigned unprecedented importance. The market is overwhelmed with offers thus consider starting with defining the basic metrics you must follow (my sug
 
-**Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or devpos team, or both
+**Otherwise:** You end-up with a blackbox that is hard to reason about, then you start re-writing all logging statements to add additional information
 
-🔗 [**Read More: configuration best practices*](/sections/projectstructre/configguide.md)
+🔗 [**Read More: Structure by feature*](/sections/errorhandling/configguide.md)
 
 <br/><br/>
 
@@ -395,7 +395,7 @@
 **Otherwise:** Omitting this simple property might greatly degrade performance. For example, when using Express for server side rendering omitting NODE_ENV makes the slower by a factor of three!
 
 
-🔗 [*Read More: Set NODE_ENV=production*](/sections/production/monitoring.md)
+🔗 [*Read More: Set NODE_ENV=production*](/sections/production/setnodeenv.md)
 
 
 <br/><br/>
