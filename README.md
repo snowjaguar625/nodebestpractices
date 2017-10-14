@@ -21,7 +21,7 @@
 <br/><br/><br/>
 
 ## Table of Contents
-1. [Project structure Practices (6)](#project-setup-practices)
+1. [Project structure Practices (6)](#project-structure-practices)
 2. [Code Style Practices (9) ](#code-style-practices)
 3. [Error Handling Practices (11) ](#error-handling-practices)
 4. [Going To Production Practices (17) ](#going-to-production-practices)
@@ -80,7 +80,7 @@
 
 **Otherwise:** Your API will be accessible via networks calls only so in-process testing (faster and can generate coverage reports) won't be possible. It will also probably won't be a big pleasure to maintain hundreds of lines of code in a single file
 
-🔗 [**Read More: Separate Express 'app' and 'server'*](/sections/projectstructre/separateexpress.md)
+🔗 [**Read More: separate Express 'app' and 'server'*](/sections/projectstructre/separateexpress.md)
 
 <br/><br/>
 
