@@ -25,7 +25,7 @@
 2. [Code Style Practices (9) ](#code-style-practices)
 3. [Error Handling Practices (11) ](#error-handling-practices)
 4. [Going To Production Practices (17) ](#going-to-production-practices)
-5. [Testing And Overall Quality Practices (6) ](#testing-practices)
+5. [Testing And Overall Quality Practices (6) ](#5.-Testing-And-Overall-Quality-Practices)
 6. [Security Practices (soon) ](#security-practices)
 7. [Performance Practices (soon) ](#performance-practices)
 8. [API Practices (soon) ](#API-practices)
@@ -143,7 +143,7 @@ In this example, you would expect the `doSomething()` function to return the obj
 function doSomething() {
   return; // <<= this semicolon is inserted autumatically
   { 
-    key : "value"
+    key : "value" // unreachable code
   };
 }
 ```
