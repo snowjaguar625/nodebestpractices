@@ -260,7 +260,25 @@ Text here...
 
 ## ✔ 3.8 Naming conventions for variables, constants, functions and classes
 
-**TL;DR:** Use ***lowerCamelCase*** when naming variables and functions, ***UpperCamelCase*** (capital first letter as well) when naming classes and ***UPPERCASE*** for constants. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
+**TL;DR:** Use ***lowerCamelCase*** when naming variables and functions, ***UpperCamelCase*** (capital first letter as well) when naming classes and ***UPPERCASE*** for constants. This will help you to easily distinguish between plain functions and classes that require instantioation. Use descriptive names, but try to keep them short.
+
+### Code Example ###
+```javascript
+  // for class name we use UpperCamelCase
+  class SomeClass () { 
+    
+    // for const name we use UPPERCASE
+    const CONFIG = {
+      key: 'value'
+    };
+    
+    // for variables and functions names we use lowerCamelCase
+    let someVariable = 'value';
+    function doSomething() {
+      
+    }
+
+  }
 
 <br/><br/>
 
