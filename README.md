@@ -55,7 +55,7 @@
 
 ## ![✔] 1.3 Wrap common utilities as NPM packages
 
-**TL;DR:** In a large app that constitues multiple code base, cross-cutting-conern utilities like logger, encryption and a like, should be wrapped by your own code and exposed as private NPM packages. This makes it shared among multiple code bases and projects
+**TL;DR:** In a large app that constitues multiple code base, cross-cutting-conern utilities like logger, encryption and a like, should be wrapped by your own code and exposed as private NPM packages. This allows sharing them among multiple code bases and projects
 
 **Otherwise:** You'll have to invent your own deployment and dependency wheel
 
@@ -65,7 +65,7 @@
 
 ## ![✔] 1.4 Separate Express 'app' and 'server'
 
-**TL;DR:** Avoid the nasty habit of defining the [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). Even better, locate your app declaration within components
+**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW).For even better structure, locate your API declaration within components
 
 **Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It will also probably won't be a big pleasure to maintain hundreds of lines of code in a single file
 
@@ -75,7 +75,7 @@
 
 ## ![✔] 1.5 Use environment aware, secure and hirearchical config
 
-**TL;DR:** The perfect and flawless configuration setup must include (a) keys that can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are only a few packages that can help tick all those boxes
+**TL;DR:** The perfect and flawless configuration setup must include (a) keys that can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are only a few packages that can help tick most of those boxes like [nconf](https://www.npmjs.com/package/nconf) and [config](https://www.npmjs.com/package/config)
 
 **Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development team or devpos team. Probably both
 
@@ -294,7 +294,9 @@
 
 ## ![✔] 3.7 Prefer const over let. Ditch the var
 
-**TL;DR:** Take advantage of ES6's `const` declaration to implement the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) to your variables. Using const means that once a variable is assigned, it cannot be reassigned. Using const it will help you to not be tempted to use the same variable for different uses, and make your code clearer. If a variable needs to be reassigned, in a for loop for example, use `let` to declare it. Another important aspect of let is that a variable declared using let is only available in the block scope in which it was defined. `var` is function scoped and not block scoped, and [sholdn't be used in ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) now that you have const and let at your disposal.
+**TL;DR:** Using `const` means that once a variable is assigned, it cannot be reassigned. Prefering const will help you to not be tempted to use the same variable for different uses, and make your code clearer. If a variable needs to be reassigned, in a for loop for example, use `let` to declare it. Another important aspect of let is that a variable declared using let is only available in the block scope in which it was defined. `var` is function scoped, not block scoped, and [shouldn't be used in ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) now that you have const and let at your disposal.
+
+**Otherwise:** Debugging becomes way more cumbersome when following a variable that frequently changes.
 
 🔗 [**Read more: JavaScript ES6+: var, let, or const?** ](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75)
 
