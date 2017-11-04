@@ -41,7 +41,7 @@
 
 ## ![✔] 1.1 Structure your solution by components
 
- **TL;DR:** The worst large applications pitfal is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its own folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
+ **TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its own folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
 
 **Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependant components - deployments become slower and more risky. It's also considered harder to scale-out when all the business units are not separated
 
@@ -109,7 +109,7 @@
 **TL;DR:** Many throws errors as a string or as some custom type – this complicates the error handling logic and the interoperability between modules. Whether you reject a promise, throw exception or emit error – using only the built-in Error object will increases uniformity and prevents loss of information
 
 
-**Otherwise:** When invoking some component, being uncertain which type of errors come in return – makes it much harder to handle errors properly. Even worth, using custom types to describe errors might lead to loss of critical error information like the stack trace!
+**Otherwise:** When invoking some component, being uncertain which type of errors come in return – makes it much harder to handle errors properly. Even worse, using custom types to describe errors might lead to loss of critical error information like the stack trace!
 
 🔗 [**Read More: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
 
@@ -315,14 +315,14 @@
 
 **TL;DR:** Require modules at the beginning of each file, before and outside of any functions. This simple best practice will not only help you easily and quickly tell the dependencies of a file right at the top, but also avoids a couple of potential problems.
 
-**Otherwise:** Requiers are run syncronously by Node JS. If they are called from withing a function, it may block other requests from being handled at a more critical time. Also, if a required module or any of its own dependencies throw an error and crashes the server, it is best to find out about it as soon as possible, which might not be the case if that module is required from within a function.
+**Otherwise:** Requiers are run syncronously by Node JS. If they are called from within a function, it may block other requests from being handled at a more critical time. Also, if a required module or any of its own dependencies throw an error and crashes the server, it is best to find out about it as soon as possible, which might not be the case if that module is required from within a function.
 
 <br/><br/>
 
-## ![✔] 3.9 Do Require on folders, not directly on files
+## ![✔] 3.9 Do Require on the folders, not directly on the files
 
 **TL;DR:** When developing a module/library in a folder, place an index.js file that exposes the module's
-internals so every consumer will pass through it. This will serves as 'interface' to your module and ease
+internals so every consumer will pass through it. This serves as an 'interface' to your module and ease
 future changes without breaking the contract.
 
 **Otherwise:** Changing to the internal structure of files or the signature may break the interface with
@@ -344,7 +344,7 @@ clients.
 
 ## ![✔] 3.10 Use the `===` operator
 
-**TL;DR:** Prefer the strict equality operator `===` over the weaker abstract equality operator `==`. `==` will compare two variables after converting them to a common type. There is not type conversion in `===`, and both variables must be of the same type to be equal.
+**TL;DR:** Prefer the strict equality operator `===` over the weaker abstract equality operator `==`. `==` will compare two variables after converting them to a common type. There is no type conversion in `===`, and both variables must be of the same type to be equal.
 
 **Otherwise:** Unequal variables might return true when compared with the `==` operator.
 
@@ -377,7 +377,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 3.12 Use => Arrow Functions 
+## ![✔] 3.12 Use Fat (=>) Arrow Functions 
 
 **TL;DR:** Though it's recommended to use async-await and avoid function parameters, when dealing with older API that accept promises or callbacks - arrow functions makes the code structure more compact and keeps the lexical context of the root function (i.e. 'this').
 
@@ -412,7 +412,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 4.3 Carefully choose your CI platform (Jenkins vs Rest of the world)
 
-**TL;DR:** Your continuous integration platform (CICD) will host all the quality tools (e.g test, lint) so it better come with a vibrant echo-system of plugins. [Jenkins](https://jenkins.io/) is the default for many projects as it has the biggest community along with a very powerful platform at the price of complex setup that demands a steep learning curve. Its rivals, online SaaS like [Travis](https://travis-ci.org/) and [CircleCI](https://circleci.com), are much easier to setup without the burden of managing the whole infrastructure. Eventually, it's a trade-off between robustness and speed - choose your side carefully
+**TL;DR:** Your continuous integration platform (CICD) will host all the quality tools (e.g test, lint) so it better come with a vibrant echo-system of plugins. [Jenkins](https://jenkins.io/) is the default for many projects as it has the biggest community along with a very powerful platform at the price of complex setup that demands a steep learning curve. Its rivals, online SaaS tools like [Travis](https://travis-ci.org/) and [CircleCI](https://circleci.com), are much easier to setup, without the burden of managing the whole infrastructure. Eventually, it's a trade-off between robustness and speed - choose your side carefully
 
 **Otherwise:** Choosing some lightweight SaaS vendor might get you blocked once you need some advanced customization. On the other hand, going with Jenkins might burn precious time on infrastructure setup
 
@@ -468,7 +468,7 @@ All statements above will return false if used with `===`
 # `5. Going To Production Practices`
 ## ![✔] 5.1. Monitoring!
 
-**TL;DR:** Monitoring is a game of finding out issues before our customers do – obviously this should be assigned unprecedented importance. The market is overwhelmed with offers thus consider starting with defining the basic metrics you must follow (my suggestions inside), then go over additional fancy features and choose the solution that tick all boxes. Click ‘The Gist’ below for overview of solutions
+**TL;DR:** Monitoring is a game of finding out issues before customers do – obviously this should be assigned unprecedented importance. The market is overwhelmed with offers thus consider starting with defining the basic metrics you must follow (my suggestions inside), then go over additional fancy features and choose the solution that tick all boxes. Click ‘The Gist’ below for overview of solutions
 
 **Otherwise:** Failure === disappointed customers. Simple.
 
@@ -501,7 +501,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 5.4. Lock dependencies
 
-**TL;DR:** Your code must be identical across all environments but amazingly NPM lets dependencies drift across environments be default – when you install packages at various environments it tries to fetch packages’ latest patch version. Overcome this by using NPM config files , .npmrc, that tell each environment to save the exact (not the latest) version of each package. Alternatively, for finer grain control use NPM” shrinkwrap”. *Update: as of NPM5 , dependencies are locked by default. The new package manager in town, Yarn, also got us covered by default
+**TL;DR:** Your code must be identical across all environments, but amazingly NPM lets dependencies drift across environments be default – when you install packages at various environments it tries to fetch packages’ latest patch version. Overcome this by using NPM config files , .npmrc, that tell each environment to save the exact (not the latest) version of each package. Alternatively, for finer grain control use NPM” shrinkwrap”. *Update: as of NPM5 , dependencies are locked by default. The new package manager in town, Yarn, also got us covered by default
 
 **Otherwise:** QA will thoroughly test the code and approve a version that will behave differently at production. Even worse, different servers at the same production cluster might run different code
 
@@ -607,7 +607,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 5.13. Use tools that automatically detect vulnerabilities
 
-**TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities from time to time that put a system at risk. This can get easily tamed using community and commercial tools that constantly check for vulnerabilities and warn (locally or at GitHub), some can even patch them immediately
+**TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities (from time to time) that can put a system at risk. This can get easily tamed using community and commercial tools that constantly check for vulnerabilities and warn (locally or at GitHub), some can even patch them immediately
 
 **Otherwise:** Otherwise: Keeping your code clean from vulnerabilities without dedicated tools will require to constantly follow online publications about new threats. Quite tedious
 
