@@ -42,15 +42,13 @@ if(!productToAdd)
 
 ```javascript
 //centralized error object that derives from Node’s Error
-function appError(name, httpCode, description, isOperational) {
+function name, httpCode, description, isOperational) {
     Error.call(this);
     Error.captureStackTrace(this);
     this.name = name;
     //...other properties assigned here
 };
-
 appError.prototype.__proto__ = Error.prototype;
-
 module.exports.appError = appError;
  
 //client throwing an exception
