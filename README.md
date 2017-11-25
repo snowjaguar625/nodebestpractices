@@ -286,8 +286,8 @@
   // for class name we use UpperCamelCase
   class SomeClassExample { 
     
-    // for const name we use UPPERCASE
-    const CONFIG = {
+    // for const names we use the const keyword and lowerCamelCase
+    const config = {
       key: 'value'
     };
     
@@ -385,6 +385,14 @@ All statements above will return false if used with `===`
 **Otherwise:** Longer code (in ES5 functions) is more prone to bugs and cumbersome to read.
 
 🔗 [**Read mode: It’s Time to Embrace Arrow Functions**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
+
+<br/><br/>
+
+## ![✔] 3.13 Use Prettier to avoid overthinking your code styles
+
+**TL;DR:** Most teams always talk about their preferred code styles. Even individual programmers overthink their code styles. This leads to unproductive time debating or researching (Like using semicolons or not. Or even thinking if your team should split the code after the 80th column or not). With [Prettier](https://github.com/prettier/prettier), you or your team don't have to talk about their code styles. Prettier also uses the code styles preferred by most programmers. Prettier can also be used alongside ESLint so you don't have to worry about having conflicts between the two libraries.
+
+**Otherwise:** Time might be wasted overthinking about the project's code style
 
 
 <br/><br/><br/>
