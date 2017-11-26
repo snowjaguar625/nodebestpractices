@@ -277,7 +277,7 @@
 
 ## ![✔] 3.6 Naming conventions for variables, constants, functions and classes
 
-**TL;DR:** Use ***lowerCamelCase*** when naming variables and functions, ***UpperCamelCase*** (capital first letter as well) when naming classes and ***UPPERCASE*** for constants. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
+**TL;DR:** Use ***lowerCamelCase*** when naming constants, variables and functions and ***UpperCamelCase*** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
 
 **Otherwise:** Javascript is the only language in the world which allows to invoke a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase.
 
@@ -402,11 +402,11 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.2 Detect code issues with a linter
+## ![✔] 4.2 Detect code issues with ESLint + specific Node plugin rules
 
-**TL;DR:** Use a code linter to check basic quality and detect anti-patterns early. Run it before any test and add it as a pre-commit git-hook to minimize the time needed to review and correct any issue. Also check [Section 3](https://github.com/i0natan/nodebestpractices#3-code-style-practices) on Code Style Practices
+**TL;DR:** ESLint is the de-facto standard for checking code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. On top of ESLint standard rules that cover vanilla JS only, add Node-specific plugins like [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node), [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-node-security](https://www.npmjs.com/package/eslint-plugin-security)
 
-**Otherwise:** You may let pass some anti-pattern and possible vulnerable code to your production environment. 
+**Otherwise:** Many faulty Node.JS code patterns might escape under the radar. For example, developers might require(variableAsPath) files with a variable given as path which allows attackers to execute any JS script. Node.JS linters can detect such patterns and complain early
 
 
 <br/><br/>
@@ -717,3 +717,5 @@ This repository is being kept up to date thanks to the help from the community. 
 🌻 [lallenlowe](https://github.com/lallenlowe), 
 🌻 [Nathan Wells](https://github.com/nwwells), 
 🌻 [Paulo Vítor S Reis](https://github.com/paulovitin), 
+<br/><br/>
+##John Doe :star:## (be the first)
