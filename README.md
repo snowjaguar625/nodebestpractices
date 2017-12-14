@@ -219,11 +219,13 @@
 
 # `3. Code Style Practices`
 
-## ![✔] 3.1 Use ESLint
+## ![✔] 3.1 Use ESLint and Prettier
 
-**TL;DR:** ESLint is the de-facto standard for checking code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. Using ESLint and following the rest of the code style practices below means following the same styles used by the rest of the community, as well as the same code styles used in the core products themselves.
+**TL;DR:** [ESLint](https://eslint.org) is the de-facto standard for checking possible code errors and fixing code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. While ESLint can automatically fix code styles, [Prettier](https://github.com/prettier/prettier) is a more powerful automatic code formatter. You and your team don't have to talk and research about their preferred code styles but instead, they can just rely on Prettier to automatically format their code. Prettier also uses the code styles preferred by most programmers. Also, it can be easily used alongside ESLint so you don't have to worry about having conflicts between the two libraries.
 
-**Otherwise:** developers will focus on tedious spacing and line-width concerns
+**Otherwise:** Developers will focus on tedious spacing and line-width concerns and time might be wasted overthinking about the project's code style.
+
+🔗 [**Read More: Using ESLint and Prettier**](/sections/codestylepractices/eslint_prettier.md)
 
 <br/><br/>
 
@@ -277,7 +279,7 @@
 
 ## ![✔] 3.6 Naming conventions for variables, constants, functions and classes
 
-**TL;DR:** Use ***lowerCamelCase*** when naming constants, variables and functions and ***UpperCamelCase*** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
+**TL;DR:** Use ***lowerCamelCase*** when naming variables and functions, ***UpperCamelCase*** (capital first letter as well) when naming classes and ***UPPERCASE*** for constants. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
 
 **Otherwise:** Javascript is the only language in the world which allows to invoke a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase.
 
@@ -402,11 +404,11 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.2 Detect code issues with a linter
+## ![✔] 4.2 Detect code issues with ESLint + specific Node plugin rules
 
-**TL;DR:** Use a code linter to check basic quality and detect anti-patterns early. Run it before any test and add it as a pre-commit git-hook to minimize the time needed to review and correct any issue. Also check [Section 3](https://github.com/i0natan/nodebestpractices#3-code-style-practices) on Code Style Practices
+**TL;DR:** ESLint is the de-facto standard for checking code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. On top of ESLint standard rules that cover vanilla JS only, add Node-specific plugins like [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node), [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-node-security](https://www.npmjs.com/package/eslint-plugin-security)
 
-**Otherwise:** You may let pass some anti-pattern and possible vulnerable code to your production environment. 
+**Otherwise:** Many faulty Node.JS code patterns might escape under the radar. For example, developers might require(variableAsPath) files with a variable given as path which allows attackers to execute any JS script. Node.JS linters can detect such patterns and complain early
 
 
 <br/><br/>
@@ -492,9 +494,9 @@ All statements above will return false if used with `===`
 
 ## ![✔] 5.3. Delegate anything possible (e.g. gzip, SSL) to a reverse proxy
 
-**TL;DR:** Node is awfully bad at doing CPU intensive tasks like gzipping, SSL termination, etc. You should use ‘real’ middleware services like nginx, HAproxy or cloud vendor services instead
+**TL;DR:** Node is awfully bad at doing CPU intensive tasks like gzipping, SSL termination, etc. Instead, use a ‘real’ middleware services like nginx, HAproxy or cloud vendor services
 
-**Otherwise:** Your poor single thread will stay busy doing infrastructural tasks instead of dealing with your application core and performance will degrade accordingly
+**Otherwise:** Your poor single thread will keep busy doing networking tasks instead of dealing with your application core and performance will degrade accordingly
 
 
 🔗 [**Read More: Delegate anything possible (e.g. gzip, SSL) to a reverse proxy**](/sections/production/delegatetoproxy.md)
@@ -684,47 +686,3 @@ Node.js Core Collaborator, been noding since 0.4, and have noded in multiple pro
 
 ## `Bruno Scheufler` 
 💻 full-stack web developer and Node.js enthusiast.
-
-
-<br/><br/>
-
-# Thank You Notes
-
-This repository is being kept up to date thanks to the help from the community. We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A :sunflower: marks a successful pull request and a :star: marks an approved new best practice.
-
-🌻 [Kevin Rambaud](https://github.com/kevinrambaud), 
-🌻 [Michael Fine](https://github.com/mfine15), 
-🌻 [Shreya Dahal](https://github.com/squgeim), 
-🌻 [ChangJoo Park](https://github.com/ChangJoo-Park), 
-🌻 [Matheus Cruz Rocha](https://github.com/matheusrocha89), 
-🌻 [Yog Mehta](https://github.com/BitYog), 
-🌻 [Kudakwashe Paradzayi](https://github.com/kudapara), 
-🌻 [t1st3](https://github.com/t1st3), 
-🌻 [mulijordan1976](https://github.com/mulijordan1976), 
-🌻 [Matan Kushner](https://github.com/matchai), 
-🌻 [Fabio Hiroki](https://github.com/fabiothiroki), 
-🌻 [James Sumners](https://github.com/jsumners), 
-🌻 [Chandan Rai](https://github.com/crowchirp), 
-🌻 [Dan Gamble](https://github.com/dan-gamble), 
-🌻 [PJ Trainor](https://github.com/trainorpj), 
-🌻 [Remek Ambroziak](https://github.com/reod), 
-🌻 [Yoni Jah](https://github.com/yonjah), 
-🌻 [Misha Khokhlov](https://github.com/hazolsky), 
-🌻 [Evgeny Orekhov](https://github.com/EvgenyOrekhov), 
-🌻 [Gediminas Petrikas](https://github.com/gediminasml), 
-🌻 [Isaac Halvorson](https://github.com/hisaac), 
-🌻 [Vedran Karačić](https://github.com/vkaracic), 
-🌻 [lallenlowe](https://github.com/lallenlowe), 
-🌻 [Nathan Wells](https://github.com/nwwells), 
-🌻 [Paulo Vítor S Reis](https://github.com/paulovitin), 
-🌻 [syzer](https://github.com/syzer),
-🌻 [David Sancho](https://github.com/davesnx),
-🌻 [Robert Manolea](https://github.com/pupix),
-🌻 [Xavier Ho](https://github.com/spaxe),
-🌻 [Aaron Arney](https://github.com/ocularrhythm)
-
-
-
-<br/><br/>
-## :star: No Stars Yet, Waiting For The First To Suggest a New Bullet 
-
