@@ -1,13 +1,13 @@
-# Shut the process gracefully when a stranger comes to town
+# 特殊情况产生时，优雅地停掉服务
 
 
-### One Paragraph Explainer
+### 一段解释
 
-Somewhere within your code, an error handler object is responsible for deciding how to proceed when an error is thrown – if the error is trusted (i.e. operational error, see further explanation within best practice #3) then writing to log file might be enough. Things get hairy if the error is not familiar – this means that some component might be in a faulty state and all future requests are subject to failure. For example, assuming a singleton, stateful token issuer service that threw an exception and lost its state – from now it might behave unexpectedly and cause all requests to fail. Under this scenario, kill the process and use a ‘Restarter tool’ (like Forever, PM2, etc) to start over with a clean slate.
+在您的代码的某个地方，当一个错误抛出的时候，错误处理对象负责决定如何进行时 – 如果错误是可信的（即操作型错误，在最佳实践# 3了解进一步的解释），写入日志文件可能是足够的。如果错误不熟悉，事情就变得棘手了 – 这意味着某些组件可能处于故障状态，所有将来的请求都可能失败。例如，假设一个单例（singleton）的、有状态的令牌发行者服务抛出异常并失去它的状态 — 从现在起，它可能会出现意外行为并导致所有请求失败。在这种情况下，杀进程，使用“重启”的工具（像Forever，PM2，等等）重新开始。
 
 
 
-### Code example: deciding whether to crash
+### 代码实例: 决定是否退出
 
 ```javascript
 //deciding whether to crash when an uncaught exception arrives
@@ -36,16 +36,16 @@ function errorHandler(){
 ### Blog Quote: "The best way is to crash"
  From the blog Joyent
  
- > …The best way to recover from programmer errors is to crash immediately. You should run your programs using a restarter that will automatically restart the program in the event of a crash. With a restarter in place, crashing is the fastest way to restore reliable service in the face of a transient programmer error…  
+ > …从程序型错误中恢复过来的最好方法是立即崩溃。你应该使用一个重启助手来运行您的程序，它会在崩溃的情况下自动启动程序。当使用重启助手，崩溃是面对临时性的程序型错误时，恢复可靠的服务的最快的方法…
 
 
-### Blog Quote: "There are three schools of thoughts on error handling"
+### Blog Quote: "错误处理有三种流派"
  From the blog: JS Recipes
  
- > …There are primarily three schools of thoughts on error handling:
-1. Let the application crash and restart it.
-2. Handle all possible errors and never crash.
-3. Balanced approach between the two
+ > …错误处理主要有三种流派:
+1. 让应用崩溃，并重启。
+2. 处理所有的错误，从不崩溃。
+3. 介于两者之间。
 
 
 ### Blog Quote: "No safe way to leave without creating some undefined brittle state"
