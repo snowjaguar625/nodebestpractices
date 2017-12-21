@@ -1,12 +1,12 @@
-#  Use only the built-in Error object
+#  仅使用内建的错误对象
 
 
-### One Paragraph Explainer
+### 一段解释
 
-The permissive nature of JS along with its variety code-flow options (e.g. EventEmitter, Callbacks, Promises, etc) pushes to great variance in how developers raise errors – some use strings, other define their own custom types. Using Node.JS built-in Error object helps to keep uniformity within your code and with 3rd party libraries, it also preserves significant information like the StackTrace. When raising the exception, it’s usually a good practice to fill it with additional contextual properties like the error name and the associated HTTP error code. To achieve this uniformity and practices, consider extending the Error object with additional properties, see code example below
-Blog Quote: “I don’t see the value in having lots of different types”
-From the blog Ben Nadel, ranked 5 for the keywords “Node.JS error object”
-…”Personally, I don’t see the value in having lots of different types of error objects – JavaScript, as a language, doesn’t seem to cater to Constructor-based error-catching. As such, differentiating on an object property seems far easier than differentiating on a Constructor type…
+js天生的宽容性及其多变的代码流选项（例如 EventEmitter, Callbacks, Promises等等）迫使开发人员怎么去引发错误时有多的不一致 – 有些人使用字符串，有些人使用自定义的类型。使用Node.js的内置错误对象有助于在你的代码和第三方库之间保持一致性，它还保留了重要信息，比如StackTrace。当引发异常时，这通常是一个好的习惯去使用附加的上下文属性（如错误名称和相关的HTTP错误代码）填充异常。要实现这种一致性和实践，请考虑使用附加属性扩展错误对象，见下面的代码示例。
+博客引用：“I don’t see the value in having lots of different types”
+摘自博客Ben Nadel, 对于关键字“Node.JS错误对象”，排名第五
+…就我个人而言，我不认为有很多不同类型的错误对象的价值——JavaScript作为一种语言，似乎不符合基于构造函数的错误捕获。因此，区分对象属性似乎比在构造函数类型上区分要容易得多…
 
 
 
@@ -62,7 +62,8 @@ if(user == null)
 ### Blog Quote: "A string is not an error"
 From the blog devthought.com, ranked 6 for the keywords “Node.JS error object”
  
- > …passing a string instead of an error results in reduced interoperability between modules. It breaks contracts with APIs that might be performing instanceof Error checks, or that want to know more about the error. Error objects, as we’ll see, have very interesting properties in modern JavaScript engines besides holding the message passed to the constructor…  
+ > …传递字符串而不是错误导致模块间协作性降低。它打破了和API的约定，可能是执行instanceof Error这样的检查，或想了解更多关于错误的信息。正如我们将看到的，错误对象在现代JavaScript引擎中拥有非常有趣的属性，同时保留传递给构造函数的消息…
+ 
 Blog Quote: “All JavaScript and System errors raised by Node.js inherit from Error”
 
 ### Blog Quote: "Inheriting from Error doesn’t add too much value"
