@@ -1,6 +1,6 @@
 [✔]: assets/images/checkbox-small-blue.png
 
-# Node.js Best Practices
+# Node.js 最佳实践
 
 <h1 align="center">
   <img src="assets/images/banner-2.jpg" alt="Node.js Best Practices" />
@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-<img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2053%20Best%20practices-blue.svg" alt="53 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20Nov%2015%202017-green.svg" alt="Last update: Nov 15, 2017"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%208.9-brightgreen.svg" alt="Updated for Node v.8.9">
+<img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2053%20Best%20practices-blue.svg" alt="50 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20Oct%2020%202017-green.svg" alt="Last update: Oct 20, 2017"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%208.4-brightgreen.svg" alt="Updated for Node v.8.4">
 	</div>
 
 <br/>
@@ -17,72 +17,72 @@
  [![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Follow us on Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
  <br/>
 
-# Welcome! 3 Things You Ought To Know First:
-**1. When you read here, you in fact read dozens of the best Node.JS articles -** this is a summary and curation of the top-ranked content on Node JS best practices
+# 欢迎! 首先您应该知道的三件事情:
+**1. 当您读到这里，实际上您读了很多关于Node.JS的优秀文章 -** 这里是关于Node JS 最佳实践的优质内容的总结和管理
 
-**2. It is the largest compilation, and it is growing every week -** currently, more than 50 best practices, style guides, and architectural tips are presented. New issues and PR are created every day to keep this live book updated. We'd love to see you contributing here, whether fixing some  code mistake or suggesting brilliant new ideas. See our [milestones here](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open)
+**2. 这里是最大的汇集，且每周都在增长 -** 当前，超过50个最佳实现，样式指南，架构建议已经呈现。我们欢迎议题和PR使这本在线书籍不断更新。我们也乐于见到您能在这里做出贡献，不管是修复一些代码的错误，或是建议卓越的新想法 - 作为Node.JS最佳实践这本书中的一部分
 
-**3. Most bullets have additional info -** nearby most best practice bullets you'll find **🔗Read More** link that will present you with code examples, quotes from selected blogs and more info
+**3. 大部分的条目包含额外的信息 -** 大部分的最佳实践条目的旁边，您将发现 **🔗Read More** 链接，它将呈现给您示例代码，博客引用和更多信息
 
 <br/><br/><br/>
 
-## Table of Contents
-1. [Project structure Practices (5)](#1-project-structure-practices)
-2. [Error Handling Practices (11) ](#2-error-handling-practices)
-3. [Code Style Practices (12) ](#3-code-style-practices)
-4. [Testing And Overall Quality Practices (8) ](#4-testing-and-overall-quality-practices)
+## 目录
+1. [项目结构实践 (5)](#1-project-structure-practices)
+2. [异常处理实践 (11) ](#2-error-handling-practices)
+3. [编码规范实践 (12) ](#3-code-style-practices)
+4. [测试和总体质量实践 (8) ](#4-testing-and-overall-quality-practices)
 5. [Going To Production Practices (16) ](#5-going-to-production-practices)
-6. Security Practices ([coming soon](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open))
-7. Performance Practices ([coming soon](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open))
+6. Security Practices (coming soon)
+7. Performance Practices (coming soon)
 
 
 <br/><br/><br/>
-# `1. Project Structure Practices`
+# `1. 项目结构实践`
 
-## ![✔] 1.1 Structure your solution by components
+## ![✔] 1.1 组件式构建你的解决方案Structure your solution by components
 
- **TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its own folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
+ **TL;DR:** 最大的项目隐患就是维护一个巨大的，含有几百个依赖的代码库 - 当开发人员准备整合新的需求的时候，这样一个庞然大物势必减缓了开发效率。反之，把您的代码拆分成组件，每一个组件有它自己的文件夹和代码库，并且确保每一个组件小而简单。查看正确的项目结构的例子请访问下面的 ‘更多’ 链接。
 
-**Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependant components - deployments become slower and more risky. It's also considered harder to scale-out when all the business units are not separated
+**否则:** 当编写新需求的开发人员逐步意识到他所做改变的影响，并担心会破坏其他的依赖模块 - 部署会变得更慢，风险更大。当所有业务逻辑没有被分开，这也会被认为很难扩展
 
-🔗 [**Read More: structure by components**](/sections/projectstructre/breakintcomponents.md)
-
-<br/><br/>
-
-## ![✔] 1.2 Layer your components, keep Express within its boundaries
-
-**TL;DR:** Each component should contain 'layers' - a dedicated object for the web, logic and data access code. This not only draws a clean separation of concerns but also significantly eases mocking and testing the system. Though this is a very common pattern, API developers tend to mix layers by passing the web layer objects (Express req, res) to business logic and data layers - this makes your application dependant on and accessible by Express only
-
-**Otherwise:** App that mixes web objects with other layers can not be accessed by testing code, CRON jobs and other non-Express callers
-
-🔗 [**Read More: layer your app**](/sections/projectstructre/createlayers.md)
+🔗 [**更多: 组件结构**](/sections/projectstructre/breakintcomponents.chinese.md)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as NPM packages
+## ![✔] 1.2 分层设计组件，保持Express在特定的区域
 
-**TL;DR:** In a large app that constitutes a large code base, cross-cutting-concern utilities like logger, encryption and alike, should be wrapped by your own code and exposed as private NPM packages. This allows sharing them among multiple code bases and projects
+**TL;DR:** 每一个组件都应该包含'层级' - 一个专注的用于接入网络，逻辑，数据的概念。这样不仅获得一个清晰的分离考量，而且使仿真和测试系统变得异常容易。尽管这是一个普通的模式，但接口开发者易于混淆层级关系，比如把网络层的对象（Express req, res）传给业务逻辑和数据层 - 这会令您的应用彼此依赖，并且只能通过Express使用。
 
-**Otherwise:** You'll have to invent your own deployment and dependency wheel
+**否则:** 对于混淆了网络层和其它层的应用，将不易于测试，执行CRON的任务，其它非-Express的调用者无法使用
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
+🔗 [**更多: 应用分层**](/sections/projectstructre/createlayers.md)
 
 <br/><br/>
 
-## ![✔] 1.4 Separate Express 'app' and 'server'
+## ![✔] 1.3 封装公共模块成为NPM的包
 
-**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
+**TL;DR:** 由大量代码构成的一个大型应用中，贯彻全局的，比如日志，加密和其它类似的公共组件，应该进行封装，并暴露成一个私有的NPM包。这将使其在更多的代码库和项目中被使用变成了可能。
 
-**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
+**否则:** 您将不得不重造部署和依赖的轮子
 
-🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+🔗 [**更多: 通过需求构建**](/sections/projectstructre/wraputilities.md)
+
+<br/><br/>
+
+## ![✔] 1.4 分离 Express 'app' and 'server'
+
+**TL;DR:** 避免定义整个[Express](https://expressjs.com/)应用在一个单独的大文件的不好习惯 - 分离您的 'Express' 定义至少在两个文件中： API声明(app.js) 和 网络相关(WWW)。对于更好的结构，是把你的API声明放在组件中。
+
+**否者:** 您的API将只能通过HTTP的调用进行测试（慢，并且很难产生测试覆盖报告）。维护一个有着上百行代码的文件也不是一个令人开心的事情。
+
+🔗 [**更多: 分离 Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
 
 <br/><br/>
 
 ## ![✔] 1.5 Use environment aware, secure and hierarchical config
 
 
-**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are a few packages that can help tick most of those boxes like [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf) and [config](https://www.npmjs.com/package/config).
+**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are only a few packages that can help tick most of those boxes like [nconf](https://www.npmjs.com/package/nconf) and [config](https://www.npmjs.com/package/config).
 
 **Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or devops team. Probably both
 
@@ -196,7 +196,7 @@
 
 ## ![✔] 2.10 Catch unhandled promise rejections
 
-**TL;DR:** Any exception thrown within a promise will get swallowed and discarded unless a developer didn’t forget to explicitly handle. Even if your code is subscribed to process.uncaughtException! Overcome this by registering to the event process.unhandledRejection
+**TL;DR:** Any exception thrown within a promise will get swallowed and discarded unless a developer didn’t forget to explictly handle. Even if your code is subscribed to process.uncaughtException! Overcome this by registering to the event process.unhandledRejection
 
 **Otherwise:** Your errors will get swallowed and leave no trace. Nothing to worry about
 
@@ -246,8 +246,8 @@
     // code block
   }
 
-  // Avoid
-  function someFunction()
+  //Avoid
+  function someFunction
   {
     // code block
   }
@@ -263,7 +263,7 @@
 
 **TL;DR:** While not unanimously agreed upon, it is still recommended to put a semicolon at the end of each statement. This will make your code more readable and explicit to other developers who read it.
 
-**Otherwise:** As seen in the previous section, JavaScript's interpreter automatically adds a semicolon at the end of a statement if there isn't one which might lead to some undesired results.
+**Otherwise:** As seen in the previous section, JavaScript's interpeter automatically adds a semicolon at the end of a statement if there isn't one which might lead to some undesired results.
 
 <br/><br/>
 
@@ -277,17 +277,17 @@
 
 ## ![✔] 3.6 Naming conventions for variables, constants, functions and classes
 
-**TL;DR:** Use ***lowerCamelCase*** when naming constants, variables and functions and ***UpperCamelCase*** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
+**TL;DR:** Use ***lowerCamelCase*** when naming variables and functions, ***UpperCamelCase*** (capital first letter as well) when naming classes and ***UPPERCASE*** for constants. This will help you to easily distinguish between plain variables / functions, and classes that require instantiation. Use descriptive names, but try to keep them short.
 
 **Otherwise:** Javascript is the only language in the world which allows to invoke a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase.
 
 ### Code Example ###
 ```javascript
   // for class name we use UpperCamelCase
-  class SomeClassExample { 
+  class SomeClassExample () { 
     
-    // for const names we use the const keyword and lowerCamelCase
-    const config = {
+    // for const name we use UPPERCASE
+    const CONFIG = {
       key: 'value'
     };
     
@@ -304,7 +304,7 @@
 
 ## ![✔] 3.7 Prefer const over let. Ditch the var
 
-**TL;DR:** Using `const` means that once a variable is assigned, it cannot be reassigned. Preferring const will help you to not be tempted to use the same variable for different uses, and make your code clearer. If a variable needs to be reassigned, in a for loop for example, use `let` to declare it. Another important aspect of let is that a variable declared using let is only available in the block scope in which it was defined. `var` is function scoped, not block scoped, and [shouldn't be used in ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) now that you have const and let at your disposal.
+**TL;DR:** Using `const` means that once a variable is assigned, it cannot be reassigned. Prefering const will help you to not be tempted to use the same variable for different uses, and make your code clearer. If a variable needs to be reassigned, in a for loop for example, use `let` to declare it. Another important aspect of let is that a variable declared using let is only available in the block scope in which it was defined. `var` is function scoped, not block scoped, and [shouldn't be used in ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) now that you have const and let at your disposal.
 
 **Otherwise:** Debugging becomes way more cumbersome when following a variable that frequently changes.
 
@@ -370,7 +370,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 3.11 Use Async Await, avoid callbacks
 
-**TL;DR:** Node 8 LTS now has full support for Async-await. This is a new way of dealing with asynchronous code which supersedes callbacks and promises. Async-await is non-blocking, and it makes asynchronous code look synchronous. The best gift you can give to your code is using async-await which provides a much more compact and familiar code syntax like try-catch.
+**TL;DR:** Node 8 LTS now has full support for Async-await. This is a new way of dealing with asyncronous code which supersedes callbacks and promises. Async-await is non-blocking, and it makes asynchronous code look synchronous. The best gift you can give to your code is using async-await which provides a much more compact and familiar code syntax like try-catch.
 
 **Otherwise:** Handling async errors in callback style is probably the fastest way to hell - this style forces to check errors all over, deal with akward code nesting and make it difficult to reason about the code flow.
 
@@ -413,7 +413,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 4.3 Carefully choose your CI platform (Jenkins vs CircleCI vs Travis vs Rest of the world)
 
-**TL;DR:** Your continuous integration platform (CICD) will host all the quality tools (e.g test, lint) so it should come with a vibrant ecosystem of plugins. [Jenkins](https://jenkins.io/) used to be the default for many projects as it has the biggest community along with a very powerful platform at the price of complex setup that demands a steep learning curve. Nowadays, it became much easier to setup a CI solution using SaaS tools like [CircleCI](https://circleci.com) and others. These tools allow crafting a flexible CI pipeline without the burden of managing the whole infrastructure. Eventually, it's a trade-off between robustness and speed - choose your side carefully.
+**TL;DR:** Your continuous integration platform (CICD) will host all the quality tools (e.g test, lint) so it should come with a vibrant ecosystem of plugins. [Jenkins](https://jenkins.io/) used to be the default for many projects as it has the biggest community along with a very powerful platform at the price of complex setup that demands a steep learning curve. Nowdays, it became much easier to setup a CI solution using SaaS tools like [CircleCI](https://circleci.com) and others. These tools allow crafting a flexible CI pipeline without the burden of managing the whole infrastructure. Eventually, it's a trade-off between robustness and speed - choose your side carefully.
 
 **Otherwise:** Choosing some niche vendor might get you blocked once you need some advanced customization. On the other hand, going with Jenkins might burn precious time on infrastructure setup
 
@@ -433,7 +433,7 @@ All statements above will return false if used with `===`
 
 **TL;DR:**  Different tests must run on different scenarios: quick smoke, IO-less, tests should run when a developer saves or commits a file, full end-to-end tests usually run when a new pull request is submitted, etc. This can be achieved by tagging tests with keywords like #cold #api #sanity so you can grep with your testing harness and invoke the desired subset. For example, this is how you would invoke only the sanity test group with [Mocha](https://mochajs.org/):  mocha --grep 'sanity'
 
-**Otherwise:** Running all the tests, including tests that perform dozens of DB queries, any time a developer makes a small change can be extremely slow and keeps developers away from running tests
+**Otherwise:** Running all the tests, including tests that perform dozens of DB queries, any time a developer makes a small change can be extremly slow and keeps developers away from running tests
 
 <br/><br/>
 
@@ -664,58 +664,10 @@ All statements above will return false if used with `===`
 ## Our contributors are working on this section. Would you like to join?
 
 
-<br/><br/>
-
-# Milestones
-To maintain this guide and keep it up to date, we are constantly updating and improving the guidelines and best practices with the help of the community. You can follow our [milestones](https://github.com/i0natan/nodebestpractices/milestones) and join the working groups if you want to contribute to this project.
-
-<br/><br/>
-
+<br/><br/><br/>
 # Contributors
 ## `Yoni Goldberg`
-Independent Node.JS consultant who works with customers at USA, Europe and Israel on building large-scale scalable Node applications. Many of the best practices above were first published on his blog post at [http://www.goldbergyoni.com](http://www.goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
+Developer & consultant, Backend expert, JavaScript enthusiast, focused on Node.JS. Many of the bullets was first published on his blog post [http://www.goldbergyoni.com](http://www.goldbergyoni.com)
 
 ## `Ido Richter`
 👨‍💻 Software engineer, 🌐 web developer, 🤖 emojis enthusiast.
-
-## `Refael Ackermann` [@refack](https://github.com/refack) &lt;refack@gmail.com&gt; (he/him)
-Node.js Core Collaborator, been noding since 0.4, and have noded in multiple production sites. Founded `node4good` home of [`lodash-contrib`](https://github.com/node4good/lodash-contrib), [`formage`](https://github.com/node4good/formage), and [`asynctrace`](https://github.com/node4good/asynctrace). 
-`refack` on freenode, Twitter, GitHub, GMail, and many other platforms. DMs are open, happy to help.
-
-## `Bruno Scheufler` 
-💻 full-stack web developer and Node.js enthusiast.
-
-
-<br/><br/>
-
-# Thank You Notes
-
-This repository is being kept up to date thanks to the help from the community. We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A :sunflower: marks a successful pull request and a :star: marks an approved new best practice.
-
-🌻 [Kevin Rambaud](https://github.com/kevinrambaud), 
-🌻 [Michael Fine](https://github.com/mfine15), 
-🌻 [Shreya Dahal](https://github.com/squgeim), 
-🌻 [ChangJoo Park](https://github.com/ChangJoo-Park), 
-🌻 [Matheus Cruz Rocha](https://github.com/matheusrocha89), 
-🌻 [Yog Mehta](https://github.com/BitYog), 
-🌻 [Kudakwashe Paradzayi](https://github.com/kudapara), 
-🌻 [t1st3](https://github.com/t1st3), 
-🌻 [mulijordan1976](https://github.com/mulijordan1976), 
-🌻 [Matan Kushner](https://github.com/matchai), 
-🌻 [Fabio Hiroki](https://github.com/fabiothiroki), 
-🌻 [James Sumners](https://github.com/jsumners), 
-🌻 [Chandan Rai](https://github.com/crowchirp), 
-🌻 [Dan Gamble](https://github.com/dan-gamble), 
-🌻 [PJ Trainor](https://github.com/trainorpj), 
-🌻 [Remek Ambroziak](https://github.com/reod), 
-🌻 [Yoni Jah](https://github.com/yonjah), 
-🌻 [Misha Khokhlov](https://github.com/hazolsky), 
-🌻 [Evgeny Orekhov](https://github.com/EvgenyOrekhov), 
-🌻 [Gediminas Petrikas](https://github.com/gediminasml), 
-🌻 [Isaac Halvorson](https://github.com/hisaac), 
-🌻 [Vedran Karačić](https://github.com/vkaracic), 
-🌻 [lallenlowe](https://github.com/lallenlowe), 
-🌻 [Nathan Wells](https://github.com/nwwells), 
-🌻 [Paulo Vítor S Reis](https://github.com/paulovitin), 
-<br/><br/>
-## No Stars Yet :star:
