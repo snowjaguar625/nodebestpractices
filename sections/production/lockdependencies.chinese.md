@@ -1,21 +1,20 @@
-# Lock dependencies
+# 锁定依赖版本
 
 <br/><br/>
 
 
-### One Paragraph Explainer
+### 段落解释
 
 
 
-Your code depends on many external packages, let’s say it ‘requires’ and use momentjs-2.1.4, then by default when you deploy to production NPM might fetch momentjs 2.1.5 which unfortunately brings some new bugs to the table. Using NPM config files and settings –save-exact=true instructs NPM to refer to the *exact* same version that was installed so the next time you run “NPM install” (at production or within a Docker container you plan to ship forward for testing) the same dependent version will be fetched. An alternative popular approach is using a .shrinkwrap file (easily generated using NPM) that states exactly which packages and versions should be installed so no environement can get tempt to fetch newer versions.
+您的代码依赖于许多外部包，假设它“需要”和使用momentjs-2.1.4，默认情况下，当布署到生产中时，NPM可能会获得momentjs 2.1.5，但不幸的是，这将带来一些新的bug。使用NPM配置文件和设置–save–exact=true指示NPM去完成安装，以便下次运行“NPM install”（在生产或在Docker容器中，您计划将其用于测试）时，将获取相同的依赖版本。另一种可选择受欢迎的方法是使用一个shrinkwrap文件（很容易使用NPM生成）指出应该安装哪些包和版本，这样就不需要环境来获取新版本了。
 
-* **Update:** as of NPM 5, dependencies are locked automatically using .shrinkwrap. Yarn, an emerging package manager, also locks down dependencies by default
-
+** *更新:* * 在NPM5中，使用shrinkwrap命令依赖项会被自动锁定。Yarn，一个新兴的包管理器，默认情况下也会锁定依赖项。
 
 <br/><br/>
 
 
-### Code example: .npmrc file that instructs NPM to use exact versions
+### 代码示例: .npmrc文件指示NPM使用精确的版本
 
 ```javascript
 //save this as .npmrc file on the project directory
@@ -24,7 +23,7 @@ save-exact:true
 
 <br/><br/>
 
-### Code example: shirnkwrap.json file that distill the exact depedency tree
+### 代码示例: shirnkwrap.json文件获取准确的依赖关系树
 
 ```javascript
 {
@@ -44,7 +43,7 @@ save-exact:true
 
 <br/><br/>
 
-### Code example: NPM 5 dependencies lock file – package.json
+### 代码示例: NPM5依赖锁文件 - package.json
 
 ```javascript
 {
