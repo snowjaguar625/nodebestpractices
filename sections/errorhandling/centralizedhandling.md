@@ -26,10 +26,11 @@ catch (error) {
 }
 
 // Error handling middleware, we delegate the handling to the centralized error handler
-app.use(async (err, req, res, next) => {
-    const isOperationalError = await errorHandler.handleError(err);
-    if (!isOperationalError)
-        next(err);
+app.use((err, req, res, next) => {
+    errorHandler.handleError(err).then((isOperationalError) => {
+        if (!isOperationalError)
+            next(err);
+    });
 });
 
 ```
@@ -40,11 +41,8 @@ app.use(async (err, req, res, next) => {
 module.exports.handler = new errorHandler();
  
 function errorHandler(){
-    this.handleError = async function (error) {
-        await logger.logError(err);
-        await sendMailToAdminIfCritical;
-        await saveInOpsQueueIfCritical;
-        await determineIfOperationalError;
+    this.handleError = function (error) {
+        return logger.logError(err).then(sendMailToAdminIfCritical).then(saveInOpsQueueIfCritical).then(determineIfOperationalError);
     }
 }
 ```
