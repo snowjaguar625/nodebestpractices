@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2053%20Best%20practices-blue.svg" alt="53 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20Apr%2023%202018-green.svg" alt="Last update: Apr 23, 2018"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%208.11-brightgreen.svg" alt="Updated for Node v.8.11">
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2054%20Best%20practices-blue.svg" alt="54 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20July%2015%202018-green.svg" alt="Last update: July 15th, 2018"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%208.11.3%20LTS-brightgreen.svg" alt="Updated for Node 8.11.3 LTS">
 </div>
 
 <br/>
@@ -451,6 +451,17 @@ All statements above will return false if used with `===`
 
 **Otherwise:** Without docker-compose teams must maintain a testing DB for each testing environment including developers machines, keep all those DBs in sync so test results won't vary across environments
 
+<br/><br/>
+
+## ![✔] 4.9 Refactor regularly using static analysis tools
+
+**TL;DR:** Using static analysis tools helps by giving objective ways to improve code quality and keep your code maintainable. You can add static analysis tools to your CI build to fail when it finds code smells. Its main selling points over plain linting are the ability to inspect quality in the context of multiple files (e.g. detect duplications), perform advanced analysis (e.g. code complexity) and follow the history and progress of code issues. Two examples of tools you can use are [Sonarqube](https://www.sonarqube.org/) (2,600+ [stars](https://github.com/SonarSource/sonarqube)) and [Code Climate](https://codeclimate.com/) (1,500+ [stars](https://github.com/codeclimate/codeclimate)).
+
+**Otherwise:** With poor code quality, bugs and performance will always be an issue that no shiny new library or state of the art features can fix.
+
+🔗 [**Read More: Refactoring!**](/sections/testingandquality/refactoring.md)
+
+
 <br/><br/><br/>
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
@@ -581,7 +592,7 @@ All statements above will return false if used with `===`
 
 **TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities (from time to time) that can put a system at risk. This can get easily tamed using community and commercial tools that constantly check for vulnerabilities and warn (locally or at GitHub), some can even patch them immediately
 
-**Otherwise:** Otherwise: Keeping your code clean from vulnerabilities without dedicated tools will require to constantly follow online publications about new threats. Quite tedious
+**Otherwise:** Keeping your code clean from vulnerabilities without dedicated tools will require to constantly follow online publications about new threats. Quite tedious
 
 🔗 [**Read More: Use tools that automatically detect vulnerabilities**](/sections/production/detectvulnerabilities.md)
 
@@ -668,7 +679,7 @@ All translations are contributed by the community. We will be happy to get any h
 
 ## `Yoni Goldberg`
 
-Independent Node.js consultant who works with customers in USA, Europe, and Israel on building large-scale scalable Node applications. Many of the best practices above were first published in his blog post at [http://www.goldbergyoni.com](http://www.goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
+Independent Node.js consultant who works with customers in USA, Europe, and Israel on building large-scale scalable Node applications. Many of the best practices above were first published in his blog post at [goldbergyoni.com](https://goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
 
 ## `Ido Richter`
 
@@ -692,7 +703,7 @@ Full Stack Developer based in New Zealand, interested in architecting and buildi
 
 This repository is being kept up to date thanks to the help from the community. We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A 🌻 marks a successful pull request and a ⭐ marks an approved new best practice
 
-### Flowers <br/>
+### Flowers
 
 🌻 [Kevin Rambaud](https://github.com/kevinrambaud),
 🌻 [Michael Fine](https://github.com/mfine15),
@@ -733,14 +744,16 @@ This repository is being kept up to date thanks to the help from the community. 
 🌻 [Ye Min Htut](https://github.com/ymhtut),
 🌻 [cwar](https://github.com/cwar),
 🌻 [Yuwei](https://github.com/keyfoxth),
-🌻 [Utkarsh Bhatt](https://github.com/utkarshbhatt12)
-🌻 [Duarte Mendes](https://github.com/duartemendes)
-🌻 [Sagir Khan](https://github.com/sagirk)
-🌻 [Jason Kim](https://github.com/serv)
-
+🌻 [Utkarsh Bhatt](https://github.com/utkarshbhatt12),
+🌻 [Duarte Mendes](https://github.com/duartemendes),
+🌻 [Sagir Khan](https://github.com/sagirk),
+🌻 [Jason Kim](https://github.com/serv),
+🌻 [Mitja O.](https://github.com/Max101),
+🌻 [Sandro Miguel Marques](https://github.com/SandroMiguel)
 
 ### Stars <br/>
 
 ⭐ [Kyle Martin](https://github.com/js-kyle)
+⭐ [Keith Holliday](https://github.com/TheHollidayInn)
 
 <br/><br/><br/>
