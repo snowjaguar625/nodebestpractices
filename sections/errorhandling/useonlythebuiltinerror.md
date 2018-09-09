@@ -16,16 +16,12 @@ const myEmitter = new MyEmitter();
 myEmitter.emit('error', new Error('whoops!'));
 
 // 'throwing' an Error from a Promise
-const addProduct = async (productToAdd) => {
-  try {
-    const existingProduct = await DAL.getProduct(productToAdd.id);
-    if (existingProduct) {
-      throw new Error("Product already exists!");
-    }
-  } catch (err) {
-    // ...
-  }
-}
+return new Promise(function (resolve, reject) {
+    return DAL.getProduct(productToAdd.id).then((existingProduct) => {
+        if(existingProduct != null)
+            reject(new Error("Why fooling us and trying to add an existing product?"));
+    });
+});
 ```
 
 ### Code example – Anti Pattern
