@@ -32,7 +32,7 @@
 3. [编码规范实践 (12) ](#3-code-style-practices)
 4. [测试和总体质量实践 (8) ](#4-testing-and-overall-quality-practices)
 5. [进入生产实践 (16) ](#5-going-to-production-practices)
-6. :star: 新: [安全实践(23)](#6-security-best-practices)
+6. Security Practices ([coming soon](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open))
 7. Performance Practices ([coming soon](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open))
 
 
@@ -652,115 +652,9 @@ null == undefined   // true
 
 <p align="right"><a href="#table-of-contents">⬆ 返回顶部</a></p>
 
-# `安全最佳实践`
+# `Security Practices`
 
-<div align="center">
-<img src="https://img.shields.io/badge/OWASP%20Threats-Top%2010-green.svg" alt="53 items"/>
-</div>
-
-## ![✔] 6.1. 拥护linter安全准则
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20XSS%20-green.svg" alt=""/></a>
-
-**TL;DR:** 使用安全相关的linter插件，比如[eslint-plugin-security](https://github.com/nodesecurity/eslint-plugin-security)，尽早捕获安全隐患或者问题，最好在编码阶段。这能帮助察觉安全的问题，比如使用eval，调用子进程，或者根据字面含义（比如，用户输入）引入模块等等。点击下面‘更多’获得一个安全linter可以检测到的代码示例。
-
-**Otherwise:** 在开发过程中, 可能一个直白的安全隐患, 成为生产环境中一个严重问题。此外, 项目可能没有遵循一致的安全规范, 而导致引入漏洞, 或敏感信息被提交到远程仓库中。
-
-🔗 [**更多: Lint 规范**](sections/security/lintrules.md)
-
-<br/><br/>
-
-## ![✔] 6.2. 使用中间件限制并发请求
-
-<a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
-
-**TL;DR:** DOS攻击非常流行而且相对容易处理。使用外部服务，比如cloud负载均衡, cloud防火墙, nginx, 或者（对于小的，不是那么重要的app）一个速率限制中间件(比如[express-rate-limit](https://www.npmjs.com/package/express-rate-limit))，来实现速率限制。
-
-**否则:** 应用程序可能受到攻击, 导致拒绝服务, 在这种情况下, 真实用户会遭受服务降级或不可用。
-
-🔗 [**更多: 实施速率限制**](sections/security/limitrequests.md)
-
-<br/><br/>
-
-## ![✔] 6.3 把机密信息从配置文件中抽离出来，或者使用包对其加密
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A3:Sensitive%20Data%20Exposure%20-green.svg" alt=""/></a>
-
-**TL;DR:** 不要在配置文件或源代码中存储纯文本机密信息。相反, 使用诸如Vault产品、Kubernetes/Docker Secrets或使用环境变量之类的安全管理系统。最后一个结果是, 存储在源代码管理中的机密信息必须进行加密和管理 (滚动密钥(rolling keys)、过期时间、审核等)。使用pre-commit/push钩子防止意外提交机密信息。
-
-**否则:** 源代码管理, 即使对于私有仓库, 也可能会被错误地公开, 此时所有的秘密信息都会被公开。外部组织的源代码管理的访问权限将无意中提供对相关系统 (数据库、api、服务等) 的访问。
-
-🔗 [**更多: 安全管理**](sections/security/secretmanagement.md)
-
-<br/><br/>
-
-## ![✔] 6.4. 使用 ORM/ODM 库防止查询注入漏洞
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a>
-
-**TL;DR:** 要防止 SQL/NoSQL 注入和其他恶意攻击, 请始终使用 ORM/ODM 或database库来转义数据或支持命名的或索引的参数化查询, 并注意验证用户输入的预期类型。不要只使用JavaScript模板字符串或字符串串联将值插入到查询语句中, 因为这会将应用程序置于广泛的漏洞中。所有知名的Node.js数据访问库(例如[Sequelize](https://github.com/sequelize/sequelize), [Knex](https://github.com/tgriesser/knex), [mongoose](https://github.com/Automattic/mongoose))包含对注入漏洞的内置包含措施。
-
-**否则:** 未经验证或未脱敏处理的用户输入，可能会导致操作员在使用MongoDB进行NoSQL操作时进行注入, 而不使用适当的过滤系统或ORM很容易导致SQL注入攻击, 从而造成巨大的漏洞。
-
-🔗 [**更多: 使用 ORM/ODM 库防止查询注入**](/sections/security/ormodmusage.md)
-
-<br/><br/>
-
-## ![✔] 6.5. 通用安全最佳实际集合
-
-**TL;DR:** 这些是与Node.js不直接相关的安全建议的集合-Node的实现与任何其他语言没有太大的不同。单击 "阅读更多" 浏览。
-
-🔗 [**更多: 通用安全最佳实际**](/sections/security/commonsecuritybestpractices.md)
-
-<br/><br/>
-
-## ![✔] 6.6. 调整 HTTP 响应头以加强安全性
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
-
-**TL;DR:** 应用程序应该使用安全的header来防止攻击者使用常见的攻击方式，诸如跨站点脚本(XSS)、点击劫持和其他恶意攻击。可以使用模块，比如 [helmet](https://www.npmjs.com/package/helmet)轻松进行配置。
-
-**否则:** 攻击者可以对应用程序的用户进行直接攻击, 导致巨大的安全漏洞
-
-🔗 [**更多: 在应用程序中使用安全的header**](/sections/security/secureheaders.md)
-
-<br/><br/>
-
-## ![✔] 6.7. 经常自动检查易受攻击的依赖库
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Known%20Vulnerabilities%20-green.svg" alt=""/></a>
-
-**TL;DR:** 在npm的生态系统中, 一个项目有许多依赖是很常见的。在找到新的漏洞时, 应始终将依赖项保留在检查中。使用工具，类似于[npm audit](https://docs.npmjs.com/cli/audit) 或者 [snyk](https://snyk.io/)跟踪、监视和修补易受攻击的依赖项。将这些工具与 CI 设置集成, 以便在将其上线之前捕捉到易受攻击的依赖库。
-
-**否则:** 攻击者可以检测到您的web框架并攻击其所有已知的漏洞。
-
-🔗 [**更多: 安全依赖**](/sections/security/dependencysecurity.md)
-
-<br/><br/>
-
-## ![✔] 6.8. 避免使用Node.js的crypto库处理密码，使用Bcrypt
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
-
-**TL;DR:** 密码或机密信息(API密钥)应该使用安全的哈希+salt函数(如 "bcrypt")来存储, 因为性能和安全原因, 这应该是其JavaScript实现的首选。
-
-**否则:** 在不使用安全功能的情况下，保存的密码或秘密信息容易受到暴力破解和字典攻击, 最终会导致他们的泄露。
-
-🔗 [**更多: 使用Bcrypt**](/sections/security/bcryptpasswords.md)
-
-<br/><br/>
-
-## ![✔] 6.9. 转义 HTML、JS 和 CSS 输出
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a>
-
-**TL;DR:** Untrusted data that is sent down to the browser might get executed instead of just being displayed, this is commonly being referred as a cross-site-scripting (XSS) attack. Mitigate this by using dedicated libraries that explicitly mark the data as pure content that should never get executed (i.e. encoding, escaping)
-
-**Otherwise:** An attacker might store a malicious JavaScript code in your DB which will then be sent as-is to the poor clients
-
-🔗 [**Read More: Escape output**](/sections/security/escape-output.md)
-
-<br/><br/>
+## Our contributors are working on this section. Would you like to join?
 
 <br/><br/><br/>
 # `Performance Practices`
