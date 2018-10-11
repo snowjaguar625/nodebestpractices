@@ -8,21 +8,19 @@ Distinguishing the following two error types will minimize your app downtime and
 
 ```javascript
 // marking an error object as operational 
-const myError = new Error("How can I add new product when no value provided?");
+var myError = new Error("How can I add new product when no value provided?");
 myError.isOperational = true;
 
 // or if you're using some centralized error factory (see other examples at the bullet "Use only the built-in Error object")
-class AppError {
-  constructor (commonType, description, isOperational) {
+function appError(commonType, description, isOperational) {
     Error.call(this);
     Error.captureStackTrace(this);
     this.commonType = commonType;
     this.description = description;
     this.isOperational = isOperational;
-  }
 };
 
-throw new AppError(errorManagement.commonErrors.InvalidInput, "Describe here what happened", true);
+throw new appError(errorManagement.commonErrors.InvalidInput, "Describe here what happened", true);
 
 ```
 
