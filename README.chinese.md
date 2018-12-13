@@ -420,7 +420,7 @@ null == undefined   // true
 
 ## ![✔] 4.4 经常检查易受攻击的依赖
 
-**TL;DR:** 即使是那些最有名的依赖模块，比如Express，也有已知的漏洞。使用社区和商业工具，比如 🔗 [nsp](https://github.com/nodesecurity/nsp) ，集成在您的CI平台上，在每一次构建的时候都会被调用，这样可以很容易地解决漏洞问题。
+**TL;DR:** 即使是那些最有名的依赖模块，比如Express，也有已知的漏洞。使用社区和商业工具，比如 🔗 [npm audit](https://docs.npmjs.com/cli/audit) ，集成在您的CI平台上，在每一次构建的时候都会被调用，这样可以很容易地解决漏洞问题。
 
 **否则:** 在没有专用工具的情况下，使代码清除漏洞，需要不断地跟踪有关新威胁的在线出版物，相当繁琐。
 
@@ -666,7 +666,7 @@ null == undefined   // true
 
 **Otherwise:** 在开发过程中, 可能一个直白的安全隐患, 成为生产环境中一个严重问题。此外, 项目可能没有遵循一致的安全规范, 而导致引入漏洞, 或敏感信息被提交到远程仓库中。
 
-🔗 [**更多: Lint 规范**](/sections/security/lintrules.md)
+🔗 [**更多: Lint 规范**](sections/security/lintrules.md)
 
 <br/><br/>
 
@@ -678,7 +678,7 @@ null == undefined   // true
 
 **否则:** 应用程序可能受到攻击, 导致拒绝服务, 在这种情况下, 真实用户会遭受服务降级或不可用。
 
-🔗 [**更多: 实施速率限制**](/sections/security/limitrequests.md)
+🔗 [**更多: 实施速率限制**](sections/security/limitrequests.md)
 
 <br/><br/>
 
@@ -690,7 +690,7 @@ null == undefined   // true
 
 **否则:** 源代码管理, 即使对于私有仓库, 也可能会被错误地公开, 此时所有的秘密信息都会被公开。外部组织的源代码管理的访问权限将无意中提供对相关系统 (数据库、api、服务等) 的访问。
 
-🔗 [**更多: 安全管理**](/sections/security/secretmanagement.md)
+🔗 [**更多: 安全管理**](sections/security/secretmanagement.md)
 
 <br/><br/>
 
