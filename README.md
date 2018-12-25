@@ -677,7 +677,7 @@ All statements above will return false if used with `===`
 
 **Otherwise:** What could have been a straightforward security weakness during development becomes a major issue in production. Also, the project may not follow consistent code security practices, leading to vulnerabilities being introduced, or sensitive secrets committed into remote repositories
 
-🔗 [**Read More: Lint rules**](sections/security/lintrules.md)
+🔗 [**Read More: Lint rules**](/sections/security/lintrules.md)
 
 <br/><br/>
 
@@ -689,7 +689,7 @@ All statements above will return false if used with `===`
 
 **Otherwise:** An application could be subject to an attack resulting in a denial of service where real users receive a degraded or unavailable service.
 
-🔗 [**Read More: Implement rate limiting**](sections/security/limitrequests.md)
+🔗 [**Read More: Implement rate limiting**](/sections/security/limitrequests.md)
 
 <br/><br/>
 
@@ -701,7 +701,7 @@ All statements above will return false if used with `===`
 
 **Otherwise:** Source control, even for private repositories, can mistakenly be made public, at which point all secrets are exposed. Access to source control for an external party will inadvertently provide access to related systems (databases, apis, services, etc).
 
-🔗 [**Read More: Secret management**](sections/security/secretmanagement.md)
+🔗 [**Read More: Secret management**](/sections/security/secretmanagement.md)
 
 <br/><br/>
 
@@ -954,6 +954,14 @@ All statements above will return false if used with `===`
 # `7. Performance Best Practices`
 
 ## Our contributors are working on this section. [Would you like to join?](https://github.com/i0natan/nodebestpractices/issues/256)
+
+## ![✔] 7.1. Prefer native JS methods over user-land utils like Lodash
+
+**TL;DR:** It's often more penalising to use utility libraries like `lodash` and `underscore` over using native methods as it leads to uneeded dependencies with less performance boost.
+
+**Otherwise:** You'll have to maintain (slightly) bigger projects where you could have simply used what was **already** available or dealt with a few more lines in exchange of a few more files.
+
+🔗 [**Read More: Native over user land utils**](/sections/performance/nativeoverutil.md)
 
 <br/><br/><br/>
 
