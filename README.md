@@ -34,7 +34,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 ## Table of Contents
 
-1.  [Project structure Practices (5)](#1-project-structure-practices)
+1.  [Project Structure Practices (5)](#1-project-structure-practices)
 2.  [Error Handling Practices (11) ](#2-error-handling-practices)
 3.  [Code Style Practices (12) ](#3-code-style-practices)
 4.  [Testing And Overall Quality Practices (9) ](#4-testing-and-overall-quality-practices)
@@ -685,7 +685,7 @@ All statements above will return false if used with `===`
 
 <a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** DOS attacks are very popular and relatively easy to conduct. Implement rate limiting using an external service such as cloud load balancers, cloud firewalls, nginx, [rate-limiter-flexible](https://www.npmjs.com/package/rate-limiter-flexible) package or (for smaller and less critical apps) a rate limiting middleware (e.g. [express-rate-limit](https://www.npmjs.com/package/express-rate-limit)) for express.js applications.
+**TL;DR:** DOS attacks are very popular and relatively easy to conduct. Implement rate limiting using an external service such as cloud load balancers, cloud firewalls, nginx, or (for smaller and less critical apps) a rate limiting middleware (e.g. [express-rate-limit](https://www.npmjs.com/package/express-rate-limit))
 
 **Otherwise:** An application could be subject to an attack resulting in a denial of service where real users receive a degraded or unavailable service.
 
