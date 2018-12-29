@@ -34,7 +34,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 ## Table of Contents
 
-1.  [Project Structure Practices (5)](#1-project-structure-practices)
+1.  [Project structure Practices (5)](#1-project-structure-practices)
 2.  [Error Handling Practices (11) ](#2-error-handling-practices)
 3.  [Code Style Practices (12) ](#3-code-style-practices)
 4.  [Testing And Overall Quality Practices (9) ](#4-testing-and-overall-quality-practices)
@@ -569,7 +569,7 @@ All statements above will return false if used with `===`
 
 **Otherwise:** A world champion IT/DevOps guy won’t save a system that is badly written
 
-🔗 [**Read More: Make your code production-ready**](/sections/production/productioncode.md)
+🔗 [**Read More: Make your code production-ready**](/sections/production/productoncode.md)
 
 <br/><br/>
 
@@ -954,6 +954,14 @@ All statements above will return false if used with `===`
 # `7. Performance Best Practices`
 
 ## Our contributors are working on this section. [Would you like to join?](https://github.com/i0natan/nodebestpractices/issues/256)
+
+## ![✔] 7.1. Prefer native JS methods over user-land utils like Lodash
+
+ **TL;DR:** It's often more penalising to use utility libraries like `lodash` and `underscore` over native methods as it leads to unneeded dependencies and slower performance.
+
+**Otherwise:** You'll have to maintain (slightly) bigger projects where you could have simply used what was **already** available or dealt with a few more lines in exchange of a few more files.
+
+🔗 [**Read More: Native over user land utils**](/sections/performance/nativeoverutil.md)
 
 <br/><br/><br/>
 
