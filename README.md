@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2079%20Best%20practices-blue.svg" alt="79 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20Dec%2015%202018-green.svg" alt="Last update: December 15th, 2018"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%2010.13.0%20LTS-brightgreen.svg" alt="Updated for Node 10.14.2 LTS">
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2079%20Best%20practices-blue.svg" alt="79 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20Jan%201%202019-green.svg" alt="Last update: January 1st, 2019"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%2010.15.0%20LTS-brightgreen.svg" alt="Updated for Node 10.15.0 LTS">
 </div>
 
 <br/>
@@ -34,7 +34,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 ## Table of Contents
 
-1.  [Project structure Practices (5)](#1-project-structure-practices)
+1.  [Project Structure Practices (5)](#1-project-structure-practices)
 2.  [Error Handling Practices (11) ](#2-error-handling-practices)
 3.  [Code Style Practices (12) ](#3-code-style-practices)
 4.  [Testing And Overall Quality Practices (9) ](#4-testing-and-overall-quality-practices)
@@ -569,7 +569,7 @@ All statements above will return false if used with `===`
 
 **Otherwise:** A world champion IT/DevOps guy won’t save a system that is badly written
 
-🔗 [**Read More: Make your code production-ready**](/sections/production/productoncode.md)
+🔗 [**Read More: Make your code production-ready**](/sections/production/productioncode.md)
 
 <br/><br/>
 
@@ -1084,7 +1084,13 @@ This repository is being kept up to date thanks to the help from the community. 
 🌻 [Sangbeom Han](https://github.com/uronly14me),
 🌻 [blackmatch](https://github.com/blackmatch),
 🌻 [Joe Reeve](https://github.com/ISNIT0),
-🌻 [Marcelo Melo](https://github.com/marcelosdm)
+🌻 [Marcelo Melo](https://github.com/marcelosdm),
+🌻 [Ryan Busby](https://github.com/BusbyActual),
+🌻 [Iman Mohamadi](https://github.com/ImanMh),
+🌻 [Remek Ambroziak](https://github.com/reod),
+🌻 [Sergii Paryzhskyi](https://github.com/HeeL),
+🌻 [Kapil Patel](https://github.com/kapilepatel),
+🌻 [迷渡](https://github.com/justjavac)
 
 ### Stars <br/>
 

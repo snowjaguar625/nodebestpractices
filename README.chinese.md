@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2073%20Best%20practices-blue.svg" alt="73 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20September%209%202018-green.svg" alt="Last update: September 9th, 2018"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%208.11.3%20LTS-brightgreen.svg" alt="Updated for Node 8.11.3 LTS">
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%2079%20Best%20practices-blue.svg" alt="79 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20Jan%201%202019-green.svg" alt="Last update: January 1st, 2019"> <img src="https://img.shields.io/badge/%E2%9C%94%20Updated%20For%20Version%20-%20Node%2010.15.0%20LTS-brightgreen.svg" alt="Updated for Node 10.15.0 LTS">
 </div>
 
 <br/>
@@ -204,7 +204,7 @@
 
 <br/><br/>
 
-## ![✔] 2.11 快速查错，验证参数使用一个专门的库Fail fast, validate arguments using a dedicated library
+## ![✔] 2.11 快速查错，验证参数使用一个专门的库
 
 **TL;DR:** 这应该是您的Express最佳实践中的一部分 – assert API输入避免难以理解的漏洞，这类漏洞以后会非常难以追踪。而验证代码通常是一件乏味的事情，除非使用一些非常炫酷的帮助库比如Joi。
 
@@ -319,7 +319,7 @@
 
 <br/><br/>
 
-## ![✔] 3.9 在文件夹上 require ，而不是直接在文件上
+## ![✔] 3.9 require 文件夹，而不是文件
 
 **TL;DR:** 当在一个文件夹中开发库/模块，放置一个文件index.js暴露模块的
 内部，这样每个消费者都会通过它。这将作为您模块的一个接口，并使未来的变化简单而不违反规则。
@@ -564,7 +564,7 @@ null == undefined   // true
 **否则:** 一个世界冠军级别的IT/运维人员也不能拯救一个编码低劣的系统。
 
 
-🔗 [**更多: 使您的代码保持生产环境就绪**](/sections/production/productoncode.chinese.md)
+🔗 [**更多: 使您的代码保持生产环境就绪**](/sections/production/productioncode.chinese.md)
 
 <br/><br/>
 
@@ -1017,10 +1017,26 @@ This repository is being kept up to date thanks to the help from the community. 
 🌻 [Gabe Kuslansky](https://github.com/GabeKuslansky),
 🌻 [Ron Gross](https://github.com/ripper234),
 🌻 [Valeri Karpov](https://github.com/vkarpov15)
+🌻 [Sergio](https://github.com/imsergiobernal),
+🌻 [Duarte Mendes](https://github.com/duartemendes),
+🌻 [Nikola Telkedzhiev](https://github.com/ntelkedzhiev),
+🌻 [Vitor Godoy](https://github.com/vitordagamagodoy),
+🌻 [Manish Saraan](https://github.com/manishsaraan),
+🌻 [Sangbeom Han](https://github.com/uronly14me),
+🌻 [blackmatch](https://github.com/blackmatch),
+🌻 [Joe Reeve](https://github.com/ISNIT0),
+🌻 [Marcelo Melo](https://github.com/marcelosdm),
+🌻 [Ryan Busby](https://github.com/BusbyActual),
+🌻 [Iman Mohamadi](https://github.com/ImanMh),
+🌻 [Remek Ambroziak](https://github.com/reod),
+🌻 [Sergii Paryzhskyi](https://github.com/HeeL),
+🌻 [Kapil Patel](https://github.com/kapilepatel),
+🌻 [迷渡](https://github.com/justjavac)
 
 ### Stars <br/>
 
-⭐ [Kyle Martin](https://github.com/js-kyle)
-⭐ [Keith Holliday](https://github.com/TheHollidayInn)
+⭐ [Kyle Martin](https://github.com/js-kyle),
+⭐ [Keith Holliday](https://github.com/TheHollidayInn),
+⭐ [Corey Cleary](https://github.com/coreyc)
 
 <br/><br/>
