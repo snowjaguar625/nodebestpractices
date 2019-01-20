@@ -150,11 +150,11 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 <br/><br/>
 
-## ![✔] 2.6 Exit the process gracefully when a stranger comes to town
+## ![✔] 2.6 Shut the process gracefully when a stranger comes to town
 
-**TL;DR:** When an unknown error occurs (a developer error, see best practice 2.3) - there is uncertainty about the application healthiness. A common practice suggests restarting the process carefully using a process management tool like Forever or PM2
+**TL;DR:** When an unknown error occurs (a developer error, see best practice number #3)- there is uncertainty about the application healthiness. A common practice suggests restarting the process carefully using a ‘restarter’ tool like Forever and PM2
 
-**Otherwise:** When an unfamiliar exception occurs, some object might be in a faulty state (e.g an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
+**Otherwise:** When an unfamiliar exception is caught, some object might be in a faulty state (e.g an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
 
 🔗 [**Read More: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
 
@@ -222,9 +222,9 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 <br/><br/>
 
-## ![✔] 3.2 Node.js specific plugins
+## ![✔] 3.2 Node.js Specific Plugins
 
-**TL;DR:** On top of ESLint standard rules that cover vanilla JavaScript, add Node.js specific plugins like [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node), [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-node-security](https://www.npmjs.com/package/eslint-plugin-security)
+**TL;DR:** On top of ESLint standard rules that cover vanilla JS only, add Node-specific plugins like [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node), [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-node-security](https://www.npmjs.com/package/eslint-plugin-security)
 
 **Otherwise:** Many faulty Node.js code patterns might escape under the radar. For example, developers might require(variableAsPath) files with a variable given as path which allows attackers to execute any JS script. Node.js linters can detect such patterns and complain early
 
@@ -232,7 +232,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 ## ![✔] 3.3 Start a Codeblock's Curly Braces on the Same Line
 
-**TL;DR:** The opening curly braces of a code block should be on the same line as the opening statement
+**TL;DR:** The opening curly braces of a code block should be in the same line of the opening statement
 
 ### Code Example
 
@@ -279,7 +279,7 @@ const count = 2 // it tries to run 2(), but 2 is not a function
 
 <br/><br/>
 
-## ![✔] 3.5 Name your functions
+## ![✔] 3.5 Name Your Functions
 
 **TL;DR:** Name all functions, including closures and callbacks. Avoid anonymous functions. This is especially useful when profiling a node app. Naming all functions will allow you to easily understand what you're looking at when checking a memory snapshot
 
@@ -287,7 +287,7 @@ const count = 2 // it tries to run 2(), but 2 is not a function
 
 <br/><br/>
 
-## ![✔] 3.6 Use naming conventions for variables, constants, functions and classes
+## ![✔] 3.6 Naming conventions for variables, constants, functions and classes
 
 **TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions and **_UpperCamelCase_** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables/functions, and classes that require instantiation. Use descriptive names, but try to keep them short
 
@@ -321,7 +321,7 @@ function doSomething() {}
 
 <br/><br/>
 
-## ![✔] 3.8 Require modules first, not inside functions
+## ![✔] 3.8 Requires come first, and not inside functions
 
 **TL;DR:** Require modules at the beginning of each file, before and outside of any functions. This simple best practice will not only help you easily and quickly tell the dependencies of a file right at the top but also avoids a couple of potential problems
 
@@ -329,7 +329,7 @@ function doSomething() {}
 
 <br/><br/>
 
-## ![✔] 3.9 Require modules by folders, opposed to the files directly
+## ![✔] 3.9 Do Require on the folders, not directly on the files
 
 **TL;DR:** When developing a module/library in a folder, place an index.js file that exposes the module's
 internals so every consumer will pass through it. This serves as an 'interface' to your module and eases
@@ -389,7 +389,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 3.12 Use arrow function expressions (=>)
+## ![✔] 3.12 Use Fat (=>) Arrow Functions
 
 **TL;DR:** Though it's recommended to use async-await and avoid function parameters when dealing with older API that accept promises or callbacks - arrow functions make the code structure more compact and keep the lexical context of the root function (i.e. 'this')
 
@@ -525,7 +525,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 5.5. Guard process uptime using the right tool
 
-**TL;DR:** The process must go on and get restarted upon failures. For simple scenarios, process management tools like PM2 might be enough but in today ‘dockerized’ world, cluster management tools should be considered as well
+**TL;DR:** The process must go on and get restarted upon failures. For simple scenarios, ‘restarter’ tools like PM2 might be enough but in today ‘dockerized’ world – a cluster management tools should be considered as well
 
 **Otherwise:** Running dozens of instances without a clear strategy and too many tools together (cluster management, docker, PM2) might lead to a DevOps chaos
 
@@ -555,7 +555,7 @@ All statements above will return false if used with `===`
 
 ## ![✔] 5.8. Discover errors and downtime using APM products
 
-**TL;DR:** Application monitoring and performance products (a.k.a APM) proactively gauge codebase and API so they can auto-magically go beyond traditional monitoring and measure the overall user-experience across services and tiers. For example, some APM products can highlight a transaction that loads too slow on the end-users side while suggesting the root cause
+**TL;DR:** Monitoring and performance products (a.k.a APM) proactively gauge codebase and API so they can auto-magically go beyond traditional monitoring and measure the overall user-experience across services and tiers. For example, some APM products can highlight a transaction that loads too slow on the end-users side while suggesting the root cause
 
 **Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which is your slowest code parts under real-world scenario and how these affects the UX
 
@@ -593,7 +593,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 5.12. Be stateless, kill your servers almost every day
+## ![✔] 5.12. Be stateless, kill your Servers almost every day
 
 **TL;DR:** Store any type of data (e.g. users session, cache, uploaded files) within external data stores. Consider ‘killing’ your servers periodically or use ‘serverless’ platform (e.g. AWS Lambda) that explicitly enforces a stateless behavior
 
@@ -613,7 +613,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 5.14. Assign a transaction id to each log statement
+## ![✔] 5.14. Assign ‘TransactionId’ to each log statement
 
 **TL;DR:** Assign the same identifier, transaction-id: {some value}, to each log entry within a single request. Then when inspecting errors in logs, easily conclude what happened before and after. Unfortunately, this is not easy to achieve in Node due to its async nature, see code examples inside
 
@@ -989,42 +989,63 @@ All translations are contributed by the community. We will be happy to get any h
 - ![ES](/assets/flags/ES.png) [Spanish](https://github.com/i0natan/nodebestpractices/blob/spanish-translation/README.spanish.md) ([Discussion](https://github.com/i0natan/nodebestpractices/issues/95))
 - ![TR](/assets/flags/TR.png) Turkish ([Discussion](https://github.com/i0natan/nodebestpractices/issues/139))
 
-<br/><br/><br/>
+<br/><br/>
 
-# Core Contributors
+## Technical Steering Committee
 
-## `Yoni Goldberg`
+Meet the technical steering committee members - the people who work together to provide guidance and future direction to the project. In addition, each member of the committee leads a project which are track under [Github projects](https://github.com/i0natan/nodebestpractices/projects).
 
-Independent Node.js consultant who works with customers in USA, Europe, and Israel on building large-scale scalable Node applications. Many of the best practices above were first published in his blog post at [goldbergyoni.com](https://goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
+<img align="left" width="100" height="100" src="assets/images/members/yoni.png">
 
-## `Ido Richter`
+[Yoni Goldberg](https://github.com/i0natan)
+<a href="https://twitter.com/goldbergyoni"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
+<a href="https://goldbergyoni.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
 
-👨‍💻 Software engineer, 🌐 web developer, 🤖 emojis enthusiast
+Independent Node.js consultant who works with customers in USA, Europe, and Israel on building large scale scalable Node applications. Many of the best practices above were first published at [goldbergyoni.com](https://goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
 
-## `Refael Ackermann` [@refack](https://github.com/refack) &lt;refack@gmail.com&gt; (he/him)
+<br/>
+<img align="left" width="100" height="100" src="assets/images/members/bruno.png">
 
-Node.js Core Collaborator, been noding since 0.4, and have noded in multiple production sites. Founded `node4good` home of [`lodash-contrib`](https://github.com/node4good/lodash-contrib), [`formage`](https://github.com/node4good/formage), and [`asynctrace`](https://github.com/node4good/asynctrace).
-`refack` on freenode, Twitter, GitHub, GMail, and many other platforms. DMs are open, happy to help
-
-## `Bruno Scheufler`
+[Bruno Scheufler](https://github.com/BrunoScheufler)
+<a href="https://brunoscheufler.com/"><img src="assets/images/www.png" width="16" height="16"></img></a>
 
 💻 full-stack web developer and Node.js enthusiast
 
-## `Kyle Martin` [@js-kyle](https://github.com/js-kyle)
+<br/>
+<img align="left" width="100" height="100" src="assets/images/members/kyle.png">
 
-Full Stack Developer based in New Zealand, interested in architecting and building Node.js applications to perform at global scale. Keen contributor to open source software, including Node.js Core.
+[Kyle Martin](https://github.com/js-kyle)
+<a href="https://twitter.com/kylemartin_93"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
+<a href="https://www.linkedin.com/in/kylemartinnz"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
 
-## `Sagir Khan`
+Full Stack Developer & Site Reliability Engineer based in New Zealand, interested in web application security, and architecting and building Node.js applications to perform at global scale.
+
+<br/>
+<img align="left" width="100" height="100" src="assets/images/members/sagir.png">
+
+[Sagir Khan](https://github.com/sagirk)
+<a href="https://twitter.com/sagir_k"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
+<a href="https://sagirk.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
+<a href="https://linkedin.com/in/sagirk"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
 
 Deep specialist in JavaScript and its ecosystem — React, Node.js, MongoDB, pretty much anything that involves using JavaScript/JSON in any layer of the system — building products using the web platform for the world’s most recognized brands. Individual Member of the Node.js Foundation, collaborating on the Community Committee's Website Redesign Initiative.
 
-Social: gh. [sagirk](https://github.com/sagirk) | t. [@sagir_k](https://twitter.com/sagir_k) | li. [sagirk](https://linkedin.com/in/sagirk) | w. [sagirk.com](https://sagirk.com/)
+<br/>
 
-<br/><br/><br/>
+## Collaborators
 
-# Thank You Notes
+Thank you to all our collaborators! 🙏 
 
-This repository is being kept up to date thanks to the help from the community. We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A 🌻 marks a successful pull request and a ⭐ marks an approved new best practice
+Our collaborators are members who are contributing to the repository on a reguar basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in becoming a collaborator, please read our [contributor guidelines](/.operations/CONTRIBUTING.md).
+
+<a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75">Ido Richter</a>
+<a href="https://github.com/refack" target="_blank"><img src="assets/images/members/refael.png" width="75" height="75">Refael Ackermann</a>
+<a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75">Keith Holliday</a>
+
+
+## Thank You Notes
+
+We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A 🌻 marks a successful pull request and a ⭐ marks an approved new best practice.
 
 ### Flowers
 
@@ -1099,3 +1120,5 @@ This repository is being kept up to date thanks to the help from the community. 
 ⭐ [Corey Cleary](https://github.com/coreyc)
 
 <br/><br/><br/>
+
+
