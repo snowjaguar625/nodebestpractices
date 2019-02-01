@@ -22,17 +22,15 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 <br/>
 
-###### Built and maintained by our [Steering Committee](#steering-committee) and [Collaborators](#collaborators)
-
 # Welcome! 3 Things You Ought To Know First:
 
-**1. When you read here, you in fact read dozens of the best Node.js articles -** this is a summary and curation of the top-ranked content on Node.js best practices
+**1. You are, in fact, reading dozens of the best Node.js articles -** this repository is a summary and curation of the top-ranked content on Node.js best practices, as well as content written here by collaborators
 
-**2. It is the largest compilation, and it is growing every week -** currently, more than 50 best practices, style guides, and architectural tips are presented. New issues and PR are created every day to keep this live book updated. We'd love to see you contributing here, whether fixing some code mistake or suggesting brilliant new ideas. See our [milestones here](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open)
+**2. It is the largest compilation, and it is growing every week -** currently, more than 70 best practices, style guides, and architectural tips are presented. New issues and pull requests are created every day to keep this live book updated. We'd love to see you contributing here, whether that is fixing code mistakes, helping with translations, or suggesting brilliant new ideas. See our [writing guidelines here](/.operations/writing-guidelines.md)
 
-**3. Most bullets have additional info -** nearby most best practice bullets you'll find **🔗Read More** link that will present you with code examples, quotes from selected blogs and more info
+**3. Most best practices have additional info -** most bullets include a **🔗Read More** link that expands on the practice with code examples, quotes from selected blogs and more information
 
-<br/><br/><br/>
+<br/><br/>
 
 ## Table of Contents
 
@@ -44,7 +42,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 6.  [Security Practices (24)](#6-security-best-practices)
 7.  [Performance Practices (in progress)](#7-performance-best-practices)
 
-<br/><br/><br/>
+<br/><br/>
 
 # `1. Project Structure Practices`
 
@@ -991,71 +989,42 @@ All translations are contributed by the community. We will be happy to get any h
 - ![ES](/assets/flags/ES.png) [Spanish](https://github.com/i0natan/nodebestpractices/blob/spanish-translation/README.spanish.md) ([Discussion](https://github.com/i0natan/nodebestpractices/issues/95))
 - ![TR](/assets/flags/TR.png) Turkish ([Discussion](https://github.com/i0natan/nodebestpractices/issues/139))
 
-<br/><br/>
+<br/><br/><br/>
 
-## Steering Committee
+# Core Contributors
 
-Meet the steering committee members - the people who work together to provide guidance and future direction to the project. In addition, each member of the committee leads a project tracked under our [Github projects](https://github.com/i0natan/nodebestpractices/projects).
+## `Yoni Goldberg`
 
-<img align="left" width="100" height="100" src="assets/images/members/yoni.png">
+Independent Node.js consultant who works with customers in USA, Europe, and Israel on building large-scale scalable Node applications. Many of the best practices above were first published in his blog post at [goldbergyoni.com](https://goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
 
-[Yoni Goldberg](https://github.com/i0natan)
-<a href="https://twitter.com/goldbergyoni"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
-<a href="https://goldbergyoni.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
-
-Independent Node.js consultant who works with customers in USA, Europe, and Israel on building large scale scalable Node applications. Many of the best practices above were first published at [goldbergyoni.com](https://goldbergyoni.com). Reach Yoni at @goldbergyoni or me@goldbergyoni.com
-
-<br/>
-<img align="left" width="100" height="100" src="assets/images/members/ido.png">
-
-[Ido Richter](https://github.com/idori)
+## `Ido Richter`
 
 👨‍💻 Software engineer, 🌐 web developer, 🤖 emojis enthusiast
 
-<br/>
-<img align="left" width="100" height="100" src="assets/images/members/bruno.png">
+## `Refael Ackermann` [@refack](https://github.com/refack) &lt;refack@gmail.com&gt; (he/him)
 
-[Bruno Scheufler](https://github.com/BrunoScheufler)
-<a href="https://brunoscheufler.com/"><img src="assets/images/www.png" width="16" height="16"></img></a>
+Node.js Core Collaborator, been noding since 0.4, and have noded in multiple production sites. Founded `node4good` home of [`lodash-contrib`](https://github.com/node4good/lodash-contrib), [`formage`](https://github.com/node4good/formage), and [`asynctrace`](https://github.com/node4good/asynctrace).
+`refack` on freenode, Twitter, GitHub, GMail, and many other platforms. DMs are open, happy to help
+
+## `Bruno Scheufler`
 
 💻 full-stack web developer and Node.js enthusiast
 
-<br/>
-<img align="left" width="100" height="100" src="assets/images/members/kyle.png">
+## `Kyle Martin` [@js-kyle](https://github.com/js-kyle)
 
-[Kyle Martin](https://github.com/js-kyle)
-<a href="https://twitter.com/kylemartin_93"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
-<a href="https://www.linkedin.com/in/kylemartinnz"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
+Full Stack Developer based in New Zealand, interested in architecting and building Node.js applications to perform at global scale. Keen contributor to open source software, including Node.js Core.
 
-Full Stack Developer & Site Reliability Engineer based in New Zealand, interested in web application security, and architecting and building Node.js applications to perform at global scale.
-
-<br/>
-<img align="left" width="100" height="100" src="assets/images/members/sagir.png">
-
-[Sagir Khan](https://github.com/sagirk)
-<a href="https://twitter.com/sagir_k"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
-<a href="https://sagirk.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
-<a href="https://linkedin.com/in/sagirk"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
+## `Sagir Khan`
 
 Deep specialist in JavaScript and its ecosystem — React, Node.js, MongoDB, pretty much anything that involves using JavaScript/JSON in any layer of the system — building products using the web platform for the world’s most recognized brands. Individual Member of the Node.js Foundation, collaborating on the Community Committee's Website Redesign Initiative.
 
-<br/>
+Social: gh. [sagirk](https://github.com/sagirk) | t. [@sagir_k](https://twitter.com/sagir_k) | li. [sagirk](https://linkedin.com/in/sagirk) | w. [sagirk.com](https://sagirk.com/)
 
-## Collaborators
+<br/><br/><br/>
 
-Thank you to all our collaborators! 🙏 
+# Thank You Notes
 
-Our collaborators are members who are contributing to the repository on a reguar basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in becoming a collaborator, please read our [contributor guidelines](/.operations/CONTRIBUTING.md).
-
-<a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75">Keith Holliday</a>
-
-### Past collaborators
-
- - [Refael Ackermann](https://github.com/refack)
-
-## Thank You Notes
-
-We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A 🌻 marks a successful pull request and a ⭐ marks an approved new best practice.
+This repository is being kept up to date thanks to the help from the community. We appreciate any contribution, from a single word fix to a new best practice. Below is a list of everyone who contributed to this project. A 🌻 marks a successful pull request and a ⭐ marks an approved new best practice
 
 ### Flowers
 
@@ -1130,5 +1099,3 @@ We appreciate any contribution, from a single word fix to a new best practice. B
 ⭐ [Corey Cleary](https://github.com/coreyc)
 
 <br/><br/><br/>
-
-
