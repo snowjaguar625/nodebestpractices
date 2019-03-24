@@ -154,13 +154,13 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 <br/><br/>
 
-## ![✔] 2.5 Document API errors using Swagger
+## ![✔] 2.5 Document RESTful API errors using Swagger
 
-**TL;DR:** Let your API callers know which errors might come in return so they can handle these thoughtfully without crashing. This is usually done with REST API documentation frameworks like Swagger
+**TL;DR:** Let your API callers know which errors might come in return so they can handle these thoughtfully without crashing. For RESTful APIs, this is usually done with documentation frameworks like Swagger. If you're using GraphQL, you can utilize your schema and comments as well.
 
 **Otherwise:** An API client might decide to crash and restart only because it received back an error it couldn’t understand. Note: the caller of your API might be you (very typical in a microservice environment)
 
-🔗 [**Read More: documenting errors in Swagger**](/sections/errorhandling/documentingusingswagger.md)
+🔗 [**Read More: documenting API errors in Swagger or GraphQL**](/sections/errorhandling/documentingusingswagger.md)
 
 <br/><br/>
 
@@ -233,6 +233,8 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 **TL;DR:** [ESLint](https://eslint.org) is the de-facto standard for checking possible code errors and fixing code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. Though ESLint can automatically fix code styles, other tools like [prettier](https://www.npmjs.com/package/prettier) and [beautify](https://www.npmjs.com/package/js-beautify) are more powerful in formatting the fix and work in conjunction with ESLint
 
 **Otherwise:** Developers will focus on tedious spacing and line-width concerns and time might be wasted overthinking the project's code style
+
+🔗 [**Read More: Using ESLint and Prettier**](/sections/codestylepractices/eslint_prettier.md)
 
 <br/><br/>
 
