@@ -7,28 +7,12 @@ Callbacks don’t scale well since most programmers are not familiar with them. 
 ### Code Example – using promises to catch errors
 
 ```javascript
-return functionA()
-  .then((valueA) => functionB(valueA))
-  .then((valueB) => functionC(valueB))
-  .then((valueC) => functionD(valueC))
-  .catch((err) => logger.error(err))
-  .then(alwaysExecuteThisFunction())
-```
-
-### Code Example - using async/await to catch errors
-
-```javascript
-async function executeAsyncTask () {
-  try {
-    const valueA = await functionA();
-    const valueB = await functionB(valueA);
-    const valueC = await functionC(valueB);
-    return await functionD(valueC);
-  }
-  catch(err) {
-    logger.error(err);
-  }
-}
+doWork()
+ .then(doWork)
+ .then(doOtherWork)
+ .then((result) => doWork)
+ .catch((error) => {throw error;})
+ .then(verify);
 ```
 
 ### Anti pattern code example – callback style error handling
