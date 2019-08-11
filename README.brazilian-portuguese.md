@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Contagem%20de%20Items%20-%2083%20Boas%20Práticas-blue.svg" alt="83 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Última%20Atualização%20-%20Apr%2013%202019-green.svg" alt="Última Atualização: April 13, 2019"> <img src="https://img.shields.io/badge/%E2%9C%94%20Atualizado%20Para%20Versão%20-%20Node%2010.15.3%20LTS-brightgreen.svg" alt="Atualizado para Node 10.15.3 LTS">
+  <img src="https://img.shields.io/badge/⚙%20Contagem%20de%20Items%20-%2083%20Boas%20Práticas-blue.svg" alt="83 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Última%20Atualização%20-%20Jun%205%202019-green.svg" alt="Última Atualização: June 5, 2019"> <img src="https://img.shields.io/badge/%E2%9C%94%20Atualizado%20Para%20Versão%20-%20Node%2012.4.0%20LTS-brightgreen.svg" alt="Atualizado para Node 12.4.0 LTS">
 </div>
 
 <br/>
@@ -489,7 +489,7 @@ Todas as declarações acima false se feitas com `===`.
 
 ## ![✔] 4.7 Verifique a cobertura de seu teste, isso te ajuda a identificar padrões incorretos de teste
 
-**TL;DR:** Ferramentas de cobertura de código como [Istanbul/NYC ](https://github.com/gotwarlost/istanbul), são ótimas por 3 motivos: elas são gratuitas (nenhum esforço é necessário para beneficiar esses relatórios), elas ajuda a identificar diminuição na cobertura de testes, e por último mas não menos importante, ela destacam a incompatibilidade de testes: olhando relatórios coloridos de cobertura de código, você pode notar, por exemplo, áreas de código que nunca são testadas como cláusulas catch (o que significa que os testes só invocam os caminhos felizes e não como o aplicativo se comporta em erros). Configure-o para falhas se a cobertura estiver abaixo de um certo limite.
+**TL;DR:** Ferramentas de cobertura de código como [Istanbul](https://github.com/istanbuljs/istanbuljs)/[NYC](https://github.com/istanbuljs/nyc), são ótimas por 3 motivos: elas são gratuitas (nenhum esforço é necessário para beneficiar esses relatórios), elas ajuda a identificar diminuição na cobertura de testes, e por último mas não menos importante, ela destacam a incompatibilidade de testes: olhando relatórios coloridos de cobertura de código, você pode notar, por exemplo, áreas de código que nunca são testadas como cláusulas catch (o que significa que os testes só invocam os caminhos felizes e não como o aplicativo se comporta em erros). Configure-o para falhas se a cobertura estiver abaixo de um certo limite.
 
 **Caso contrário:** Não haverá nenhuma métrica automática informando quando uma grande parte de seu código não é coberta pelo teste.
 
@@ -1201,7 +1201,13 @@ Este repositório é mantido atualizado graças à ajuda da comunidade. Nós apr
 🌻 [Ryan Ouyang](https://github.com/ryanouyang),
 🌻 [Gabriel Lidenor](https://github.com/GabrielLidenor),
 🌻 [Roman](https://github.com/animir),
-🌻 [Francozeira](https://github.com/Francozeira)
+🌻 [Francozeira](https://github.com/Francozeira),
+🌻 [Invvard](https://github.com/Invvard),
+🌻 [Rômulo Garofalo](https://github.com/romulogarofalo),
+🌻 [Tho Q Luong](https://github.com/thoqbk),
+🌻 [Burak Shen](https://github.com/Qeneke),
+🌻 [Martin Muzatko](https://github.com/MartinMuzatko),
+🌻 [zhuweiyou](https://github.com/zhuweiyou)
 
 ### Estrelas
 
