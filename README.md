@@ -30,9 +30,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 - **We seek typescript contributors:** want to help contributing TypeScript examples? please approach by opening an issue
 
-- **All Contributors:** We're now using the [All Contributors Spec](https://allcontributors.org/) to recognise all types of contributions to the repo. Thanks again for all our current, and future contributors ♥️
-
-- **Javascipt testing best practices:** 🏆 Yoni & friends have launched a new testing best practices repository, with comprehensive and exhaustive JavaScript & Node.js testing best practices. [Check it out here!](https://github.com/goldbergyoni/javascript-testing-best-practices)
+- **New translation:** ![BR](/assets/flags/BR.png) [Brazilian Portuguese](/README.brazilian-portuguese.md) available now, courtesy of [Marcelo Melo](https://github.com/marcelosdm)! ❤️
 
 <br/><br/>
 
@@ -1121,7 +1119,7 @@ Deep specialist in JavaScript and its ecosystem — React, Node.js, MongoDB, pre
 
 Thank you to all our collaborators! 🙏
 
-Our collaborators are members who are contributing to the repository on a reguar basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
+Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
 
 | <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |
 | :--: | :--: |
