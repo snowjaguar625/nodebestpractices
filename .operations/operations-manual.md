@@ -75,18 +75,18 @@ Each month, a maintainer on call will open an issue for maintenance work and rec
 
 | Language             | Assignee |
 |----------------------|----------|
-| Brazilian Portuguese | Bruno    |
-| Portuguese           | Kyke     |
+| Brazilian Portuguese | Sagir    |
+| Portuguese           | Sagir    |
 | Hebrew               | Yoni     |
 | German               | Bruno    |
 | Italian              | Kyle     |
 | Turkish              | Bruno    |
 | French               | Yoni     |
-| Russian              | Yoni     |
+| Russian              | Sagir    |
 | Korean               | Yoni     |
 | Spanish              | Kyle     |
 | Chinese              | Yoni     |
 | Korean               | Kyle     |
 | Egyptian             | Yoni     |
-| Ukrainian            | Bruno    |
+| Ukrainian            | Bruno     |
 
