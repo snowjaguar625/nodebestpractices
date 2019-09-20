@@ -27,8 +27,6 @@ async function executeAsyncTask () {
   }
   catch(err) {
     logger.error(err);
-  } finally {
-    await alwaysExecuteThisFunction();
   }
 }
 ```
