@@ -22,7 +22,7 @@ Some configuration libraries can provide most of these features for free, have a
 
 ### Code Example – hierarchical config helps to find entries and maintain huge config files
 
-```json5
+```js
 {
   // Customer module configs 
   "Customer": {

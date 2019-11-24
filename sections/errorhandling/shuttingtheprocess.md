@@ -11,7 +11,7 @@ Somewhere within your code, an error handler object is responsible for deciding 
 
 ```javascript
 // Assuming developers mark known operational errors with error.isOperational=true, read best practice #3
-process.on('uncaughtException', (error) => {
+process.on('uncaughtException', function(error) {
   errorManagement.handler.handleError(error);
   if(!errorManagement.handler.isTrustedError(error))
     process.exit(1)
@@ -19,14 +19,14 @@ process.on('uncaughtException', (error) => {
 
 // centralized error handler encapsulates error-handling related logic
 function errorHandler() {
-  this.handleError = (error) => {
-    return logger.logError(error)
+  this.handleError = function (error) {
+    return logger.logError(err)
       .then(sendMailToAdminIfCritical)
       .then(saveInOpsQueueIfCritical)
       .then(determineIfOperationalError);
   }
 
-  this.isTrustedError = (error) => {
+  this.isTrustedError = function (error) {
     return error.isOperational;
   }
 }

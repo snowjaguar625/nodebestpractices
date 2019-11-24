@@ -13,8 +13,8 @@ The latest Express generator comes with a great practice that is worth to keep -
 ```javascript
 const app = express();
 app.use(bodyParser.json());
-app.use('/api/events', events.API);
-app.use('/api/forms', forms);
+app.use("/api/events", events.API);
+app.use("/api/forms", forms);
 ```
 
 ### Code example: Server network declaration, should reside in /bin/www
@@ -23,15 +23,15 @@ app.use('/api/forms', forms);
 <summary><strong>Javascript</strong></summary>
 
 ```javascript
-const app = require('../app');
-const http = require('http');
+var app = require('../app');
+var http = require('http');
 
 // Get port from environment and store in Express.
-const port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 // Create HTTP server.
-const server = http.createServer(app);
+var server = http.createServer(app);
 ```
 </details>
 
@@ -59,7 +59,7 @@ const server = http.createServer(app);
 ```javascript
 const app = express();
 
-app.get('/user', (req, res) => {
+app.get('/user', function(req, res) {
   res.status(200).json({ name: 'tobi' });
 });
 
@@ -68,7 +68,7 @@ request(app)
   .expect('Content-Type', /json/)
   .expect('Content-Length', '15')
   .expect(200)
-  .end((err, res) => {
+  .end(function(err, res) {
     if (err) throw err;
   });
 ```

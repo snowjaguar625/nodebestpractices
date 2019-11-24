@@ -35,7 +35,7 @@ const options = {
 };
 
 // Find items logged between today and yesterday.
-winston.query(options, (err, results) => {
+winston.query(options, function (err, results) {
   // execute callback with results
 });
 ```

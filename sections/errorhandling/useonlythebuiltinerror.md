@@ -9,7 +9,7 @@ The permissive nature of JavaScript along with its variety of code-flow options 
 ```javascript
 // throwing an Error from typical function, whether sync or async
 if(!productToAdd)
-    throw new Error('How can I add new product when no value provided?');
+    throw new Error("How can I add new product when no value provided?");
 
 // 'throwing' an Error from EventEmitter
 const myEmitter = new MyEmitter();
@@ -20,7 +20,7 @@ const addProduct = async (productToAdd) => {
   try {
     const existingProduct = await DAL.getProduct(productToAdd.id);
     if (existingProduct !== null) {
-      throw new Error('Product already exists!');
+      throw new Error("Product already exists!");
     }
   } catch (err) {
     // ...
@@ -33,7 +33,7 @@ const addProduct = async (productToAdd) => {
 ```javascript
 // throwing a string lacks any stack trace information and other important data properties
 if(!productToAdd)
-    throw ('How can I add new product when no value provided?');
+    throw ("How can I add new product when no value provided?");
 ```
 
 ### Code example – doing it even better
@@ -50,13 +50,14 @@ function AppError(name, httpCode, description, isOperational) {
     //...other properties assigned here
 };
 
-AppError.prototype.__proto__ = Error.prototype;
+AppError.prototype = Object.create(Error.prototype);
+AppError.prototype.constructor = AppError;
 
 module.exports.AppError = AppError;
 
 // client throwing an exception
 if(user == null)
-    throw new AppError(commonErrors.resourceNotFound, commonHTTPErrors.notFound, 'further explanation', true)
+    throw new AppError(commonErrors.resourceNotFound, commonHTTPErrors.notFound, "further explanation", true)
 ```
 </details>
 
@@ -85,7 +86,7 @@ export class AppError extends Error {
 
 // client throwing an exception
 if(user == null)
-    throw new AppError(commonErrors.resourceNotFound, commonHTTPErrors.notFound, 'further explanation', true)
+    throw new AppError(commonErrors.resourceNotFound, commonHTTPErrors.notFound, "further explanation", true)
 ```
 </details>
 

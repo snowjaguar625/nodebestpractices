@@ -8,7 +8,7 @@
 
 ```javascript
 // example of malicious code which an attacker was able to input
-const userInput = "require('child_process').spawn('rm', ['-rf', '/'])";
+userInput = "require('child_process').spawn('rm', ['-rf', '/'])";
 
 // malicious code executed
 eval(userInput);
