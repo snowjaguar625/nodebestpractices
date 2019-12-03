@@ -9,12 +9,13 @@
   ```javascript
  const http = require('http');
  const redis = require('redis');
+ 
  const { RateLimiterRedis } = require('rate-limiter-flexible');
  
  const redisClient = redis.createClient({
    enable_offline_queue: false,
  });
-
+ 
  // Maximum 20 requests per second
  const rateLimiter = new RateLimiterRedis({
    storeClient: redisClient,
@@ -22,21 +23,22 @@
    duration: 1,
    blockDuration: 2, // block for 2 seconds if consumed more than 20 points per second
  });
-
- http.createServer(async (req, res) => {
-    try {
-    const rateLimiterRes = await rateLimiter.consume(req.socket.remoteAddress);
-    // Some app logic here
-
-    res.writeHead(200);
-    res.end();
-    } catch {
-    res.writeHead(429);
-    res.end('Too Many Requests');
-    }
- })
-   .listen(3000);
-```
+ 
+ http.createServer((req, res) => {
+   rateLimiter.consume(req.socket.remoteAddress)
+     .then((rateLimiterRes) => {
+        // Some app logic here
+ 
+        res.writeHead(200);
+        res.end();
+      })
+      .catch(() => {
+        res.writeHead(429);
+        res.end('Too Many Requests');
+      });
+   }
+ }).listen(3000);
+ ```
 
 Вы можете найти [больше примеров в документации](https://github.com/animir/node-rate-limiter-flexible/wiki/Overall-example).
 
@@ -45,11 +47,11 @@
 Использование [express-rate-limiter](https://www.npmjs.com/package/express-rate-limit) пакета npm
 
 ``` javascript
-const RateLimit = require('express-rate-limit');
+var RateLimit = require('express-rate-limit');
 // important if behind a proxy to ensure client IP is passed to req.ip
 app.enable('trust proxy'); 
  
-const apiLimiter = new RateLimit({
+var apiLimiter = new RateLimit({
   windowMs: 15*60*1000, // 15 minutes
   max: 100,
 });

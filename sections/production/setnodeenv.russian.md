@@ -10,15 +10,13 @@
 
 ### Пример кода: установка и чтение переменной среды NODE_ENV
 
-```shell script
+```javascript
 // Setting environment variables in bash before starting the node process
 $ NODE_ENV=development
 $ node
-```
 
-```javascript
 // Reading the environment variable using code
-if (process.env.NODE_ENV === 'production')
+if (process.env.NODE_ENV === “production”)
     useCaching = true;
 ```
 

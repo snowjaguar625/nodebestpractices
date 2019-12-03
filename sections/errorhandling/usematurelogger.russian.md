@@ -11,7 +11,7 @@
 
 ```javascript
 // your centralized logger object
-const logger = new winston.Logger({
+var logger = new winston.Logger({
   level: 'info',
   transports: [
     new (winston.transports.Console)()
@@ -20,22 +20,24 @@ const logger = new winston.Logger({
 
 // custom code somewhere using the logger
 logger.log('info', 'Test Log Message with some parameter %s', 'some parameter', { anything: 'This is metadata' });
+
 ```
 
 ### Пример кода - Запрос к папке журнала (поиск записей)
 
 ```javascript
-const options = {
-  from: Date.now() - 24 * 60 * 60 * 1000,
-  until: new Date()
+var options = {
+  from: new Date - 24 * 60 * 60 * 1000,
+  until: new Date,
   limit: 10,
   start: 0,
   order: 'desc',
   fields: ['message']
 };
 
+
 // Find items logged between today and yesterday.
-winston.query(options, (err, results) => {
+winston.query(options, function (err, results) {
   // execute callback with results
 });
 ```
