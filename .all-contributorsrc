@@ -1,6 +1,6 @@
 {
   "files": [
-    "CONTRIBUTORS.md"
+    "README.md"
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
@@ -812,6 +812,24 @@
       "name": "Vadim Nicolaev",
       "avatar_url": "https://avatars3.githubusercontent.com/u/13496126?v=4",
       "profile": "https://github.com/collierrgbsitisfise",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "germangamboa95",
+      "name": "German Gamboa Gonzalez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/28633849?v=4",
+      "profile": "https://github.com/germangamboa95",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "AbdelrahmanHafez",
+      "name": "Hafez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19984935?v=4",
+      "profile": "https://github.com/AbdelrahmanHafez",
       "contributions": [
         "content"
       ]
