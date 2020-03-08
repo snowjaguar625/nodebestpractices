@@ -1,6 +1,6 @@
 {
   "files": [
-    "README.md"
+    "CONTRIBUTORS.md"
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
@@ -830,24 +830,6 @@
       "name": "Hafez",
       "avatar_url": "https://avatars3.githubusercontent.com/u/19984935?v=4",
       "profile": "https://github.com/AbdelrahmanHafez",
-      "contributions": [
-        "content"
-      ]
-    },
-    {
-      "login": "chandiran-dmc",
-      "name": "Chandiran",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/42678579?v=4",
-      "profile": "http://linkedin.com/in/chandiran-dmc",
-      "contributions": [
-        "content"
-      ]
-    },
-    {
-      "login": "VinayaSathyanarayana",
-      "name": "VinayaSathyanarayana",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/16976677?v=4",
-      "profile": "https://github.com/VinayaSathyanarayana",
       "contributions": [
         "content"
       ]
