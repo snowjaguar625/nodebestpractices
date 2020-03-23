@@ -1,6 +1,6 @@
 {
   "files": [
-    "CONTRIBUTORS.md"
+    "README.md"
   ],
   "imageSize": 100,
   "contributorsPerLine": 7,
@@ -830,6 +830,52 @@
       "name": "Hafez",
       "avatar_url": "https://avatars3.githubusercontent.com/u/19984935?v=4",
       "profile": "https://github.com/AbdelrahmanHafez",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "chandiran-dmc",
+      "name": "Chandiran",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/42678579?v=4",
+      "profile": "http://linkedin.com/in/chandiran-dmc",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "VinayaSathyanarayana",
+      "name": "VinayaSathyanarayana",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/16976677?v=4",
+      "profile": "https://github.com/VinayaSathyanarayana",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "kiwikern",
+      "name": "Kim Kern",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2671139?v=4",
+      "profile": "https://www.kimkern.de",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "kennethfreitas",
+      "name": "Kenneth Freitas",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/55669043?v=4",
+      "profile": "https://kennethfreitas.github.io/",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+
+      "login": "songe",
+      "name": "songe",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1531561?v=4",
+      "profile": "https://github.com/songe",
       "contributions": [
         "content"
       ]
