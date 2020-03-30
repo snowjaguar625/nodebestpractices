@@ -80,10 +80,9 @@ Each month, a maintainer on call will open an issue for maintenance work and rec
 | French               | Yoni     |
 | Russian              | Yoni     |
 | Korean               | Yoni     |
-| Spanish              | Kevyn    |
+| Spanish              | Kyle     |
 | Chinese              | Yoni     |
 | Korean               | Kyle     |
 | Egyptian             | Yoni     |
 | Ukrainian            | Bruno    |
-| Polish.              | Kevyn    |
 
