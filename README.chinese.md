@@ -26,13 +26,13 @@
 
 <br/><br/><br/>
 
-## 目录
+## [目录](#table-of-contents)
 1. [项目结构实践 (5) ](#1-project-structure-practices)
 2. [异常处理实践 (11) ](#2-error-handling-practices)
 3. [编码规范实践 (12) ](#3-code-style-practices)
 4. [测试和总体质量实践 (8) ](#4-testing-and-overall-quality-practices)
 5. [进入生产实践 (16) ](#5-going-to-production-practices)
-6. :star: 新: [安全实践(24)](#6-security-best-practices)
+6. :star: 新: [安全实践(23)](#6-security-best-practices)
 7. Performance Practices ([coming soon](https://github.com/i0natan/nodebestpractices/milestones?direction=asc&sort=due_date&state=open))
 
 
@@ -90,7 +90,7 @@
 
 <br/><br/><br/>
 
-<p align="right"><a href="#目录">⬆ 返回顶部</a></p>
+<p align="right"><a href="#table-of-contents">⬆ 返回顶部</a></p>
 
 <h1 id="2-error-handling-practices"><code>2. 错误处理最佳实践</code></h1>
 
@@ -214,7 +214,7 @@
 
 <br/><br/><br/>
 
-<p align="right"><a href="#目录">⬆ 返回顶部</a></p>
+<p align="right"><a href="#table-of-contents">⬆ 返回顶部</a></p>
 
 <h1 id="3-code-style-practices"><code>3. 编码风格实践</code></h1>
 
@@ -386,7 +386,7 @@ null == undefined   // true
 
 <br/><br/><br/>
 
-<p align="right"><a href="#目录">⬆ 返回顶部</a></p>
+<p align="right"><a href="#table-of-contents">⬆ 返回顶部</a></p>
 
 
 <h1 id="4-testing-and-overall-quality-practices"><code>4. 测试和总体的质量实践</code></h1>
@@ -462,7 +462,7 @@ null == undefined   // true
 
 <br/><br/><br/>
 
-<p align="right"><a href="#目录">⬆ 返回顶部</a></p>
+<p align="right"><a href="#table-of-contents">⬆ 返回顶部</a></p>
 
 <h1 id="5-going-to-production-practices"><code>5. 上线实践</code></h1>
 
@@ -650,7 +650,7 @@ null == undefined   // true
 
 <br/><br/><br/>
 
-<p align="right"><a href="#目录">⬆ 返回顶部</a></p>
+<p align="right"><a href="#table-of-contents">⬆ 返回顶部</a></p>
 
 <h1 id="6-security-best-practices"><code>6. 安全最佳实践</code></h1>
 
@@ -770,7 +770,7 @@ null == undefined   // true
 
 **否则:** 您疏忽和宽松的方法大大增加了攻击面, 并鼓励攻击者尝试许多输入, 直到他们找到一些组合, 使应用程序崩溃。
 
-🔗 [**更多: 验证传人的JSON schemas**](/sections/security/validation.md)
+🔗 [**更多: 验证传入的JSON schemas**](/sections/security/validation.md)
 
 <br/><br/>
 
@@ -924,21 +924,9 @@ null == undefined   // true
 
 **否则:** 这只是一个起到教育意义的假设: 给定许多Node.js应用程序, 如果我们尝试传递一个空的JSON正文到所有POST请求 - 少数应用程序将崩溃。在这一点上, 我们可以只是重复发送相同的请求, 就可以轻松地搞垮应用程序。
 
-<br/><br/>
+<br/><br/><br/>
 
-## ![✔] 6.24. 避免不安全的重定向
-
-<a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a>
-
-**TL;DR:** 不验证用户输入的重定向可使攻击者启动网络钓鱼诈骗，窃取用户凭据，以及执行其他恶意操作。
-
-**否则:** 当攻击者发现你没有校验用户提供的外部输入时，他们会在论坛、社交媒体以和其他公共场合发布他们精心制作的链接来诱使用户点击，以此达到漏洞利用的目的。
-
-🔗 [**阅读更多: 避免不安全的重定向**](/sections/security/saferedirects.chinese.md)
-
-<br/><br/>
-
-<p align="right"><a href="#目录">⬆ 返回顶部</a></p>
+<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
 # `API Practices`
 
