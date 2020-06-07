@@ -914,6 +914,25 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "bushuai",
+      "name": "bushuai",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1875256?v=4",
+      "profile": "https://bushuai.cc",
+      "contributions": [
+        "review",
+        "content"
+      ]
+    },
+    {
+      "login": "benjamingr",
+      "name": "Benjamin Gruenbaum",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1315533?v=4",
+      "profile": "https://stackoverflow.com/users/1348195/benjamin-gruenbaum",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "projectName": "nodebestpractices",
