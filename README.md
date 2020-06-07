@@ -54,7 +54,6 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 5. [Going To Production Practices (19) ](#5-going-to-production-practices)
 6. [Security Practices (25)](#6-security-best-practices)
 7. [Performance Practices (2) (Work In Progress️ ✍️)](#7-draft-performance-best-practices)
-8. [Docker Practices (Work In Progress️ ✍️)](#7-draft-docker-best-practices)
 
 <br/><br/>
 
@@ -176,7 +175,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 ## ![✔] 2.7 Use a mature logger to increase error visibility
 
-**TL;DR:** A set of mature logging tools like [Pino](https://github.com/pinojs/pino) or [Log4js](https://www.npmjs.com/package/log4js), will speed-up error discovery and understanding. So forget about console.log
+**TL;DR:** A set of mature logging tools like [Winston](https://www.npmjs.com/package/winston), [Bunyan](https://github.com/trentm/node-bunyan), [Log4js](http://stritti.github.io/log4js/) or [Pino](https://github.com/pinojs/pino), will speed-up error discovery and understanding. So forget about console.log
 
 **Otherwise:** Skimming through console.logs or manually through messy text file without querying tools or a decent log viewer might keep you busy at work until late
 
@@ -1048,7 +1047,7 @@ All statements above will return false if used with `===`
 
 # `7. Draft: Performance Best Practices`
 
-## Our contributors are working on this section. [Would you like to join?](https://github.com/goldbergyoni/nodebestpractices/issues/256)
+## Our contributors are working on this section. [Would you like to join?](https://github.com/i0natan/nodebestpractices/issues/256)
 
 <br/><br/>
 
@@ -1073,179 +1072,9 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
-
-# `7. Draft: Docker Best Practices`
-
-## Our contributors are working on this section. [Would you like to join?](https://github.com/goldbergyoni/nodebestpractices/issues/682)
-
-<br/><br/>
-
-## ![✔] 8.1. Clean npm cache
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Clean npm cache**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.2. Bootstrap the code using 'node' command, avoid 'npm run' scripts
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Clean npm cache**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.3. Install packages for production
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Bootstrap the code using 'node' command, avoid 'npm run' scripts**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.4. Lint your Dockerfile
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Lint your Dockerfile**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.5. Utilize caching for better build time
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Utilize caching for better build time**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.6. Set Docker memory limits which are in-par with v8 memory limit
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Set Docker memory limits which are in-par with v8 memory limit**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.7. Scan your image for vulnerabilities
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Scan your image for vulnerabilities**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.8. Use multistage builds
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Use multistage builds**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.9. Don't use "latest" tags, use a digest
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Don't use "latest", use a digest**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.10. Prefer smaller images
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Prefer smaller images**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.11. Graceful shutdown
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Graceful shutdown**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.12. Avoid sending secrets as build time arguments
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Avoid sending secrets as build time arguments**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.13. On the importance of docker ignore
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: On the importance of docker ignore**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.14.  Avoid inconsistent images
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Avoid inconsistent images**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.15. Avoid process managers
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Avoid process managers**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-## ![✔] 8.16. Generic Docker practices
-
-**TL;DR:**
-
-**Otherwise:**
-
-🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
-
-<br /><br /><br />
-
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
-
 # Milestones
 
-To maintain this guide and keep it up to date, we are constantly updating and improving the guidelines and best practices with the help of the community. You can follow our [milestones](https://github.com/goldbergyoni/nodebestpractices/milestones) and join the working groups if you want to contribute to this project
+To maintain this guide and keep it up to date, we are constantly updating and improving the guidelines and best practices with the help of the community. You can follow our [milestones](https://github.com/i0natan/nodebestpractices/milestones) and join the working groups if you want to contribute to this project
 
 <br/>
 
@@ -1262,21 +1091,21 @@ All translations are contributed by the community. We will be happy to get any h
 
 ### Translations in progress
 
-- ![FR](/assets/flags/FR.png) [French](https://github.com/gaspaonrocks/nodebestpractices/blob/french-translation/README.french.md) ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/129))
-- ![HE](/assets/flags/HE.png) Hebrew ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/156))
-- ![KR](/assets/flags/KR.png) [Korean](README.korean.md) - Courtesy of [Sangbeom Han](https://github.com/uronly14me) ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/94))
-- ![ES](/assets/flags/ES.png) [Spanish](https://github.com/goldbergyoni/nodebestpractices/blob/spanish-translation/README.spanish.md) ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/95))
-- ![TR](/assets/flags/TR.png) Turkish ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/139))
+- ![FR](/assets/flags/FR.png) [French](https://github.com/gaspaonrocks/nodebestpractices/blob/french-translation/README.french.md) ([Discussion](https://github.com/i0natan/nodebestpractices/issues/129))
+- ![HE](/assets/flags/HE.png) Hebrew ([Discussion](https://github.com/i0natan/nodebestpractices/issues/156))
+- ![KR](/assets/flags/KR.png) [Korean](README.korean.md) - Courtesy of [Sangbeom Han](https://github.com/uronly14me) ([Discussion](https://github.com/i0natan/nodebestpractices/issues/94))
+- ![ES](/assets/flags/ES.png) [Spanish](https://github.com/i0natan/nodebestpractices/blob/spanish-translation/README.spanish.md) ([Discussion](https://github.com/i0natan/nodebestpractices/issues/95))
+- ![TR](/assets/flags/TR.png) Turkish ([Discussion](https://github.com/i0natan/nodebestpractices/issues/139))
 
 <br/><br/>
 
 ## Steering Committee
 
-Meet the steering committee members - the people who work together to provide guidance and future direction to the project. In addition, each member of the committee leads a project tracked under our [Github projects](https://github.com/goldbergyoni/nodebestpractices/projects).
+Meet the steering committee members - the people who work together to provide guidance and future direction to the project. In addition, each member of the committee leads a project tracked under our [Github projects](https://github.com/i0natan/nodebestpractices/projects).
 
 <img align="left" width="100" height="100" src="assets/images/members/yoni.png">
 
-[Yoni Goldberg](https://github.com/goldbergyoni)
+[Yoni Goldberg](https://github.com/i0natan)
 <a href="https://twitter.com/goldbergyoni"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
 <a href="https://goldbergyoni.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
 
@@ -1473,8 +1302,6 @@ Thanks goes to these wonderful people who have contributed to this repository!
     <td align="center"><a href="https://github.com/SerzN1"><img src="https://avatars0.githubusercontent.com/u/2534649?v=4" width="100px;" alt=""/><br /><sub><b>Serge</b></sub></a><br /><a href="#content-SerzN1" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/keyrwinz"><img src="https://avatars3.githubusercontent.com/u/21241761?v=4" width="100px;" alt=""/><br /><sub><b>keyrwinz</b></sub></a><br /><a href="#content-keyrwinz" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/nDmitry"><img src="https://avatars0.githubusercontent.com/u/2134568?v=4" width="100px;" alt=""/><br /><sub><b>Dmitry Nikitenko</b></sub></a><br /><a href="#content-nDmitry" title="Content">🖋</a></td>
-    <td align="center"><a href="https://bushuai.cc"><img src="https://avatars0.githubusercontent.com/u/1875256?v=4" width="100px;" alt=""/><br /><sub><b>bushuai</b></sub></a><br /><a href="https://github.com/goldbergyoni/nodebestpractices/pulls?q=is%3Apr+reviewed-by%3Abushuai" title="Reviewed Pull Requests">👀</a> <a href="#content-bushuai" title="Content">🖋</a></td>
-    <td align="center"><a href="https://stackoverflow.com/users/1348195/benjamin-gruenbaum"><img src="https://avatars2.githubusercontent.com/u/1315533?v=4" width="100px;" alt=""/><br /><sub><b>Benjamin Gruenbaum</b></sub></a><br /><a href="#content-benjamingr" title="Content">🖋</a></td>
   </tr>
 </table>
 
