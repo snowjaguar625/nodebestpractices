@@ -1191,14 +1191,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.12. Clean-out build-time secrets, avoid secrets in args
+## ![✔] 8.12. Avoid sending secrets as build time arguments
 
-**TL;DR:** Avoid secrets leaking from the docker build environment. A docker image is typically shared in multiple environment, like CI and a registry, that are not as sanitized as production. A typical example is a npm token which is usually passed to a dockerfile as argument. This token stays within the image long after it is needed and allows the attacker indefinite access to a private npm registry. This can be avoided by coping a secret file like .npmrc and then removing it using multi-stage build (beware, build history should be deleted as well) or by using Docker build-kit secret feature which leaves zero traces
+**TL;DR:**
 
+**Otherwise:**
 
-**Otherwise:** Everyone with access to the CI and docker registry will also get as a bonus access to some precious organization secrets
-
-🔗 [**Read More: Clean-out build-time secrets**](/sections/docker/avoid-build-time-secrets.md)
+🔗 [**Read More: Avoid sending secrets as build time arguments**](/sections/docker/file.md)
 
 <br /><br /><br />
 
@@ -1240,7 +1239,17 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
 
-<br /><br /><br />
+<br/><br /><br />
+
+## ![✔] 8.17. Let the Docker orchestrator restart and replicate processes
+
+**TL;DR:** When using a Docker run time orchestrator (e.g., Kubernetes), invoke the Node.js process directly without intermediating process managers or custom code that replicate the process (e.g., Cluster module). The runtime platform has the highest amount of data and visibility for making placement decision - It knows best how many processes are needed, how to spread them and what to do in case of crashes
+
+**Otherwise:** Container keeps crashing due to lack of resources will get restarted indifiently by the process manager. Should Kubernetes be aware of that, it could relocate it to a different roomy instance 
+
+🔗 [**Read More: Let the Docker orchestrator restart and replicate processes**](/sections/docker/restart-and-replicate-processes.md)
+
+<br/><br /><br />
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
@@ -1321,9 +1330,9 @@ Thank you to all our collaborators! 🙏
 
 Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
 
-| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> | <a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
-| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                         [Kevyn Bruyere](https://github.com/kevynb)                                         |
+| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |<a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
+| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------------: |
+|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                       [Kevyn Bruyere](https://github.com/kevynb)                                         |
 
 ### Past collaborators
 
