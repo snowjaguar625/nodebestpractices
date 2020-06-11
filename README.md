@@ -1101,13 +1101,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.3. Install packages for production
+## ![✔] 8.3. Remove development dependencies
 
-**TL;DR:**
+**TL;DR:** Althoug DevDepencies are sometimes needed during the build and test life-cycle, eventually the image that is shipped to production should be minimal and clean from development depdencies. Doing so gurantess that only neccessary code is shipped and the amount of potnetial attacks (i.e. attack surface) is minimized. When using multi stage build (see dedicated bullet) this can be achieved by installing all dependencies first and finally running 'npm ci --production'
 
-**Otherwise:**
+**Otherwise:** Many of the infamous npm security breaches were found within development packages
 
-🔗 [**Read More: Bootstrap the code using 'node' command, avoid 'npm run' scripts**](/sections/docker/file.md)
+🔗 [**Read More: Remove development dependencies**](/sections/docker/install-for-production.md)
 
 <br /><br /><br />
 
@@ -1183,11 +1183,11 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 ## ![✔] 8.11. Graceful shutdown
 
-**TL;DR:** Handle the process SIGTERM event and clean-up all existing conenction and resources. This should be done while responding to ongoing reqeusts. In Dockerized runtimes, shuting down containers is not a rare event rather a frequent occurence that happen as part of routine work. Acheiving this demand some thoughful code to orchestrate few moving parts: The load balancer, keep-alive connections, the HTTP server and other resources
+**TL;DR:**
 
-**Otherwise:** Dying immediately means not responding to thousands of disappointed users
+**Otherwise:**
 
-🔗 [**Read More: Graceful shutdown**](/sections/docker/graceful-shutdown.md)
+🔗 [**Read More: Graceful shutdown**](/sections/docker/file.md)
 
 <br /><br /><br />
 
