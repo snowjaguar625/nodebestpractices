@@ -1201,13 +1201,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] Use .dockerignore to prevent leaking secrets
+## ![✔] 8.13. On the importance of docker ignore
 
-**TL;DR:** Include a .dockerignore file that filters out common secret files and development artifacts. By doing so, you might prevent secrets from leaking into the image. As a bonus, the build time will significantly decrease. Also, ensure not to copy all files recursively rather explicitly choose what should be copied to Docker
+**TL;DR:**
 
-**Otherwise:** Common personal secret files like .env, .aws and .npmrc will be shared with anybody with access to the image (e.g. Docker repository)
+**Otherwise:**
 
-🔗 [**Read More: On the importance of docker ignore**](/sections/docker/docker-ignore.md)
+🔗 [**Read More: On the importance of docker ignore**](/sections/docker/file.md)
 
 <br /><br /><br />
 
@@ -1233,11 +1233,10 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 ## ![✔] 8.16. Generic Docker practices
 
-**TL;DR:**
+**TL;DR:** This is a collection of Docker advice that is not related directly to Node.js - the Node implementation is not much different than any other language. Click read more to skim through.
 
-**Otherwise:**
 
-🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
+🔗 [**Read More: Generic Docker practices**](/sections/docker/generic-tips.md)
 
 <br /><br /><br />
 
