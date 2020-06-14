@@ -1081,13 +1081,14 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br/><br/>
 
-## ![✔] 8.1. Clean npm cache
+## ![✔] 8.1. Clean NODE_MODULE cache
 
-**TL;DR:**
+**TL;DR:** After installing dependencies in a container, remove the local cache. It doesn't make any sense to duplicate the dependencies packages to speed future installs since there won't be any further installs - A docker image is created only once. By doing so, using a single line of code, tens of MB, typically 10-50% of the image size are shaved
 
-**Otherwise:**
 
-🔗 [**Read More: Clean npm cache**](/sections/docker/file.md)
+**Otherwise:** The image that will get shipped to production will weigh 30% more due to files that will never get used
+
+🔗 [**Read More: Clean NODE_MODULE cache**](/sections/docker/clean-cache.md)
 
 <br /><br /><br />
 
@@ -1131,13 +1132,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.6. Set memory limits using Docker only
+## ![✔] 8.6. Set Docker memory limits which are in-par with v8 memory limit
 
-**TL;DR:** Configure a memory limit using Docker, not using V8. Use Docker command flag 'run --memory' or set the right values within the platform that runs Docker. By doing this, the runtime will be capable of making better decisions on when to scale, prevent one citizen from starving others, drive thoughtful crash decisions (e.g., Docker can allow slight burst deviations) and in-overall it's always better to move HW decisions to the OPS court
+**TL;DR:**
 
-**Otherwise:** When setting limits using V8 --max-old-space-size the Docker runtime won't be aware of its capacity limits and will have to blindly place it in an instance that might not have the right size
+**Otherwise:**
 
-🔗 [**Read More: Set memory limits using Docker only**](/sections/docker/memory-limit.md)
+🔗 [**Read More: Set Docker memory limits which are in-par with v8 memory limit**](/sections/docker/file.md)
 
 <br /><br /><br />
 
