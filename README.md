@@ -1131,11 +1131,11 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.6. Set Docker memory limits which are in-par with v8 memory limit
+## ![✔] 8.6. Set memory limits using Docker only
 
-**TL;DR:**
+**TL;DR:** Configure a memory limit using Docker, not using V8. Use Docker command flag 'run --memory' or set the right values within the platform that runs Docker. By doing this, the runtime will be capable of making better decisions on when to scale, prevent one citizen from starving others, drive thoughtful crash decisions (e.g., Docker can allow slight burst deviations) and in-overall it's always better to move HW decisions to the OPS court
 
-**Otherwise:**
+**Otherwise:** When setting limits using V8 --max-old-space-size the Docker runtime won't be aware of its capacity limits and will have to blindly place it in an instance that might not have the right size
 
 🔗 [**Read More: Set Docker memory limits which are in-par with v8 memory limit**](/sections/docker/file.md)
 
@@ -1143,11 +1143,11 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 ## ![✔] 8.7. Scan your image for vulnerabilities
 
-**TL;DR:** Besides checking code dependencies vulnerabilities, also scan the final image that is shipped to production. Docker image scanners check the code dependencies but also the OS binaries. This E2E security scan covers more ground and verifies that no bad guy injected bad things during the build. Consequently, it is recommended running this as the last step before deployment. There are a handful of free and commercial scanners that also provide CI/CD plugins
+**TL;DR:**
 
-**Otherwise:** Your code might be entirely free from vulnerabilities. However, it might still get hacked due to vulnerable version of OS-level binaries (e.g. OpenSSL, TarBall)  that are commonly being used by applications
+**Otherwise:**
 
-🔗 [**Read More: Scan your image for vulnerabilities**](/sections/docker/scan-images.md)
+🔗 [**Read More: Scan your image for vulnerabilities**](/sections/docker/file.md)
 
 <br /><br /><br />
 
