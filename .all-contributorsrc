@@ -933,6 +933,24 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "byeze",
+      "name": "Ezequiel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7424138?v=4",
+      "profile": "https://github.com/byeze",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "juaoose",
+      "name": "Juan José Rodríguez",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/994594?v=4",
+      "profile": "https://github.com/juaoose",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "projectName": "nodebestpractices",
