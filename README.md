@@ -1081,23 +1081,25 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br/><br/>
 
-## ![✔] 8.1. Clean npm cache
+## ![✔] 8.1. Clean NODE_MODULE cache
 
-**TL;DR:**
+**TL;DR:** After installing dependencies in a container, remove the local cache. It doesn't make any sense to duplicate the dependencies for faster future installs since there won't be any further installs - A Docker image is immutable. By doing so, using a single line of code, tens of MB, typically 10-50% of the image size are shaved off
 
-**Otherwise:**
 
-🔗 [**Read More: Clean npm cache**](/sections/docker/file.md)
+**Otherwise:** The image that will get shipped to production will weigh 30% more due to files that will never get used
+
+🔗 [**Read More: Clean NODE_MODULE cache**](/sections/docker/clean-cache.md)
 
 <br /><br /><br />
 
 ## ![✔] 8.2. Bootstrap the code using 'node' command, avoid 'npm run' scripts
 
-**TL;DR:**
+**TL;DR:** use `CMD ['node','server.js']` to start your app. This prevents problems with child-process, signal handling and avoid creating unnecessary processes.
 
-**Otherwise:**
 
-🔗 [**Read More: Clean npm cache**](/sections/docker/file.md)
+**Otherwise:** You'll have hard shutdowns, possibly losing current requests and/or data
+
+[**Read More: Bootstrap container using node command, avoid npm start**](/sections/docker/bootstrap-using-node.md)
 
 <br /><br /><br />
 
@@ -1131,13 +1133,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.6. Set Docker memory limits which are in-par with v8 memory limit
+## ![✔] 8.6. Set memory limits using Docker
 
-**TL;DR:**
+**TL;DR:** Always configure a memory limit using Docker, optionally set also the v8 limits. Practically, use the Docker flag 'run --memory' or set the right values within the platform that runs Docker. By doing this, the runtime will be capable of making better decisions on when to scale, prevent one citizen from starving others, drive thoughtful crash decisions (e.g., Docker can allow slight burst deviations) and in-overall it's always better to move HW decisions to the OPS court  
 
-**Otherwise:**
+**Otherwise:** When setting limits using V8 --max-old-space-size the Docker runtime won't be aware of its capacity limits and will have to blindly place it in an instance that might not have the right size
 
-🔗 [**Read More: Set Docker memory limits which are in-par with v8 memory limit**](/sections/docker/file.md)
+🔗 [**Read More: Set memory limits using Docker only**](/sections/docker/memory-limit.md)
 
 <br /><br /><br />
 
@@ -1151,14 +1153,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.8. Use multi-stage builds for leaner and more secure Docker images
+## ![✔] 8.8. Use multistage builds
 
-**TL;DR:** A lot of build-time dependencies and files are not needed for running your application. With multi-stage builds, these resources can be used during
-build, while the runtime environment contains only what's necessary. Multi-stage builds are an easy way to reduce overhead in size and vulnerabilities.
+**TL;DR:**
 
-**Otherwise:** Larger images will take longer to build and ship, build-only tools might contain vulnerabilities, and secrets only meant for the build phase might be leaked.
+**Otherwise:**
 
-🔗 [**Read More: Use multi-stage builds**](/sections/docker/multi_stage_builds.md)
+🔗 [**Read More: Use multistage builds**](/sections/docker/file.md)
 
 <br /><br /><br />
 
@@ -1172,33 +1173,34 @@ build, while the runtime environment contains only what's necessary. Multi-stage
 
 <br /><br /><br />
 
-## ![✔] 8.10. Prefer smaller Docker base images
+## ![✔] 8.10. Prefer smaller images
 
-**TL;DR:** Large images lead to higher exposure to vulnerabilities and increased resource consumption. Using leaner Docker images, such as Alpine Linux variants, mitigates this issue.
+**TL;DR:**
 
-**Otherwise:** Building, pushing, and pulling images will take longer, unknown attack vectors can be used by malicious actors, and more resources are consumed.
+**Otherwise:**
 
-🔗 [**Read More: Prefer smaller images**](/sections/docker/smaller_base_images.md)
+🔗 [**Read More: Prefer smaller images**](/sections/docker/file.md)
 
 <br /><br /><br />
 
 ## ![✔] 8.11. Graceful shutdown
 
-**TL;DR:**
+**TL;DR:** Handle the process SIGTERM event and clean-up all existing conenction and resources. This should be done while responding to ongoing reqeusts. In Dockerized runtimes, shuting down containers is not a rare event rather a frequent occurence that happen as part of routine work. Acheiving this demand some thoughful code to orchestrate few moving parts: The load balancer, keep-alive connections, the HTTP server and other resources
 
-**Otherwise:**
+**Otherwise:** Dying immediately means not responding to thousands of disappointed users
 
-🔗 [**Read More: Graceful shutdown**](/sections/docker/file.md)
+🔗 [**Read More: Graceful shutdown**](/sections/docker/graceful-shutdown.md)
 
 <br /><br /><br />
 
-## ![✔] 8.12. Avoid sending secrets as build time arguments
+## ![✔] 8.12. Clean-out build-time secrets, avoid secrets in args
 
-**TL;DR:**
+**TL;DR:** Avoid secrets leaking from the Docker build environment. A Docker image is typically shared in multiple environment, like CI and a registry, that are not as sanitized as production. A typical example is an npm token which is usually passed to a dockerfile as argument. This token stays within the image long after it is needed and allows the attacker indefinite access to a private npm registry. This can be avoided by coping a secret file like .npmrc and then removing it using multi-stage build (beware, build history should be deleted as well) or by using Docker build-kit secret feature which leaves zero traces
 
-**Otherwise:**
 
-🔗 [**Read More: Avoid sending secrets as build time arguments**](/sections/docker/file.md)
+**Otherwise:** Everyone with access to the CI and docker registry will also get as a bonus access to some precious organization secrets
+
+🔗 [**Read More: Clean-out build-time secrets**](/sections/docker/avoid-build-time-secrets.md)
 
 <br /><br /><br />
 
@@ -1234,13 +1236,22 @@ build, while the runtime environment contains only what's necessary. Multi-stage
 
 ## ![✔] 8.16. Generic Docker practices
 
-**TL;DR:**
+**TL;DR:** This is a collection of Docker advice that is not related directly to Node.js - the Node implementation is not much different than any other language. Click read more to skim through.
 
-**Otherwise:**
 
-🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
+🔗 [**Read More: Generic Docker practices**](/sections/docker/generic-tips.md)
 
-<br /><br /><br />
+<br/><br /><br />
+
+## ![✔] 8.17. Let the Docker orchestrator restart and replicate processes
+
+**TL;DR:** When using a Docker run time orchestrator (e.g., Kubernetes), invoke the Node.js process directly without intermediating process managers or custom code that replicate the process (e.g., Cluster module). The runtime platform has the highest amount of data and visibility for making placement decision - It knows best how many processes are needed, how to spread them and what to do in case of crashes
+
+**Otherwise:** Container keeps crashing due to lack of resources will get restarted indifiently by the process manager. Should Kubernetes be aware of that, it could relocate it to a different roomy instance 
+
+🔗 [**Read More: Let the Docker orchestrator restart and replicate processes**](/sections/docker/restart-and-replicate-processes.md)
+
+<br/><br /><br />
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
@@ -1321,9 +1332,9 @@ Thank you to all our collaborators! 🙏
 
 Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
 
-| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |<a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
-| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------------: |
-|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                       [Kevyn Bruyere](https://github.com/kevynb)                                         |
+| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> | <a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
+| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
+|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                         [Kevyn Bruyere](https://github.com/kevynb)                                         |
 
 ### Past collaborators
 
