@@ -1131,13 +1131,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.6. Set Docker memory limits which are in-par with v8 memory limit
+## ![✔] 8.6. Set memory limits using Docker only
 
-**TL;DR:**
+**TL;DR:** Configure a memory limit using Docker, not using V8. Use Docker command flag 'run --memory' or set the right values within the platform that runs Docker. By doing this, the runtime will be capable of making better decisions on when to scale, prevent one citizen from starving others, drive thoughtful crash decisions (e.g., Docker can allow slight burst deviations) and in-overall it's always better to move HW decisions to the OPS court
 
-**Otherwise:**
+**Otherwise:** When setting limits using V8 --max-old-space-size the Docker runtime won't be aware of its capacity limits and will have to blindly place it in an instance that might not have the right size
 
-🔗 [**Read More: Set Docker memory limits which are in-par with v8 memory limit**](/sections/docker/file.md)
+🔗 [**Read More: Set memory limits using Docker only**](/sections/docker/memory-limit.md)
 
 <br /><br /><br />
 
@@ -1239,17 +1239,7 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
 
-<br/><br /><br />
-
-## ![✔] 8.17. Let the Docker orchestrator restart and replicate processes
-
-**TL;DR:** When using a Docker run time orchestrator (e.g., Kubernetes), invoke the Node.js process directly without intermediating process managers or custom code that replicate the process (e.g., Cluster module). The runtime platform has the highest amount of data and visibility for making placement decision - It knows best how many processes are needed, how to spread them and what to do in case of crashes
-
-**Otherwise:** Container keeps crashing due to lack of resources will get restarted indifiently by the process manager. Should Kubernetes be aware of that, it could relocate it to a different roomy instance 
-
-🔗 [**Read More: Let the Docker orchestrator restart and replicate processes**](/sections/docker/restart-and-replicate-processes.md)
-
-<br/><br /><br />
+<br /><br /><br />
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
@@ -1330,9 +1320,9 @@ Thank you to all our collaborators! 🙏
 
 Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
 
-| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |<a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
-| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------------: |
-|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                       [Kevyn Bruyere](https://github.com/kevynb)                                         |
+| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> | <a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
+| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
+|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                         [Kevyn Bruyere](https://github.com/kevynb)                                         |
 
 ### Past collaborators
 
