@@ -1101,13 +1101,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.3. Install packages for production
+## ![✔] 8.3. Remove development dependencies
 
-**TL;DR:**
+**TL;DR:** Althoug DevDepencies are sometimes needed during the build and test life-cycle, eventually the image that is shipped to production should be minimal and clean from development depdencies. Doing so gurantess that only neccessary code is shipped and the amount of potnetial attacks (i.e. attack surface) is minimized. When using multi stage build (see dedicated bullet) this can be achieved by installing all dependencies first and finally running 'npm ci --production'
 
-**Otherwise:**
+**Otherwise:** Many of the infamous npm security breaches were found within development packages
 
-🔗 [**Read More: Bootstrap the code using 'node' command, avoid 'npm run' scripts**](/sections/docker/file.md)
+🔗 [**Read More: Remove development dependencies**](/sections/docker/install-for-production.md)
 
 <br /><br /><br />
 
@@ -1191,14 +1191,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.12. Clean-out build-time secrets, avoid secrets in args
+## ![✔] 8.12. Avoid sending secrets as build time arguments
 
-**TL;DR:** Avoid secrets leaking from the Docker build environment. A Docker image is typically shared in multiple environment, like CI and a registry, that are not as sanitized as production. A typical example is an npm token which is usually passed to a dockerfile as argument. This token stays within the image long after it is needed and allows the attacker indefinite access to a private npm registry. This can be avoided by coping a secret file like .npmrc and then removing it using multi-stage build (beware, build history should be deleted as well) or by using Docker build-kit secret feature which leaves zero traces
+**TL;DR:**
 
+**Otherwise:**
 
-**Otherwise:** Everyone with access to the CI and docker registry will also get as a bonus access to some precious organization secrets
-
-🔗 [**Read More: Clean-out build-time secrets**](/sections/docker/avoid-build-time-secrets.md)
+🔗 [**Read More: Avoid sending secrets as build time arguments**](/sections/docker/file.md)
 
 <br /><br /><br />
 
