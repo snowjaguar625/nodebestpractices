@@ -1101,13 +1101,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.3. Remove development dependencies
+## ![✔] 8.3. Install packages for production
 
-**TL;DR:** Althoug DevDepencies are sometimes needed during the build and test life-cycle, eventually the image that is shipped to production should be minimal and clean from development depdencies. Doing so gurantess that only neccessary code is shipped and the amount of potnetial attacks (i.e. attack surface) is minimized. When using multi stage build (see dedicated bullet) this can be achieved by installing all dependencies first and finally running 'npm ci --production'
+**TL;DR:**
 
-**Otherwise:** Many of the infamous npm security breaches were found within development packages
+**Otherwise:**
 
-🔗 [**Read More: Remove development dependencies**](/sections/docker/install-for-production.md)
+🔗 [**Read More: Bootstrap the code using 'node' command, avoid 'npm run' scripts**](/sections/docker/file.md)
 
 <br /><br /><br />
 
@@ -1233,11 +1233,10 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 ## ![✔] 8.16. Generic Docker practices
 
-**TL;DR:**
+**TL;DR:** This is a collection of Docker advice that is not related directly to Node.js - the Node implementation is not much different than any other language. Click read more to skim through.
 
-**Otherwise:**
 
-🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
+🔗 [**Read More: Generic Docker practices**](/sections/docker/generic-tips.md)
 
 <br /><br /><br />
 
