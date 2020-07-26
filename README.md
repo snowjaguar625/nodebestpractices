@@ -1201,13 +1201,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] Use .dockerignore to prevent leaking secrets
+## ![✔] 8.13. On the importance of docker ignore
 
-**TL;DR:** Include a .dockerignore file that filters out common secret files and development artifacts. By doing so, you might prevent secrets from leaking into the image. As a bonus, the build time will significantly decrease. Also, ensure not to copy all files recursively rather explicitly choose what should be copied to Docker
+**TL;DR:**
 
-**Otherwise:** Common personal secret files like .env, .aws and .npmrc will be shared with anybody with access to the image (e.g. Docker repository)
+**Otherwise:**
 
-🔗 [**Read More: On the importance of docker ignore**](/sections/docker/docker-ignore.md)
+🔗 [**Read More: On the importance of docker ignore**](/sections/docker/file.md)
 
 <br /><br /><br />
 
@@ -1239,7 +1239,17 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 🔗 [**Read More: Generic Docker practices**](/sections/docker/file.md)
 
-<br /><br /><br />
+<br/><br /><br />
+
+## ![✔] 8.17. Let the Docker orchestrator restart and replicate processes
+
+**TL;DR:** When using a Docker run time orchestrator (e.g., Kubernetes), invoke the Node.js process directly without intermediating process managers or custom code that replicate the process (e.g., Cluster module). The runtime platform has the highest amount of data and visibility for making placement decision - It knows best how many processes are needed, how to spread them and what to do in case of crashes
+
+**Otherwise:** Container keeps crashing due to lack of resources will get restarted indifiently by the process manager. Should Kubernetes be aware of that, it could relocate it to a different roomy instance 
+
+🔗 [**Read More: Let the Docker orchestrator restart and replicate processes**](/sections/docker/restart-and-replicate-processes.md)
+
+<br/><br /><br />
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
@@ -1320,9 +1330,9 @@ Thank you to all our collaborators! 🙏
 
 Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
 
-| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> | <a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
-| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                         [Kevyn Bruyere](https://github.com/kevynb)                                         |
+| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |<a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
+| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------------: |
+|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                       [Kevyn Bruyere](https://github.com/kevynb)                                         |
 
 ### Past collaborators
 
