@@ -1081,14 +1081,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br/><br/>
 
-## ![✔] 8.1. Clean NODE_MODULE cache
+## ![✔] 8.1. Clean npm cache
 
-**TL;DR:** After installing dependencies in a container, remove the local cache. It doesn't make any sense to duplicate the dependencies for faster future installs since there won't be any further installs - A Docker image is immutable. By doing so, using a single line of code, tens of MB, typically 10-50% of the image size are shaved off
+**TL;DR:**
 
+**Otherwise:**
 
-**Otherwise:** The image that will get shipped to production will weigh 30% more due to files that will never get used
-
-🔗 [**Read More: Clean NODE_MODULE cache**](/sections/docker/clean-cache.md)
+🔗 [**Read More: Clean npm cache**](/sections/docker/file.md)
 
 <br /><br /><br />
 
@@ -1152,13 +1151,14 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.8. Use multistage builds
+## ![✔] 8.8. Use multi-stage builds for leaner and more secure Docker images
 
-**TL;DR:**
+**TL;DR:** A lot of build-time dependencies and files are not needed for running your application. With multi-stage builds, these resources can be used during
+build, while the runtime environment contains only what's necessary. Multi-stage builds are an easy way to reduce overhead in size and vulnerabilities.
 
-**Otherwise:**
+**Otherwise:** Larger images will take longer to build and ship, build-only tools might contain vulnerabilities, and secrets only meant for the build phase might be leaked.
 
-🔗 [**Read More: Use multistage builds**](/sections/docker/file.md)
+🔗 [**Read More: Use multi-stage builds**](/sections/docker/multi_stage_builds.md)
 
 <br /><br /><br />
 
@@ -1172,13 +1172,13 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <br /><br /><br />
 
-## ![✔] 8.10. Prefer smaller images
+## ![✔] 8.10. Prefer smaller Docker base images
 
-**TL;DR:**
+**TL;DR:** Large images lead to higher exposure to vulnerabilities and increased resource consumption. Using leaner Docker images, such as Alpine Linux variants, mitigates this issue.
 
-**Otherwise:**
+**Otherwise:** Building, pushing, and pulling images will take longer, unknown attack vectors can be used by malicious actors, and more resources are consumed.
 
-🔗 [**Read More: Prefer smaller images**](/sections/docker/file.md)
+🔗 [**Read More: Prefer smaller images**](/sections/docker/smaller_base_images.md)
 
 <br /><br /><br />
 
@@ -1321,9 +1321,9 @@ Thank you to all our collaborators! 🙏
 
 Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
 
-| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> | <a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
-| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                         [Kevyn Bruyere](https://github.com/kevynb)                                         |
+| <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |<a href="https://github.com/kevynb" target="_blank"><img src="assets/images/members/kevyn.png" width="59" height="59"></a> |
+| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |:--------------------------------------------------------------------------------------------------------------------------------: |
+|                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |                                       [Kevyn Bruyere](https://github.com/kevynb)                                         |
 
 ### Past collaborators
 
