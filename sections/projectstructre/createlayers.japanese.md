@@ -1,13 +1,13 @@
-# アプリケーションを階層化し、 Express を境界内に収める
+# Layer your app, keep Express within its boundaries
 
 <br/><br/>
 
- ### コンポーネントコードをウェブ、サービス、DALのレイヤーに分ける
+ ### Separate component code into layers: web, services, and DAL
 
-![alt text](https://github.com/goldbergyoni/nodebestpractices/blob/master/assets/images/structurebycomponents.PNG "コンポーネントコードを階層化する")
+![alt text](https://github.com/goldbergyoni/nodebestpractices/blob/master/assets/images/structurebycomponents.PNG "Separate component code into layers")
 
  <br/><br/>
 
-### 1分解説: レイヤーを混ぜることのデメリット
+### 1 min explainer: The downside of mixing layers
 
-![alt text](https://github.com/goldbergyoni/nodebestpractices/blob/master/assets/images/keepexpressinweb.gif "レイヤーを混ぜることのデメリット")
+![alt text](https://github.com/goldbergyoni/nodebestpractices/blob/master/assets/images/keepexpressinweb.gif "The downside of mixing layers")
