@@ -62,13 +62,13 @@
 
 # `1. プロジェクト構成のプラクティス`
 
-## ![✔] 1.1 コンポーネントによりソリューションを構築する
+## ![✔] 1.1 Structure your solution by components
 
-**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の 'さらに読む' を参照してください。
+**TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its own folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
 
-**さもないと:** 新しい機能をコーディングする開発者が、自分の変更の影響を理解するのに苦労したり、他の依存するコンポーネントを壊すことを恐れたりすると、デプロイが遅くなり、リスクが高くなります。また、すべてのビジネスユニットが分離されていない場合、スケールアウトするのは難しいと考えられています。
+**Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependent components - deployments become slower and riskier. It's also considered harder to scale-out when all the business units are not separated
 
-🔗 [**さらに読む: コンポーネントで構成する**](/sections/projectstructre/breakintcomponents.japanese.md)
+🔗 [**Read More: structure by components**](/sections/projectstructre/breakintcomponents.md)
 
 <br/><br/>
 
@@ -116,13 +116,13 @@
 
 # `2. エラーハンドリングのプラクティス`
 
-## ![✔] 2.1 Use Async-Await or promises for async error handling
+## ![✔] 2.1 非同期エラーハンドリングに Async-Await または promises を使う
 
-**TL;DR:** Handling async errors in callback style is probably the fastest way to hell (a.k.a the pyramid of doom). The best gift you can give to your code is using a reputable promise library or async-await instead which enables a much more compact and familiar code syntax like try-catch
+**TL;DR:** コールバックスタイルで非同期エラーを処理することは、おそらく地獄への最短経路でしょう（Pyramid of doom として知られています）。あなたができるコードへの最高の贈り物は、信頼できる promise ライブラリや async-await を使うことです。これらは、try-catch のような、よりコンパクトで親しみやすいコードシンタックスを可能にします。
 
-**Otherwise:** Node.js callback style, function(err, response), is a promising way to un-maintainable code due to the mix of error handling with casual code, excessive nesting, and awkward coding patterns
+**さもなければ:** Node.js のコールバックスタイル、つまり function(err, response) を利用することは、正常な処理を行うコードとエラーハンドリングの混同、過剰なネスト構造、そして厄介なコーディングパターンが原因となって、メンテナンス性の低いコードにつながります。
 
-🔗 [**Read More: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
+🔗 [**さらに読む: コールバック関数の利用を避ける**](/sections/errorhandling/asyncerrorhandling.md)
 
 <br/><br/>
 
