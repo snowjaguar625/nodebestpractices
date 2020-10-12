@@ -2,7 +2,7 @@
 
 <br/><br/>
 
- ### コンポーネントコードをウェブ、サービス、DAL のレイヤーに分ける
+ ### コンポーネントコードをウェブ、サービス、DALのレイヤーに分ける
 
 ![alt text](https://github.com/goldbergyoni/nodebestpractices/blob/master/assets/images/structurebycomponents.PNG "コンポーネントコードを階層化する")
 

@@ -64,7 +64,7 @@
 
 ## ![✔] 1.1 コンポーネントによりソリューションを構築する
 
-**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の「さらに読む」を参照してください。
+**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の 'さらに読む' を参照してください。
 
 **さもないと:** 新しい機能をコーディングする開発者が、自分の変更の影響を理解するのに苦労したり、他の依存するコンポーネントを壊すことを恐れたりすると、デプロイが遅くなり、リスクが高くなります。また、すべてのビジネスユニットが分離されていない場合、スケールアウトするのは難しいと考えられています。
 
@@ -74,21 +74,21 @@
 
 ## ![✔] 1.2 コンポーネントを階層化し、その境界内にウェブレイヤーを維持する
 
-**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである「レイヤー」を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API 開発者は Web レイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定の Web フレームワークに依存してしまい、特定の Web フレームワークからしかアクセスできなくなってしまいます。
+**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである 'レイヤー' を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API開発者はWebレイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定のWebフレームワークに依存してしまい、特定のWebフレームワークからしかアクセスできなくなってしまいます。
 
-**さもないと:** Web オブジェクトと他のレイヤーが混在するアプリには、テストコードや CRON ジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
+**さもないと:** Webオブジェクトと他のレイヤーが混在するアプリには、テストコードやCRONジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
 
 🔗 [**さらに読む: アプリケーションを階層化する**](/sections/projectstructre/createlayers.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as npm packages
+## ![✔] 1.3 一般的なユーティリティを npm パッケージとしてラップする
 
-**TL;DR:** In a large app that constitutes a large code base, cross-cutting-concern utilities like logger, encryption and alike, should be wrapped by your own code and exposed as private npm packages. This allows sharing them among multiple code bases and projects
+**TL;DR:** 大規模なコードベースで構成される大規模なアプリでは、ロガーや暗号化などの横断的な関心のあるユーティリティは、独自のコードでラップし、プライベートな npm パッケージとして公開する必要があります。これにより、複数のコードベースやプロジェクト間で共有することができます。
 
-**Otherwise:** You'll have to invent your own deployment and dependency wheel
+**さもないと:** デプロイと依存関係の車輪の作成をしなければいけなくなります。
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
+🔗 [**Read More: 機能で構成する**](/sections/projectstructre/wraputilities.japanese.md)
 
 <br/><br/>
 
@@ -116,23 +116,23 @@
 
 # `2. エラーハンドリングのプラクティス`
 
-## ![✔] 2.1 非同期エラーハンドリングに Async-Await または promises を使う
+## ![✔] 2.1 Use Async-Await or promises for async error handling
 
-**TL;DR:** コールバックスタイルで非同期エラーを処理することは、おそらく地獄への最短経路でしょう（Pyramid of doom として知られています）。あなたができるコードへの最高の贈り物は、信頼できる promise ライブラリや async-await を使うことです。これらは、try-catch のような、よりコンパクトで親しみやすいコードシンタックスを可能にします。
+**TL;DR:** Handling async errors in callback style is probably the fastest way to hell (a.k.a the pyramid of doom). The best gift you can give to your code is using a reputable promise library or async-await instead which enables a much more compact and familiar code syntax like try-catch
 
-**さもなければ:** Node.js のコールバックスタイル、つまり function(err, response) を利用することは、正常な処理を行うコードとエラーハンドリングの混同、過剰なネスト構造、そして厄介なコーディングパターンが原因となって、メンテナンス性の低いコードにつながります。
+**Otherwise:** Node.js callback style, function(err, response), is a promising way to un-maintainable code due to the mix of error handling with casual code, excessive nesting, and awkward coding patterns
 
-🔗 [**さらに読む: コールバック関数の利用を避ける**](/sections/errorhandling/asyncerrorhandling.japanese.md)
+🔗 [**Read More: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
 
 <br/><br/>
 
-## ![✔] 2.2 組み込みのエラーオブジェクトのみを使用する
+## ![✔] 2.2 Use only the built-in Error object
 
-**TL;DR:** 多くがエラーとして文字列やカスタム型を投げます - これはエラー処理ロジックとモジュール間の相互運用性を複雑にします。promise を reject したのか、例外を投げたのか、エラーを排出したのかに関わらず、組み込みのエラーオブジェクト（またはそれを拡張したオブジェクト）だけ使うことは一貫性を向上させ、情報の欠落を防ぎます。
+**TL;DR:** Many throw errors as a string or as some custom type – this complicates the error handling logic and the interoperability between modules. Whether you reject a promise, throw an exception or emit an error – using only the built-in Error object (or an object that extends the built-in Error object) will increase uniformity and prevent loss of information
 
-**さもないと:** ある要素を呼び出したとき、どの型のエラーが返ってくるか不確かである - といった状況は、適切なエラー処理をより難しいものにします。さらに悪いことに、エラーを表現するためにカスタム型を使うことは、スタックトレースのような重大なエラー情報を失うことに繋がるかもしれません。
+**Otherwise:** When invoking some component, being uncertain which type of errors come in return – it makes proper error handling much harder. Even worse, using custom types to describe errors might lead to loss of critical error information like the stack trace!
 
-🔗 [**さらに読む: 組み込みのエラーオブジェクトのみを使用する**](/sections/errorhandling/useonlythebuiltinerror.japanese.md)
+🔗 [**Read More: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
 
 <br/><br/>
 
