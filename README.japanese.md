@@ -62,23 +62,23 @@
 
 # `1. プロジェクト構成のプラクティス`
 
-## ![✔] 1.1 Structure your solution by components
+## ![✔] 1.1 コンポーネントによりソリューションを構築する
 
-**TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its own folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
+**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の 'さらに読む' を参照してください。
 
-**Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependent components - deployments become slower and riskier. It's also considered harder to scale-out when all the business units are not separated
+**さもないと:** 新しい機能をコーディングする開発者が、自分の変更の影響を理解するのに苦労したり、他の依存するコンポーネントを壊すことを恐れたりすると、デプロイが遅くなり、リスクが高くなります。また、すべてのビジネスユニットが分離されていない場合、スケールアウトするのは難しいと考えられています。
 
-🔗 [**Read More: structure by components**](/sections/projectstructre/breakintcomponents.md)
+🔗 [**さらに読む: コンポーネントで構成する**](/sections/projectstructre/breakintcomponents.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.2 Layer your components, keep the web layer within its boundaries
+## ![✔] 1.2 コンポーネントを階層化し、その境界内にウェブレイヤーを維持する
 
-**TL;DR:** Each component should contain 'layers' - a dedicated object for the web, logic, and data access code. This not only draws a clean separation of concerns but also significantly eases mocking and testing the system. Though this is a very common pattern, API developers tend to mix layers by passing the web layer objects (e.g. Express req, res) to business logic and data layers - this makes your application dependent on and accessible only by specific web frameworks
+**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである 'レイヤー' を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API開発者はWebレイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定のWebフレームワークに依存してしまい、特定のWebフレームワークからしかアクセスできなくなってしまいます。
 
-**Otherwise:** App that mixes web objects with other layers cannot be accessed by testing code, CRON jobs, triggers from message queues, etc
+**さもないと:** Webオブジェクトと他のレイヤーが混在するアプリには、テストコードやCRONジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
 
-🔗 [**Read More: layer your app**](/sections/projectstructre/createlayers.md)
+🔗 [**さらに読む: アプリケーションを階層化する**](/sections/projectstructre/createlayers.japanese.md)
 
 <br/><br/>
 
@@ -126,13 +126,13 @@
 
 <br/><br/>
 
-## ![✔] 2.2 Use only the built-in Error object
+## ![✔] 2.2 組み込みのエラーオブジェクトのみを使用する
 
-**TL;DR:** Many throw errors as a string or as some custom type – this complicates the error handling logic and the interoperability between modules. Whether you reject a promise, throw an exception or emit an error – using only the built-in Error object (or an object that extends the built-in Error object) will increase uniformity and prevent loss of information
+**TL;DR:** 多くがエラーとして文字列やカスタム型を投げます - これはエラー処理ロジックとモジュール間の相互運用性を複雑にします。promise を reject したのか、例外を投げたのか、エラーを排出したのかに関わらず、組み込みのエラーオブジェクト（またはそれを拡張したオブジェクト）だけ使うことは一貫性を向上させ、情報の欠落を防ぎます。
 
-**Otherwise:** When invoking some component, being uncertain which type of errors come in return – it makes proper error handling much harder. Even worse, using custom types to describe errors might lead to loss of critical error information like the stack trace!
+**さもないと:** ある要素を呼び出したとき、どの型のエラーが返ってくるか不確かである - といった状況は、適切なエラー処理をより難しいものにします。さらに悪いことに、エラーを表現するためにカスタム型を使うことは、スタックトレースのような重大なエラー情報を失うことに繋がるかもしれません。
 
-🔗 [**Read More: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
+🔗 [**さらに読む: 組み込みのエラーオブジェクトのみを使用する**](/sections/errorhandling/useonlythebuiltinerror.japanese.md)
 
 <br/><br/>
 
