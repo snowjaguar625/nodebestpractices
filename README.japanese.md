@@ -64,7 +64,7 @@
 
 ## ![✔] 1.1 コンポーネントによりソリューションを構築する
 
-**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の 'さらに読む' を参照してください。
+**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の「さらに読む」を参照してください。
 
 **さもないと:** 新しい機能をコーディングする開発者が、自分の変更の影響を理解するのに苦労したり、他の依存するコンポーネントを壊すことを恐れたりすると、デプロイが遅くなり、リスクが高くなります。また、すべてのビジネスユニットが分離されていない場合、スケールアウトするのは難しいと考えられています。
 
@@ -74,31 +74,31 @@
 
 ## ![✔] 1.2 コンポーネントを階層化し、その境界内にウェブレイヤーを維持する
 
-**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである 'レイヤー' を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API開発者はWebレイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定のWebフレームワークに依存してしまい、特定のWebフレームワークからしかアクセスできなくなってしまいます。
+**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである「レイヤー」を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API 開発者は Web レイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定の Web フレームワークに依存してしまい、特定の Web フレームワークからしかアクセスできなくなってしまいます。
 
-**さもないと:** Webオブジェクトと他のレイヤーが混在するアプリには、テストコードやCRONジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
+**さもないと:** Web オブジェクトと他のレイヤーが混在するアプリには、テストコードや CRON ジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
 
 🔗 [**さらに読む: アプリケーションを階層化する**](/sections/projectstructre/createlayers.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as npm packages
+## ![✔] 1.3 一般的なユーティリティを npm パッケージとしてラップする
 
-**TL;DR:** In a large app that constitutes a large code base, cross-cutting-concern utilities like logger, encryption and alike, should be wrapped by your own code and exposed as private npm packages. This allows sharing them among multiple code bases and projects
+**TL;DR:** 大規模なコードベースで構成される大規模なアプリでは、logger や暗号化などの横断的に関心のあるユーティリティは、独自のコードでラップし、プライベートな npm パッケージとして公開する必要があります。これにより、複数のコードベースやプロジェクト間で共有することができます。
 
-**Otherwise:** You'll have to invent your own deployment and dependency wheel
+**さもないと:** デプロイと依存関係の車輪の作成をしなければいけなくなります
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
+🔗 [**さらに読む: 機能で構成する**](/sections/projectstructre/wraputilities.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.4 Separate Express 'app' and 'server'
+## ![✔] 1.4 Express の「アプリ」と「サーバー」を分離する
 
-**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
+**TL;DR:** [Express](https://expressjs.com/) のアプリ全体を単一の巨大なファイルで定義するという厄介な習慣を回避します。- 「Express」の定義を、API宣言( app.js )とネットワーク関連( WWW )の少なくとも2つのファイルに分離してください。より良い構造にするためには、API 宣言をコンポーネント内に配置してください。
 
-**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
+**さもないと:** API は HTTP 呼び出しのみでテストにアクセスできるようになります（カバレッジレポートを生成するのがより遅く、はるかに困難になります）。何百行ものコードを一つのファイルで管理するのは、おそらく大きな喜びではないでしょう。
 
-🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+🔗 [**さらに読む: Express の「アプリ」と「サーバー」を分離する**](/sections/projectstructre/separateexpress.japanese.md)
 
 <br/><br/>
 
@@ -136,13 +136,13 @@
 
 <br/><br/>
 
-## ![✔] 2.3 操作上のエラーとプログラマーのエラーを区別する
+## ![✔] 2.3 Distinguish operational vs programmer errors
 
-**TL;DR:** 操作上のエラー（例: API が無効な入力を受け取る）は、エラーの影響が十分に理解され、そして丁寧に処理される既知のエラーのことを指します。一方で、プログラマーのエラー（例: 未定義の変数を参照しようとする）は、アプリケーションをすぐさま再起動させる、未知のコードエラーのことを指します。
+**TL;DR:** Operational errors (e.g. API received an invalid input) refer to known cases where the error impact is fully understood and can be handled thoughtfully. On the other hand, programmer error (e.g. trying to read undefined variable) refers to unknown code failures that dictate to gracefully restart the application
 
-**さもないと:** エラーが発生したときに毎回アプリケーションを再起動しているかもしれませんが、さほど重要でない、予測可能な、操作上のエラーを原因としてなぜ ~5000 人規模のオンラインユーザーをダウンさせるのでしょうか？その逆もまた理想的ではありません ー 未知のエラー（プログラマーのエラー）が発生したときにアプリケーションをそのまま起動し続けることは、予想外の振る舞いに繋がるかもしれません。この２つを区別することで、機転の利いた振る舞いをさせ、与えられたコンテキストに基づいた適切なアプローチを適用させることができます。
+**Otherwise:** You may always restart the application when an error appears, but why let ~5000 online users down because of a minor, predicted, operational error? the opposite is also not ideal – keeping the application up when an unknown issue (programmer error) occurred might lead to an unpredicted behavior. Differentiating the two allows acting tactfully and applying a balanced approach based on the given context
 
-🔗 [**さらに読む: 操作上のエラーとプログラマーのエラーを区別する**](/sections/errorhandling/operationalvsprogrammererror.japanese.md)
+🔗 [**Read More: operational vs programmer error**](/sections/errorhandling/operationalvsprogrammererror.md)
 
 <br/><br/>
 
