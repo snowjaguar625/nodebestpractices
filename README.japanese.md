@@ -64,7 +64,7 @@
 
 ## ![✔] 1.1 コンポーネントによりソリューションを構築する
 
-**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の 'さらに読む' を参照してください。
+**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の「さらに読む」を参照してください。
 
 **さもないと:** 新しい機能をコーディングする開発者が、自分の変更の影響を理解するのに苦労したり、他の依存するコンポーネントを壊すことを恐れたりすると、デプロイが遅くなり、リスクが高くなります。また、すべてのビジネスユニットが分離されていない場合、スケールアウトするのは難しいと考えられています。
 
@@ -74,21 +74,21 @@
 
 ## ![✔] 1.2 コンポーネントを階層化し、その境界内にウェブレイヤーを維持する
 
-**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである 'レイヤー' を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API開発者はWebレイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定のWebフレームワークに依存してしまい、特定のWebフレームワークからしかアクセスできなくなってしまいます。
+**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである「レイヤー」を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API 開発者は Web レイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定の Web フレームワークに依存してしまい、特定の Web フレームワークからしかアクセスできなくなってしまいます。
 
-**さもないと:** Webオブジェクトと他のレイヤーが混在するアプリには、テストコードやCRONジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
+**さもないと:** Web オブジェクトと他のレイヤーが混在するアプリには、テストコードや CRON ジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
 
 🔗 [**さらに読む: アプリケーションを階層化する**](/sections/projectstructre/createlayers.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as npm packages
+## ![✔] 1.3 一般的なユーティリティを npm パッケージとしてラップする
 
-**TL;DR:** In a large app that constitutes a large code base, cross-cutting-concern utilities like logger, encryption and alike, should be wrapped by your own code and exposed as private npm packages. This allows sharing them among multiple code bases and projects
+**TL;DR:** 大規模なコードベースで構成される大規模なアプリでは、logger や暗号化などの横断的に関心のあるユーティリティは、独自のコードでラップし、プライベートな npm パッケージとして公開する必要があります。これにより、複数のコードベースやプロジェクト間で共有することができます。
 
-**Otherwise:** You'll have to invent your own deployment and dependency wheel
+**さもないと:** デプロイと依存関係の車輪の作成をしなければいけなくなります
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
+🔗 [**さらに読む: 機能で構成する**](/sections/projectstructre/wraputilities.japanese.md)
 
 <br/><br/>
 
@@ -146,13 +146,13 @@
 
 <br/><br/>
 
-## ![✔] 2.4 Handle errors centrally, not within a middleware
+## ![✔] 2.4 エラー処理を一元化し、ミドウェア内で処理をしない
 
-**TL;DR:** Error handling logic such as mail to admin and logging should be encapsulated in a dedicated and centralized object that all endpoints (e.g. Express middleware, cron jobs, unit-testing) call when an error comes in
+**TL;DR:** 管理者へのメールやロギングのようなエラー処理ロジックは、エラーが発生したときに全てのエンドポイント（Express ミドルウェア、cron ジョブ、ユニットテストなど）が呼び出す、エラー処理専用の一元化されたオブジェクトにカプセル化されているべきです。
 
-**Otherwise:** Not handling errors within a single place will lead to code duplication and probably to improperly handled errors
+**さもないと:** エラーを一箇所で処理しないと、コードの重複や、不適切に処理されたエラーの発生に繋がる可能性があります。
 
-🔗 [**Read More: handling errors in a centralized place**](/sections/errorhandling/centralizedhandling.md)
+🔗 [**さらに読む: エラー処理を一元化し、ミドウェア内で処理をしない**](/sections/errorhandling/centralizedhandling.japanese.md)
 
 <br/><br/>
 
