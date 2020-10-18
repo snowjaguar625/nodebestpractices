@@ -102,13 +102,13 @@
 
 <br/><br/>
 
-## ![✔] 1.5 Use environment aware, secure and hierarchical config
+## ![✔] 1.5 環境を意識したセキュアで階層的な設定を使用する
 
-**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are a few packages that can help tick most of those boxes like [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), and [convict](https://www.npmjs.com/package/convict).
+**TL;DR:** 完璧で欠陥のない設定を行うには、次のようなことが必要です。(a) キーはファイルまたは環境変数から読み込むことができる (b) 秘密情報はコミットされたコードの外側に保持されている (c) 設定が階層化されており、見つけやすくなっている [rc](https://www.npmjs.com/package/rc) や [nconf](https://www.npmjs.com/package/nconf)、 [config](https://www.npmjs.com/package/config)、[convict](https://www.npmjs.com/package/convict) など、これらのボックスのほとんどを満たすのに役立つパッケージがいくつかあります。
 
-**Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or devops team. Probably both
+**さもないと:** 設定要件のどれかを満たさないと、開発チームや DevOps チーム、おそらく両方ともの頭を悩ませてしまいます。
 
-🔗 [**Read More: configuration best practices**](/sections/projectstructre/configguide.md)
+🔗 [**さらに読む: 構成のベストプラクティス**](/sections/projectstructre/configguide.md)
 
 <br/><br/><br/>
 
@@ -166,23 +166,23 @@
 
 <br/><br/>
 
-## ![✔] 2.6 見ず知らずの事象が起きたら潔くプロセスを終了する
+## ![✔] 2.6 Exit the process gracefully when a stranger comes to town
 
-**TL;DR:** 未知のエラーが発生した場合（プログラマーのエラー、ベストプラクティス 2.3 参照）、アプリケーションの健全性に不確実さがあります。一般的に、[Forever](https://www.npmjs.com/package/forever) や [PM2](http://pm2.keymetrics.io/) のようなプロセス管理ツールを利用してプロセスを慎重に再起動することが推奨されています。
+**TL;DR:** When an unknown error occurs (a developer error, see best practice 2.3) - there is uncertainty about the application healthiness. A common practice suggests restarting the process carefully using a process management tool like [Forever](https://www.npmjs.com/package/forever) or [PM2](http://pm2.keymetrics.io/)
 
-**さもないと:** 不明な例外が発生した場合、一部のオブジェクトが不完全な状態（例えば、グローバルに使用されているイベントエミッタが内部的なエラーによりイベントを発火しなくなっている、など）になっている可能性があり、後に来るリクエストが失敗したり、予期せぬ挙動をしたりするかもしれません。
+**Otherwise:** When an unfamiliar exception occurs, some object might be in a faulty state (e.g. an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
 
-🔗 [**さらに読む: 見ず知らずの事象が起きたら潔くプロセスを終了する**](/sections/errorhandling/shuttingtheprocess.japanese.md)
+🔗 [**Read More: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
 
 <br/><br/>
 
-## ![✔] 2.7 エラーの可視性を高めるために成熟したロガーを使用する
+## ![✔] 2.7 Use a mature logger to increase error visibility
 
-**TL;DR:** [Pino](https://github.com/pinojs/pino) や [Log4js](https://www.npmjs.com/package/log4js) のような成熟したロギングツールは、エラーの発見と理解を加速します。ですから、console.log のことは忘れましょう。
+**TL;DR:** A set of mature logging tools like [Pino](https://github.com/pinojs/pino) or [Log4js](https://www.npmjs.com/package/log4js), will speed-up error discovery and understanding. So forget about console.log
 
-**さもないと:** console.log によるログに目を通したり、クエリツールやまともなログビューア無しで扱いにくいテキストファイルを手動で確認したりすると、遅くまで仕事をする羽目になるかもしれません。
+**Otherwise:** Skimming through console.logs or manually through messy text file without querying tools or a decent log viewer might keep you busy at work until late
 
-🔗 [**さらに読む: エラーの可視性を高めるために成熟したロガーを使用する**](/sections/errorhandling/usematurelogger.japanese.md)
+🔗 [**Read More: using a mature logger**](/sections/errorhandling/usematurelogger.md)
 
 <br/><br/>
 
