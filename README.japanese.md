@@ -92,13 +92,13 @@
 
 <br/><br/>
 
-## ![✔] 1.4 Separate Express 'app' and 'server'
+## ![✔] 1.4 Express の「アプリ」と「サーバー」を分離する
 
-**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
+**TL;DR:** [Express](https://expressjs.com/) のアプリ全体を単一の巨大なファイルで定義するという厄介な習慣を回避します。- 「Express」の定義を、API 宣言( app.js )とネットワーク関連( WWW )の少なくとも2つのファイルに分離してください。より良い構造にするためには、API 宣言をコンポーネント内に配置してください。
 
-**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
+**さもないと:** API は HTTP 呼び出しのみでテストにアクセスできるようになります（カバレッジレポートを生成するのがより遅く、はるかに困難になります）。何百行ものコードを一つのファイルで管理するのは、おそらく大きな喜びではないでしょう。
 
-🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+🔗 [**さらに読む: Express の「アプリ」と「サーバー」を分離する**](/sections/projectstructre/separateexpress.japanese.md)
 
 <br/><br/>
 
@@ -176,13 +176,13 @@
 
 <br/><br/>
 
-## ![✔] 2.7 Use a mature logger to increase error visibility
+## ![✔] 2.7 エラーの可視性を高めるために成熟したロガーを使用する
 
-**TL;DR:** A set of mature logging tools like [Pino](https://github.com/pinojs/pino) or [Log4js](https://www.npmjs.com/package/log4js), will speed-up error discovery and understanding. So forget about console.log
+**TL;DR:** [Pino](https://github.com/pinojs/pino) や [Log4js](https://www.npmjs.com/package/log4js) のような成熟したロギングツールは、エラーの発見と理解を加速します。ですから、console.log のことは忘れましょう。
 
-**Otherwise:** Skimming through console.logs or manually through messy text file without querying tools or a decent log viewer might keep you busy at work until late
+**さもないと:** console.log によるログに目を通したり、クエリツールやまともなログビューア無しで扱いにくいテキストファイルを手動で確認したりすると、遅くまで仕事をする羽目になるかもしれません。
 
-🔗 [**Read More: using a mature logger**](/sections/errorhandling/usematurelogger.md)
+🔗 [**さらに読む: エラーの可視性を高めるために成熟したロガーを使用する**](/sections/errorhandling/usematurelogger.japanese.md)
 
 <br/><br/>
 
