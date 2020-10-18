@@ -102,17 +102,17 @@
 
 <br/><br/>
 
-## ![✔] 1.5 Use environment aware, secure and hierarchical config
+## ![✔] 1.5 環境を意識したセキュアで階層的な設定を使用する
 
-**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are a few packages that can help tick most of those boxes like [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), and [convict](https://www.npmjs.com/package/convict).
+**TL;DR:** 完璧で欠陥のない設定を行うには、次のようなことが必要です。(a) キーはファイルまたは環境変数から読み込むことができる (b) 秘密情報はコミットされたコードの外側に保持されている (c) 設定が階層化されており、見つけやすくなっている [rc](https://www.npmjs.com/package/rc) や [nconf](https://www.npmjs.com/package/nconf)、 [config](https://www.npmjs.com/package/config)、[convict](https://www.npmjs.com/package/convict) など、これらのボックスのほとんどを満たすのに役立つパッケージがいくつかあります。
 
-**Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or devops team. Probably both
+**さもないと:** 設定要件のどれかを満たさないと、開発チームや DevOps チーム、おそらく両方ともの頭を悩ませてしまいます。
 
-🔗 [**Read More: configuration best practices**](/sections/projectstructre/configguide.md)
+🔗 [**さらに読む: 構成のベストプラクティス**](/sections/projectstructre/configguide.japanese.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
 # `2. エラーハンドリングのプラクティス`
 
@@ -230,13 +230,13 @@
 
 # `3. コードスタイルのプラクティス`
 
-## ![✔] 3.1 Use ESLint
+## ![✔] 3.1 ESLint を使う
 
-**TL;DR:** [ESLint](https://eslint.org) is the de-facto standard for checking possible code errors and fixing code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. Though ESLint can automatically fix code styles, other tools like [prettier](https://www.npmjs.com/package/prettier) and [beautify](https://www.npmjs.com/package/js-beautify) are more powerful in formatting the fix and work in conjunction with ESLint
+**TL;DR:** [ESLint](https://eslint.org) は、コードエラーの可能性をチェックし、コードスタイルを修正するためのデファクトスタンダードで、細かい間隔の問題を特定するだけでなく、開発者が分類せずにエラーを投げるような深刻なコードアンチパターンを検出することもできます。ESLint はコードスタイルを自動的に修正することができますが、[prettier](https://www.npmjs.com/package/prettier) や [beautify](https://www.npmjs.com/package/js-beautify) のような他のツールは、フィックスの書式設定をより強力にし、ESLint と連携して動作します。
 
-**Otherwise:** Developers will focus on tedious spacing and line-width concerns and time might be wasted overthinking the project's code style
+**さもないと:** 開発者は退屈な間隔や線幅の問題に集中し、プロジェクトのコードスタイルを考えすぎて時間を無駄にしてしまうかもしれません。
 
-🔗 [**Read More: Using ESLint and Prettier**](/sections/codestylepractices/eslint_prettier.md)
+🔗 [**さらに読む: ESLint と Prettier を使う**](/sections/codestylepractices/eslint_prettier.japanese.md)
 
 <br/><br/>
 
