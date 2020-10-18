@@ -92,13 +92,13 @@
 
 <br/><br/>
 
-## ![✔] 1.4 Express の「アプリ」と「サーバー」を分離する
+## ![✔] 1.4 Separate Express 'app' and 'server'
 
-**TL;DR:** [Express](https://expressjs.com/) のアプリ全体を単一の巨大なファイルで定義するという厄介な習慣を回避します。- 「Express」の定義を、API 宣言( app.js )とネットワーク関連( WWW )の少なくとも2つのファイルに分離してください。より良い構造にするためには、API 宣言をコンポーネント内に配置してください。
+**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
 
-**さもないと:** API は HTTP 呼び出しのみでテストにアクセスできるようになります（カバレッジレポートを生成するのがより遅く、はるかに困難になります）。何百行ものコードを一つのファイルで管理するのは、おそらく大きな喜びではないでしょう。
+**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
 
-🔗 [**さらに読む: Express の「アプリ」と「サーバー」を分離する**](/sections/projectstructre/separateexpress.japanese.md)
+🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
 
 <br/><br/>
 
@@ -166,13 +166,13 @@
 
 <br/><br/>
 
-## ![✔] 2.6 Exit the process gracefully when a stranger comes to town
+## ![✔] 2.6 見ず知らずの事象が起きたら潔くプロセスを終了する
 
-**TL;DR:** When an unknown error occurs (a developer error, see best practice 2.3) - there is uncertainty about the application healthiness. A common practice suggests restarting the process carefully using a process management tool like [Forever](https://www.npmjs.com/package/forever) or [PM2](http://pm2.keymetrics.io/)
+**TL;DR:** 未知のエラーが発生した場合（プログラマーのエラー、ベストプラクティス 2.3 参照）、アプリケーションの健全性に不確実さがあります。一般的に、[Forever](https://www.npmjs.com/package/forever) や [PM2](http://pm2.keymetrics.io/) のようなプロセス管理ツールを利用してプロセスを慎重に再起動することが推奨されています。
 
-**Otherwise:** When an unfamiliar exception occurs, some object might be in a faulty state (e.g. an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
+**さもないと:** 不明な例外が発生した場合、一部のオブジェクトが不完全な状態（例えば、グローバルに使用されているイベントエミッタが内部的なエラーによりイベントを発火しなくなっている、など）になっている可能性があり、後に来るリクエストが失敗したり、予期せぬ挙動をしたりするかもしれません。
 
-🔗 [**Read More: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
+🔗 [**さらに読む: 見ず知らずの事象が起きたら潔くプロセスを終了する**](/sections/errorhandling/shuttingtheprocess.japanese.md)
 
 <br/><br/>
 
