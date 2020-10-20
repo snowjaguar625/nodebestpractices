@@ -1,6 +1,6 @@
 [✔]: assets/images/checkbox-small-blue.png
 
-# Node.js Best Practices
+# Node.js ベストプラクティス
 
 <h1 align="center">
   <img src="assets/images/banner-2.jpg" alt="Node.js Best Practices">
@@ -14,195 +14,195 @@
 
 <br/>
 
-[![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Follow us on Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
+[![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **私たちの Twitter をフォローしましょう！** [**@nodepractices**](https://twitter.com/nodepractices/)
 
 
 <br/>
 
-Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** and ![TR](/assets/flags/TR.png)**TR** in progress!)](#translations)
+他の言語で読む: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** and ![TR](/assets/flags/TR.png)**TR** in progress!)](#translations)
 
 <br/>
 
-###### Built and maintained by our [Steering Committee](#steering-committee) and [Collaborators](#collaborators)
+###### [ステアリングコミッティー](#ステアリングコミッティー)と[コラボレーター](#コラボレーター)によって運営されています
 
-# Latest Best Practices and News
+# 最新のベストプラクティス・お知らせ
 
-- **:tada: Node.js best practices reached 50k stars**: Thank you to each and every contributor who helped turning this project into what it is today! We've got lots of plans for the time ahead, as we expand our ever-growing list of Node.js best practices even further.
+- **:tada: Node.js ベストプラクティスは 50k スターに到達しました**: このプロジェクトをこのようなものにしてくれた全てのコントリビューターに感謝申し上げます！ 私たちは、増え続ける Node.js のベストプラクティスリストをさらに拡大していくために、これから先たくさんの計画を画策しています。
 
-- **🎧 Podcast**: Yoni Goldberg from our team participated in the last JS Party Podcast (Very cool one!) episode to speak about Node.js best practices, [🎧 listen here](https://changelog.com/jsparty/139)
+- **🎧 ポッドキャスト**: 私たちのチームの Yoni Goldberg が、前回の JS Party Podcast（とってもクールなポッドキャストです！）のエピソードに出演して、Node.js ベストプラクティスについて話をしました。[🎧 ここから聞きましょう。](https://changelog.com/jsparty/139)
 
-- **:whale: Node.js + Docker best practices**: We've just release the Docker with Node.js section which includes 15 bullets about better coding techqniues with Docker
+- **:whale: Node.js + Docker ベストプラクティス**: Docker を用いたより良いコーディングテクニック 15 項目を含んだ、Docker と Node.js のセクションを新たに公開しました。
 
-- **🎤 A talk at OdessaJS**: We will speak about Node.js testing this week at the great [OdessaJS conference](https://odessajs.org/)
+- **🎤 OdessaJS でのトーク**: 今週、[OdessaJS conference](https://odessajs.org/) という素晴らしい舞台で、Node.js のテストについて話をします。
 
 <br/><br/>
 
-# Welcome! 3 Things You Ought To Know First
+# ようこそ！まず始めに知っておくべき 3 つのこと
 
-**1. You are, in fact, reading dozens of the best Node.js articles -** this repository is a summary and curation of the top-ranked content on Node.js best practices, as well as content written here by collaborators
+**1. 実際、あなたは何十もの Node.js の最高の記事を読んでいます -** このリポジトリは、Node.js のベストプラクティスに関するトップランクのコンテンツや、コラボレーターによって書かれたコンテンツをまとめたものです。
 
-**2. It is the largest compilation, and it is growing every week -** currently, more than 80 best practices, style guides, and architectural tips are presented. New issues and pull requests are created every day to keep this live book updated. We'd love to see you contributing here, whether that is fixing code mistakes, helping with translations, or suggesting brilliant new ideas. See our [writing guidelines here](/.operations/writing-guidelines.md)
+**2. 最大の集大成であり、毎週のように増え続けています -** 現在、80 以上のベストプラクティスやスタイルガイド、アーキテクチャのヒントが記載されています。この「生きた本」がアップデートされた状態を保つために、新しいイシューやプルリクエストは毎日のように作成されています。私たちは、コードの修正や翻訳作業、素晴らしい新たなアイデアの提案に至るまで、あなたの貢献を心待ちにしています。詳しくは[ライティングガイドライン](/.operations/writing-guidelines.japanese.md)をご覧ください。
 
-**3. Most best practices have additional info -** most bullets include a **🔗Read More** link that expands on the practice with code examples, quotes from selected blogs and more information
+**3. ほとんどのベストプラクティスには追加情報があります -** ほとんどの項目に **🔗Read More** というリンクがあります。このリンクは、コード例や厳選されたブログからの引用、その他多くの情報など、プラクティスを発展させる内容を含んでいます。
 
 <br/><br/>
 
 ## Table of Contents
 
-1. [Project Structure Practices (5)](#1-project-structure-practices)
-2. [Error Handling Practices (11) ](#2-error-handling-practices)
-3. [Code Style Practices (12) ](#3-code-style-practices)
-4. [Testing And Overall Quality Practices (13) ](#4-testing-and-overall-quality-practices)
-5. [Going To Production Practices (19) ](#5-going-to-production-practices)
-6. [Security Practices (25)](#6-security-best-practices)
-7. [Performance Practices (2) (Work In Progress️ ✍️)](#7-draft-performance-best-practices)
-8. [Docker Practices (15)](#8-docker-best-practices)
+1. [プロジェクト構成のプラクティス (5)](#1-プロジェクト構成のプラクティス)
+2. [エラーハンドリングのプラクティス (11) ](#2-エラーハンドリングのプラクティス)
+3. [コードスタイルのプラクティス (12) ](#3-コードスタイルのプラクティス)
+4. [テストと総合的な品質のプラクティス (13) ](#4-テストと総合的な品質のプラクティス)
+5. [本番環境移行のプラクティス (19) ](#5-本番環境移行のプラクティス)
+6. [セキュリティのプラクティス (25)](#6-セキュリティのプラクティス)
+7. [パフォーマンスのプラクティス (2) (進行中️ ✍️)](#7-draft-パフォーマンスのプラクティス)
+8. [Docker のプラクティス (15)](#8-docker-のプラクティス)
 
 <br/><br/>
 
-# `1. Project Structure Practices`
+# `1. プロジェクト構成のプラクティス`
 
-## ![✔] 1.1 Structure your solution by components
+## ![✔] 1.1 コンポーネントによりソリューションを構築する
 
-**TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its own folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
+**TL;DR:** 大規模アプリケーションの最悪の落とし穴は、何百もの依存関係を持つ巨大なコードベースを維持することです。- そのようなモノリスは、新しい機能を取り入れようとする開発者の速度を低下させます。その代わりに、コードをコンポーネントに分割し、それぞれが独自のフォルダや専用のコードベースを取得し、各ユニットが小さくシンプルに保たれていることを確認してください。正しいプロジェクト構造の例を見るには、以下の「さらに読む」を参照してください。
 
-**Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependent components - deployments become slower and riskier. It's also considered harder to scale-out when all the business units are not separated
+**さもないと:** 新しい機能をコーディングする開発者が、自分の変更の影響を理解するのに苦労したり、他の依存するコンポーネントを壊すことを恐れたりすると、デプロイが遅くなり、リスクが高くなります。また、すべてのビジネスユニットが分離されていない場合、スケールアウトするのは難しいと考えられています。
 
-🔗 [**Read More: structure by components**](/sections/projectstructre/breakintcomponents.md)
-
-<br/><br/>
-
-## ![✔] 1.2 Layer your components, keep the web layer within its boundaries
-
-**TL;DR:** Each component should contain 'layers' - a dedicated object for the web, logic, and data access code. This not only draws a clean separation of concerns but also significantly eases mocking and testing the system. Though this is a very common pattern, API developers tend to mix layers by passing the web layer objects (e.g. Express req, res) to business logic and data layers - this makes your application dependent on and accessible only by specific web frameworks
-
-**Otherwise:** App that mixes web objects with other layers cannot be accessed by testing code, CRON jobs, triggers from message queues, etc
-
-🔗 [**Read More: layer your app**](/sections/projectstructre/createlayers.md)
+🔗 [**さらに読む: コンポーネントで構成する**](/sections/projectstructre/breakintcomponents.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as npm packages
+## ![✔] 1.2 コンポーネントを階層化し、その境界内にウェブレイヤーを維持する
 
-**TL;DR:** In a large app that constitutes a large code base, cross-cutting-concern utilities like logger, encryption and alike, should be wrapped by your own code and exposed as private npm packages. This allows sharing them among multiple code bases and projects
+**TL;DR:** 各コンポーネントは、ウェブ、ロジック、データアクセスコードのための専用オブジェクトである「レイヤー」を含むべきです。これにより、懸念点がきれいに分離されるだけでなく、システムのモックやテストが大幅に楽になります。これは非常に一般的なパターンですが、API 開発者は Web レイヤーオブジェクト (例: Express req, res) をビジネスロジックとデータレイヤーに渡すことでレイヤーを混ぜる傾向があります - これにより、アプリケーションが特定の Web フレームワークに依存してしまい、特定の Web フレームワークからしかアクセスできなくなってしまいます。
 
-**Otherwise:** You'll have to invent your own deployment and dependency wheel
+**さもないと:** Web オブジェクトと他のレイヤーが混在するアプリには、テストコードや CRON ジョブ、メッセージキューからのトリガーなどからアクセスすることはできません。
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
-
-<br/><br/>
-
-## ![✔] 1.4 Separate Express 'app' and 'server'
-
-**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
-
-**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
-
-🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+🔗 [**さらに読む: アプリケーションを階層化する**](/sections/projectstructre/createlayers.japanese.md)
 
 <br/><br/>
 
-## ![✔] 1.5 Use environment aware, secure and hierarchical config
+## ![✔] 1.3 一般的なユーティリティを npm パッケージとしてラップする
 
-**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are a few packages that can help tick most of those boxes like [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), and [convict](https://www.npmjs.com/package/convict).
+**TL;DR:** 大規模なコードベースで構成される大規模なアプリでは、logger や暗号化などの横断的に関心のあるユーティリティは、独自のコードでラップし、プライベートな npm パッケージとして公開する必要があります。これにより、複数のコードベースやプロジェクト間で共有することができます。
 
-**Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or devops team. Probably both
+**さもないと:** デプロイと依存関係の車輪の作成をしなければいけなくなります
 
-🔗 [**Read More: configuration best practices**](/sections/projectstructre/configguide.md)
+🔗 [**さらに読む: 機能で構成する**](/sections/projectstructre/wraputilities.japanese.md)
+
+<br/><br/>
+
+## ![✔] 1.4 Express の「アプリ」と「サーバー」を分離する
+
+**TL;DR:** [Express](https://expressjs.com/) のアプリ全体を単一の巨大なファイルで定義するという厄介な習慣を回避します。- 「Express」の定義を、API 宣言( app.js )とネットワーク関連( WWW )の少なくとも2つのファイルに分離してください。より良い構造にするためには、API 宣言をコンポーネント内に配置してください。
+
+**さもないと:** API は HTTP 呼び出しのみでテストにアクセスできるようになります（カバレッジレポートを生成するのがより遅く、はるかに困難になります）。何百行ものコードを一つのファイルで管理するのは、おそらく大きな喜びではないでしょう。
+
+🔗 [**さらに読む: Express の「アプリ」と「サーバー」を分離する**](/sections/projectstructre/separateexpress.japanese.md)
+
+<br/><br/>
+
+## ![✔] 1.5 環境を意識したセキュアで階層的な設定を使用する
+
+**TL;DR:** 完璧で欠陥のない設定を行うには、次のようなことが必要です。(a) キーはファイルまたは環境変数から読み込むことができる (b) 秘密情報はコミットされたコードの外側に保持されている (c) 設定が階層化されており、見つけやすくなっている [rc](https://www.npmjs.com/package/rc) や [nconf](https://www.npmjs.com/package/nconf)、 [config](https://www.npmjs.com/package/config)、[convict](https://www.npmjs.com/package/convict) など、これらのボックスのほとんどを満たすのに役立つパッケージがいくつかあります。
+
+**さもないと:** 設定要件のどれかを満たさないと、開発チームや DevOps チーム、おそらく両方ともの頭を悩ませてしまいます。
+
+🔗 [**さらに読む: 構成のベストプラクティス**](/sections/projectstructre/configguide.japanese.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
-# `2. Error Handling Practices`
+# `2. エラーハンドリングのプラクティス`
 
-## ![✔] 2.1 Use Async-Await or promises for async error handling
+## ![✔] 2.1 非同期エラーハンドリングに Async-Await または promises を使う
 
-**TL;DR:** Handling async errors in callback style is probably the fastest way to hell (a.k.a the pyramid of doom). The best gift you can give to your code is using a reputable promise library or async-await instead which enables a much more compact and familiar code syntax like try-catch
+**TL;DR:** コールバックスタイルで非同期エラーを処理することは、おそらく地獄への最短経路でしょう（Pyramid of doom として知られています）。あなたができるコードへの最高の贈り物は、信頼できる promise ライブラリや async-await を使うことです。これらは、try-catch のような、よりコンパクトで親しみやすいコードシンタックスを可能にします。
 
-**Otherwise:** Node.js callback style, function(err, response), is a promising way to un-maintainable code due to the mix of error handling with casual code, excessive nesting, and awkward coding patterns
+**さもなければ:** Node.js のコールバックスタイル、つまり function(err, response) を利用することは、正常な処理を行うコードとエラーハンドリングの混同、過剰なネスト構造、そして厄介なコーディングパターンが原因となって、メンテナンス性の低いコードにつながります。
 
-🔗 [**Read More: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
-
-<br/><br/>
-
-## ![✔] 2.2 Use only the built-in Error object
-
-**TL;DR:** Many throw errors as a string or as some custom type – this complicates the error handling logic and the interoperability between modules. Whether you reject a promise, throw an exception or emit an error – using only the built-in Error object (or an object that extends the built-in Error object) will increase uniformity and prevent loss of information
-
-**Otherwise:** When invoking some component, being uncertain which type of errors come in return – it makes proper error handling much harder. Even worse, using custom types to describe errors might lead to loss of critical error information like the stack trace!
-
-🔗 [**Read More: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
+🔗 [**さらに読む: コールバック関数の利用を避ける**](/sections/errorhandling/asyncerrorhandling.japanese.md)
 
 <br/><br/>
 
-## ![✔] 2.3 Distinguish operational vs programmer errors
+## ![✔] 2.2 組み込みのエラーオブジェクトのみを使用する
 
-**TL;DR:** Operational errors (e.g. API received an invalid input) refer to known cases where the error impact is fully understood and can be handled thoughtfully. On the other hand, programmer error (e.g. trying to read undefined variable) refers to unknown code failures that dictate to gracefully restart the application
+**TL;DR:** 多くがエラーとして文字列やカスタム型を投げます - これはエラー処理ロジックとモジュール間の相互運用性を複雑にします。promise を reject したのか、例外を投げたのか、エラーを排出したのかに関わらず、組み込みのエラーオブジェクト（またはそれを拡張したオブジェクト）だけ使うことは一貫性を向上させ、情報の欠落を防ぎます。
 
-**Otherwise:** You may always restart the application when an error appears, but why let ~5000 online users down because of a minor, predicted, operational error? the opposite is also not ideal – keeping the application up when an unknown issue (programmer error) occurred might lead to an unpredicted behavior. Differentiating the two allows acting tactfully and applying a balanced approach based on the given context
+**さもないと:** ある要素を呼び出したとき、どの型のエラーが返ってくるか不確かである - といった状況は、適切なエラー処理をより難しいものにします。さらに悪いことに、エラーを表現するためにカスタム型を使うことは、スタックトレースのような重大なエラー情報を失うことに繋がるかもしれません。
 
-🔗 [**Read More: operational vs programmer error**](/sections/errorhandling/operationalvsprogrammererror.md)
-
-<br/><br/>
-
-## ![✔] 2.4 Handle errors centrally, not within a middleware
-
-**TL;DR:** Error handling logic such as mail to admin and logging should be encapsulated in a dedicated and centralized object that all endpoints (e.g. Express middleware, cron jobs, unit-testing) call when an error comes in
-
-**Otherwise:** Not handling errors within a single place will lead to code duplication and probably to improperly handled errors
-
-🔗 [**Read More: handling errors in a centralized place**](/sections/errorhandling/centralizedhandling.md)
+🔗 [**さらに読む: 組み込みのエラーオブジェクトのみを使用する**](/sections/errorhandling/useonlythebuiltinerror.japanese.md)
 
 <br/><br/>
 
-## ![✔] 2.5 Document API errors using Swagger or GraphQL
+## ![✔] 2.3 操作上のエラーとプログラマーのエラーを区別する
 
-**TL;DR:** Let your API callers know which errors might come in return so they can handle these thoughtfully without crashing. For RESTful APIs, this is usually done with documentation frameworks like Swagger. If you're using GraphQL, you can utilize your schema and comments as well.
+**TL;DR:** 操作上のエラー（例: API が無効な入力を受け取る）は、エラーの影響が十分に理解され、そして丁寧に処理される既知のエラーのことを指します。一方で、プログラマーのエラー（例: 未定義の変数を参照しようとする）は、アプリケーションをすぐさま再起動させる、未知のコードエラーのことを指します。
 
-**Otherwise:** An API client might decide to crash and restart only because it received back an error it couldn’t understand. Note: the caller of your API might be you (very typical in a microservice environment)
+**さもないと:** エラーが発生したときに毎回アプリケーションを再起動しているかもしれませんが、さほど重要でない、予測可能な、操作上のエラーを原因としてなぜ ~5000 人規模のオンラインユーザーをダウンさせるのでしょうか？その逆もまた理想的ではありません ー 未知のエラー（プログラマーのエラー）が発生したときにアプリケーションをそのまま起動し続けることは、予想外の振る舞いに繋がるかもしれません。この２つを区別することで、機転の利いた振る舞いをさせ、与えられたコンテキストに基づいた適切なアプローチを適用させることができます。
 
-🔗 [**Read More: documenting API errors in Swagger or GraphQL**](/sections/errorhandling/documentingusingswagger.md)
-
-<br/><br/>
-
-## ![✔] 2.6 Exit the process gracefully when a stranger comes to town
-
-**TL;DR:** When an unknown error occurs (a developer error, see best practice 2.3) - there is uncertainty about the application healthiness. A common practice suggests restarting the process carefully using a process management tool like [Forever](https://www.npmjs.com/package/forever) or [PM2](http://pm2.keymetrics.io/)
-
-**Otherwise:** When an unfamiliar exception occurs, some object might be in a faulty state (e.g. an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
-
-🔗 [**Read More: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
+🔗 [**さらに読む: 操作上のエラーとプログラマーのエラーを区別する**](/sections/errorhandling/operationalvsprogrammererror.japanese.md)
 
 <br/><br/>
 
-## ![✔] 2.7 Use a mature logger to increase error visibility
+## ![✔] 2.4 エラー処理を一元化し、ミドウェア内で処理をしない
 
-**TL;DR:** A set of mature logging tools like [Pino](https://github.com/pinojs/pino) or [Log4js](https://www.npmjs.com/package/log4js), will speed-up error discovery and understanding. So forget about console.log
+**TL;DR:** 管理者へのメールやロギングのようなエラー処理ロジックは、エラーが発生したときに全てのエンドポイント（Express ミドルウェア、cron ジョブ、ユニットテストなど）が呼び出す、エラー処理専用の一元化されたオブジェクトにカプセル化されているべきです。
 
-**Otherwise:** Skimming through console.logs or manually through messy text file without querying tools or a decent log viewer might keep you busy at work until late
+**さもないと:** エラーを一箇所で処理しないと、コードの重複や、不適切に処理されたエラーの発生に繋がる可能性があります。
 
-🔗 [**Read More: using a mature logger**](/sections/errorhandling/usematurelogger.md)
-
-<br/><br/>
-
-## ![✔] 2.8 Test error flows using your favorite test framework
-
-**TL;DR:** Whether professional automated QA or plain manual developer testing – Ensure that your code not only satisfies positive scenarios but also handles and returns the right errors. Testing frameworks like Mocha & Chai can handle this easily (see code examples within the "Gist popup")
-
-**Otherwise:** Without testing, whether automatically or manually, you can’t rely on your code to return the right errors. Without meaningful errors – there’s no error handling
-
-🔗 [**Read More: testing error flows**](/sections/errorhandling/testingerrorflows.md)
+🔗 [**さらに読む: エラー処理を一元化し、ミドウェア内で処理をしない**](/sections/errorhandling/centralizedhandling.japanese.md)
 
 <br/><br/>
 
-## ![✔] 2.9 Discover errors and downtime using APM products
+## ![✔] 2.5 Swagger または GraphQL を利用して API のエラーをドキュメント化する
 
-**TL;DR:** Monitoring and performance products (a.k.a APM) proactively gauge your codebase or API so they can automagically highlight errors, crashes and slow parts that you were missing
+**TL;DR:** API の呼び出し元に、どのようなエラーが返ってくるかを示しておくことで、クラッシュすることなく丁寧にエラー処理を行うことができます。RESTful API の場合、通常 Swagger のようなドキュメントフレームワークを使用します。GraphQL を使用している場合は、スキーマやコメントも利用できます。
 
-**Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which are your slowest code parts under real-world scenario and how these affect the UX
+**さもないと:** API クライアントがクラッシュして再起動するのは、不明なエラーを受け取ったからかもしれません。注意: API の呼び出し元はあなた自身かもしれません（マイクロサービス構成では非常によくあることです）
 
-🔗 [**Read More: using APM products**](/sections/errorhandling/apmproducts.md)
+🔗 [**さらに読む: Swagger または GraphQL を利用して API のエラーをドキュメント化する**](/sections/errorhandling/documentingusingswagger.japanese.md)
+
+<br/><br/>
+
+## ![✔] 2.6 見ず知らずの事象が起きたら潔くプロセスを終了する
+
+**TL;DR:** 未知のエラーが発生した場合（プログラマーのエラー、ベストプラクティス 2.3 参照）、アプリケーションの健全性に不確実さがあります。一般的に、[Forever](https://www.npmjs.com/package/forever) や [PM2](http://pm2.keymetrics.io/) のようなプロセス管理ツールを利用してプロセスを慎重に再起動することが推奨されています。
+
+**さもないと:** 不明な例外が発生した場合、一部のオブジェクトが不完全な状態（例えば、グローバルに使用されているイベントエミッタが内部的なエラーによりイベントを発火しなくなっている、など）になっている可能性があり、後に来るリクエストが失敗したり、予期せぬ挙動をしたりするかもしれません。
+
+🔗 [**さらに読む: 見ず知らずの事象が起きたら潔くプロセスを終了する**](/sections/errorhandling/shuttingtheprocess.japanese.md)
+
+<br/><br/>
+
+## ![✔] 2.7 エラーの可視性を高めるために成熟したロガーを使用する
+
+**TL;DR:** [Pino](https://github.com/pinojs/pino) や [Log4js](https://www.npmjs.com/package/log4js) のような成熟したロギングツールは、エラーの発見と理解を加速します。ですから、console.log のことは忘れましょう。
+
+**さもないと:** console.log によるログに目を通したり、クエリツールやまともなログビューア無しで扱いにくいテキストファイルを手動で確認したりすると、遅くまで仕事をする羽目になるかもしれません。
+
+🔗 [**さらに読む: エラーの可視性を高めるために成熟したロガーを使用する**](/sections/errorhandling/usematurelogger.japanese.md)
+
+<br/><br/>
+
+## ![✔] 2.8 お気に入りのテストフレームワークを使用してエラーフローをテストする
+
+**TL;DR:** プロ仕様の自動化された QA であろうと単純な手動の開発者によるテストであろうと、コードが正常系のシナリオを満たすだけでなく、正しくエラーを処理して返すことを保証してください。Mocha や Chai のようなテストフレームワークは、これを簡単に処理することができます。（「さらに読む」の例を参照）
+
+**さもないと:** 自動であっても手動であっても、テストがなければ、コードが正しいエラーを返すと信用することはできません。意味のあるエラーがなければ、エラー処理はできません。
+
+🔗 [**さらに読む: お気に入りのテストフレームワークを使用してエラーフローをテストする**](/sections/errorhandling/testingerrorflows.japanese.md)
+
+<br/><br/>
+
+## ![✔] 2.9 APM 製品を利用してエラーとダウンタイムを発見する
+
+**TL;DR:** モニタリング・パフォーマンス計測を行う製品（APM として知られています）は、コードベースや API をプロアクティブに計測し、見落としていたエラーやクラッシュ、処理の遅い部分を自動的にハイライトすることができます。
+
+**さもないと:** API のパフォーマンスとダウンタイムの計測に多大な労力を費やしているかもしれませんが、現実のシナリオにおいてどの部分のコードが最も遅いのか、そしてそれらがどのように UX に影響を及ぼしているのか、あなたが気づくことは恐らくないでしょう。
+
+🔗 [**さらに読む: APM 製品を利用してエラーとダウンタイムを発見する**](/sections/errorhandling/apmproducts.japanese.md)
 
 <br/><br/>
 
@@ -228,7 +228,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `3. Code Style Practices`
+# `3. コードスタイルのプラクティス`
 
 ## ![✔] 3.1 Use ESLint
 
@@ -436,7 +436,7 @@ All statements above will return false if used with `===`
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `4. Testing And Overall Quality Practices`
+# `4. テストと総合的な品質のプラクティス`
 
 ## ![✔] 4.1 At the very least, write API (component) testing
 
@@ -554,7 +554,7 @@ All statements above will return false if used with `===`
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `5. Going To Production Practices`
+# `5. 本番環境移行のプラクティス`
 
 ## ![✔] 5.1. Monitoring
 
@@ -746,7 +746,7 @@ All statements above will return false if used with `===`
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `6. Security Best Practices`
+# `6. セキュリティのプラクティス`
 
 <div align="center">
 <img src="https://img.shields.io/badge/OWASP%20Threats-Top%2010-green.svg" alt="54 items"/>
@@ -1048,7 +1048,7 @@ All statements above will return false if used with `===`
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `7. Draft: Performance Best Practices`
+# `7. Draft: パフォーマンスのプラクティス`
 
 ## Our contributors are working on this section. [Would you like to join?](https://github.com/goldbergyoni/nodebestpractices/issues/256)
 
@@ -1077,7 +1077,7 @@ Bear in mind that with the introduction of the new V8 engine alongside the new E
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `8. Docker Best Practices`
+# `8. Docker のプラクティス`
 
 🏅 Many thanks to [Bret Fisher](https://github.com/BretFisher) from whom we learned many of the following practices
 
@@ -1255,24 +1255,24 @@ In addition, referring to an image tag means that the base image is subject to c
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# Milestones
+# マイルストーン
 
-To maintain this guide and keep it up to date, we are constantly updating and improving the guidelines and best practices with the help of the community. You can follow our [milestones](https://github.com/goldbergyoni/nodebestpractices/milestones) and join the working groups if you want to contribute to this project
+このガイドを維持し最新に保つために、私たちはコミュニティの助けを借りながらガイドラインとベストプラクティスを常に更新、改良しています。このプロジェクトに貢献したい場合は、私たちの[マイルストーン](https://github.com/goldbergyoni/nodebestpractices/milestones)をチェックしたり、ワーキンググループに参加することができます。
 
 <br/>
 
-## Translations
+## 翻訳
 
-All translations are contributed by the community. We will be happy to get any help with either completed, ongoing or new translations!
+すべての翻訳はコミュニティによって支えられています。完成済みの翻訳、進行中の翻訳、または新たな翻訳のいずれにおいても、サポートを受けられたら幸いです！
 
-### Completed translations
+### 翻訳（完了済み）
 
 - ![BR](/assets/flags/BR.png) [Brazilian Portuguese](./README.brazilian-portuguese.md) - Courtesy of [Marcelo Melo](https://github.com/marcelosdm)
 - ![CN](/assets/flags/CN.png) [Chinese](./README.chinese.md) - Courtesy of [Matt Jin](https://github.com/mattjin)
 - ![RU](/assets/flags/RU.png) [Russian](./README.russian.md) - Courtesy of [Alex Ivanov](https://github.com/contributorpw)
 - ![PL](/assets/flags/PL.png) [Polish](./README.polish.md) - Courtesy of [Michal Biesiada](https://github.com/mbiesiad)
 
-### Translations in progress
+### 翻訳（進行中）
 
 - ![FR](/assets/flags/FR.png) [French](https://github.com/gaspaonrocks/nodebestpractices/blob/french-translation/README.french.md) ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/129))
 - ![HE](/assets/flags/HE.png) Hebrew ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/156))
@@ -1282,9 +1282,9 @@ All translations are contributed by the community. We will be happy to get any h
 
 <br/><br/>
 
-## Steering Committee
+## ステアリングコミッティー
 
-Meet the steering committee members - the people who work together to provide guidance and future direction to the project. In addition, each member of the committee leads a project tracked under our [Github projects](https://github.com/goldbergyoni/nodebestpractices/projects).
+ステアリングコミッティーのメンバーをご紹介します。このプロジェクトのガイダンスと将来の方向性を提供するために協力してくださっている方々です。さらに、コミッティーの各メンバーは、[Github プロジェクト](https://github.com/goldbergyoni/nodebestpractices/projects)で管理されているプロジェクトをリードしています。
 
 <img align="left" width="100" height="100" src="assets/images/members/yoni.png">
 
@@ -1292,7 +1292,7 @@ Meet the steering committee members - the people who work together to provide gu
 <a href="https://twitter.com/goldbergyoni"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
 <a href="https://goldbergyoni.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
 
-Independent Node.js consultant who works with customers in the USA, Europe, and Israel on building large-scale Node.js applications. Many of the best practices above were first published at [goldbergyoni.com](https://goldbergyoni.com). Reach Yoni at [@goldbergyoni](https://github.com/goldbergyoni) or [me@goldbergyoni.com](mailto:me@goldbergyoni.com)
+アメリカ、ヨーロッパ、イスラエルにおいて、大規模な Node.js アプリケーション開発をサポートするコンサルタント。上記の多くのベストプラクティスは当初 [goldbergyoni.com](https://goldbergyoni.com) で公開されました。Yoni への連絡は [@goldbergyoni](https://github.com/goldbergyoni) または [me@goldbergyoni.com](mailto:me@goldbergyoni.com) までお願いします。
 
 <br/>
 
@@ -1301,7 +1301,7 @@ Independent Node.js consultant who works with customers in the USA, Europe, and 
 [Bruno Scheufler](https://github.com/BrunoScheufler)
 <a href="https://brunoscheufler.com/"><img src="assets/images/www.png" width="16" height="16"></img></a>
 
-💻 full-stack web engineer, Node.js & GraphQL enthusiast
+💻 フルスタック web エンジニア、Node.js & GraphQL の熱狂的なファン
 
 <br/>
 
@@ -1311,7 +1311,7 @@ Independent Node.js consultant who works with customers in the USA, Europe, and 
 <a href="https://twitter.com/kylemartin_93"><img src="assets/images/twitter-s.png" width="16" height="16"></img></a>
 <a href="https://www.linkedin.com/in/kylemartinnz"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
 
-Full Stack Developer & Site Reliability Engineer based in New Zealand, interested in web application security, and architecting and building Node.js applications to perform at global scale.
+ニュージーランドを拠点とするフルスタックデベロッパー & サイトリライアビリティエンジニア。Web アプリケーションセキュリティや、グローバルスケールで稼働する Node.js アプリケーションの構築に関心があります。
 
 <br/>
 
@@ -1320,11 +1320,11 @@ Full Stack Developer & Site Reliability Engineer based in New Zealand, intereste
 [Kevyn Bruyere](https://github.com/kevynb)
 <a href="https://www.linkedin.com/in/kevynbruyere/"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
 
-Independent full-stack developer with a taste for Ops and automation.
+Ops や自動化に関心のあるフルスタックデベロッパー。
 
 <br/>
 
-### Steering Committee Emeriti
+### ステアリングコミッティー・エメリティ
 
 <img align="left" width="100" height="100" src="assets/images/members/sagir.png">
 
@@ -1333,21 +1333,21 @@ Independent full-stack developer with a taste for Ops and automation.
 <a href="https://linkedin.com/in/sagirk"><img src="assets/images/linkedin.png" width="16" height="16"></img></a>
 <a href="https://sagirk.com"><img src="assets/images/www.png" width="16" height="16"></img></a>
 
-Deep specialist in JavaScript and its ecosystem — React, Node.js, TypeScript, GraphQL, MongoDB, pretty much anything that involves JS/JSON in any layer of the system — building products using the web platform for the world’s most recognized brands. Individual Member of the Node.js Foundation.
+JavaScript とそのエコシステム（React、Node.js、TypeScript、GraphQL、MongoDBなど、システムのあらゆるレイヤーで JS/JSON が関係するものであるなら何でも）の専門家。世界で最も認知されているブランドのために Web プラットフォームを利用してプロダクトを構築しています。Node.js ファウンデーションの個人メンバー。
 
 <br/>
 
-## Collaborators
+## コラボレーター
 
-Thank you to all our collaborators! 🙏
+すべてのコラボレーターの方々に感謝いたします！ 🙏
 
-Our collaborators are members who are contributing to the repository on a regular basis, through suggesting new best practices, triaging issues, reviewing pull requests and more. If you are interested in helping us guide thousands of people to craft better Node.js applications, please read our [contributor guidelines](/.operations/CONTRIBUTING.md) 🎉
+私たちのコラボレーターは、新たなベストプラクティスの提案やイシューの優先順位付け、プルリクエストのレビューなどその他多くのことを通じて、定期的にこのリポジトリに貢献してくださっているメンバーの方々です。多くの人々がより良い Node.js アプリケーションを構築できるように導く私たちをサポートすることにもし興味があるのであれば、[貢献ガイドライン](/.operations/CONTRIBUTING.md)をお読み下さい🎉
 
 | <a href="https://github.com/idori" target="_blank"><img src="assets/images/members/ido.png" width="75" height="75"></a> | <a href="https://github.com/TheHollidayInn" target="_blank"><img src="assets/images/members/keith.png" width="75" height="75"></a> |
 | :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------: |
 |                                    [Ido Richter (Founder)](https://github.com/idori)                                    |                                        [Keith Holliday](https://github.com/TheHollidayInn)                                         |
 
-### Collaborator Emeriti
+### コラボレーター・エメリティ
 
 | <a href="https://github.com/refack" target="_blank"><img src="assets/images/members/refael.png" width="50" height="50"></a> |
 | :-------------------------------------------------------------------------------------------------------------------------: |
@@ -1355,12 +1355,12 @@ Our collaborators are members who are contributing to the repository on a regula
 
 <br/>
 
-## Contributing
-If you've ever wanted to contribute to open source, now is your chance! See the [contributing docs](.operations/CONTRIBUTING.md) for more information.
+## 貢献
+もしオープンソースに貢献したいと思ったことがあるのなら、いまがチャンスです！詳細は[貢献ドキュメント](.operations/CONTRIBUTING.md)を参照してください。
 
-## Contributors ✨
+## 貢献メンバー ✨
 
-Thanks goes to these wonderful people who have contributed to this repository!
+このリポジトリに貢献してくれた素晴らしい方々に感謝いたします。
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
