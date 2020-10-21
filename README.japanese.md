@@ -196,23 +196,23 @@
 
 <br/><br/>
 
-## ![✔] 2.9 APM 製品を利用してエラーとダウンタイムを発見する
+## ![✔] 2.9 Discover errors and downtime using APM products
 
-**TL;DR:** モニタリング・パフォーマンス計測を行う製品（APM として知られています）は、コードベースや API をプロアクティブに計測し、見落としていたエラーやクラッシュ、処理の遅い部分を自動的にハイライトすることができます。
+**TL;DR:** Monitoring and performance products (a.k.a APM) proactively gauge your codebase or API so they can automagically highlight errors, crashes and slow parts that you were missing
 
-**さもないと:** API のパフォーマンスとダウンタイムの計測に多大な労力を費やしているかもしれませんが、現実のシナリオにおいてどの部分のコードが最も遅いのか、そしてそれらがどのように UX に影響を及ぼしているのか、あなたが気づくことは恐らくないでしょう。
+**Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which are your slowest code parts under real-world scenario and how these affect the UX
 
-🔗 [**さらに読む: APM 製品を利用してエラーとダウンタイムを発見する**](/sections/errorhandling/apmproducts.japanese.md)
+🔗 [**Read More: using APM products**](/sections/errorhandling/apmproducts.md)
 
 <br/><br/>
 
-## ![✔] 2.10 未処理の reject された promise を捕捉する
+## ![✔] 2.10 Catch unhandled promise rejections
 
-**TL;DR:** promise の中で投げられた全ての例外は、開発者が明示的に処理を行うことを忘れていない限り、飲み込まれて破棄されます。たとえコードが `process.uncaughtException` をサブスクライブしていたとしてもです！`process.unhandledRejection` イベントに登録することで、この問題を乗り越えることができます。
+**TL;DR:** Any exception thrown within a promise will get swallowed and discarded unless a developer didn’t forget to explicitly handle. Even if your code is subscribed to `process.uncaughtException`! Overcome this by registering to the event `process.unhandledRejection`
 
-**さもないと:** あなたのエラーは飲み込まれて、何のトレースも残しません。心配することは、何も残りません。
+**Otherwise:** Your errors will get swallowed and leave no trace. Nothing to worry about
 
-🔗 [**さらに読む: 未処理の reject された promise を捕捉する**](/sections/errorhandling/catchunhandledpromiserejection.japanese.md)
+🔗 [**Read More: catching unhandled promise rejection**](/sections/errorhandling/catchunhandledpromiserejection.md)
 
 <br/><br/>
 
@@ -247,11 +247,11 @@
 **さもないと:** 多くの欠陥のある Node.js のコードパターンは、レーダーを逃れてしまうかもしれません。例えば、開発者は攻撃者が任意の JS スクリプトを実行できるように、パスとして与えられた変数を持つファイルを require(variableAsPath) しているかもしれません。Node.js の linters は、そのようなパターンを早期に検出して知らせてくれます。
 <br/><br/>
 
-## ![✔] 3.3 Start a Codeblock's Curly Braces on the Same Line
+## ![✔] 3.3 コードブロックの中括弧を同一行上でスタートさせる
 
-**TL;DR:** The opening curly braces of a code block should be on the same line as the opening statement
+**TL;DR:** コードブロックの冒頭の中括弧は、冒頭の文と同じ行でなければなりません。
 
-### Code Example
+### コード例
 
 ```javascript
 // Do
@@ -266,9 +266,9 @@ function someFunction()
 }
 ```
 
-**Otherwise:** Deferring from this best practice might lead to unexpected results, as seen in the StackOverflow thread below:
+**さもないと:** このベストプラクティスから逸脱すると、以下の StackOverflow スレッドにあるように、予期せぬ結果を招く可能性があります。:
 
-🔗 [**Read more:** "Why do results vary based on curly brace placement?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
+🔗 [**さらに読む:** "なぜ中括弧の配置によって結果が変わるのか?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
 
 <br/><br/>
 
