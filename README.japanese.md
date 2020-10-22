@@ -196,33 +196,33 @@
 
 <br/><br/>
 
-## ![✔] 2.9 Discover errors and downtime using APM products
+## ![✔] 2.9 APM 製品を利用してエラーとダウンタイムを発見する
 
-**TL;DR:** Monitoring and performance products (a.k.a APM) proactively gauge your codebase or API so they can automagically highlight errors, crashes and slow parts that you were missing
+**TL;DR:** モニタリング・パフォーマンス計測を行う製品（APM として知られています）は、コードベースや API をプロアクティブに計測し、見落としていたエラーやクラッシュ、処理の遅い部分を自動的にハイライトすることができます。
 
-**Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which are your slowest code parts under real-world scenario and how these affect the UX
+**さもないと:** API のパフォーマンスとダウンタイムの計測に多大な労力を費やしているかもしれませんが、現実のシナリオにおいてどの部分のコードが最も遅いのか、そしてそれらがどのように UX に影響を及ぼしているのか、あなたが気づくことは恐らくないでしょう。
 
-🔗 [**Read More: using APM products**](/sections/errorhandling/apmproducts.md)
-
-<br/><br/>
-
-## ![✔] 2.10 Catch unhandled promise rejections
-
-**TL;DR:** Any exception thrown within a promise will get swallowed and discarded unless a developer didn’t forget to explicitly handle. Even if your code is subscribed to `process.uncaughtException`! Overcome this by registering to the event `process.unhandledRejection`
-
-**Otherwise:** Your errors will get swallowed and leave no trace. Nothing to worry about
-
-🔗 [**Read More: catching unhandled promise rejection**](/sections/errorhandling/catchunhandledpromiserejection.md)
+🔗 [**さらに読む: APM 製品を利用してエラーとダウンタイムを発見する**](/sections/errorhandling/apmproducts.japanese.md)
 
 <br/><br/>
 
-## ![✔] 2.11 Fail fast, validate arguments using a dedicated library
+## ![✔] 2.10 未処理の reject された promise を捕捉する
 
-**TL;DR:** Assert API input to avoid nasty bugs that are much harder to track later. The validation code is usually tedious unless you are using a very cool helper library like [ajv](https://www.npmjs.com/package/ajv) and [Joi](https://www.npmjs.com/package/joi)
+**TL;DR:** promise の中で投げられた全ての例外は、開発者が明示的に処理を行うことを忘れていない限り、飲み込まれて破棄されます。たとえコードが `process.uncaughtException` をサブスクライブしていたとしてもです！`process.unhandledRejection` イベントに登録することで、この問題を乗り越えることができます。
 
-**Otherwise:** Consider this – your function expects a numeric argument “Discount” which the caller forgets to pass, later on, your code checks if Discount!=0 (amount of allowed discount is greater than zero), then it will allow the user to enjoy a discount. OMG, what a nasty bug. Can you see it?
+**さもないと:** あなたのエラーは飲み込まれて、何のトレースも残しません。心配することは、何も残りません。
 
-🔗 [**Read More: failing fast**](/sections/errorhandling/failfast.md)
+🔗 [**さらに読む: 未処理の reject された promise を捕捉する**](/sections/errorhandling/catchunhandledpromiserejection.japanese.md)
+
+<br/><br/>
+
+## ![✔] 2.11 専用のライブラリを利用して引数の検証を高速に行う
+
+**TL;DR:** API の入力をアサートすることで、後から追跡するのが非常に難しい厄介なバグを避けることができます。[ajv](https://www.npmjs.com/package/ajv) や [Joi](https://www.npmjs.com/package/joi) のような非常にクールなヘルパーライブラリを利用しない限り、バリデーションコードを書くことは一般的に退屈な作業です。
+
+**さもないと:** 考えてみて下さい ー 関数は数値の引数「Discount」を受け取ることを期待していますが、呼び出し元が値を渡すのを忘れてしまいました。その後、コードが Discount!=0 (許容されたディスカウントの量が 0 よりも大きいことを想定) であるということをチェックし、そのチェックをクリアした場合にユーザーがディスカウントを受けられるようにしました。オーマイガー、なんて厄介なバグなんでしょう。わかりますか？（訳注：「さらに読む」に具体的なコード例が載っています）
+
+🔗 [**さらに読む: 専用のライブラリを利用して引数の検証を高速に行う**](/sections/errorhandling/failfast.japanese.md)
 
 <br/><br/><br/>
 
@@ -247,11 +247,11 @@
 **さもないと:** 多くの欠陥のある Node.js のコードパターンは、レーダーを逃れてしまうかもしれません。例えば、開発者は攻撃者が任意の JS スクリプトを実行できるように、パスとして与えられた変数を持つファイルを require(variableAsPath) しているかもしれません。Node.js の linters は、そのようなパターンを早期に検出して知らせてくれます。
 <br/><br/>
 
-## ![✔] 3.3 コードブロックの中括弧を同一行上でスタートさせる
+## ![✔] 3.3 Start a Codeblock's Curly Braces on the Same Line
 
-**TL;DR:** コードブロックの冒頭の中括弧は、冒頭の文と同じ行でなければなりません。
+**TL;DR:** The opening curly braces of a code block should be on the same line as the opening statement
 
-### コード例
+### Code Example
 
 ```javascript
 // Do
@@ -266,9 +266,9 @@ function someFunction()
 }
 ```
 
-**さもないと:** このベストプラクティスから逸脱すると、以下の StackOverflow スレッドにあるように、予期せぬ結果を招く可能性があります。:
+**Otherwise:** Deferring from this best practice might lead to unexpected results, as seen in the StackOverflow thread below:
 
-🔗 [**さらに読む:** "なぜ中括弧の配置によって結果が変わるのか?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
+🔗 [**Read more:** "Why do results vary based on curly brace placement?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
 
 <br/><br/>
 
