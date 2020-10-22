@@ -226,7 +226,7 @@
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
 # `3. コードスタイルのプラクティス`
 
@@ -247,11 +247,11 @@
 **さもないと:** 多くの欠陥のある Node.js のコードパターンは、レーダーを逃れてしまうかもしれません。例えば、開発者は攻撃者が任意の JS スクリプトを実行できるように、パスとして与えられた変数を持つファイルを require(variableAsPath) しているかもしれません。Node.js の linters は、そのようなパターンを早期に検出して知らせてくれます。
 <br/><br/>
 
-## ![✔] 3.3 Start a Codeblock's Curly Braces on the Same Line
+## ![✔] 3.3 コードブロックの中括弧を同一行上でスタートさせる
 
-**TL;DR:** The opening curly braces of a code block should be on the same line as the opening statement
+**TL;DR:** コードブロックの冒頭の中括弧は、冒頭の文と同じ行でなければなりません。
 
-### Code Example
+### コード例
 
 ```javascript
 // Do
@@ -266,9 +266,9 @@ function someFunction()
 }
 ```
 
-**Otherwise:** Deferring from this best practice might lead to unexpected results, as seen in the StackOverflow thread below:
+**さもないと:** このベストプラクティスから逸脱すると、以下の StackOverflow スレッドにあるように、予期せぬ結果を招く可能性があります。:
 
-🔗 [**Read more:** "Why do results vary based on curly brace placement?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
+🔗 [**さらに読む:** "なぜ中括弧の配置によって結果が変わるのか?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
 
 <br/><br/>
 
@@ -437,11 +437,11 @@ All statements above will return false if used with `===`
 
 # `4. テストと総合的な品質のプラクティス`
 
-## ![✔] 4.1 At the very least, write API (component) testing
+## ![✔] 4.1 最低でも、API（コンポーネント）のテストを書く
 
-**TL;DR:** Most projects just don't have any automated testing due to short timetables or often the 'testing project' ran out of control and was abandoned. For that reason, prioritize and start with API testing which is the easiest way to write and provides more coverage than unit testing (you may even craft API tests without code using tools like [Postman](https://www.getpostman.com/). Afterward, should you have more resources and time, continue with advanced test types like unit testing, DB testing, performance testing, etc
+**TL;DR:** 多くのプロジェクトでは、短いタイムスケジュールが原因で自動化テストを行っていないか、または「テストプロジェクト」がコントロール不能となり廃れてしまうことがしばしばあります。そのため、優先度を決めて、書くのが最も容易であり、ユニットテストより多くのカバレッジを提供してくれる API テストから始めましょう（[Postman](https://www.getpostman.com/) のようなツールを利用して、コード無しで API テストを手作りすることもできます）。その後、リソースや時間に余裕が出てきたら、ユニットテストや DB テスト、パフォーマンステストといった発展的なタイプのテストを実施してください。
 
-**Otherwise:** You may spend long days on writing unit tests to find out that you got only 20% system coverage
+**さもないと:** ユニットテストを書くことに長時間費やしても、システムカバレッジが 20% しかないことに気づくかもしれません。
 
 <br/><br/>
 
