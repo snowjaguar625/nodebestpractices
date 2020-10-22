@@ -1,14 +1,14 @@
-# 専用のライブラリを利用して引数の検証を高速に行う
+# Fail fast, validate arguments using a dedicated library
 
-### 一段落説明
+### One Paragraph Explainer
 
-隠れたバグを避けるためには、引数をチェックすること、そして高速に失敗することが重要であると誰もが知っています（下記のアンチパターンコード例を参照）。もし知らないのであれば、明示的プログラミングと防御的プログラミングについて読んでみてください。実際には、コーディングをするのが面倒なので避けがちですが（例えば、メールアドレスや日時のようなフィールドを持つ階層的な JSON オブジェクトの検証をすることを考えてみてください）、Joi や Validator のようなライブラリはこの面倒なタスクを簡単にしてくれます。
+We all know how checking arguments and failing fast is important to avoid hidden bugs (see anti-pattern code example below). If not, read about explicit programming and defensive programming. In reality, we tend to avoid it due to the annoyance of coding it (e.g. think of validating hierarchical JSON object with fields like email and dates) – libraries like Joi and Validator turn this tedious task into a breeze.
 
-### ウィキペディア「防御的プログラミング」
+### Wikipedia: Defensive Programming
 
-防御的プログラミング（Defensive programming）は、ソフトウェアのバグや問題の数を減少させるという一般的な品質の観点において、ソフトウェアやソースコードを改善するためのアプローチです。ソースコードを理解しやすいものにすること ー コード監査で承認されるように、ソースコードは可読性が高く、わかりやすいものであるべきです。想定外の入力やユーザーアクションに対しても、ソフトウェアに予測可能な挙動をさせるべきです。
+Defensive programming is an approach to improve software and source code, in terms of General quality – reducing the number of software bugs and problems. Making the source code comprehensible – the source code should be readable and understandable so it is approved in a code audit. Making the software behave in a predictable manner despite unexpected inputs or user actions.
 
-### コード例: 「Joi」を利用して複雑な JSON 形式の入力を検証する
+### Code example: validating complex JSON input using ‘Joi’
 
 ```javascript
 var memberSchema = Joi.object().keys({
@@ -18,21 +18,21 @@ var memberSchema = Joi.object().keys({
 });
 
 function addNewMember(newMember) {
- // アサーションがまず最初に来る
- Joi.assert(newMember, memberSchema); // もし検証が失敗したら例外を投げます
- // その他のロジックがここに来ます
+ // assertions come first
+ Joi.assert(newMember, memberSchema); //throws if validation fails
+ // other logic here
 }
 ```
 
 
 
-### アンチパターン: 検証をしないと厄介なバグが発生する
+### Anti-pattern: no validation yields nasty bugs
 
 <details>
 <summary><strong>Javascript</strong></summary>
 
 ```javascript
-// もし discount が正の値なら、ユーザーを割引クーポンを発行するためにユーザーをリダイレクトさせましょう
+// if the discount is positive let's then redirect the user to print his discount coupons
 function redirectToPrintDiscount(httpResponse, member, discount) {
     if (discount != 0) {
         httpResponse.redirect(`/discountPrintView/${member.id}`);
@@ -40,7 +40,7 @@ function redirectToPrintDiscount(httpResponse, member, discount) {
 }
 
 redirectToPrintDiscount(httpResponse, someMember);
-// discount パラメータを渡すのを忘れてしまいました。一体なぜユーザーは割引クーポン発行画面へリダイレクトされたのでしょうか？
+// forgot to pass the parameter discount, why the heck was the user redirected to the discount screen?
 ```
 </details>
 
@@ -48,7 +48,7 @@ redirectToPrintDiscount(httpResponse, someMember);
 <summary><strong>Typescript</strong></summary>
 
 ```typescript
-// もし discount が正の値なら、ユーザーを割引クーポンを発行するためにユーザーをリダイレクトさせましょう
+// if the discount is positive let's then redirect the user to print his discount coupons
 function redirectToPrintDiscount(httpResponse: Response, member: Member, discount: number) {
   if (discount != 0) {
     httpResponse.redirect(`/discountPrintView/${member.id}`);
@@ -56,12 +56,12 @@ function redirectToPrintDiscount(httpResponse: Response, member: Member, discoun
 }
 
 redirectToPrintDiscount(httpResponse, someMember, -12);
-// discount パラメータとして負の値を渡しました。一体なぜユーザーは割引クーポン発行画面へリダイレクトされたのでしょうか？
+// We passed a negative parameter discount, why the heck was the user redirected to the discount screen?
 ```
 </details>
 
-### ブログ引用: "You should throw these errors immediately"（エラーは直ちに投げるべきです）
+### Blog Quote: "You should throw these errors immediately"
 
-ブログ Joyentより
+ From the blog: Joyent
 
-> 悪化したケースとして、非同期関数を呼び出したもののコールバックを渡さなかった場合があります。プログラムは壊れていますし、デバッグに最適なのは少なくともスタックトレースを取得、理想的にはエラーが発生した地点のコアファイルを取得することなので、このようなエラーは直ちに投げるべきです。これを行うために、関数の開始時にすべての引数の型を検証することをおすすめします。
+ > A degenerate case is where someone calls an asynchronous function but doesn’t pass a callback. You should throw these errors immediately since the program is broken and the best chance of debugging it involves getting at least a stack trace and ideally a core file at the point of the error. To do this, we recommend validating the types of all arguments at the start of the function.

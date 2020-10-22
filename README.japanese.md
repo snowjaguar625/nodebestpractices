@@ -216,17 +216,17 @@
 
 <br/><br/>
 
-## ![✔] 2.11 専用のライブラリを利用して引数の検証を高速に行う
+## ![✔] 2.11 Fail fast, validate arguments using a dedicated library
 
-**TL;DR:** API の入力をアサートすることで、後から追跡するのが非常に難しい厄介なバグを避けることができます。[ajv](https://www.npmjs.com/package/ajv) や [Joi](https://www.npmjs.com/package/joi) のような非常にクールなヘルパーライブラリを利用しない限り、バリデーションコードを書くことは一般的に退屈な作業です。
+**TL;DR:** Assert API input to avoid nasty bugs that are much harder to track later. The validation code is usually tedious unless you are using a very cool helper library like [ajv](https://www.npmjs.com/package/ajv) and [Joi](https://www.npmjs.com/package/joi)
 
-**さもないと:** 考えてみて下さい ー 関数は数値の引数「Discount」を受け取ることを期待していますが、呼び出し元が値を渡すのを忘れてしまいました。その後、コードが Discount!=0 (許容されたディスカウントの量が 0 よりも大きいことを想定) であるということをチェックし、そのチェックをクリアした場合にユーザーがディスカウントを受けられるようにしました。オーマイガー、なんて厄介なバグなんでしょう。わかりますか？（訳注：「さらに読む」に具体的なコード例が載っています）
+**Otherwise:** Consider this – your function expects a numeric argument “Discount” which the caller forgets to pass, later on, your code checks if Discount!=0 (amount of allowed discount is greater than zero), then it will allow the user to enjoy a discount. OMG, what a nasty bug. Can you see it?
 
-🔗 [**さらに読む: 専用のライブラリを利用して引数の検証を高速に行う**](/sections/errorhandling/failfast.japanese.md)
+🔗 [**Read More: failing fast**](/sections/errorhandling/failfast.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
+<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
 # `3. コードスタイルのプラクティス`
 
@@ -272,30 +272,30 @@ function someFunction()
 
 <br/><br/>
 
-## ![✔] 3.4 Separate your statements properly
+## ![✔] 3.4 ステートメントを適切に区切る
 
-No matter if you use semicolons or not to separate your statements, knowing the common pitfalls of improper linebreaks or automatic semicolon insertion, will help you to eliminate regular syntax errors.
+ステートメントを区切るためにセミコロンを使うか使わないかに関わらず、不適切な改行や自動セミコロン挿入のよくある落とし穴を知っておくことで、通常の構文エラーをなくすことができます。
 
-**TL;DR:** Use ESLint to gain awareness about separation concerns. [Prettier](https://prettier.io/) or [Standardjs](https://standardjs.com/) can automatically resolve these issues.
+**TL;DR:** ESLint を使用して、分離の懸念についての認識する。 [Prettier](https://prettier.io/) や [Standardjs](https://standardjs.com/) は、これらの問題を自動的に解決することができます。
 
-**Otherwise:** As seen in the previous section, JavaScript's interpreter automatically adds a semicolon at the end of a statement if there isn't one, or considers a statement as not ended where it should, which might lead to some undesired results. You can use assignments and avoid using immediate invoked function expressions to prevent most of unexpected errors.
+**さもないと:** 前のセクションで見たように、JavaScript のインタープリタは、セミコロンがない場合は自動的に文の最後にセミコロンを追加したり、ステートメントが本来あるべき場所で終わっていないとみなしたりすることで、望まない結果になってしまう可能性があります。代入を使用し、即時に呼び出された関数式の使用を避けることで、予期せぬエラーのほとんどを防ぐことができます。
 
-### Code example
+### コード例
 
 ```javascript
-// Do
+// する
 function doThing() {
     // ...
 }
 
 doThing()
 
-// Do
+// する
 
 const items = [1, 2, 3]
 items.forEach(console.log)
 
-// Avoid — throws exception
+// 避ける — 例外を投げる
 const m = new Map()
 const a = [1,2,3]
 [...m.values()].forEach(console.log)
@@ -303,16 +303,16 @@ const a = [1,2,3]
 >  ^^^
 > SyntaxError: Unexpected token ...
 
-// Avoid — throws exception
-const count = 2 // it tries to run 2(), but 2 is not a function
+// 避ける — 例外を投げる
+const count = 2 // 2() を実行しようとしますが、2 は関数ではありません
 (function doSomething() {
-  // do something amazing
+  // 凄いことをする
 }())
-// put a semicolon before the immediate invoked function, after the const definition, save the return value of the anonymous function to a variable or avoid IIFEs alltogether
+// 直ちに呼び出された関数の前、const 定義の後にセミコロンを置く、匿名関数の戻り値を変数に保存する、あるいは IIFE を完全に回避する
 ```
 
-🔗 [**Read more:** "Semi ESLint rule"](https://eslint.org/docs/rules/semi)
-🔗 [**Read more:** "No unexpected multiline ESLint rule"](https://eslint.org/docs/rules/no-unexpected-multiline)
+🔗 [**さらに読む:** "準 ESLint ルール"](https://eslint.org/docs/rules/semi)
+🔗 [**さらに読む:** "予期せぬ複数行の ESLint ルールがない"](https://eslint.org/docs/rules/no-unexpected-multiline)
 
 <br/><br/>
 
@@ -437,11 +437,11 @@ All statements above will return false if used with `===`
 
 # `4. テストと総合的な品質のプラクティス`
 
-## ![✔] 4.1 最低でも、API（コンポーネント）のテストを書く
+## ![✔] 4.1 At the very least, write API (component) testing
 
-**TL;DR:** 多くのプロジェクトでは、短いタイムスケジュールが原因で自動化テストを行っていないか、または「テストプロジェクト」がコントロール不能となり廃れてしまうことがしばしばあります。そのため、優先度を決めて、書くのが最も容易であり、ユニットテストより多くのカバレッジを提供してくれる API テストから始めましょう（[Postman](https://www.getpostman.com/) のようなツールを利用して、コード無しで API テストを手作りすることもできます）。その後、リソースや時間に余裕が出てきたら、ユニットテストや DB テスト、パフォーマンステストといった発展的なタイプのテストを実施してください。
+**TL;DR:** Most projects just don't have any automated testing due to short timetables or often the 'testing project' ran out of control and was abandoned. For that reason, prioritize and start with API testing which is the easiest way to write and provides more coverage than unit testing (you may even craft API tests without code using tools like [Postman](https://www.getpostman.com/). Afterward, should you have more resources and time, continue with advanced test types like unit testing, DB testing, performance testing, etc
 
-**さもないと:** ユニットテストを書くことに長時間費やしても、システムカバレッジが 20% しかないことに気づくかもしれません。
+**Otherwise:** You may spend long days on writing unit tests to find out that you got only 20% system coverage
 
 <br/><br/>
 
