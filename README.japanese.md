@@ -216,17 +216,17 @@
 
 <br/><br/>
 
-## ![✔] 2.11 Fail fast, validate arguments using a dedicated library
+## ![✔] 2.11 専用のライブラリを利用して引数の検証を高速に行う
 
-**TL;DR:** Assert API input to avoid nasty bugs that are much harder to track later. The validation code is usually tedious unless you are using a very cool helper library like [ajv](https://www.npmjs.com/package/ajv) and [Joi](https://www.npmjs.com/package/joi)
+**TL;DR:** API の入力をアサートすることで、後から追跡するのが非常に難しい厄介なバグを避けることができます。[ajv](https://www.npmjs.com/package/ajv) や [Joi](https://www.npmjs.com/package/joi) のような非常にクールなヘルパーライブラリを利用しない限り、バリデーションコードを書くことは一般的に退屈な作業です。
 
-**Otherwise:** Consider this – your function expects a numeric argument “Discount” which the caller forgets to pass, later on, your code checks if Discount!=0 (amount of allowed discount is greater than zero), then it will allow the user to enjoy a discount. OMG, what a nasty bug. Can you see it?
+**さもないと:** 考えてみて下さい ー 関数は数値の引数「Discount」を受け取ることを期待していますが、呼び出し元が値を渡すのを忘れてしまいました。その後、コードが Discount!=0 (許容されたディスカウントの量が 0 よりも大きいことを想定) であるということをチェックし、そのチェックをクリアした場合にユーザーがディスカウントを受けられるようにしました。オーマイガー、なんて厄介なバグなんでしょう。わかりますか？（訳注：「さらに読む」に具体的なコード例が載っています）
 
-🔗 [**Read More: failing fast**](/sections/errorhandling/failfast.md)
+🔗 [**さらに読む: 専用のライブラリを利用して引数の検証を高速に行う**](/sections/errorhandling/failfast.japanese.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
 # `3. コードスタイルのプラクティス`
 
@@ -316,11 +316,11 @@ const count = 2 // 2() を実行しようとしますが、2 は関数ではあ�
 
 <br/><br/>
 
-## ![✔] 3.5 Name your functions
+## ![✔] 3.5 関数に名前を付ける
 
-**TL;DR:** Name all functions, including closures and callbacks. Avoid anonymous functions. This is especially useful when profiling a node app. Naming all functions will allow you to easily understand what you're looking at when checking a memory snapshot
+**TL;DR:** クロージャやコールバックを含むすべての関数に名前を付けます。匿名関数は避けてください。これは特に node アプリをプロファイリングするときに便利です。すべての関数に名前を付けることで、メモリスナップショットをチェックする際に何を見ているのかを簡単に理解することができます。
 
-**Otherwise:** Debugging production issues using a core dump (memory snapshot) might become challenging as you notice significant memory consumption from anonymous functions
+**さもないと:** コアダンプ(メモリスナップショット)を使用した本番環境の問題のデバッグは、匿名関数からのメモリ消費が大きいことに気づくと、困難になるかもしれません。
 
 <br/><br/>
 
@@ -437,11 +437,11 @@ All statements above will return false if used with `===`
 
 # `4. テストと総合的な品質のプラクティス`
 
-## ![✔] 4.1 At the very least, write API (component) testing
+## ![✔] 4.1 最低でも、API（コンポーネント）のテストを書く
 
-**TL;DR:** Most projects just don't have any automated testing due to short timetables or often the 'testing project' ran out of control and was abandoned. For that reason, prioritize and start with API testing which is the easiest way to write and provides more coverage than unit testing (you may even craft API tests without code using tools like [Postman](https://www.getpostman.com/). Afterward, should you have more resources and time, continue with advanced test types like unit testing, DB testing, performance testing, etc
+**TL;DR:** 多くのプロジェクトでは、短いタイムスケジュールが原因で自動化テストを行っていないか、または「テストプロジェクト」がコントロール不能となり廃れてしまうことがしばしばあります。そのため、優先度を決めて、書くのが最も容易であり、ユニットテストより多くのカバレッジを提供してくれる API テストから始めましょう（[Postman](https://www.getpostman.com/) のようなツールを利用して、コード無しで API テストを手作りすることもできます）。その後、リソースや時間に余裕が出てきたら、ユニットテストや DB テスト、パフォーマンステストといった発展的なタイプのテストを実施してください。
 
-**Otherwise:** You may spend long days on writing unit tests to find out that you got only 20% system coverage
+**さもないと:** ユニットテストを書くことに長時間費やしても、システムカバレッジが 20% しかないことに気づくかもしれません。
 
 <br/><br/>
 
