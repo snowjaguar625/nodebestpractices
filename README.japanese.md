@@ -348,13 +348,13 @@ function doSomething() {}
 
 <br/><br/>
 
-## ![✔] 3.7 Prefer const over let. Ditch the var
+## ![✔] 3.7 let よりも const を優先してください。var はいりません。
 
-**TL;DR:** Using `const` means that once a variable is assigned, it cannot be reassigned. Preferring `const` will help you to not be tempted to use the same variable for different uses, and make your code clearer. If a variable needs to be reassigned, in a for loop, for example, use `let` to declare it. Another important aspect of `let` is that a variable declared using it is only available in the block scope in which it was defined. `var` is function scoped, not block scoped, and [shouldn't be used in ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) now that you have `const` and `let` at your disposal
+**TL;DR:** `const` を使うということは、一度代入された変数は再代入できないということを意味します。`const` を優先することで、同じ変数を異なる用途に使いたくなることを防ぎ、コードをより明確にすることができます。 例えば、for ループの中で変数を再割り当てする必要がある場合は、`let` を使って宣言します。もう一つの重要な点は、`let` を使って宣言された変数は、それが定義されたブロックスコープ内でのみ利用可能であるということです。`var` はブロックスコープではなく関数スコープであり、[ES6では使うべきではない](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) ので、`const` と `let` がある以上必要ありません。
 
-**Otherwise:** Debugging becomes way more cumbersome when following a variable that frequently changes
+**さもないと:** 頻繁に変化する変数に従うと、デバッグが非常に面倒になります。
 
-🔗 [**Read more: JavaScript ES6+: var, let, or const?** ](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75)
+🔗 [**さらに読む: JavaScript ES6+: var、let、それとも const ?** ](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75)
 
 <br/><br/>
 
@@ -445,31 +445,31 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.2 Include 3 parts in each test name
+## ![✔] 4.2 各テスト名に 3 つの要素を含む
 
-**TL;DR:** Make the test speak at the requirements level so it's self explanatory also to QA engineers and developers who are not familiar with the code internals. State in the test name what is being tested (unit under test), under what circumstances and what is the expected result
+**TL;DR:** テストを要件レベルを表現することで、コード内部をよく知らない QA エンジニアや開発者に対しても説明的であるようにしてください。テスト名には、何がテストされていて（テスト対象のユニット）、どのような状況で、どのような結果が期待されているのかを記述してください。
 
-**Otherwise:** A deployment just failed, a test named “Add product” failed. Does this tell you what exactly is malfunctioning?
+**さもないと:** "Add product" という名付けられたテストが通らず、デプロイが失敗しました。これは、実際に何がうまく動作しなかったのかを示しているでしょうか？
 
-🔗 [**Read More: Include 3 parts in each test name**](/sections/testingandquality/3-parts-in-name.md)
-
-<br/><br/>
-
-## ![✔] 4.3 Structure tests by the AAA pattern
-
-**TL;DR:** Structure your tests with 3 well-separated sections: Arrange, Act & Assert (AAA). The first part includes the test setup, then the execution of the unit under test and finally the assertion phase. Following this structure guarantees that the reader spends no brain CPU on understanding the test plan
-
-**Otherwise:** Not only you spend long daily hours on understanding the main code, now also what should have been the simple part of the day (testing) stretches your brain
-
-🔗 [**Read More: Structure tests by the AAA pattern**](/sections/testingandquality/aaa.md)
+🔗 [**さらに読む: 各テスト名に 3 つの要素を含む**](/sections/testingandquality/3-parts-in-name.japanese.md)
 
 <br/><br/>
 
-## ![✔] 4.4 Detect code issues with a linter
+## ![✔] 4.3 AAA パターンを用いてテストを構成する
 
-**TL;DR:** Use a code linter to check basic quality and detect anti-patterns early. Run it before any test and add it as a pre-commit git-hook to minimize the time needed to review and correct any issue. Also check [Section 3](#3-code-style-practices) on Code Style Practices
+**TL;DR:** 上手に分けられた 3 つのセクションを利用してテストを構成してください: Arrange、Act、そして Assert (AAA) です。まず最初の部分でテストのセットアップを行い、次にテスト対象のユニットの実行、そして最後にアサーションフェーズに入ります。この構造に従うことで、コードを読む人がテストプランを理解するために頭脳の CPU を費やさないことが保証されます。
 
-**Otherwise:** You may let pass some anti-pattern and possible vulnerable code to your production environment.
+**さもないと:** メインコードを理解するのに長時間費やすだけでなく、今までシンプルな部分であったはずのもの（テスト）が、脳のリソースを奪います。
+
+🔗 [**さらに読む: AAA パターンを用いてテストを構成する**](/sections/testingandquality/aaa.japanese.md)
+
+<br/><br/>
+
+## ![✔] 4.4 Linter を用いてコードの問題を検出する
+
+**TL;DR:** Linter を使用して、コードの基本的な質をチェックし、アンチパターンを早期に検出してください。テスト前に Linter を実行し、コミット前の git-hook として追加しておけば、レビューや問題を修正するのに必要な時間を最小限に抑えることができます。[セクション 3](#3-コードスタイルのプラクティス) の「コードスタイルのプラクティス」も参考にしてください。
+
+**さもないと:** アンチパターンや脆弱性を含む可能性のあるコードを本番環境に渡してしまうかもしれません。
 
 <br/><br/>
 
