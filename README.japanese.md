@@ -324,24 +324,24 @@ const count = 2 // 2() を実行しようとしますが、2 は関数ではあ�
 
 <br/><br/>
 
-## ![✔] 3.6 Use naming conventions for variables, constants, functions and classes
+## ![✔] 3.6 変数、定数、関数、クラスの命名規則を使用する
 
-**TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions and **_UpperCamelCase_** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables/functions, and classes that require instantiation. Use descriptive names, but try to keep them short
+**TL;DR:** 定数、変数、関数の命名をするときは **_lowerCamelCase_**  を使用し、クラスの命名をするときは**_UpperCamelCase_** (頭文字も大文字) を使用してください。 これは、プレーンな変数/関数とインスタンス化を必要とするクラスを簡単に区別するのに役立ちます。記述的な名前を使用しますが、短くしてください。
 
-**Otherwise:** Javascript is the only language in the world which allows invoking a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase
+**さもないと:** Javascript は、最初にインスタンスを作成せずにコンストラクタ（「クラス」）を直接呼び出すことができる世界で唯一の言語です。その結果、クラスと関数構造体は UpperCamelCase から始まることで区別されます。
 
-### 3.6 Code Example
+### 3.6 コード例
 
 ```javascript
-// for class name we use UpperCamelCase
+// クラスには、UpperCamelCase を使用します
 class SomeClassExample {}
 
-// for const names we use the const keyword and lowerCamelCase
+// const 名には const キーワードと lowerCamelCase を使用します
 const config = {
   key: "value"
 };
 
-// for variables and functions names we use lowerCamelCase
+// 変数や関数名には lowerCamelCase を使用します
 let someVariableExample = "value";
 function doSomething() {}
 ```
@@ -445,31 +445,31 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.2 各テスト名に 3 つの要素を含む
+## ![✔] 4.2 Include 3 parts in each test name
 
-**TL;DR:** テストを要件レベルを表現することで、コード内部をよく知らない QA エンジニアや開発者に対しても説明的であるようにしてください。テスト名には、何がテストされていて（テスト対象のユニット）、どのような状況で、どのような結果が期待されているのかを記述してください。
+**TL;DR:** Make the test speak at the requirements level so it's self explanatory also to QA engineers and developers who are not familiar with the code internals. State in the test name what is being tested (unit under test), under what circumstances and what is the expected result
 
-**さもないと:** "Add product" という名付けられたテストが通らず、デプロイが失敗しました。これは、実際に何がうまく動作しなかったのかを示しているでしょうか？
+**Otherwise:** A deployment just failed, a test named “Add product” failed. Does this tell you what exactly is malfunctioning?
 
-🔗 [**さらに読む: 各テスト名に 3 つの要素を含む**](/sections/testingandquality/3-parts-in-name.japanese.md)
-
-<br/><br/>
-
-## ![✔] 4.3 AAA パターンを用いてテストを構成する
-
-**TL;DR:** 上手に分けられた 3 つのセクションを利用してテストを構成してください: Arrange、Act、そして Assert (AAA) です。まず最初の部分でテストのセットアップを行い、次にテスト対象のユニットの実行、そして最後にアサーションフェーズに入ります。この構造に従うことで、コードを読む人がテストプランを理解するために頭脳の CPU を費やさないことが保証されます。
-
-**さもないと:** メインコードを理解するのに長時間費やすだけでなく、今までシンプルな部分であったはずのもの（テスト）が、脳のリソースを奪います。
-
-🔗 [**さらに読む: AAA パターンを用いてテストを構成する**](/sections/testingandquality/aaa.japanese.md)
+🔗 [**Read More: Include 3 parts in each test name**](/sections/testingandquality/3-parts-in-name.md)
 
 <br/><br/>
 
-## ![✔] 4.4 Linter を用いてコードの問題を検出する
+## ![✔] 4.3 Structure tests by the AAA pattern
 
-**TL;DR:** Linter を使用して、コードの基本的な質をチェックし、アンチパターンを早期に検出してください。テスト前に Linter を実行し、コミット前の git-hook として追加しておけば、レビューや問題を修正するのに必要な時間を最小限に抑えることができます。[セクション 3](#3-コードスタイルのプラクティス) の「コードスタイルのプラクティス」も参考にしてください。
+**TL;DR:** Structure your tests with 3 well-separated sections: Arrange, Act & Assert (AAA). The first part includes the test setup, then the execution of the unit under test and finally the assertion phase. Following this structure guarantees that the reader spends no brain CPU on understanding the test plan
 
-**さもないと:** アンチパターンや脆弱性を含む可能性のあるコードを本番環境に渡してしまうかもしれません。
+**Otherwise:** Not only you spend long daily hours on understanding the main code, now also what should have been the simple part of the day (testing) stretches your brain
+
+🔗 [**Read More: Structure tests by the AAA pattern**](/sections/testingandquality/aaa.md)
+
+<br/><br/>
+
+## ![✔] 4.4 Detect code issues with a linter
+
+**TL;DR:** Use a code linter to check basic quality and detect anti-patterns early. Run it before any test and add it as a pre-commit git-hook to minimize the time needed to review and correct any issue. Also check [Section 3](#3-code-style-practices) on Code Style Practices
+
+**Otherwise:** You may let pass some anti-pattern and possible vulnerable code to your production environment.
 
 <br/><br/>
 
