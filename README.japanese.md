@@ -272,30 +272,30 @@ function someFunction()
 
 <br/><br/>
 
-## ![✔] 3.4 Separate your statements properly
+## ![✔] 3.4 ステートメントを適切に区切る
 
-No matter if you use semicolons or not to separate your statements, knowing the common pitfalls of improper linebreaks or automatic semicolon insertion, will help you to eliminate regular syntax errors.
+ステートメントを区切るためにセミコロンを使うか使わないかに関わらず、不適切な改行や自動セミコロン挿入のよくある落とし穴を知っておくことで、通常の構文エラーをなくすことができます。
 
-**TL;DR:** Use ESLint to gain awareness about separation concerns. [Prettier](https://prettier.io/) or [Standardjs](https://standardjs.com/) can automatically resolve these issues.
+**TL;DR:** ESLint を使用して、分離の懸念について認識する。 [Prettier](https://prettier.io/) や [Standardjs](https://standardjs.com/) は、これらの問題を自動的に解決することができます。
 
-**Otherwise:** As seen in the previous section, JavaScript's interpreter automatically adds a semicolon at the end of a statement if there isn't one, or considers a statement as not ended where it should, which might lead to some undesired results. You can use assignments and avoid using immediate invoked function expressions to prevent most of unexpected errors.
+**さもないと:** 前のセクションで見たように、JavaScript のインタープリタは、セミコロンがない場合は自動的に文の最後にセミコロンを追加したり、ステートメントが本来あるべき場所で終わっていないとみなしたりすることで、望まない結果になってしまう可能性があります。代入を使用し、即時に呼び出された関数式の使用を避けることで、予期せぬエラーのほとんどを防ぐことができます。
 
-### Code example
+### コード例
 
 ```javascript
-// Do
+// する
 function doThing() {
     // ...
 }
 
 doThing()
 
-// Do
+// する
 
 const items = [1, 2, 3]
 items.forEach(console.log)
 
-// Avoid — throws exception
+// 避ける — 例外を投げる
 const m = new Map()
 const a = [1,2,3]
 [...m.values()].forEach(console.log)
@@ -303,24 +303,24 @@ const a = [1,2,3]
 >  ^^^
 > SyntaxError: Unexpected token ...
 
-// Avoid — throws exception
-const count = 2 // it tries to run 2(), but 2 is not a function
+// 避ける — 例外を投げる
+const count = 2 // 2() を実行しようとしますが、2 は関数ではありません
 (function doSomething() {
-  // do something amazing
+  // 凄いことをする
 }())
-// put a semicolon before the immediate invoked function, after the const definition, save the return value of the anonymous function to a variable or avoid IIFEs alltogether
+// 直ちに呼び出された関数の前、const 定義の後にセミコロンを置く、匿名関数の戻り値を変数に保存する、あるいは IIFE を完全に回避する
 ```
 
-🔗 [**Read more:** "Semi ESLint rule"](https://eslint.org/docs/rules/semi)
-🔗 [**Read more:** "No unexpected multiline ESLint rule"](https://eslint.org/docs/rules/no-unexpected-multiline)
+🔗 [**さらに読む:** "準 ESLint ルール"](https://eslint.org/docs/rules/semi)
+🔗 [**さらに読む:** "予期せぬ複数行を許さない ESLint のルール"](https://eslint.org/docs/rules/no-unexpected-multiline)
 
 <br/><br/>
 
-## ![✔] 3.5 Name your functions
+## ![✔] 3.5 関数に名前を付ける
 
-**TL;DR:** Name all functions, including closures and callbacks. Avoid anonymous functions. This is especially useful when profiling a node app. Naming all functions will allow you to easily understand what you're looking at when checking a memory snapshot
+**TL;DR:** クロージャやコールバックを含むすべての関数に名前を付けます。匿名関数は避けてください。これは特に node アプリをプロファイリングするときに便利です。すべての関数に名前を付けることで、メモリスナップショットをチェックする際に何を見ているのかを簡単に理解することができます。
 
-**Otherwise:** Debugging production issues using a core dump (memory snapshot) might become challenging as you notice significant memory consumption from anonymous functions
+**さもないと:** コアダンプ(メモリスナップショット)を使用した本番環境の問題のデバッグは、匿名関数からのメモリ消費が大きいことに気づくと、困難になるかもしれません。
 
 <br/><br/>
 
@@ -455,13 +455,13 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.3 Structure tests by the AAA pattern
+## ![✔] 4.3 AAA パターンを用いてテストを構成する
 
-**TL;DR:** Structure your tests with 3 well-separated sections: Arrange, Act & Assert (AAA). The first part includes the test setup, then the execution of the unit under test and finally the assertion phase. Following this structure guarantees that the reader spends no brain CPU on understanding the test plan
+**TL;DR:** 上手に分けられた 3 つのセクションを利用してテストを構成してください: Arrange、Act、そして Assert (AAA) です。まず最初の部分でテストのセットアップを行い、次にテスト対象のユニットの実行、そして最後にアサーションフェーズに入ります。この構造に従うことで、コードを読む人がテストプランを理解するために頭脳の CPU を費やさないことが保証されます。
 
-**Otherwise:** Not only you spend long daily hours on understanding the main code, now also what should have been the simple part of the day (testing) stretches your brain
+**さもないと:** メインコードを理解するのに長時間費やすだけでなく、今までシンプルな部分であったはずのもの（テスト）が、脳のリソースを奪います。
 
-🔗 [**Read More: Structure tests by the AAA pattern**](/sections/testingandquality/aaa.md)
+🔗 [**さらに読む: AAA パターンを用いてテストを構成する**](/sections/testingandquality/aaa.japanese.md)
 
 <br/><br/>
 
