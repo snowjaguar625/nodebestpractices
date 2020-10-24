@@ -272,30 +272,30 @@ function someFunction()
 
 <br/><br/>
 
-## ![✔] 3.4 ステートメントを適切に区切る
+## ![✔] 3.4 Separate your statements properly
 
-ステートメントを区切るためにセミコロンを使うか使わないかに関わらず、不適切な改行や自動セミコロン挿入のよくある落とし穴を知っておくことで、通常の構文エラーをなくすことができます。
+No matter if you use semicolons or not to separate your statements, knowing the common pitfalls of improper linebreaks or automatic semicolon insertion, will help you to eliminate regular syntax errors.
 
-**TL;DR:** ESLint を使用して、分離の懸念について認識する。 [Prettier](https://prettier.io/) や [Standardjs](https://standardjs.com/) は、これらの問題を自動的に解決することができます。
+**TL;DR:** Use ESLint to gain awareness about separation concerns. [Prettier](https://prettier.io/) or [Standardjs](https://standardjs.com/) can automatically resolve these issues.
 
-**さもないと:** 前のセクションで見たように、JavaScript のインタープリタは、セミコロンがない場合は自動的に文の最後にセミコロンを追加したり、ステートメントが本来あるべき場所で終わっていないとみなしたりすることで、望まない結果になってしまう可能性があります。代入を使用し、即時に呼び出された関数式の使用を避けることで、予期せぬエラーのほとんどを防ぐことができます。
+**Otherwise:** As seen in the previous section, JavaScript's interpreter automatically adds a semicolon at the end of a statement if there isn't one, or considers a statement as not ended where it should, which might lead to some undesired results. You can use assignments and avoid using immediate invoked function expressions to prevent most of unexpected errors.
 
-### コード例
+### Code example
 
 ```javascript
-// する
+// Do
 function doThing() {
     // ...
 }
 
 doThing()
 
-// する
+// Do
 
 const items = [1, 2, 3]
 items.forEach(console.log)
 
-// 避ける — 例外を投げる
+// Avoid — throws exception
 const m = new Map()
 const a = [1,2,3]
 [...m.values()].forEach(console.log)
@@ -303,24 +303,24 @@ const a = [1,2,3]
 >  ^^^
 > SyntaxError: Unexpected token ...
 
-// 避ける — 例外を投げる
-const count = 2 // 2() を実行しようとしますが、2 は関数ではありません
+// Avoid — throws exception
+const count = 2 // it tries to run 2(), but 2 is not a function
 (function doSomething() {
-  // 凄いことをする
+  // do something amazing
 }())
-// 直ちに呼び出された関数の前、const 定義の後にセミコロンを置く、匿名関数の戻り値を変数に保存する、あるいは IIFE を完全に回避する
+// put a semicolon before the immediate invoked function, after the const definition, save the return value of the anonymous function to a variable or avoid IIFEs alltogether
 ```
 
-🔗 [**さらに読む:** "準 ESLint ルール"](https://eslint.org/docs/rules/semi)
-🔗 [**さらに読む:** "予期せぬ複数行を許さない ESLint のルール"](https://eslint.org/docs/rules/no-unexpected-multiline)
+🔗 [**Read more:** "Semi ESLint rule"](https://eslint.org/docs/rules/semi)
+🔗 [**Read more:** "No unexpected multiline ESLint rule"](https://eslint.org/docs/rules/no-unexpected-multiline)
 
 <br/><br/>
 
-## ![✔] 3.5 関数に名前を付ける
+## ![✔] 3.5 Name your functions
 
-**TL;DR:** クロージャやコールバックを含むすべての関数に名前を付けます。匿名関数は避けてください。これは特に node アプリをプロファイリングするときに便利です。すべての関数に名前を付けることで、メモリスナップショットをチェックする際に何を見ているのかを簡単に理解することができます。
+**TL;DR:** Name all functions, including closures and callbacks. Avoid anonymous functions. This is especially useful when profiling a node app. Naming all functions will allow you to easily understand what you're looking at when checking a memory snapshot
 
-**さもないと:** コアダンプ(メモリスナップショット)を使用した本番環境の問題のデバッグは、匿名関数からのメモリ消費が大きいことに気づくと、困難になるかもしれません。
+**Otherwise:** Debugging production issues using a core dump (memory snapshot) might become challenging as you notice significant memory consumption from anonymous functions
 
 <br/><br/>
 
@@ -445,13 +445,13 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.2 Include 3 parts in each test name
+## ![✔] 4.2 各テスト名に 3 つの要素を含む
 
-**TL;DR:** Make the test speak at the requirements level so it's self explanatory also to QA engineers and developers who are not familiar with the code internals. State in the test name what is being tested (unit under test), under what circumstances and what is the expected result
+**TL;DR:** テストを要件レベルを表現することで、コード内部をよく知らない QA エンジニアや開発者に対しても説明的であるようにしてください。テスト名には、何がテストされていて（テスト対象のユニット）、どのような状況で、どのような結果が期待されているのかを記述してください。
 
-**Otherwise:** A deployment just failed, a test named “Add product” failed. Does this tell you what exactly is malfunctioning?
+**さもないと:** "Add product" という名付けられたテストが通らず、デプロイが失敗しました。これは、実際に何がうまく動作しなかったのかを示しているでしょうか？
 
-🔗 [**Read More: Include 3 parts in each test name**](/sections/testingandquality/3-parts-in-name.md)
+🔗 [**さらに読む: 各テスト名に 3 つの要素を含む**](/sections/testingandquality/3-parts-in-name.japanese.md)
 
 <br/><br/>
 
