@@ -366,20 +366,20 @@ function doSomething() {}
 
 <br/><br/>
 
-## ![✔] 3.9 ファイルに直接アクセスするのではなく、フォルダごとにモジュールを require します
+## ![✔] 3.9 Require modules by folders, opposed to the files directly
 
-**TL;DR:** モジュール/ライブラリをフォルダ内で開発する場合は、モジュールの内部を公開する index.js ファイルを配置し、すべての使用者がそれを通過するようにします。これはモジュールへの「インターフェース」として機能し、約束事を破ることなく将来の変更を容易にします。
+**TL;DR:** When developing a module/library in a folder, place an index.js file that exposes the module's internals so every consumer will pass through it. This serves as an 'interface' to your module and eases future changes without breaking the contract
 
-**さもないと:** ファイルの内部構造や署名を変更すると、クライアントとのインターフェイスが壊れてしまう可能性があります。
+**Otherwise:** Changing the internal structure of files or the signature may break the interface with clients
 
-### 3.9 コード例
+### 3.9 Code example
 
 ```javascript
-// する
+// Do
 module.exports.SMSProvider = require("./SMSProvider");
 module.exports.SMSNumberResolver = require("./SMSNumberResolver");
 
-// 避ける
+// Avoid
 module.exports.SMSProvider = require("./SMSProvider/SMSProvider.js");
 module.exports.SMSNumberResolver = require("./SMSNumberResolver/SMSNumberResolver.js");
 ```
@@ -473,13 +473,13 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.5 Avoid global test fixtures and seeds, add data per-test
+## ![✔] 4.5 グローバルなテストフィクスチャとシードを避け、テストごとにデータを追加する
 
-**TL;DR:** To prevent tests coupling and easily reason about the test flow, each test should add and act on its own set of DB rows. Whenever a test needs to pull or assume the existence of some DB data - it must explicitly add that data and avoid mutating any other records
+**TL;DR:** テスト同士が結合してしまうことを防ぎ、テストフローの理解を容易にするために、各テストは独自の DB データ行のセットを用意し、それらを利用して実行されるべきです。テストがいくつかの DB データをプルしたり、その存在を仮定する必要がある場合には、明示的にデータを追加し、他のレコードに変更を加えないようにしなければなりません。
 
-**Otherwise:** Consider a scenario where deployment is aborted due to failing tests, team is now going to spend precious investigation time that ends in a sad conclusion: the system works well, the tests however interfere with each other and break the build
+**さもないと:** テストが失敗したことによってデプロイが中止されるというシナリオを考えてみましょう。チームは貴重な時間を調査に費やし、結果として悲しい結論にたどり着きます: システムは機能していますが、テスト同士が干渉しあって、ビルドを壊しているのです。
 
-🔗 [**Read More: Avoid global test fixtures**](/sections/testingandquality/avoid-global-test-fixture.md)
+🔗 [**さらに読む: グローバルなテストフィクスチャとシードを避け、テストごとにデータを追加する**](/sections/testingandquality/avoid-global-test-fixture.japanese.md)
 
 <br/><br/>
 
