@@ -386,11 +386,11 @@ module.exports.SMSNumberResolver = require("./SMSNumberResolver/SMSNumberResolve
 
 <br/><br/>
 
-## ![✔] 3.10 `===` 演算子を使用する
+## ![✔] 3.10 Use the `===` operator
 
-**TL;DR:** 弱い抽象的な等号演算子 `==` よりも厳密な等号演算子 `===` を優先してください。`==` は2つの変数を共通の型に変換した後に比較します。`===` には型変換はなく、両方の変数が同じ型で等しくなければいけません。
+**TL;DR:** Prefer the strict equality operator `===` over the weaker abstract equality operator `==`. `==` will compare two variables after converting them to a common type. There is no type conversion in `===`, and both variables must be of the same type to be equal
 
-**さもないと:**  `==` 演算子で比較すると、同じでない値でも真を返すかもしれません。
+**Otherwise:** Unequal variables might return true when compared with the `==` operator
 
 ### 3.10 Code example
 
@@ -409,31 +409,31 @@ null == undefined; // true
 " \t\r\n " == 0; // true
 ```
 
-`===` を使用した場合、上のすべてのステートメントは false を返します。
+All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 3.11 コールバックを避け、Async Await を使用する
+## ![✔] 3.11 Use Async Await, avoid callbacks
 
-**TL;DR:** Node 8 LTS は Async-await を完全にサポートするようになりました。これは、コールバックやプロミスに取って代わる非同期コードの新しい扱い方です。Async-await はノンブロッキングであり、非同期コードを同期的に見せてくれます。コードに与えることができる最高の贈り物は、try-catch のようなよりコンパクトで親しみやすいコード構文を提供する async-await を使うことです。
+**TL;DR:** Node 8 LTS now has full support for Async-await. This is a new way of dealing with asynchronous code which supersedes callbacks and promises. Async-await is non-blocking, and it makes asynchronous code look synchronous. The best gift you can give to your code is using async-await which provides a much more compact and familiar code syntax like try-catch
 
-**Otherwise:** コールバックスタイルで非同期エラーを処理するのは、おそらく地獄への最速の方法です。- このスタイルでは、エラーのチェックをすべて強制し、厄介なコードの入れ子を処理し、コードの流れについての推論を困難にします。
+**Otherwise:** Handling async errors in callback style is probably the fastest way to hell - this style forces to check errors all over, deal with awkward code nesting and makes it difficult to reason about the code flow
 
-🔗[**さらに読む:** async await 1.0 のガイド](https://github.com/yortus/asyncawait)
+🔗[**Read more:** Guide to async await 1.0](https://github.com/yortus/asyncawait)
 
 <br/><br/>
 
-## ![✔] 3.12 arrow 関数式 (=>) を使う
+## ![✔] 3.12 Use arrow function expressions (=>)
 
-**TL;DR:** プロミスやコールバックを受け入れる古い API を扱う場合は、async-await を使用して関数パラメータを避けることをお勧めしますが、arrow 関数はコード構造をよりコンパクトにし、ルート関数の語彙的なコンテキストを保持します。(すなわち `this` )
+**TL;DR:** Though it's recommended to use async-await and avoid function parameters when dealing with older APIs that accept promises or callbacks - arrow functions make the code structure more compact and keep the lexical context of the root function (i.e. `this`)
 
-**さもないと:** コードが長いと（ ES5 の関数では）バグが発生しやすく、読むのが面倒になります。
+**Otherwise:** Longer code (in ES5 functions) is more prone to bugs and cumbersome to read
 
-🔗 [**さらに読む: arrow 関数を採用する時が来た**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
+🔗 [**Read more: It’s Time to Embrace Arrow Functions**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
+<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
 # `4. テストと総合的な品質のプラクティス`
 
@@ -483,43 +483,43 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 4.6 Constantly inspect for vulnerable dependencies
+## ![✔] 4.6 脆弱性のある依存関係がないか常に検査する
 
-**TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities. This can get easily tamed using community and commercial tools such as 🔗 [npm audit](https://docs.npmjs.com/cli/audit) and 🔗 [snyk.io](https://snyk.io) that can be invoked from your CI on every build
+**TL;DR:** Express のような最も評判の良い依存関係にも、既知の脆弱性があります。これは、ビルド毎に CI において実行できる 🔗 [npm audit](https://docs.npmjs.com/cli/audit) や 🔗 [snyk.io](https://snyk.io) といったコミュニティや商用のツールを利用することで、簡単に検査することができます。
 
-**Otherwise:** Keeping your code clean from vulnerabilities without dedicated tools will require to constantly follow online publications about new threats. Quite tedious
-
-<br/><br/>
-
-## ![✔] 4.7 Tag your tests
-
-**TL;DR:** Different tests must run on different scenarios: quick smoke, IO-less, tests should run when a developer saves or commits a file, full end-to-end tests usually run when a new pull request is submitted, etc. This can be achieved by tagging tests with keywords like #cold #api #sanity so you can grep with your testing harness and invoke the desired subset. For example, this is how you would invoke only the sanity test group with [Mocha](https://mochajs.org/): mocha --grep 'sanity'
-
-**Otherwise:** Running all the tests, including tests that perform dozens of DB queries, any time a developer makes a small change can be extremely slow and keeps developers away from running tests
+**さもないと:** 専用のツールを使用せずに、コードを安全に保つには、新しい脅威についての情報を、常に追う必要があります。これは非常に面倒です。
 
 <br/><br/>
 
-## ![✔] 4.8 Check your test coverage, it helps to identify wrong test patterns
+## ![✔] 4.7 テストにタグをつける
 
-**TL;DR:** Code coverage tools like [Istanbul](https://github.com/istanbuljs/istanbuljs)/[NYC](https://github.com/istanbuljs/nyc) are great for 3 reasons: it comes for free (no effort is required to benefit this reports), it helps to identify a decrease in testing coverage, and last but not least it highlights testing mismatches: by looking at colored code coverage reports you may notice, for example, code areas that are never tested like catch clauses (meaning that tests only invoke the happy paths and not how the app behaves on errors). Set it to fail builds if the coverage falls under a certain threshold
+**TL;DR:** 異なるテストは、異なるシナリオ下において実行しなければなりません: I/O の無いクイックスモークテストは、開発者がファイルを保存したりコミットした際に実施し、完全なエンドツーエンドテストは新しいプルリクエストが出されたときに実施する、などです。これは、テストの手綱を掴んで望み通りのテストセットを実行できるように、 #cold #api #sanity といったようにキーワードでテストをタグ付けすることで実現できます。例えば、[Mocha](https://mochajs.org/) を利用して sanity テストグループを実施する方法は次の通りです: mocha --grep 'sanity'
 
-**Otherwise:** There won't be any automated metric telling you when a large portion of your code is not covered by testing
-
-<br/><br/>
-
-## ![✔] 4.9 Inspect for outdated packages
-
-**TL;DR:** Use your preferred tool (e.g. 'npm outdated' or [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) to detect installed packages which are outdated, inject this check into your CI pipeline and even make a build fail in a severe scenario. For example, a severe scenario might be when an installed package is 5 patch commits behind (e.g. local version is 1.3.1 and repository version is 1.3.8) or it is tagged as deprecated by its author - kill the build and prevent deploying this version
-
-**Otherwise:** Your production will run packages that have been explicitly tagged by their author as risky
+**さもないと:** 小さな変更をするたびに多くの DB クエリを実施するテストを含む全てのテストを実行することは、非常に遅く、そして開発者がテストを実行しなくなります。
 
 <br/><br/>
 
-## ![✔] 4.10 Use production-like environment for e2e testing
+## ![✔] 4.8 間違ったテストパターンを特定するためにテストカバレッジをチェックする
 
-**TL;DR:** End to end (e2e) testing which includes live data used to be the weakest link of the CI process as it depends on multiple heavy services like DB. Use an environment which is as close to your real production environment as possible like a-continue (Missed -continue here, needs content. Judging by the **Otherwise** clause, this should mention docker-compose)
+**TL;DR:** [Istanbul](https://github.com/istanbuljs/istanbuljs)/[NYC](https://github.com/istanbuljs/nyc) のようなコードカバレッジツールは 3 つの理由から素晴らしいといえます: 無料で提供されている（このレポートの恩恵を受けるために努力は必要ありません）、テストカバレッジの低下を特定するのに役立つ、そして最後に、テストのミスマッチを強調してくれることです。色付けされたコードカバレッジレポートを見ることで、例えば、キャッチ句のようなテストが全く実施されていない領域（つまり、テストがハッピーパスのみテストしていて、エラー時にどのように振る舞うかをテストしていない、ということです）に気づくかもしれません。カバレッジが特定に閾値を下回ったらビルドが失敗するように設定しましょう。
 
-**Otherwise:** Without docker-compose, teams must maintain a testing DB for each testing environment including developers' machines, keep all those DBs in sync so test results won't vary across environments
+**さもないと:** コードの大部分がテストでカバーされていないことを教えてくれる、自動化されたメトリックが存在しないことになります。
+
+<br/><br/>
+
+## ![✔] 4.9 パッケージが古くなっていないか点検する
+
+**TL;DR:** お気に入りのツール（例えば、「npm outdated」や「[npm-check-updates](https://www.npmjs.com/package/npm-check-updates)」など）を使って、インストールされたパッケージが古くなっていることを検出し、このチェックを CI パイプラインの中に組み込み、深刻な場合にはビルドを失敗させてください。深刻な場合とは例えば、インストールされているパッケージが 5 回のパッチコミット分遅れている場合（例えば、ローカルバージョンが 1.3.1 でリポジトリバージョンが 1.3.8 である、など）や、作者によって非推奨とタグ付けされている場合などがあります。ビルドをキルして、このバージョンのデプロイを禁止してください。
+
+**さもないと:** 作者によって明示的に危険であるとタグ付けされたパッケージを、本番環境で実行することになります。
+
+<br/><br/>
+
+## ![✔] 4.10 エンドツーエンドテストのために本番に近い環境を使用する
+
+**TL;DR:** ライブデータを含むエンドツーエンド（e2e）テストは、DB のような複数の重たいサービスに依存するため、CI プロセスにおける最も弱い接続部となっていました。できる限り本番環境に近い環境を使用してください。（注意: コンテンツが不足しています。「さもないと」から判断するに、docker-compose について言及されているはずです）
+
+**さもないと:** docker-compose を使用しない場合、チームは開発者のマシンを含む各テスト環境のためのテスト DB を管理し、環境によって結果に差異が出ないようにそれらすべての DB が同期された状態を保たなくてはなりません。
 
 <br/><br/>
 
