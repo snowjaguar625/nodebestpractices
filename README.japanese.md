@@ -386,11 +386,11 @@ module.exports.SMSNumberResolver = require("./SMSNumberResolver/SMSNumberResolve
 
 <br/><br/>
 
-## ![✔] 3.10 Use the `===` operator
+## ![✔] 3.10 `===` 演算子を使用する
 
-**TL;DR:** Prefer the strict equality operator `===` over the weaker abstract equality operator `==`. `==` will compare two variables after converting them to a common type. There is no type conversion in `===`, and both variables must be of the same type to be equal
+**TL;DR:** 弱い抽象的な等号演算子 `==` よりも厳密な等号演算子 `===` を優先してください。`==` は2つの変数を共通の型に変換した後に比較します。`===` には型変換はなく、両方の変数が同じ型で等しくなければいけません。
 
-**Otherwise:** Unequal variables might return true when compared with the `==` operator
+**さもないと:**  `==` 演算子で比較すると、同じでない値でも真を返すかもしれません。
 
 ### 3.10 Code example
 
@@ -409,31 +409,31 @@ null == undefined; // true
 " \t\r\n " == 0; // true
 ```
 
-All statements above will return false if used with `===`
+`===` を使用した場合、上のすべてのステートメントは false を返します。
 
 <br/><br/>
 
-## ![✔] 3.11 Use Async Await, avoid callbacks
+## ![✔] 3.11 コールバックを避け、Async Await を使用する
 
-**TL;DR:** Node 8 LTS now has full support for Async-await. This is a new way of dealing with asynchronous code which supersedes callbacks and promises. Async-await is non-blocking, and it makes asynchronous code look synchronous. The best gift you can give to your code is using async-await which provides a much more compact and familiar code syntax like try-catch
+**TL;DR:** Node 8 LTS は Async-await を完全にサポートするようになりました。これは、コールバックやプロミスに取って代わる非同期コードの新しい扱い方です。Async-await はノンブロッキングであり、非同期コードを同期的に見せてくれます。コードに与えることができる最高の贈り物は、try-catch のようなよりコンパクトで親しみやすいコード構文を提供する async-await を使うことです。
 
-**Otherwise:** Handling async errors in callback style is probably the fastest way to hell - this style forces to check errors all over, deal with awkward code nesting and makes it difficult to reason about the code flow
+**Otherwise:** コールバックスタイルで非同期エラーを処理するのは、おそらく地獄への最速の方法です。- このスタイルでは、エラーのチェックをすべて強制し、厄介なコードの入れ子を処理し、コードの流れについての推論を困難にします。
 
-🔗[**Read more:** Guide to async await 1.0](https://github.com/yortus/asyncawait)
+🔗[**さらに読む:** async await 1.0 のガイド](https://github.com/yortus/asyncawait)
 
 <br/><br/>
 
-## ![✔] 3.12 Use arrow function expressions (=>)
+## ![✔] 3.12 arrow 関数式 (=>) を使う
 
-**TL;DR:** Though it's recommended to use async-await and avoid function parameters when dealing with older APIs that accept promises or callbacks - arrow functions make the code structure more compact and keep the lexical context of the root function (i.e. `this`)
+**TL;DR:** プロミスやコールバックを受け入れる古い API を扱う場合は、async-await を使用して関数パラメータを避けることをお勧めしますが、arrow 関数はコード構造をよりコンパクトにし、ルート関数の語彙的なコンテキストを保持します。(すなわち `this` )
 
-**Otherwise:** Longer code (in ES5 functions) is more prone to bugs and cumbersome to read
+**さもないと:** コードが長いと（ ES5 の関数では）バグが発生しやすく、読むのが面倒になります。
 
-🔗 [**Read more: It’s Time to Embrace Arrow Functions**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
+🔗 [**さらに読む: arrow 関数を採用する時が来た**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
 # `4. テストと総合的な品質のプラクティス`
 
@@ -523,13 +523,13 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 4.11 Refactor regularly using static analysis tools
+## ![✔] 4.11 静的解析ツールを使用して定期的にリファクタリングする
 
-**TL;DR:** Using static analysis tools helps by giving objective ways to improve code quality and keeps your code maintainable. You can add static analysis tools to your CI build to fail when it finds code smells. Its main selling points over plain linting are the ability to inspect quality in the context of multiple files (e.g. detect duplications), perform advanced analysis (e.g. code complexity) and follow the history and progress of code issues. Two examples of tools you can use are [Sonarqube](https://www.sonarqube.org/) (2,600+ [stars](https://github.com/SonarSource/sonarqube)) and [Code Climate](https://codeclimate.com/) (1,500+ [stars](https://github.com/codeclimate/codeclimate)).
+**TL;DR:** 静的解析ツールを利用することは、客観的な視点をもたらし、コードの品質向上や保守性の維持に役立ちます。静的解析ツールを CI に追加することで、コードの臭いを発見した際にビルドを失敗させることができます。シンプルな linting に勝るポイントとしては、複数ファイルを含むコンテキストで品質を検査できること（例：重複の検出）、高度な分析を実施できること（例：コードの複雑さ）、そしてコードの問題の履歴や進行状況を追跡できることです。使用できるツールの例としては、[Sonarqube](https://www.sonarqube.org/) (2,600+ [stars](https://github.com/SonarSource/sonarqube)) と [Code Climate](https://codeclimate.com/) (1,500+ [stars](https://github.com/codeclimate/codeclimate)) の 2 つがあります。
 
-**Otherwise:** With poor code quality, bugs and performance will always be an issue that no shiny new library or state of the art features can fix
+**さもないと:** コードの品質が低いと、ピカピカの新しいライブラリや最新の機能では修正できない類のバグやパフォーマンスが常に問題となります。
 
-🔗 [**Read More: Refactoring!**](/sections/testingandquality/refactoring.md)
+🔗 [**さらに読む: リファクタリング！**](/sections/testingandquality/refactoring.japanese.md)
 
 <br/><br/>
 
