@@ -31,7 +31,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 - **🎧 Podcast**: Yoni Goldberg from our team participated in the last JS Party Podcast (Very cool one!) episode to speak about Node.js best practices, [🎧 listen here](https://changelog.com/jsparty/139)
 
-- **:whale: Node.js + Docker best practices**: We've just release the Docker with Node.js section which includes 15 bullets about better coding techqniues with Docker
+- **:whale: Node.js + Docker best practices**: We've just released the Docker with Node.js section which includes 15 bullets about better coding techniques with Docker
 
 - **🎤 A talk at OdessaJS**: We will speak about Node.js testing this week at the great [OdessaJS conference](https://odessajs.org/)
 
@@ -832,15 +832,15 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 6.8. Avoid using the Node.js crypto library for handling passwords, use Bcrypt
+## ![✔] 6.8. Protect Users' Passwords/Secrets using BCrypt or Script
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** Passwords or secrets (API keys) should be stored using a secure hash + salt function like `bcrypt`, that should be a preferred choice over its JavaScript implementation due to performance and security reasons.
+**TL;DR:** Passwords or secrets (e.g. API keys) should be stored using a secure hash + salt function like `bcrypt`,`scrypt`, or worst case `pbkdf2`.
 
-**Otherwise:** Passwords or secrets that are persisted without using a secure function are vulnerable to brute forcing and dictionary attacks that will lead to their disclosure eventually.
+**Otherwise:** Passwords and secrets that are stored without using a secure function are vulnerable to brute forcing and dictionary attacks that will lead to their disclosure eventually.
 
-🔗 [**Read More: Use Bcrypt**](/sections/security/bcryptpasswords.md)
+🔗 [**Read More: User Passwords**](/sections/security/userpasswords.md)
 
 <br/><br/>
 
