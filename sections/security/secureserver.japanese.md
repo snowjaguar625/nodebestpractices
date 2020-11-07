@@ -1,24 +1,24 @@
-# クライアント・サーバー間の通信を暗号化するために SSL/TLS を使用する
+# Using HTTPS to encrypt the client-server connection
 
 <br/><br/>
 
 
-### 一段落説明
+### One Paragraph Explainer
 
-[Let'sEncrypt](https://letsencrypt.org/) のような、無料で証明書を発行してくれるサービスを利用することで、アプリケーションの通信を暗号化することができます。[Express](http://expressjs.com/) のような Node.js フレームワーク（`https`コアモジュールをベースにしている）は SSL/TLS をサポートしており、数行のコードで実装することができます。
+Using services such as [Let'sEncrypt](https://letsencrypt.org/), a certificate authority which provides __free__ SSL/TLS certificates, can help encrypt the communication of your applications. Node.js frameworks like [Express](http://expressjs.com/) (based on the core `https` module) support SSL/TLS, which can be implemented in a few lines of code.
 
-また、[NGINX](http://nginx.org/en/docs/http/configuring_https_servers.html) や HAProxy のようなリバースプロキシを用いて SSL/TLS 化することもできます。
+You can also configure SSL/TLS on a reverse proxy, such as [NGINX](http://nginx.org/en/docs/http/configuring_https_servers.html) or HAProxy.
 
 <br/><br/>
 
-### コード例 – Express を使用して SSL/TLS を有効化する
+### Code Example – Enabling SSL/TLS using the Express framework
 
 ```javascript
 const express = require('express');
 const https = require('https');
 const app = express();
 const options = {
-    // ファイルのパスは環境によって異なります
+    // The path should be changed accordingly to your setup
     cert: fs.readFileSync('./sslcert/fullchain.pem'),
     key: fs.readFileSync('./sslcert/privkey.pem')
 };

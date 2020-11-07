@@ -555,23 +555,23 @@ null == undefined; // true
 
 # `5. 本番環境移行のプラクティス`
 
-## ![✔] 5.1. Monitoring
+## ![✔] 5.1. モニタリング
 
-**TL;DR:** Monitoring is a game of finding out issues before customers do – obviously this should be assigned unprecedented importance. The market is overwhelmed with offers thus consider starting with defining the basic metrics you must follow (my suggestions inside), then go over additional fancy features and choose the solution that ticks all boxes. Click ‘The Gist’ below for an overview of the solutions
+**TL;DR:** モニタリングとは、顧客よりも先に問題を発見するゲームです。– 明らかに、これは類を見ないほど重要なこととして割り当てられるべきです。市場には多くのオファーが溢れていますので、まずはあなたが守らなければならない基本的な指標を定義することから始めてみてください（私の提案はこの中にあります）。その後、追加の手の込んだ機能を確認し、すべてのボックスにチェックを入れるソリューションを選択します。ソリューションの概要については、以下の「要点」をクリックしてください。
 
-**Otherwise:** Failure === disappointed customers. Simple
+**さもないと:** 失敗 === 失望したお客さん。シンプルです。
 
-🔗 [**Read More: Monitoring!**](/sections/production/monitoring.md)
+🔗 [**さらに読む: モニタリング!**](/sections/production/monitoring.japanese.md)
 
 <br/><br/>
 
-## ![✔] 5.2. Increase transparency using smart logging
+## ![✔] 5.2. スマートロギングで透明性を高める
 
-**TL;DR:** Logs can be a dumb warehouse of debug statements or the enabler of a beautiful dashboard that tells the story of your app. Plan your logging platform from day 1: how logs are collected, stored and analyzed to ensure that the desired information (e.g. error rate, following an entire transaction through services and servers, etc) can really be extracted
+**TL;DR:** ログは、デバッグ ステートメントの間抜けな倉庫にも、アプリのストーリーを伝える美しいダッシュボードのイネーブラーにもなり得ます。1日目からロギングプラットフォームを計画する：ログをどのように収集、保存、分析するかで、必要な情報（エラー率、サービスやサーバーを介したトランザクション全体の追跡など）を実際に抽出できるようにします。
 
-**Otherwise:** You end up with a black box that is hard to reason about, then you start re-writing all logging statements to add additional information
+**さもないと** 推論するのが難しいブラックボックスになってしまい、追加情報を追加するためにすべてのロギングステートメントを書き直します。
 
-🔗 [**Read More: Increase transparency using smart logging**](/sections/production/smartlogging.md)
+🔗 [**さらに読む: スマートロギングで透明性を高める**](/sections/production/smartlogging.japanese.md)
 
 <br/><br/>
 
@@ -799,11 +799,11 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.5. 一般的なセキュリティベストプラクティス集
+## ![✔] 6.5. Collection of generic security best practices
 
-**TL;DR:** Node.js とは直接関係のないセキュリティに関するアドバイス集です ー Node における実装は他の言語とあまり違いはありません。さらに読むをクリックして、読み進めてください。
+**TL;DR:** This is a collection of security advice that is not related directly to Node.js - the Node implementation is not much different than any other language. Click read more to skim through.
 
-🔗 [**さらに読む: 一般的なセキュリティベストプラクティス**](/sections/security/commonsecuritybestpractices.japanese.md)
+🔗 [**Read More: Common security best practices**](/sections/security/commonsecuritybestpractices.md)
 
 <br/><br/>
 
