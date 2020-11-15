@@ -585,23 +585,23 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.4. 依存関係をロックする
+## ![✔] 5.4. Lock dependencies
 
-**TL;DR:** コードはすべての環境で同一でなければなりませんが、驚くべきことに npm はデフォルトで環境間で依存関係をドリフトさせることができます。– 様々な環境でパッケージをインストールすると、パッケージの最新のパッチバージョンを取得しようとします。これを克服するには、各パッケージの正確な (最新版ではない) バージョンを保存するように各環境に指示する npm 設定ファイル .npmrc を使用します。あるいは、より細かい制御を行うには `npm shrinkwrap` を使用してください。\*更新: NPM5 では、依存関係はデフォルトでロックされています。新しいパッケージマネージャー、Yarn もデフォルトでカバーしてくれました。
+**TL;DR:** Your code must be identical across all environments, but amazingly npm lets dependencies drift across environments by default – when you install packages at various environments it tries to fetch packages’ latest patch version. Overcome this by using npm config files, .npmrc, that tell each environment to save the exact (not the latest) version of each package. Alternatively, for finer grained control use `npm shrinkwrap`. \*Update: as of NPM5, dependencies are locked by default. The new package manager in town, Yarn, also got us covered by default
 
-**さもないと:** QA はコードを徹底的にテストし、本番では異なる挙動をするバージョンを承認します。さらに悪いことに、同じクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
+**Otherwise:** QA will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code
 
-🔗 [**さらに読む: 依存関係をロックする**](/sections/production/lockdependencies.japanese.md)
+🔗 [**Read More: Lock dependencies**](/sections/production/lockdependencies.md)
 
 <br/><br/>
 
-## ![✔] 5.5. 適切なツールを使用してプロセスの稼働時間を守る
+## ![✔] 5.5. Guard process uptime using the right tool
 
-**TL;DR:** プロセスが進み、失敗した時点で再起動しなければなりません。単純なシナリオでは、PM2 のようなプロセス管理ツールで十分かもしれませんが、今日の「 docker 化」された世界では、クラスタ管理ツールも考慮する必要があります。
+**TL;DR:** The process must go on and get restarted upon failures. For simple scenarios, process management tools like PM2 might be enough but in today's ‘dockerized’ world, cluster management tools should be considered as well
 
-**さもないと:** 明確な戦略を持たずに何十ものインスタンスを実行し、あまりにも多くのツール（クラスタ管理、docker、PM2 ）を一緒に使いすぎると、DevOps のカオスにつながる可能性があります。
+**Otherwise:** Running dozens of instances without a clear strategy and too many tools together (cluster management, docker, PM2) might lead to DevOps chaos
 
-🔗 [**さらに読む:適切なツールを使用してプロセスの稼働時間を守る**](/sections/production/guardprocess.japanese.md)
+🔗 [**Read More: Guard process uptime using the right tool**](/sections/production/guardprocess.md)
 
 <br/><br/>
 
@@ -807,15 +807,15 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.6. Adjust the HTTP response headers for enhanced security
+## ![✔] 6.6. セキュリティ強化するために HTTP レスポンスヘッダを調整する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** Your application should be using secure headers to prevent attackers from using common attacks like cross-site scripting (XSS), clickjacking and other malicious attacks. These can be configured easily using modules like [helmet](https://www.npmjs.com/package/helmet).
+**TL;DR:** クロスサイトスクリプティング（XSS）やクリックジャッキング、その他の悪意のある攻撃などの一般的な攻撃を攻撃者が行うことを防ぐために、アプリケーションは安全なヘッダを使用するべきです。これらは [helmet](https://www.npmjs.com/package/helmet) のようなモジュールを使って簡単に設定することができます。
 
-**Otherwise:** Attackers could perform direct attacks on your application's users, leading to huge security vulnerabilities
+**さもないと:** 攻撃者がアプリケーションユーザーに対して直接攻撃を行い、甚大なセキュリティ脆弱性につながる可能性があります。
 
-🔗 [**Read More: Using secure headers in your application**](/sections/security/secureheaders.md)
+🔗 [**さらに読む: アプリケーションでセキュアなヘッダーを利用する**](/sections/security/secureheaders.japanese.md)
 
 <br/><br/>
 
