@@ -625,13 +625,13 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.8. Discover errors and downtime using APM products
+## ![✔] 5.8. APM 製品を使用してエラーやダウンタイムを発見する
 
-**TL;DR:** Application monitoring and performance products (a.k.a APM) proactively gauge codebase and API so they can auto-magically go beyond traditional monitoring and measure the overall user-experience across services and tiers. For example, some APM products can highlight a transaction that loads too slow on the end-users side while suggesting the root cause
+**TL;DR:** アプリケーションモニタリングおよびパフォーマンス製品（ APM ）は、コードベースと API を積極的に測定することで、従来のモニタリングを超えて、サービスや階層間のユーザーエクスペリエンス全体を自動的に測定することができます。例えば、一部の APM 製品では、エンドユーザー側でロードが遅すぎるトランザクションを強調表示しながら、根本的な原因を示唆することができます。
 
-**Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which is your slowest code parts under real-world scenario and how these affect the UX
+**さもないと:** API のパフォーマンスやダウンタイムの測定に多大な労力を費やすことになるかもしれません。実世界のシナリオで最も遅いコード部分はどれか、それが UX にどのように影響するのか、おそらくあなたは意識することはないでしょう。
 
-🔗 [**Read More: Discover errors and downtime using APM products**](/sections/production/apmproducts.md)
+🔗 [**さらに読む: APM 製品を使用してエラーやダウンタイムを発見する**](/sections/production/apmproducts.japanese.md)
 
 <br/><br/>
 
@@ -843,15 +843,15 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.9. Escape HTML, JS and CSS output
+## ![✔] 6.9. HTML や JS、CSS の出力をエスケープする
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a>
 
-**TL;DR:** Untrusted data that is sent down to the browser might get executed instead of just being displayed, this is commonly referred as a cross-site-scripting (XSS) attack. Mitigate this by using dedicated libraries that explicitly mark the data as pure content that should never get executed (i.e. encoding, escaping)
+**TL;DR:** ブラウザに送信された信頼されていないデータは、ただ表示される代わりに実行される可能性があり、これは一般的にクロスサイトスクリプティング（XSS）攻撃と呼ばれています。これを軽減するには、データを、実行されるべきではない純粋なコンテンツとして明示的にマークする専用のライブラリを使用します（エンコーディング、エスケープなど）。
 
-**Otherwise:** An attacker might store malicious JavaScript code in your DB which will then be sent as-is to the poor clients
+**さもないと:** 攻撃者は悪意のある JavaScript のコードを DB に保存し、それをそのまま脆弱なクライアントに送信する可能性があります。
 
-🔗 [**Read More: Escape output**](/sections/security/escape-output.md)
+🔗 [**さらに読む: 出力をエスケープする**](/sections/security/escape-output.japanese.md)
 
 <br/><br/>
 
