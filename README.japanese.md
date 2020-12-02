@@ -685,13 +685,13 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.14. 各ログステートメントにトランザクション ID を割り当てる
+## ![✔] 5.14. Assign a transaction id to each log statement
 
-**TL;DR:** transaction-id: {任意の値} で、単一のリクエスト内の各ログエントリに同じ識別子を割り当てます。そうすることで、ログのエラーを検査する際に、前後に何が起こったかを簡単に結論付けることができます。残念ながら、非同期の性質上、これを Node で実現するのは容易ではありません。内部のコード例を参照してください。
+**TL;DR:** Assign the same identifier, transaction-id: {some value}, to each log entry within a single request. Then when inspecting errors in logs, easily conclude what happened before and after. Unfortunately, this is not easy to achieve in Node due to its async nature, see code examples inside
 
-**さもないと:** – 前に何が起こったのか – というコンテキストなしでプロダクションのエラーログを見ると、問題の原因を究明するのが非常に難しくなり、時間がかかります。
+**Otherwise:** Looking at a production error log without the context – what happened before – makes it much harder and slower to reason about the issue
 
-🔗 [**さらに読む: 各ログ文に 'TransactionId' を割り当てる**](/sections/production/assigntransactionid.japanese.md)
+🔗 [**Read More: Assign ‘TransactionId’ to each log statement**](/sections/production/assigntransactionid.md)
 
 <br/><br/>
 
@@ -867,30 +867,30 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.11. Support blacklisting JWTs
+## ![✔] 6.11. JWT のブラックリスト化をサポートする
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** When using JSON Web Tokens (for example, with [Passport.js](https://github.com/jaredhanson/passport)), by default there's no mechanism to revoke access from issued tokens. Once you discover some malicious user activity, there's no way to stop them from accessing the system as long as they hold a valid token. Mitigate this by implementing a blacklist of untrusted tokens that are validated on each request.
+**TL;DR:** JSON Web Token を（例えば [Passport.js](https://github.com/jaredhanson/passport) などを用いて）利用する場合、デフォルトでは、発行されたトークンからのアクセスを無効にする仕組みはありません。悪意のあるユーザーのアクティビティを発見したとしても、そのユーザーが有効なトークンを持っている限り、システムへのアクセスを止めることはできません。各リクエストで検証される、信頼されていないトークンのブラックリストを実装することで、この問題をを緩和することができます。
 
-**Otherwise:** Expired, or misplaced tokens could be used maliciously by a third party to access an application and impersonate the owner of the token.
+**さもないと:** 期限切れや、誤って配置されたトークンは、アプリケーションにアクセスしたり、トークンの所有者になりすますために、サードパーティによって悪意を持って利用される可能性があります。
 
-🔗 [**Read More: Blacklist JSON Web Tokens**](/sections/security/expirejwt.md)
+🔗 [**さらに読む: JSON Web Token のブラックリスト**](/sections/security/expirejwt.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.12. Prevent brute-force attacks against authorization
+## ![✔] 6.12. 認証に対するブルートフォース攻撃を阻止する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** A simple and powerful technique is to limit authorization attempts using two metrics:
+**TL;DR:** シンプルで強力なテクニックは、次の 2 つのメトリクスを用いて認証の試行回数を制限することです:
 
-1. The first is number of consecutive failed attempts by the same user unique ID/name and IP address.
-2. The second is number of failed attempts from an IP address over some long period of time. For example, block an IP address if it makes 100 failed attempts in one day.
+1. 同じユーザー固有の ID/名前、そして IP アドレスからの連続失敗回数
+2. ある IP アドレスからの長い期間の失敗回数。例えば、1 日で 100 回失敗した IP アドレスをブロックする
 
-**Otherwise:** An attacker can issue unlimited automated password attempts to gain access to privileged accounts on an application
+**さもないと:** 攻撃者が、アプリケーションの特権アカウントへのアクセス権を得るために、無制限の自動化されたパスワード試行を行うことができます。
 
-🔗 [**Read More: Login rate limiting**](/sections/security/login-rate-limit.md)
+🔗 [**さらに読む: ログインレートリミット**](/sections/security/login-rate-limit.japanese.md)
 
 <br/><br/>
 
