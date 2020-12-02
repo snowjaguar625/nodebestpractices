@@ -655,43 +655,43 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.11. Get your frontend assets out of Node
+## ![✔] 5.11. フロントエンドの資産を Node から取り出す
 
-**TL;DR:** Serve frontend content using dedicated middleware (nginx, S3, CDN) because Node performance really gets hurt when dealing with many static files due to its single-threaded model
+**TL;DR:** 専用のミドルウェア (nginx, S3, CDN) を使用してフロントエンドのコンテンツを提供します。なぜなら、シングルスレッドモデルのため、多くの静的ファイルを扱う場合、Node のパフォーマンスは非常に痛手を受けるからです。
 
-**Otherwise:** Your single Node thread will be busy streaming hundreds of html/images/angular/react files instead of allocating all its resources for the task it was born for – serving dynamic content
+**さもないと:** あなたの Node のシングルスレッドは、何百もの html/images/angular/react ファイルのストリーミングに忙殺され、本来の目的のために生まれたタスクにすべてのリソースを確保することができません。– 動的コンテンツの提供
 
-🔗 [**Read More: Get your frontend assets out of Node**](/sections/production/frontendout.md)
-
-<br/><br/>
-
-## ![✔] 5.12. Be stateless, kill your servers almost every day
-
-**TL;DR:** Store any type of data (e.g. user sessions, cache, uploaded files) within external data stores. Consider ‘killing’ your servers periodically or use ‘serverless’ platform (e.g. AWS Lambda) that explicitly enforces a stateless behavior
-
-**Otherwise:** Failure at a given server will result in application downtime instead of just killing a faulty machine. Moreover, scaling-out elasticity will get more challenging due to the reliance on a specific server
-
-🔗 [**Read More: Be stateless, kill your Servers almost every day**](/sections/production/bestateless.md)
+🔗 [**さらに読む: フロントエンドの資産を Node から取り出す**](/sections/production/frontendout.japanese.md)
 
 <br/><br/>
 
-## ![✔] 5.13. Use tools that automatically detect vulnerabilities
+## ![✔] 5.12. ステートレスのままで、ほぼ毎日サーバーを停止させる
 
-**TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities (from time to time) that can put a system at risk. This can be easily tamed using community and commercial tools that constantly check for vulnerabilities and warn (locally or at GitHub), some can even patch them immediately
+**TL;DR:** 任意のタイプのデータ（ユーザーセッション、キャッシュ、アップロードされたファイルなど）を外部データストア内に保存します。定期的にサーバを「停止する」ことを検討するか、ステートレスな動作を明示的に行う「サーバレス」プラットフォーム（AWS Lambda など）を使用することを検討してください。
 
-**Otherwise:** Keeping your code clean from vulnerabilities without dedicated tools will require you to constantly follow online publications about new threats. Quite tedious
+**Otherwise:** 特定のサーバーで障害が発生すると、障害のあるマシンを停止する代わりに、アプリケーションのダウンタイムが発生します。さらに、特定のサーバーに依存しているため、スケーリングアウトの弾力性はより困難になります。
 
-🔗 [**Read More: Use tools that automatically detect vulnerabilities**](/sections/production/detectvulnerabilities.md)
+🔗 [**さらに読む: ステートレスのままで、ほぼ毎日サーバーを停止させる**](/sections/production/bestateless.japanese.md)
 
 <br/><br/>
 
-## ![✔] 5.14. Assign a transaction id to each log statement
+## ![✔] 5.13. 脆弱性を自動的に検出するツールを使用する
 
-**TL;DR:** Assign the same identifier, transaction-id: {some value}, to each log entry within a single request. Then when inspecting errors in logs, easily conclude what happened before and after. Unfortunately, this is not easy to achieve in Node due to its async nature, see code examples inside
+**TL;DR:** Express のような最も評判の良い依存関係にも、(時折)システムを危険にさらす既知の脆弱性があります。脆弱性を常にチェックして警告するコミュニティや商用ツール（ローカルまたはGitHub）を使えば簡単に手なずけることができ、いくつかはすぐにパッチを当てることもできます。
 
-**Otherwise:** Looking at a production error log without the context – what happened before – makes it much harder and slower to reason about the issue
+**さもないと:** 専用のツールを使用せずに脆弱性からコードをクリーンに保つには、新しい脅威についてのオンライン出版物を常にフォローする必要があります。とても面倒です。
 
-🔗 [**Read More: Assign ‘TransactionId’ to each log statement**](/sections/production/assigntransactionid.md)
+🔗 [**さらに読む: 脆弱性を自動的に検出するツールを使用する**](/sections/production/detectvulnerabilities.japanese.md)
+
+<br/><br/>
+
+## ![✔] 5.14. 各ログステートメントにトランザクション ID を割り当てる
+
+**TL;DR:** transaction-id: { 任意の値 } で、単一のリクエスト内の各ログエントリに同じ識別子を割り当てます。その後、ログのエラーを検査する際に、前後に何が起こったかを簡単に結論付けることができます。残念ながら、非同期の性質上、これを Node で実現するのは容易ではありません。内部のコード例を参照してください。
+
+**さもないと:** – 前に何が起こったのか – というコンテキストなしでプロダクションのエラーログを見ると、問題を推論するのが非常に難しくなり、時間がかかります。
+
+🔗 [**さらに読む: 各ログ文に 'TransactionId' を割り当てる**](/sections/production/assigntransactionid.japanese.md)
 
 <br/><br/>
 
@@ -867,15 +867,15 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.11. JWT のブラックリスト化をサポートする
+## ![✔] 6.11. Support blacklisting JWTs
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** JSON Web Token を（例えば [Passport.js](https://github.com/jaredhanson/passport) などを用いて）利用する場合、デフォルトでは、発行されたトークンからのアクセスを無効にする仕組みはありません。悪意のあるユーザーのアクティビティを発見したとしても、そのユーザーが有効なトークンを持っている限り、システムへのアクセスを止めることはできません。各リクエストで検証される、信頼されていないトークンのブラックリストを実装することで、この問題をを緩和することができます。
+**TL;DR:** When using JSON Web Tokens (for example, with [Passport.js](https://github.com/jaredhanson/passport)), by default there's no mechanism to revoke access from issued tokens. Once you discover some malicious user activity, there's no way to stop them from accessing the system as long as they hold a valid token. Mitigate this by implementing a blacklist of untrusted tokens that are validated on each request.
 
-**さもないと:** 期限切れや、誤って配置されたトークンは、アプリケーションにアクセスしたり、トークンの所有者になりすますために、サードパーティによって悪意を持って利用される可能性があります。
+**Otherwise:** Expired, or misplaced tokens could be used maliciously by a third party to access an application and impersonate the owner of the token.
 
-🔗 [**さらに読む: JSON Web Token のブラックリスト**](/sections/security/expirejwt.japanese.md)
+🔗 [**Read More: Blacklist JSON Web Tokens**](/sections/security/expirejwt.md)
 
 <br/><br/>
 
