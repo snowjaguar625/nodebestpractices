@@ -685,23 +685,23 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.14. Assign a transaction id to each log statement
+## ![✔] 5.14. 各ログステートメントにトランザクション ID を割り当てる
 
-**TL;DR:** Assign the same identifier, transaction-id: {some value}, to each log entry within a single request. Then when inspecting errors in logs, easily conclude what happened before and after. Unfortunately, this is not easy to achieve in Node due to its async nature, see code examples inside
+**TL;DR:** transaction-id: {任意の値} で、単一のリクエスト内の各ログエントリに同じ識別子を割り当てます。そうすることで、ログのエラーを検査する際に、前後に何が起こったかを簡単に結論付けることができます。残念ながら、非同期の性質上、これを Node で実現するのは容易ではありません。内部のコード例を参照してください。
 
-**Otherwise:** Looking at a production error log without the context – what happened before – makes it much harder and slower to reason about the issue
+**さもないと:** – 前に何が起こったのか – というコンテキストなしでプロダクションのエラーログを見ると、問題の原因を究明するのが非常に難しくなり、時間がかかります。
 
-🔗 [**Read More: Assign ‘TransactionId’ to each log statement**](/sections/production/assigntransactionid.md)
+🔗 [**さらに読む: 各ログ文に 'TransactionId' を割り当てる**](/sections/production/assigntransactionid.japanese.md)
 
 <br/><br/>
 
-## ![✔] 5.15. Set NODE_ENV=production
+## ![✔] 5.15. NODE_ENV=production を設定する
 
-**TL;DR:** Set the environment variable NODE_ENV to ‘production’ or ‘development’ to flag whether production optimizations should get activated – many npm packages determine the current environment and optimize their code for production
+**TL;DR:** 環境変数 NODE_ENV を「production」または「development」に設定して、本番環境での最適化を有効にするかどうかのフラグを立てます。– 多くの npm パッケージが現在の環境を判断し、本番用にコードを最適化します。
 
-**Otherwise:** Omitting this simple property might greatly degrade performance. For example, when using Express for server-side rendering omitting `NODE_ENV` makes it slower by a factor of three!
+**さもないと:** この単純なプロパティを省略すると、パフォーマンスが大きく低下する可能性があります。例えば、サーバサイドのレンダリングに Express を使用する場合、`NODE_ENV` を省略すると3倍も遅くなります。
 
-🔗 [**Read More: Set NODE_ENV=production**](/sections/production/setnodeenv.md)
+🔗 [**さらに読む: NODE_ENV=production を設定する**](/sections/production/setnodeenv.japanese.md)
 
 <br/><br/>
 
@@ -879,18 +879,18 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.12. 認証に対するブルートフォース攻撃を阻止する
+## ![✔] 6.12. Prevent brute-force attacks against authorization
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** シンプルで強力なテクニックは、次の 2 つのメトリクスを用いて認証の試行回数を制限することです:
+**TL;DR:** A simple and powerful technique is to limit authorization attempts using two metrics:
 
-1. 同じユーザー固有の ID/名前、そして IP アドレスからの連続失敗回数
-2. ある IP アドレスからの長い期間の失敗回数。例えば、1 日で 100 回失敗した IP アドレスをブロックする
+1. The first is number of consecutive failed attempts by the same user unique ID/name and IP address.
+2. The second is number of failed attempts from an IP address over some long period of time. For example, block an IP address if it makes 100 failed attempts in one day.
 
-**さもないと:** 攻撃者が、アプリケーションの特権アカウントへのアクセス権を得るために、無制限の自動化されたパスワード試行を行うことができます。
+**Otherwise:** An attacker can issue unlimited automated password attempts to gain access to privileged accounts on an application
 
-🔗 [**さらに読む: ログインレートリミット**](/sections/security/login-rate-limit.japanese.md)
+🔗 [**Read More: Login rate limiting**](/sections/security/login-rate-limit.md)
 
 <br/><br/>
 
