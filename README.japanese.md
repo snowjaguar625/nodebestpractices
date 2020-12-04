@@ -705,11 +705,11 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.16. Design automated, atomic and zero-downtime deployments
+## ![✔] 5.16. 自動化された、アトミックでゼロダウンタイムのデプロイメントを設計する
 
-**TL;DR:** Research shows that teams who perform many deployments lower the probability of severe production issues. Fast and automated deployments that don’t require risky manual steps and service downtime significantly improve the deployment process. You should probably achieve this using Docker combined with CI tools as they became the industry standard for streamlined deployment
+**TL;DR:** 調査によると、多くのデプロイメントを行うチームほど、深刻なプロダクションの問題が発生する確率が低くなることがわかっています。リスクの高い手動ステップやサービスのダウンタイムを必要としない高速で自動化されたデプロイメントは、デプロイメントプロセスを大幅に改善します。Docker と CI ツールを組み合わせることで、合理化されたデプロイのための業界標準となったため、これを達成する必要があるでしょう。
 
-**Otherwise:** Long deployments -> production downtime & human-related error -> team unconfident in making deployment -> fewer deployments and features
+**さもないと:** 長時間のデプロイ -> 本番のダウンタイムと人為的なミス -> デプロイに自信のないチーム -> デプロイ数と機能の減少
 
 <br/><br/>
 
@@ -879,18 +879,18 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.12. Prevent brute-force attacks against authorization
+## ![✔] 6.12. 認証に対するブルートフォース攻撃を阻止する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** A simple and powerful technique is to limit authorization attempts using two metrics:
+**TL;DR:** シンプルで強力なテクニックは、次の 2 つのメトリクスを用いて認証の試行回数を制限することです:
 
-1. The first is number of consecutive failed attempts by the same user unique ID/name and IP address.
-2. The second is number of failed attempts from an IP address over some long period of time. For example, block an IP address if it makes 100 failed attempts in one day.
+1. 同じユーザー固有の ID/名前、そして IP アドレスからの連続失敗回数
+2. ある IP アドレスからの長い期間の失敗回数。例えば、1 日で 100 回失敗した IP アドレスをブロックする
 
-**Otherwise:** An attacker can issue unlimited automated password attempts to gain access to privileged accounts on an application
+**さもないと:** 攻撃者が、アプリケーションの特権アカウントへのアクセス権を得るために、無制限の自動化されたパスワード試行を行うことができます。
 
-🔗 [**Read More: Login rate limiting**](/sections/security/login-rate-limit.md)
+🔗 [**さらに読む: ログインレートリミット**](/sections/security/login-rate-limit.japanese.md)
 
 <br/><br/>
 
