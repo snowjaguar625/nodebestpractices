@@ -713,23 +713,23 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.17. Node.js の LTS リリースを使用する
+## ![✔] 5.17. Use an LTS release of Node.js
 
-**TL;DR:** 重要なバグフィックス、セキュリティアップデート、パフォーマンスの改善を受けるために、Node.js の LTS バージョンを使用していることを確認してください。
+**TL;DR:** Ensure you are using an LTS version of Node.js to receive critical bug fixes, security updates and performance improvements
 
-**さもないと:** 新たに発見されたバグや脆弱性は、本番環境で運用中のアプリケーションを悪用するために使用される可能性があり、アプリケーションは様々なモジュールでサポートされておらず、保守が困難になる可能性があります。
+**Otherwise:** Newly discovered bugs or vulnerabilities could be used to exploit an application running in production, and your application may become unsupported by various modules and harder to maintain
 
-🔗 [**さらに読む: Node.js の LTS リリースを使用する**](/sections/production/LTSrelease.japanese.md)
+🔗 [**Read More: Use an LTS release of Node.js**](/sections/production/LTSrelease.md)
 
 <br/><br/>
 
-## ![✔] 5.18. アプリ内でログをルーティングしない
+## ![✔] 5.18. Don't route logs within the app
 
-**TL;DR:** ログの送信先は、アプリケーションコード内で開発者によってハードコーディングされるべきではなく、代わりに、アプリケーションが実行される実行環境によって定義されるべきです。開発者はロガーユーティリティを使って `stdout` にログを書き、実行環境 (コンテナやサーバなど) に `stdout` のストリームを適切な宛先 (Splunk, Graylog, ElasticSearch など) にパイプさせるべきです。
+**TL;DR:** Log destinations should not be hard-coded by developers within the application code, but instead should be defined by the execution environment the application runs in. Developers should write logs to `stdout` using a logger utility and then let the execution environment (container, server, etc.) pipe the `stdout` stream to the appropriate destination (i.e. Splunk, Graylog, ElasticSearch, etc.).
 
-**さもないと:** アプリケーションがログのルーティングをハンドリングする === スケールアップが難しい、ログの損失、懸念事項の分離が悪い
+**Otherwise:** Application handling log routing === hard to scale, loss of logs, poor separation of concerns
 
-🔗 [**さらに読む: ログルーティング**](/sections/production/logrouting.japanese.md)
+🔗 [**Read More: Log Routing**](/sections/production/logrouting.md)
 
 <br/><br/>
 
@@ -906,15 +906,15 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.14. Limit payload size using a reverse-proxy or a middleware
+## ![✔] 6.14. リバースプロキシまたはミドルウェアを使用してペイロードのサイズを制限する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A8:Insecured%20Deserialization%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** The bigger the body payload is, the harder your single thread works in processing it. This is an opportunity for attackers to bring servers to their knees without tremendous amount of requests (DOS/DDOS attacks). Mitigate this limiting the body size of incoming requests on the edge (e.g. firewall, ELB) or by configuring [express body parser](https://github.com/expressjs/body-parser) to accept only small-size payloads
+**TL;DR:** Body ペイロードが大きければ大きいほど、シングルスレッドでの処理が重くなります。これは、攻撃者にとっては、膨大なリクエストを送信（DoS/DDoS 攻撃）せずともサーバーをダウンさせることができる機会となります。エッジ（例：firewall、ELB）で受信するリクエストのボデサイズを制限する、もしくは [express body parser](https://github.com/expressjs/body-parser) を用いて小さいサイズのペイロードのみを受け付けることで、緩和してください。
 
-**Otherwise:** Your application will have to deal with large requests, unable to process the other important work it has to accomplish, leading to performance implications and vulnerability towards DOS attacks
+**さもないと:** アプリケーションは大きなリクエストを処理しなければなくなり、他の重要な仕事を完遂させることができず、パフォーマンスへの影響や DDoS 攻撃に対する脆弱性につながります。
 
-🔗 [**Read More: Limit payload size**](/sections/security/requestpayloadsizelimit.md)
+🔗 [**さらに読む: ペイロードサイズを制限する**](/sections/security/requestpayloadsizelimit.japanese.md)
 
 <br/><br/>
 
