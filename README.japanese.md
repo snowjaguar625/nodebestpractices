@@ -589,7 +589,7 @@ null == undefined; // true
 
 **TL;DR:** コードはすべての環境で同一でなければなりませんが、驚くべきことに npm はデフォルトで環境間で依存関係をドリフトさせることができます。– 様々な環境でパッケージをインストールすると、パッケージの最新のパッチバージョンを取得しようとします。これを克服するには、各パッケージの正確な (最新版ではない) バージョンを保存するように各環境に指示する npm 設定ファイル .npmrc を使用します。あるいは、より細かい制御を行うには `npm shrinkwrap` を使用してください。\*更新: NPM5 では、依存関係はデフォルトでロックされています。新しいパッケージマネージャー、Yarn もデフォルトでカバーしてくれました。
 
-**さもないと:** QA はコードを徹底的にテストし、本番では異なる挙動をするバージョンを承認します。さらに悪いことに、同じクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
+**さもないと:** QA はコードを徹底的にテストし、本番環境では異なる挙動をするバージョンを承認します。さらに悪いことに、同じクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
 
 🔗 [**さらに読む: 依存関係をロックする**](/sections/production/lockdependencies.japanese.md)
 
@@ -713,33 +713,33 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.17. Use an LTS release of Node.js
+## ![✔] 5.17. Node.js の LTS リリースを使用する
 
-**TL;DR:** Ensure you are using an LTS version of Node.js to receive critical bug fixes, security updates and performance improvements
+**TL;DR:** 重要なバグフィックス、セキュリティアップデート、パフォーマンスの改善を受けるために、Node.js の LTS バージョンを使用していることを確認してください。
 
-**Otherwise:** Newly discovered bugs or vulnerabilities could be used to exploit an application running in production, and your application may become unsupported by various modules and harder to maintain
+**さもないと:** 新たに発見されたバグや脆弱性は、本番環境で運用中のアプリケーションを悪用するために使用される可能性があり、アプリケーションは様々なモジュールでサポートされておらず、保守が困難になる可能性があります。
 
-🔗 [**Read More: Use an LTS release of Node.js**](/sections/production/LTSrelease.md)
-
-<br/><br/>
-
-## ![✔] 5.18. Don't route logs within the app
-
-**TL;DR:** Log destinations should not be hard-coded by developers within the application code, but instead should be defined by the execution environment the application runs in. Developers should write logs to `stdout` using a logger utility and then let the execution environment (container, server, etc.) pipe the `stdout` stream to the appropriate destination (i.e. Splunk, Graylog, ElasticSearch, etc.).
-
-**Otherwise:** Application handling log routing === hard to scale, loss of logs, poor separation of concerns
-
-🔗 [**Read More: Log Routing**](/sections/production/logrouting.md)
+🔗 [**さらに読む: Node.js の LTS リリースを使用する**](/sections/production/LTSrelease.japanese.md)
 
 <br/><br/>
 
-## ![✔] 5.19. Install your packages with `npm ci` 
+## ![✔] 5.18. アプリ内でログをルーティングしない
 
-**TL;DR:** You have to be sure that production code uses the exact version of the packages you have tested it with. Run `npm ci` to strictly do a clean install of your dependencies matching package.json and package-lock.json. Using this command is recommended in automated environments such as continuous integration pipelines.
+**TL;DR:** ログの送信先は、アプリケーションコード内で開発者によってハードコーディングされるべきではなく、代わりに、アプリケーションが実行される実行環境によって定義されるべきです。開発者はロガーユーティリティを使って `stdout` にログを書き、実行環境 (コンテナやサーバなど) に `stdout` のストリームを適切な宛先 (Splunk, Graylog, ElasticSearch など) にパイプさせるべきです。
 
-**Otherwise:** QA will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code.
+**さもないと:** アプリケーションがログのルーティングをハンドリングする === スケールアップが難しい、ログの損失、懸念事項の分離が悪い
 
-🔗 [**Read More: Use npm ci**](/sections/production/installpackageswithnpmci.md)
+🔗 [**さらに読む: ログルーティング**](/sections/production/logrouting.japanese.md)
+
+<br/><br/>
+
+## ![✔] 5.19. パッケージを `npm ci` でインストールする
+
+**TL;DR:** 本番環境のコードが、テストしたパッケージの正確なバージョンを使用していることを確認する必要があります。 `npm ci` を実行して、package.json と package-lock.json に一致する依存関係のクリーンインストールを厳密に行います。このコマンドは、継続的インテグレーションパイプラインのような自動化された環境で使用することをお勧めします。
+
+**さもないと:** QA はコードを徹底的にテストし、本番環境では異なる動作をするバージョンを承認します。さらに悪いことに、同じプロダクションクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
+
+🔗 [**さらに読む: npm ci を使う**](/sections/production/installpackageswithnpmci.japanese.md)
 
 <br/><br/><br/>
 
@@ -906,15 +906,15 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.14. リバースプロキシまたはミドルウェアを使用してペイロードのサイズを制限する
+## ![✔] 6.14. Limit payload size using a reverse-proxy or a middleware
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A8:Insecured%20Deserialization%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** Body ペイロードが大きければ大きいほど、シングルスレッドでの処理が重くなります。これは、攻撃者にとっては、膨大なリクエストを送信（DoS/DDoS 攻撃）せずともサーバーをダウンさせることができる機会となります。エッジ（例：firewall、ELB）で受信するリクエストのボデサイズを制限する、もしくは [express body parser](https://github.com/expressjs/body-parser) を用いて小さいサイズのペイロードのみを受け付けることで、緩和してください。
+**TL;DR:** The bigger the body payload is, the harder your single thread works in processing it. This is an opportunity for attackers to bring servers to their knees without tremendous amount of requests (DOS/DDOS attacks). Mitigate this limiting the body size of incoming requests on the edge (e.g. firewall, ELB) or by configuring [express body parser](https://github.com/expressjs/body-parser) to accept only small-size payloads
 
-**さもないと:** アプリケーションは大きなリクエストを処理しなければなくなり、他の重要な仕事を完遂させることができず、パフォーマンスへの影響や DDoS 攻撃に対する脆弱性につながります。
+**Otherwise:** Your application will have to deal with large requests, unable to process the other important work it has to accomplish, leading to performance implications and vulnerability towards DOS attacks
 
-🔗 [**さらに読む: ペイロードサイズを制限する**](/sections/security/requestpayloadsizelimit.japanese.md)
+🔗 [**Read More: Limit payload size**](/sections/security/requestpayloadsizelimit.md)
 
 <br/><br/>
 
