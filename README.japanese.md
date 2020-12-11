@@ -589,7 +589,7 @@ null == undefined; // true
 
 **TL;DR:** コードはすべての環境で同一でなければなりませんが、驚くべきことに npm はデフォルトで環境間で依存関係をドリフトさせることができます。– 様々な環境でパッケージをインストールすると、パッケージの最新のパッチバージョンを取得しようとします。これを克服するには、各パッケージの正確な (最新版ではない) バージョンを保存するように各環境に指示する npm 設定ファイル .npmrc を使用します。あるいは、より細かい制御を行うには `npm shrinkwrap` を使用してください。\*更新: NPM5 では、依存関係はデフォルトでロックされています。新しいパッケージマネージャー、Yarn もデフォルトでカバーしてくれました。
 
-**さもないと:** QA はコードを徹底的にテストし、本番環境では異なる挙動をするバージョンを承認します。さらに悪いことに、同じクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
+**さもないと:** QA はコードを徹底的にテストし、本番では異なる挙動をするバージョンを承認します。さらに悪いことに、同じクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
 
 🔗 [**さらに読む: 依存関係をロックする**](/sections/production/lockdependencies.japanese.md)
 
@@ -733,13 +733,13 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 5.19. パッケージを `npm ci` でインストールする
+## ![✔] 5.19. Install your packages with `npm ci` 
 
-**TL;DR:** 本番環境のコードが、テストしたパッケージの正確なバージョンを使用していることを確認する必要があります。 `npm ci` を実行して、package.json と package-lock.json に一致する依存関係のクリーンインストールを厳密に行います。このコマンドは、継続的インテグレーションパイプラインのような自動化された環境で使用することをお勧めします。
+**TL;DR:** You have to be sure that production code uses the exact version of the packages you have tested it with. Run `npm ci` to strictly do a clean install of your dependencies matching package.json and package-lock.json. Using this command is recommended in automated environments such as continuous integration pipelines.
 
-**さもないと:** QA はコードを徹底的にテストし、本番環境では異なる動作をするバージョンを承認します。さらに悪いことに、同じプロダクションクラスタ内の異なるサーバが異なるコードを実行する可能性があります。
+**Otherwise:** QA will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code.
 
-🔗 [**さらに読む: npm ci を使う**](/sections/production/installpackageswithnpmci.japanese.md)
+🔗 [**Read More: Use npm ci**](/sections/production/installpackageswithnpmci.md)
 
 <br/><br/><br/>
 
@@ -906,27 +906,27 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.14. Limit payload size using a reverse-proxy or a middleware
+## ![✔] 6.14. リバースプロキシまたはミドルウェアを使用してペイロードのサイズを制限する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A8:Insecured%20Deserialization%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** The bigger the body payload is, the harder your single thread works in processing it. This is an opportunity for attackers to bring servers to their knees without tremendous amount of requests (DOS/DDOS attacks). Mitigate this limiting the body size of incoming requests on the edge (e.g. firewall, ELB) or by configuring [express body parser](https://github.com/expressjs/body-parser) to accept only small-size payloads
+**TL;DR:** Body ペイロードが大きければ大きいほど、シングルスレッドでの処理が重くなります。これは、攻撃者にとっては、膨大なリクエストを送信（DoS/DDoS 攻撃）せずともサーバーをダウンさせることができる機会となります。エッジ（例：firewall、ELB）で受信するリクエストのボデサイズを制限する、もしくは [express body parser](https://github.com/expressjs/body-parser) を用いて小さいサイズのペイロードのみを受け付けることで、緩和してください。
 
-**Otherwise:** Your application will have to deal with large requests, unable to process the other important work it has to accomplish, leading to performance implications and vulnerability towards DOS attacks
+**さもないと:** アプリケーションは大きなリクエストを処理しなければなくなり、他の重要な仕事を完遂させることができず、パフォーマンスへの影響や DDoS 攻撃に対する脆弱性につながります。
 
-🔗 [**Read More: Limit payload size**](/sections/security/requestpayloadsizelimit.md)
+🔗 [**さらに読む: ペイロードサイズを制限する**](/sections/security/requestpayloadsizelimit.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.15. Avoid JavaScript eval statements
+## ![✔] 6.15. JavaScript の eval 構文を避ける
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** `eval` is evil as it allows executing custom JavaScript code during run time. This is not just a performance concern but also an important security concern due to malicious JavaScript code that may be sourced from user input. Another language feature that should be avoided is `new Function` constructor. `setTimeout` and `setInterval` should never be passed dynamic JavaScript code either.
+**TL;DR:** `eval` は、ランタイムにおいてカスタム JavaScript コードの実行を許可しているため、有害です。これは単にパフォーマンス的な懸念だけではなく、ユーザーの入力を元にした悪意のある JavaScript コードのために、重大なセキュリティ的な懸念でもあります。その他の避けるべき言語仕様は、`new Function` コンストラクタです。`setTimeout` と `setInterval` も動的な JavaScript コードに渡されるべきではありません。
 
-**Otherwise:** Malicious JavaScript code finds a way into text passed into `eval` or other real-time evaluating JavaScript language functions, and will gain complete access to JavaScript permissions on the page. This vulnerability is often manifested as an XSS attack.
+**さもないと:** 悪意のある JavaScript コードが `eval` やその他のリアルタイムに評価する JavaScript の関数に渡されるテキストへたどり着き、そのページにおける JavaScript の完全な権限を獲得してしまいます。この脆弱性はしばしば XSS 攻撃として顕在化します。
 
-🔗 [**Read More: Avoid JavaScript eval statements**](/sections/security/avoideval.md)
+🔗 [**さらに読む: JavaScript の eval 構文を避ける**](/sections/security/avoideval.japanese.md)
 
 <br/><br/>
 
