@@ -1,22 +1,23 @@
-# JavaScript の eval 構文を避ける
+# Avoid JS eval statements
 
-### 一段落説明
+### One Paragraph Explainer
 
-`eval()`、`setTimeout()`、`setInterval()`、そして `new Function()` は Node.js でしばしば利用される、JavaScript の式、文そして連続した文を表す文字列パラメータを受け取るグローバル関数です。これらの関数を利用することをセキュリティ的な懸念は、ユーザーのコードを評価することは本質的には攻撃者にあらゆるアクションを実行することを許すことなので、信頼されていないユーザーの入力がコード実行の中に入り込み、サーバーを危険にさらす可能性があるということです。ユーザーの入力が渡されて実行されるような関数の利用に依存しないようにコードをリファクタすることが推奨されています。
+`eval()`, `setTimeout()`, `setInterval()`, and `new Function()` are global functions, often used in Node.js, which accept a string parameter representing a JavaScript expression, statement, or sequence of statements. The security concern of using these functions is the possibility that untrusted user input might find its way into code execution leading to server compromise, as evaluating user code essentially allows an attacker to perform any actions that you can. It is suggested to refactor code to not rely on the usage of these functions where user input could be passed to the function and executed.
 
-### コード例
+### Code example
 
 ```javascript
-// 攻撃者が入力できる悪意のあるコードの例
+// example of malicious code which an attacker was able to input
 const userInput = "require('child_process').spawn('rm', ['-rf', '/'])";
 
-// 悪意のあるコードが実行される
+// malicious code executed
 eval(userInput);
 ```
 
-### 他のブロガーが言っていること
+### What other bloggers say
 
-[Liran Tal](https://leanpub.com/nodejssecurity) による書籍 Essential Node.js Security より:
-> セキュリティの観点から見ると、eval() 関数はおそらく JavaScript の中でもっとも忌み嫌われている部分でしょう。
-> それは JavaScript の文字列をテキストにパースし、まるで JavaScript コードのように実行します。
-> これを、eval() へ渡されることが分かっているかもしれない信頼されていないユーザー入力と混ぜることは、サーバーを危険にさらすことになる、崩壊へのレシピといえるでしょう。
+From the Essential Node.js Security book by [Liran Tal](https://leanpub.com/nodejssecurity):
+> The eval() function is perhaps of the most frowned upon JavaScript pieces from a security
+perspective. It parses a JavaScript string as text, and executes it as if it were a JavaScript code.
+Mixing that with untrusted user input that might find it’s way to eval() is a recipe for disaster that
+can end up with server compromise.
