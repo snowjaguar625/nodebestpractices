@@ -906,39 +906,39 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.14. Limit payload size using a reverse-proxy or a middleware
+## ![✔] 6.14. リバースプロキシまたはミドルウェアを使用してペイロードのサイズを制限する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A8:Insecured%20Deserialization%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** The bigger the body payload is, the harder your single thread works in processing it. This is an opportunity for attackers to bring servers to their knees without tremendous amount of requests (DOS/DDOS attacks). Mitigate this limiting the body size of incoming requests on the edge (e.g. firewall, ELB) or by configuring [express body parser](https://github.com/expressjs/body-parser) to accept only small-size payloads
+**TL;DR:** Body ペイロードが大きければ大きいほど、シングルスレッドでの処理が重くなります。これは、攻撃者にとっては、膨大なリクエストを送信（DoS/DDoS 攻撃）せずともサーバーをダウンさせることができる機会となります。エッジ（例：firewall、ELB）で受信するリクエストのボデサイズを制限する、もしくは [express body parser](https://github.com/expressjs/body-parser) を用いて小さいサイズのペイロードのみを受け付けることで、緩和してください。
 
-**Otherwise:** Your application will have to deal with large requests, unable to process the other important work it has to accomplish, leading to performance implications and vulnerability towards DOS attacks
+**さもないと:** アプリケーションは大きなリクエストを処理しなければなくなり、他の重要な仕事を完遂させることができず、パフォーマンスへの影響や DDoS 攻撃に対する脆弱性につながります。
 
-🔗 [**Read More: Limit payload size**](/sections/security/requestpayloadsizelimit.md)
+🔗 [**さらに読む: ペイロードサイズを制限する**](/sections/security/requestpayloadsizelimit.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.15. Avoid JavaScript eval statements
+## ![✔] 6.15. JavaScript の eval 構文を避ける
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** `eval` is evil as it allows executing custom JavaScript code during run time. This is not just a performance concern but also an important security concern due to malicious JavaScript code that may be sourced from user input. Another language feature that should be avoided is `new Function` constructor. `setTimeout` and `setInterval` should never be passed dynamic JavaScript code either.
+**TL;DR:** `eval` は、ランタイムにおいてカスタム JavaScript コードの実行を許可しているため、有害です。これは単にパフォーマンス的な懸念だけではなく、ユーザーの入力を元にした悪意のある JavaScript コードのために、重大なセキュリティ的な懸念でもあります。その他の避けるべき言語仕様は、`new Function` コンストラクタです。`setTimeout` と `setInterval` も動的な JavaScript コードに渡されるべきではありません。
 
-**Otherwise:** Malicious JavaScript code finds a way into text passed into `eval` or other real-time evaluating JavaScript language functions, and will gain complete access to JavaScript permissions on the page. This vulnerability is often manifested as an XSS attack.
+**さもないと:** 悪意のある JavaScript コードが `eval` やその他のリアルタイムに評価する JavaScript の関数に渡されるテキストへたどり着き、そのページにおける JavaScript の完全な権限を獲得してしまいます。この脆弱性はしばしば XSS 攻撃として顕在化します。
 
-🔗 [**Read More: Avoid JavaScript eval statements**](/sections/security/avoideval.md)
+🔗 [**さらに読む: JavaScript の eval 構文を避ける**](/sections/security/avoideval.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.16. Prevent evil RegEx from overloading your single thread execution
+## ![✔] 6.16. 悪意のある RegEx がシングルスレッド実行をオーバーロードすることを防止する
 
 <a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** Regular Expressions, while being handy, pose a real threat to JavaScript applications at large, and the Node.js platform in particular. A user input for text to match might require an outstanding amount of CPU cycles to process. RegEx processing might be inefficient to an extent that a single request that validates 10 words can block the entire event loop for 6 seconds and set the CPU on 🔥. For that reason, prefer third-party validation packages like [validator.js](https://github.com/chriso/validator.js) instead of writing your own Regex patterns, or make use of [safe-regex](https://github.com/substack/safe-regex) to detect vulnerable regex patterns
+**TL;DR:** 正規表現（RegEx）は便利ですが、JavaScript アプリケーション全体、特に Node.js プラットフォームに対して真の脅威となります。テキストのユーザー入力をマッチさせることは、処理に大量の CPU サイクルを必要とするかもしれません。RegEx の処理は、10 ワードを検証する単一のリクエストが 6 秒間イベントループ全体をブロックし、CPU に 🔥 を点けるほどには非効率であるかもしれません。そのため、独自の RegExp パターンを記述する代わりに [validator.js](https://github.com/chriso/validator.js) のようなサードパーティ検証パッケージを利用するか、脆弱な正規表現パターンを検出するために [safe-regex](https://github.com/substack/safe-regex) を利用するようにしましょう。
 
-**Otherwise:** Poorly written regexes could be susceptible to Regular Expression DoS attacks that will block the event loop completely. For example, the popular `moment` package was found vulnerable with malicious RegEx usage in November of 2017
+**さもないと:** 下手な正規表現の記述は、イベントループを完全にブロックしてしまう正規表現 DoS 攻撃の影響を受ける可能性があります。例えば、人気のある `moment` パッケージでは、2017 年 11 月に悪意のある RegEx の使用による脆弱性が発見されています。
 
-🔗 [**Read More: Prevent malicious RegEx**](/sections/security/regex.md)
+🔗 [**さらに読む: 悪質な RegEx を防止する**](/sections/security/regex.japanese.md)
 
 <br/><br/>
 
@@ -1053,13 +1053,13 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 7.1. Don't block the event loop
+## ![✔] 7.1. イベントループをブロックしない
 
-**TL;DR:** Avoid CPU intensive tasks as they will block the mostly single-threaded Event Loop and offload those to a dedicated thread, process or even a different technology based on the context.
+**TL;DR:** 主にシングルスレッドのイベントループをブロックし、専用のスレッド、プロセス、またはコンテキストに基づいて別の技術にそれらをオフロードするため、CPU集約的なタスクを避けてください。
 
-**Otherwise:** As the Event Loop is blocked, Node.js will be unable to handle other request thus causing delays for concurrent users. **3000 users are waiting for a response, the content is ready to be served, but one single request blocks the server from dispatching the results back**
+**さもないと:** イベントループがブロックされると、Node.js は他のリクエストを処理することができなくなり、同時接続ユーザーの遅延を引き起こします。**3000人のユーザーがレスポンスを待っていて、コンテンツを提供する準備ができていますが、1つのリクエストがサーバからの結果のディスパッチをブロックしています***。
 
-🔗 [**Read More: Do not block the event loop**](/sections/performance/block-loop.md)
+🔗 [**さらに読む: イベントループをブロックしない**](/sections/performance/block-loop.japanese.md)
 
 <br /><br /><br />
 
