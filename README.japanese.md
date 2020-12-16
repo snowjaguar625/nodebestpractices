@@ -942,15 +942,15 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.17. 変数を利用してモジュールを読み込むことを避ける
+## ![✔] 6.17. Avoid module loading using a variable
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** ユーザー入力が起因となって問題が生じる恐れがあるため、パラメータとして与えられたパスを用いて他のファイルを require/import しないようにしてください。この原則は、ユーザー入力に基づいた動的な変数を用いた、一般的なファイルアクセス（`fs.readFile()` など）やその他のセンシティブなリソースアクセスにも拡張することができます。[Eslint-plugin-security](https://www.npmjs.com/package/eslint-plugin-security) linter はそのようなパターンを検知して、早期に警告を出すことができます。
+**TL;DR:** Avoid requiring/importing another file with a path that was given as parameter due to the concern that it could have originated from user input. This rule can be extended for accessing files in general (i.e. `fs.readFile()`) or other sensitive resource access with dynamic variables originating from user input. [Eslint-plugin-security](https://www.npmjs.com/package/eslint-plugin-security) linter can catch such patterns and warn early enough
 
-**さもないと:** 悪意のあるユーザー入力は、既存のシステムファイルに、前にファイルシステムにアップロードされたファイルのような改変されたファイルを要求したり、既存のシステムファイルにアクセスするために利用されるパラメータを操作する可能性があります。
+**Otherwise:** Malicious user input could find its way to a parameter that is used to require tampered files, for example, a previously uploaded file on the file system, or access already existing system files.
 
-🔗 [**さらに読む: 安全なモジュール読み込み**](/sections/security/safemoduleloading.japanese.md)
+🔗 [**Read More: Safe module loading**](/sections/security/safemoduleloading.md)
 
 <br/><br/>
 
@@ -1063,18 +1063,18 @@ null == undefined; // true
 
 <br /><br /><br />
 
-## ![✔] 7.2. Prefer native JS methods over user-land utils like Lodash
+## ![✔] 7.2. Lodash のようなユーザーランドのユーティリティよりも、ネイティブの JS メソッドを選ぶ
 
-**TL;DR:** It's often more penalising to use utility libraries like `lodash` and `underscore` over native methods as it leads to unneeded dependencies and slower performance.
-Bear in mind that with the introduction of the new V8 engine alongside the new ES standards, native methods were improved in such a way that it's now about 50% more performant than utility libraries.
+**TL;DR:** ネイティブメソッドよりも `lodash` や `underscore` のようなユーティリティライブラリを使う方が、不要な依存関係やパフォーマンスの低下につながるため、よりペナルティが大きいことがよくあります。
+新しい ES 標準と一緒に新しい V8 エンジンが導入されたことで、ネイティブメソッドが改善され、ユーティリティライブラリよりも約 50% のパフォーマンスが向上したことを覚えておいてください。
 
-**Otherwise:** You'll have to maintain less performant projects where you could have simply used what was **already** available or dealt with a few more lines in exchange of a few more files.
+**さもないと:** **すでに**利用可能なものを単純に使用できたり、いくつかのファイルと引き換えに、数行で処理することができるような、パフォーマンスの低いプロジェクトを維持しなければならないでしょう。
 
-🔗 [**Read More: Native over user land utils**](/sections/performance/nativeoverutil.md)
+🔗 [**さらに読む: ユーザーランドなユーティリティよりもネイティブを使用する**](/sections/performance/nativeoverutil.japanese.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
 # `8. Docker のプラクティス`
 
