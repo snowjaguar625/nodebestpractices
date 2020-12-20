@@ -954,71 +954,71 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.18. サンドボックス内で安全でないコードを実行する
+## ![✔] 6.18. Run unsafe code in a sandbox
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** ランタイムにおいて与えられた外部のコード（プラグインなど）を実行するようなタスクを行うとき、独立していて、メインコードをプラグインから保護する任意の「サンドボックス」実行環境を使用してください。これは、専用のプロセス（`cluster.fork()` など）やサーバーレス環境、またはサンドボックスとして動作する専用の npm パッケージを使用することで実現できます。
+**TL;DR:** When tasked to run external code that is given at run-time (e.g. plugin), use any sort of 'sandbox' execution environment that isolates and guards the main code against the plugin. This can be achieved using a dedicated process (e.g. `cluster.fork()`), serverless environment or dedicated npm packages that act as a sandbox
 
-**さもないと:** プラグインは、無限ループやメモリーオーバーロード、センシティブなプロセスの環境変数へのアクセスなど、あらゆる手段を通じて攻撃可能となります。
+**Otherwise:** A plugin can attack through an endless variety of options like infinite loops, memory overloading, and access to sensitive process environment variables
 
-🔗 [**さらに読む: サンドボックス内で安全でないコードを実行する**](/sections/security/sandbox.japanese.md)
+🔗 [**Read More: Run unsafe code in a sandbox**](/sections/security/sandbox.md)
 
 <br/><br/>
 
-## ![✔] 6.19. 子プロセスで処理を行う場合は特別な注意を払う
+## ![✔] 6.19. Take extra care when working with child processes
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** 可能なら子プロセスの仕様を避け、それでも使用する必要がある場合には、入力を検証しサニタイズすることで、シェルインジェクション攻撃を軽減してください。属性の集合を持つ単一コマンドのみを実行し、シェルパラメータ拡張を許可しない `child_process.execFile` の使用を優先してください。
+**TL;DR:** Avoid using child processes when possible and validate and sanitize input to mitigate shell injection attacks if you still have to. Prefer using `child_process.execFile` which by definition will only execute a single command with a set of attributes and will not allow shell parameter expansion.
 
-**さもないと:** 子プロセスを愚直に利用することは、サニタイズされていないシステムコマンドに渡される悪意のあるユーザー入力が原因となって、結果としてリモートからのコマンド実行、またはシェルインジェクション攻撃を受けることにつながります。
+**Otherwise:** Naive use of child processes could result in remote command execution or shell injection attacks due to malicious user input passed to an unsanitized system command.
 
-🔗 [**さらに読む: 子プロセスで処理を行う場合は注意する**](/sections/security/childprocesses.japanese.md)
+🔗 [**Read More: Be cautious when working with child processes**](/sections/security/childprocesses.md)
 
 <br/><br/>
 
-## ![✔] 6.20. エラーの詳細をクライアントから隠す
+## ![✔] 6.20. Hide error details from clients
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** 統合されている express のエラーハンドラはデフォルトでエラーの詳細を隠します。しかし、（多くの人がベストプラクティスだと考えている）カスタムエラーオブジェクトを使用して独自のエラー処理ロジックを実装する可能性は大いにあります。その場合、クライアントに、機密なアプリケーション詳細を含む恐れのあるエラーオブジェクト全体を返さないようにしてください。
+**TL;DR:** An integrated express error handler hides the error details by default. However, great are the chances that you implement your own error handling logic with custom Error objects (considered by many as a best practice). If you do so, ensure not to return the entire Error object to the client, which might contain some sensitive application details
 
-**さもないと:** 攻撃者によって悪用される可能性のある、サーバファイルのパス、使用中のサードパーティモジュール、アプリケーションのその他内部ワークフローなど、機密性の高いアプリケーションの詳細情報が、スタックトレース内に残された情報から漏洩する可能性があります。
+**Otherwise:** Sensitive application details such as server file paths, third party modules in use, and other internal workflows of the application which could be exploited by an attacker, could be leaked from information found in a stack trace
 
-🔗 [**さらに読む: エラーの詳細をクライアントから隠す**](/sections/security/hideerrors.japanese.md)
+🔗 [**Read More: Hide error details from client**](/sections/security/hideerrors.md)
 
 <br/><br/>
 
-## ![✔] 6.21. npm や Yarn に2要素認証（2FA）を設定する
+## ![✔] 6.21. Configure 2FA for npm or Yarn
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** 開発におけるどのステップも、MFA（多要素認証）で保護されるべきです。npm/Yarn は開発者のパスワードに触れることができる攻撃者にとって絶好の機会となります。開発者の認証情報を利用して、プロジェクトやサービスにおいて広くインストールされている攻撃者は悪意のあるコードを注入することができます。もしパブリックに公開されている場合は、ウェブ全体にまで及ぶかもしれません。npm において2要素認証を設定することで、攻撃者がパッケージコードを改ざんする可能性はほぼゼロになります。
+**TL;DR:** Any step in the development chain should be protected with MFA (multi-factor authentication), npm/Yarn are a sweet opportunity for attackers who can get their hands on some developer's password. Using developer credentials, attackers can inject malicious code into libraries that are widely installed across projects and services. Maybe even across the web if published in public. Enabling 2-factor-authentication in npm leaves almost zero chances for attackers to alter your package code.
 
-**さもないと:** [Have you heard about the eslint developer whose password was hijacked?（パスワードがハイジャックされた eslint 開発者の話を聞いたことがありますか？）](https://medium.com/@oprearocks/eslint-backdoor-what-it-is-and-how-to-fix-the-issue-221f58f1a8c8)
+**Otherwise:** [Have you heard about the eslint developer whose password was hijacked?](https://medium.com/@oprearocks/eslint-backdoor-what-it-is-and-how-to-fix-the-issue-221f58f1a8c8)
 
 <br/><br/>
 
-## ![✔] 6.22. セッションミドルウェアの設定を変更する
+## ![✔] 6.22. Modify session middleware settings
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** それぞれの Web フレームワークや技術には、既知の弱点があります - 攻撃者に対してどの Web フレームワークを利用しているかを伝えることは、攻撃者にとって大きな助けになることです。セッションミドルウェアのデフォルトの設定を利用することは、`X-Powered-By` ヘッダー同様に、アプリケーションをモジュールやフレームワーク固有のハイジャック攻撃にさらす可能性があります。技術スタック（例：Node.js、express など）を識別したり、明らかにするものは極力隠すようにしてください。
+**TL;DR:** Each web framework and technology has its known weaknesses - telling an attacker which web framework we use is a great help for them. Using the default settings for session middlewares can expose your app to module- and framework-specific hijacking attacks in a similar way to the `X-Powered-By` header. Try hiding anything that identifies and reveals your tech stack (E.g. Node.js, express)
 
-**さもないと:** クッキーは安全でないコネクションを通じて送信される恐れがあり、攻撃者はセッション識別子を利用して背後にある Web アプリケーションフレームワークや、モジュール固有の脆弱性を特定する可能性があります。
+**Otherwise:** Cookies could be sent over insecure connections, and an attacker might use session identification to identify the underlying framework of the web application, as well as module-specific vulnerabilities
 
-🔗 [**さらに読む: クッキー（Cookie）とセッションの安全性**](/sections/security/sessions.md)
+🔗 [**Read More: Cookie and session security**](/sections/security/sessions.md)
 
 <br/><br/>
 
-## ![✔] 6.23. 明示的にプロセスがいつクラッシュすべきか設定することで、DoS 攻撃を回避する
+## ![✔] 6.23. Avoid DOS attacks by explicitly setting when a process should crash
 
 <a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** エラーが処理されなかった場合、Node プロセスはクラッシュします。多くのベストプラクティスは、たとえエラーがキャッチされ処理されたとしても、exit することを推奨しています。例えば、Express は、非同期エラーが発生すると、ルートをキャッチ節でラップしない限りクラッシュします。これは、どんな入力がプロセスをクラッシュさせるのかを認識し、繰り返し同様のリクエストを送信する攻撃者にとって絶好の攻撃スポットを提供します。この問題に対する即席の対策はありませんが、いくつかのテクニックはペインを軽減することができます: 処理されていないエラーによってプロセスがクラッシュした場合は常に重大な警告を出す、入力を検証して無効なユーザー入力によるプロセスのクラッシュを回避する、すべてのルートをキャッチで囲み、（グローバルに発生した場合とは対象的に）リクエスト内でエラーが発生した際にクラッシュしないように考慮する、などです。
+**TL;DR:** The Node process will crash when errors are not handled. Many best practices even recommend to exit even though an error was caught and got handled. Express, for example, will crash on any asynchronous error - unless you wrap routes with a catch clause. This opens a very sweet attack spot for attackers who recognize what input makes the process crash and repeatedly send the same request. There's no instant remedy for this but a few techniques can mitigate the pain: Alert with critical severity anytime a process crashes due to an unhandled error, validate the input and avoid crashing the process due to invalid user input, wrap all routes with a catch and consider not to crash when an error originated within a request (as opposed to what happens globally)
 
-**さもないと:** これはあくまで経験に基づいた推測ですが、多くの Node.js アプリケーションを見たときに、すべての POST リクエストにおいて空の JSON ボディを渡そうとすると、一部のアプリケーションはクラッシュしてしまいます。その時点で、同じリクエストを繰り返し送信することによって簡単にアプリケーションを停止させることができます。
+**Otherwise:** This is just an educated guess: given many Node.js applications, if we try passing an empty JSON body to all POST requests - a handful of applications will crash. At that point, we can just repeat sending the same request to take down the applications with ease
 
 <br/><br/>
 
@@ -1078,17 +1078,17 @@ null == undefined; // true
 
 # `8. Docker のプラクティス`
 
-🏅 Many thanks to [Bret Fisher](https://github.com/BretFisher) from whom we learned many of the following practices
+🏅 [Bret Fisher](https://github.com/BretFisher)氏からは、次のような実践を多く学ぶことができました。感謝します。
 
 <br/><br/>
 
-## ![✔] 8.1 Use multi-stage builds for leaner and more secure Docker images
+## ![✔] 8.1 マルチステージビルドを使用して、より無駄のない、より安全な Docker イメージを構築する
 
-**TL;DR:** Use multi-stage build to copy only necessary production artifacts. A lot of build-time dependencies and files are not needed for running your application. With multi-stage builds these resources can be used during build while the runtime environment contains only what's necessary. Multi-stage builds are an easy way to get rid of overweight and security threats.
+**TL;DR:** マルチステージビルドを使用して、必要な本番環境のアーティファクトだけをコピーします。多くのビルド時の依存関係やファイルは、アプリケーションの実行には必要ありません。マルチステージビルドでは、これらのリソースをビルド中に使用することができ、ランタイム環境には必要なものだけが含まれています。マルチステージビルドは、過剰な負荷とセキュリティの脅威を取り除く簡単な方法です。
 
-**Otherwise:** Larger images will take longer to build and ship, build-only tools might contain vulnerabilities and secrets only meant for the build phase might be leaked.
+**さもないと:** イメージが大きくなるとビルドとリリースに時間がかかり、ビルド専用ツールには脆弱性が含まれている可能性があり、ビルド段階でのみ使用される秘密が漏洩する可能性があります。
 
-### Example Dockerfile for multi-stage builds
+### マルチステージビルド用の Dockerfile の例
 
 ```dockerfile
 FROM node:14.4.0 AS build
@@ -1107,7 +1107,7 @@ RUN npm ci --production
 CMD [ "node", "dist/app.js" ]
 ```
 
-🔗 [**Read More: Use multi-stage builds**](/sections/docker/multi_stage_builds.md)
+🔗 [**さらに読む: マルチステージビルドを使用する**](/sections/docker/multi_stage_builds.japanese.md)
 
 <br /><br /><br />
 

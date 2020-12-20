@@ -1,29 +1,31 @@
-# 子プロセスで処理を行う場合は注意する
+# Be cautious when working with child processes
 
-### 一段落説明
+### One Paragraph Explainer
 
-子プロセスは素晴らしいものですが、注意して使用する必要があります。ユーザー入力の受け渡しは、利用しないのでなければ、サニタイズされていなければなりません。サニタイズされていない入力がシステムレベルのロジックを実行する危険性は無限にあり、リモートコードの実行からセンシティブなシステムデータの漏洩、そしてデータ損失にまで及びます。準備のためのチェックリストは以下のようになります。
+As great as child processes are, they should be used with caution. Passing in user input must be sanitized, if not avoided at all.
+The dangers of unsanitized input executing system-level logic are unlimited, reaching from remote code execution to the exposure of
+sensitive system data and even data loss. A check list of preparations could look like this
 
-- すべての場合でユーザー入力を避け、そうでない場合は検証とサニタイズを行う
-- ユーザー/グループアイデンティを利用して、親プロセスと子プロセスの権限を制限する
-- 上記が機能しなかった場合の望まない副作用を防ぐために、プロセスを隔離された環境で実行する
+- avoid user input in every case, otherwise validate and sanitize it
+- limit the privileges of the parent and child processes using user/group identities
+- run your process inside of an isolated environment to prevent unwanted side-effects if the other preparations fail
 
-### コード例: サニタイズされていない子プロセス実行の危険性
+### Code example: Dangers of unsanitized child process executions
 
 ```javascript
 const { exec } = require('child_process');
 
 ...
 
-// 例として、2つのうち1つがサニタイズされていないユーザー入力であるスクリプトを考えてみましょう
+// as an example, take a script that takes two arguments, one of them is unsanitized user input
 exec('"/path/to/test file/someScript.sh" --someOption ' + input);
 
-// -> ユーザー入力が '&& rm -rf --no-preserve-root /' だった場合に、何が起こるか想像してみてください
-// 望まない結果に驚くことでしょう
+// -> imagine what could happen if the user simply enters something like '&& rm -rf --no-preserve-root /'
+// you'd be in for an unwanted surprise
 ```
 
-### その他のリソース
+### Additional resources
 
-Node.js child process の[ドキュメント](https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html#child_process_child_process_exec_command_options_callback) より:
+From the Node.js child process [documentation](https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html#child_process_child_process_exec_command_options_callback):
 
-> サニタイズされていないユーザー入力をこの関数に決して渡さないでください。シェルのメタ文字を含んでいるどんな入力も、任意のコマンド実行を引き起こすために利用される可能性があります。
+> Never pass unsanitized user input to this function. Any input containing shell metacharacters may be used to trigger arbitrary command execution.

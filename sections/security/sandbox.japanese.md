@@ -1,14 +1,14 @@
-# サンドボックス内で安全でないコードを実行する
+# Run unsafe code in a sandbox
 
-### 一段落説明
+### One Paragraph Explainer
 
-経験則として、すべての人は自分自身が管理する JavaScript ファイルのみを実行するべきです。セオリーはさておき、現実世界では実行時に動的に渡される JavaScript ファイルを実行する必要があります。例えば、webpack のような、ビルド時にカスタムローダーを動的に実行する動的なフレームワークを考えてみましょう。悪意のあるプラグインが存在する場合、被害を最小限に抑え、フローを正常に終了させたいと願うでしょう - これを実現するには、そういったプラグインを、リソース、クラッシュ、共有する情報の観点において、完全に隔離されたサンドボックス環境で実行する必要があります。この隔離を実現するには、以下の3つの主要なオプションがあります。
+As a rule of thumb, one should run his own JavaScript files only. Theories aside, real-world scenarios demand to execute JavaScript files that are being passed dynamically at run-time. For example, consider a dynamic framework like webpack that accepts custom loaders and execute those dynamically during build time. In the existence of some malicious plugin we wish to minimize the damage and maybe even let the flow terminate successfully - this requires to run the plugins in a sandbox environment that is fully isolated in terms of resources, crashes and the information we share with it. Three main options can help in achieving this isolation: 
 
-- 専用の子プロセス - これは迅速な情報の隔離を提供しますが、子プロセスを管理し、実行時間を制限し、そしてエラーから復帰させる必要があります
-- クラウドのサーバーレス環境は、サンドボックスの要件をすべて満たしていますが、デプロイと FaaS 機能の動的な呼び出しは簡単ではありません
-- [sandbox](https://www.npmjs.com/package/sandbox) や [vm2](https://www.npmjs.com/package/vm2) といったいくつかの npm ライブラリは、たった1行で隔離されたコード実行を可能にします。このオプションはシンプルさにおいては優位ですが、保護範囲が限られています。
+- a dedicated child process - this provides a quick information isolation but demand to tame the child process, limit its execution time and recover from errors
+- a cloud serverless framework ticks all the sandbox requirements but deployment and invoking a FaaS function dynamically is not a walk in the park
+- some npm libraries, like [sandbox](https://www.npmjs.com/package/sandbox) and [vm2](https://www.npmjs.com/package/vm2) allow execution of isolated code in 1 single line of code. Though this latter option wins in simplicity it provides a limited protection
 
-### コード例 - 独立した状態でコードを実行するために sandbox ライブラリを使用する
+### Code example - Using Sandbox library to run code in isolation
 
 ```javascript
 const Sandbox = require('sandbox');
@@ -19,13 +19,13 @@ s.run('lol)hai', (output) => {
   //output='Syntax error'
 });
 
-// 例 4 - 制限されたコード
+// Example 4 - Restricted code
 s.run('process.platform', (output) => {
   console.log(output);
   //output=Null
 });
 
-// 例 5 - 無限ループ
+// Example 5 - Infinite loop
 s.run('while (true) {}', (output) => {
   console.log(output);
   //output='Timeout'
