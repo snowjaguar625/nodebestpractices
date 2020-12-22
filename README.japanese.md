@@ -954,98 +954,98 @@ null == undefined; // true
 
 <br/><br/>
 
-## ![✔] 6.18. Run unsafe code in a sandbox
+## ![✔] 6.18. サンドボックス内で安全でないコードを実行する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** When tasked to run external code that is given at run-time (e.g. plugin), use any sort of 'sandbox' execution environment that isolates and guards the main code against the plugin. This can be achieved using a dedicated process (e.g. `cluster.fork()`), serverless environment or dedicated npm packages that act as a sandbox
+**TL;DR:** ランタイムにおいて与えられた外部のコード（プラグインなど）を実行するようなタスクを行うとき、独立していて、メインコードをプラグインから保護する任意の「サンドボックス」実行環境を使用してください。これは、専用のプロセス（`cluster.fork()` など）やサーバーレス環境、またはサンドボックスとして動作する専用の npm パッケージを使用することで実現できます。
 
-**Otherwise:** A plugin can attack through an endless variety of options like infinite loops, memory overloading, and access to sensitive process environment variables
+**さもないと:** プラグインは、無限ループやメモリーオーバーロード、センシティブなプロセスの環境変数へのアクセスなど、あらゆる手段を通じて攻撃可能となります。
 
-🔗 [**Read More: Run unsafe code in a sandbox**](/sections/security/sandbox.md)
+🔗 [**さらに読む: サンドボックス内で安全でないコードを実行する**](/sections/security/sandbox.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.19. Take extra care when working with child processes
+## ![✔] 6.19. 子プロセスで処理を行う場合は特別な注意を払う
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** Avoid using child processes when possible and validate and sanitize input to mitigate shell injection attacks if you still have to. Prefer using `child_process.execFile` which by definition will only execute a single command with a set of attributes and will not allow shell parameter expansion.
+**TL;DR:** 可能なら子プロセスの仕様を避け、それでも使用する必要がある場合には、入力を検証しサニタイズすることで、シェルインジェクション攻撃を軽減してください。属性の集合を持つ単一コマンドのみを実行し、シェルパラメータ拡張を許可しない `child_process.execFile` の使用を優先してください。
 
-**Otherwise:** Naive use of child processes could result in remote command execution or shell injection attacks due to malicious user input passed to an unsanitized system command.
+**さもないと:** 子プロセスを愚直に利用することは、サニタイズされていないシステムコマンドに渡される悪意のあるユーザー入力が原因となって、結果としてリモートからのコマンド実行、またはシェルインジェクション攻撃を受けることにつながります。
 
-🔗 [**Read More: Be cautious when working with child processes**](/sections/security/childprocesses.md)
+🔗 [**さらに読む: 子プロセスで処理を行う場合は注意する**](/sections/security/childprocesses.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.20. Hide error details from clients
+## ![✔] 6.20. エラーの詳細をクライアントから隠す
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** An integrated express error handler hides the error details by default. However, great are the chances that you implement your own error handling logic with custom Error objects (considered by many as a best practice). If you do so, ensure not to return the entire Error object to the client, which might contain some sensitive application details
+**TL;DR:** 統合されている express のエラーハンドラはデフォルトでエラーの詳細を隠します。しかし、（多くの人がベストプラクティスだと考えている）カスタムエラーオブジェクトを使用して独自のエラー処理ロジックを実装する可能性は大いにあります。その場合、クライアントに、機密なアプリケーション詳細を含む恐れのあるエラーオブジェクト全体を返さないようにしてください。
 
-**Otherwise:** Sensitive application details such as server file paths, third party modules in use, and other internal workflows of the application which could be exploited by an attacker, could be leaked from information found in a stack trace
+**さもないと:** 攻撃者によって悪用される可能性のある、サーバファイルのパス、使用中のサードパーティモジュール、アプリケーションのその他内部ワークフローなど、機密性の高いアプリケーションの詳細情報が、スタックトレース内に残された情報から漏洩する可能性があります。
 
-🔗 [**Read More: Hide error details from client**](/sections/security/hideerrors.md)
+🔗 [**さらに読む: エラーの詳細をクライアントから隠す**](/sections/security/hideerrors.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.21. Configure 2FA for npm or Yarn
+## ![✔] 6.21. npm や Yarn に2要素認証（2FA）を設定する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** Any step in the development chain should be protected with MFA (multi-factor authentication), npm/Yarn are a sweet opportunity for attackers who can get their hands on some developer's password. Using developer credentials, attackers can inject malicious code into libraries that are widely installed across projects and services. Maybe even across the web if published in public. Enabling 2-factor-authentication in npm leaves almost zero chances for attackers to alter your package code.
+**TL;DR:** 開発におけるどのステップも、MFA（多要素認証）で保護されるべきです。npm/Yarn は開発者のパスワードに触れることができる攻撃者にとって絶好の機会となります。開発者の認証情報を利用して、プロジェクトやサービスにおいて広くインストールされている攻撃者は悪意のあるコードを注入することができます。もしパブリックに公開されている場合は、ウェブ全体にまで及ぶかもしれません。npm において2要素認証を設定することで、攻撃者がパッケージコードを改ざんする可能性はほぼゼロになります。
 
-**Otherwise:** [Have you heard about the eslint developer whose password was hijacked?](https://medium.com/@oprearocks/eslint-backdoor-what-it-is-and-how-to-fix-the-issue-221f58f1a8c8)
+**さもないと:** [Have you heard about the eslint developer whose password was hijacked?（パスワードがハイジャックされた eslint 開発者の話を聞いたことがありますか？）](https://medium.com/@oprearocks/eslint-backdoor-what-it-is-and-how-to-fix-the-issue-221f58f1a8c8)
 
 <br/><br/>
 
-## ![✔] 6.22. Modify session middleware settings
+## ![✔] 6.22. セッションミドルウェアの設定を変更する
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** Each web framework and technology has its known weaknesses - telling an attacker which web framework we use is a great help for them. Using the default settings for session middlewares can expose your app to module- and framework-specific hijacking attacks in a similar way to the `X-Powered-By` header. Try hiding anything that identifies and reveals your tech stack (E.g. Node.js, express)
+**TL;DR:** それぞれの Web フレームワークや技術には、既知の弱点があります - 攻撃者に対してどの Web フレームワークを利用しているかを伝えることは、攻撃者にとって大きな助けになることです。セッションミドルウェアのデフォルトの設定を利用することは、`X-Powered-By` ヘッダー同様に、アプリケーションをモジュールやフレームワーク固有のハイジャック攻撃にさらす可能性があります。技術スタック（例：Node.js、express など）を識別したり、明らかにするものは極力隠すようにしてください。
 
-**Otherwise:** Cookies could be sent over insecure connections, and an attacker might use session identification to identify the underlying framework of the web application, as well as module-specific vulnerabilities
+**さもないと:** クッキーは安全でないコネクションを通じて送信される恐れがあり、攻撃者はセッション識別子を利用して背後にある Web アプリケーションフレームワークや、モジュール固有の脆弱性を特定する可能性があります。
 
-🔗 [**Read More: Cookie and session security**](/sections/security/sessions.md)
+🔗 [**さらに読む: クッキー（Cookie）とセッションの安全性**](/sections/security/sessions.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.23. Avoid DOS attacks by explicitly setting when a process should crash
+## ![✔] 6.23. 明示的にプロセスがいつクラッシュすべきか設定することで、DoS 攻撃を回避する
 
 <a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** The Node process will crash when errors are not handled. Many best practices even recommend to exit even though an error was caught and got handled. Express, for example, will crash on any asynchronous error - unless you wrap routes with a catch clause. This opens a very sweet attack spot for attackers who recognize what input makes the process crash and repeatedly send the same request. There's no instant remedy for this but a few techniques can mitigate the pain: Alert with critical severity anytime a process crashes due to an unhandled error, validate the input and avoid crashing the process due to invalid user input, wrap all routes with a catch and consider not to crash when an error originated within a request (as opposed to what happens globally)
+**TL;DR:** エラーが処理されなかった場合、Node プロセスはクラッシュします。多くのベストプラクティスは、たとえエラーがキャッチされ処理されたとしても、exit することを推奨しています。例えば、Express は、非同期エラーが発生すると、ルートをキャッチ節でラップしない限りクラッシュします。これは、どんな入力がプロセスをクラッシュさせるのかを認識し、繰り返し同様のリクエストを送信する攻撃者にとって絶好の攻撃スポットを提供します。この問題に対する即席の対策はありませんが、いくつかのテクニックはペインを軽減することができます: 処理されていないエラーによってプロセスがクラッシュした場合は常に重大な警告を出す、入力を検証して無効なユーザー入力によるプロセスのクラッシュを回避する、すべてのルートをキャッチで囲み、（グローバルに発生した場合とは対象的に）リクエスト内でエラーが発生した際にクラッシュしないように考慮する、などです。
 
-**Otherwise:** This is just an educated guess: given many Node.js applications, if we try passing an empty JSON body to all POST requests - a handful of applications will crash. At that point, we can just repeat sending the same request to take down the applications with ease
+**さもないと:** これはあくまで経験に基づいた推測ですが、多くの Node.js アプリケーションを見たときに、すべての POST リクエストにおいて空の JSON ボディを渡そうとすると、一部のアプリケーションはクラッシュしてしまいます。その時点で、同じリクエストを繰り返し送信することによって簡単にアプリケーションを停止させることができます。
 
 <br/><br/>
 
-## ![✔] 6.24. Prevent unsafe redirects
+## ![✔] 6.24. 安全でないリダイレクトを防ぐ
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a>
 
-**TL;DR:** Redirects that do not validate user input can enable attackers to launch phishing scams, steal user credentials, and perform other malicious actions.
+**TL;DR:** ユーザー入力を検証しないリダイレクトは、攻撃者がフィッシング詐欺をしたり、ユーザーの認証情報を盗んだり、その他の悪質なアクションを実行することを可能にします。
 
-**Otherwise:** If an attacker discovers that you are not validating external, user-supplied input, they may exploit this vulnerability by posting specially-crafted links on forums, social media, and other public places to get users to click it.
+**さもないと:** もし攻撃者が、外部のユーザーから与えられた入力を検証していないことを発見した場合、特別に作成されたリンクをフォーラムやソーシャルメディア、その他のパブリックな場所に投稿してユーザーにクリックさせることで、この脆弱性を悪用する恐れがあります。
 
-🔗 [**Read More: Prevent unsafe redirects**](/sections/security/saferedirects.md)
+🔗 [**さらに読む: 安全でないリダイレクトを防ぐ**](/sections/security/saferedirects.japanese.md)
 
 <br/><br/>
 
-## ![✔] 6.25. Avoid publishing secrets to the npm registry
+## ![✔] 6.25. npm レジストリへのシークレットの公開を避ける
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** Precautions should be taken to avoid the risk of accidentally publishing secrets to public npm registries. An `.npmignore` file can be used to blacklist specific files or folders, or the `files` array in `package.json` can act as a whitelist.
+**TL;DR:** 誤ってシークレットをパブリック npm レジストリに公開してしまうリスクを回避するように、注意を払ってください。`.npmignore` ファイルを利用して、特定のファイルやフォルダをブラックリスト化したり、`package.json` 内の `files` 配列をホワイトリストとして利用することができます。
 
-**Otherwise:** Your project's API keys, passwords or other secrets are open to be abused by anyone who comes across them, which may result in financial loss, impersonation, and other risks.
+**さもないと:** プロジェクトの API キーやパスワード、その他のシークレットが公開され、その情報を目にしたすべての人に悪用されることで、結果として金銭的な損失、なりすまし、その他リスクに繋がってしまいます。
 
-🔗 [**Read More: Avoid publishing secrets**](/sections/security/avoid_publishing_secrets.md)
+🔗 [**さらに読む: シークレットの公開を避ける**](/sections/security/avoid_publishing_secrets.japanese.md)
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
 
 # `7. Draft: パフォーマンスのプラクティス`
 
@@ -1242,13 +1242,13 @@ In addition, referring to an image tag means that the base image is subject to c
 <br/><br /><br />
 
 
-## ![✔] 8.15. Lint your Dockerfile
+## ![✔] 8.15. Dockerfile を lint する
 
-**TL;DR:** Linting your Dockerfile is an important step to identify issues in your Dockerfile which differ from best practices. By checking for potential flaws using a specialised Docker linter, performance and security improvements can be easily identified, saving countless hours of wasted time or security issues in production code.
+**TL;DR:** Dockerfile を linting することは、ベストプラクティスとは異なってしまっている Dockerfile の問題点を特定するための重要なステップです。Docker 専用の linter を使って潜在的な欠落をチェックすることで、パフォーマンスとセキュリティの改善可能箇所を容易に特定することができ、無駄な時間を削り、またプロダクションコードにおけるセキュリティの問題から解放してくれます。
 
-**Otherwise:** Mistakenely the Dockerfile creator left Root as the production user, and also used an image from unknown source repository. This could be avoided with with just a simple linter.
+**さもないと:** Dockerfile の作者が誤って root を本番ユーザーにしてしまい、不明なソースリポジトリからの Docker イメージを使用してしまう、といったことが起こり得ます。これは、シンプルな litner を利用することで回避することができます。
 
-🔗 [**Read More: Lint your Dockerfile**](/sections/docker/lint-dockerfile.md)
+🔗 [**さらに読む: Dockerfile を lint する**](/sections/docker/lint-dockerfile.japanese.md)
 
 <br/><br /><br />
 
