@@ -1045,7 +1045,7 @@ null == undefined; // true
 🔗 [**さらに読む: シークレットの公開を避ける**](/sections/security/avoid_publishing_secrets.japanese.md)
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ トップに戻る</a></p>
+<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
 # `7. Draft: パフォーマンスのプラクティス`
 
@@ -1111,13 +1111,13 @@ CMD [ "node", "dist/app.js" ]
 
 <br /><br /><br />
 
-## ![✔] 8.2. Bootstrap using 'node' command, avoid npm start
+## ![✔] 8.2. Bootstrap は ‘node' コマンドを使用して、npm start 避ける
 
-**TL;DR:** use `CMD ['node','server.js']` to start your app, avoid using npm scripts which don't pass OS signals to the code. This prevents problems with child-process, signal handling, graceful shutdown and having zombie processes.
+**TL;DR:** アプリの起動には `CMD ['node','server.js']` を使用し、OS のシグナルをコードに渡さない npm スクリプトの使用は避けてください。これにより、子プロセス、シグナル処理、グレースフルシャットダウン、ゾンビプロセスの問題を防ぐことができます。
 
-**Otherwise:** When no signals are passed, your code will never be notified about shutdowns. Without this, it will lose its chance to close properly possibly losing current requests and/or data.
+**さもないと:** シグナルが通らない場合、あなたのコードはシャットダウンについて通知されることはありません。これがなければ、適切に閉じる機会を失い、現在のリクエストやデータを失う可能性があります。
 
-[**Read More: Bootstrap container using node command, avoid npm start**](/sections/docker/bootstrap-using-node.md)
+[**さらに読む: Bootstrap コンテナは node コマンドを使用して 、npm の起動を避ける**](/sections/docker/bootstrap-using-node.japanese.md)
 
 <br /><br /><br />
 
@@ -1242,13 +1242,13 @@ In addition, referring to an image tag means that the base image is subject to c
 <br/><br /><br />
 
 
-## ![✔] 8.15. Dockerfile を lint する
+## ![✔] 8.15. Lint your Dockerfile
 
-**TL;DR:** Dockerfile を linting することは、ベストプラクティスとは異なってしまっている Dockerfile の問題点を特定するための重要なステップです。Docker 専用の linter を使って潜在的な欠落をチェックすることで、パフォーマンスとセキュリティの改善可能箇所を容易に特定することができ、無駄な時間を削り、またプロダクションコードにおけるセキュリティの問題から解放してくれます。
+**TL;DR:** Linting your Dockerfile is an important step to identify issues in your Dockerfile which differ from best practices. By checking for potential flaws using a specialised Docker linter, performance and security improvements can be easily identified, saving countless hours of wasted time or security issues in production code.
 
-**さもないと:** Dockerfile の作者が誤って root を本番ユーザーにしてしまい、不明なソースリポジトリからの Docker イメージを使用してしまう、といったことが起こり得ます。これは、シンプルな litner を利用することで回避することができます。
+**Otherwise:** Mistakenely the Dockerfile creator left Root as the production user, and also used an image from unknown source repository. This could be avoided with with just a simple linter.
 
-🔗 [**さらに読む: Dockerfile を lint する**](/sections/docker/lint-dockerfile.japanese.md)
+🔗 [**Read More: Lint your Dockerfile**](/sections/docker/lint-dockerfile.md)
 
 <br/><br /><br />
 
