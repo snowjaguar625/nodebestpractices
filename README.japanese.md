@@ -1121,13 +1121,13 @@ CMD [ "node", "dist/app.js" ]
 
 <br /><br /><br />
 
-## ![✔] 8.3. レプリケーションとアップタイムの扱いは Docker ランタイムに任せる
+## ![✔] 8.3. レプリケーションとアップタイムの扱いを Docker ランタイムに任せる
 
 **TL;DR:** Docker ランタイムオーケストレーター（Kubernetes など）を使用する場合は、中間プロセスマネージャやプロセスを複製するカスタムコード（PM2、Cluster モジュールなど）を使用せずに、Node.js プロセスを直接呼び出します。ランタイムプラットフォームは、配置の決定を行うためのデータ量と可視性が最も高く、必要とされるプロセスの数、それらをどのように分散させ、クラッシュが発生した場合にどうすればよいかを最もよく知っています。
 
 **さもないと:** リソース不足でクラッシュし続けるコンテナは、プロセスマネージャによって無期限に再起動されてしまいます。Kubernetes がそれを認識していれば、別の余裕のあるインスタンスに移すことができます。
 
-🔗 [**さらに読む: Docker オーケストレーターでプロセスを再起動して複製する**](/sections/docker/restart-and-replicate-processes.japanese.md)
+🔗 [**さらに読む: プロセスを再起動と複製をDocker オーケストレーターに任せる**](/sections/docker/restart-and-replicate-processes.japanese.md)
 
 <br/><br /><br />
 
@@ -1213,31 +1213,31 @@ In addition, referring to an image tag means that the base image is subject to c
 
 <br /><br /><br />
 
-## ![✔] 8.12. Scan images for multi layers of vulnerabilities
+## ![✔] 8.12. イメージをスキャンして多層な脆弱性をチェックする
 
-**TL;DR:** Besides checking code dependencies vulnerabilities also scan the final image that is shipped to production. Docker image scanners check the code dependencies but also the OS binaries. This E2E security scan covers more ground and verifies that no bad guy injected bad things during the build. Consequently, it is recommended running this as the last step before deployment. There are a handful of free and commercial scanners that also provide CI/CD plugins
+**TL;DR:** コード依存関係の脆弱性をチェックすることに加えて、プロダクションで利用される最終的なイメージもスキャンするようにしてください。Docker イメージスキャナはコード依存関係だけでなく、OS のバイナリもチェックします。この E2E セキュリティスキャンはより多くの領域をカバーし、ビルド中に悪者が悪い因子を注入していないことを確認します。そのため、デプロイ前の最後のステップとしてこれを実行することをおすすめします。CI/CD プラグインも提供している、無料または商用のスキャナがいくつか存在します。
 
-**Otherwise:** Your code might be entirely free from vulnerabilities. However it might still get hacked due to vulnerable version of OS-level binaries (e.g. OpenSSL, TarBall) that are commonly being used by applications
+**さもないと:** コードは脆弱性から完全に脆弱性から解放されているかもしれませんが、アプリケーションで一般的に使用されている OS レベルのバイナリ（例：OpenSSL、TarBall）の脆弱性が原因となって、ハッキングされる可能性が依然としてあります。
 
-🔗 [**Read More: Generic Docker practices**](/sections/docker/scan-images.md)
-
-<br /><br /><br />
-
-## ![✔] 8.13 Clean NODE_MODULE cache
-
-**TL;DR:** After installing dependencies in a container remove the local cache. It doesn't make any sense to duplicate the dependencies for faster future installs since there won't be any further installs - A Docker image is immutable. Using a single line of code tens of MB (typically 10-50% of the image size) are shaved off
-
-**Otherwise:** The image that will get shipped to production will weigh 30% more due to files that will never get used
-
-🔗 [**Read More: Clean NODE_MODULE cache**](/sections/docker/clean-cache.md)
+🔗 [**さらに読む: プロダクションの前にイメージ全体をスキャンする**](/sections/docker/scan-images.japanese.md)
 
 <br /><br /><br />
 
-## ![✔] 8.14. Generic Docker practices
+## ![✔] 8.13 NODE_MODULE キャッシュをクリーンアップする
 
-**TL;DR:** This is a collection of Docker advice that is not related directly to Node.js - the Node implementation is not much different than any other language. Click read more to skim through.
+**TL;DR:** コンテナに依存関係をインストールした後は、ローカルのキャッシュを削除してください。今後のインストールを高速化することを目的として依存関係を複製しても、意味はありません - Docker イメージは不変です。一行のコードで、数十 MB（通常は画像サイズの 10~50%）を削ることができます。
 
-🔗 [**Read More: Generic Docker practices**](/sections/docker/generic-tips.md)
+**さもないと:** 使用されないファイルが原因で、サイズが 3 割増のイメージがプロダクションにデプロイされることになります。
+
+🔗 [**さらに読む: NODE_MODULE キャッシュをクリーンアップする**](/sections/docker/clean-cache.japanese.md)
+
+<br /><br /><br />
+
+## ![✔] 8.14. 一般的な Docker のプラクティス
+
+**TL;DR:** Node.js とは直接関係の無い、Docker に関するアドバイス集です - Node における実装は他の言語とあまり変わりません。「さらに読む」から読み進めてください。
+
+🔗 [**さらに読む: 一般的な Docker のプラクティス**](/sections/docker/generic-tips.japanese.md)
 
 <br/><br /><br />
 
