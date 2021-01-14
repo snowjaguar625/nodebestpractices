@@ -16,9 +16,10 @@
 
 [![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Follow us on Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
 
+
 <br/>
 
-Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR**, ![TR](/assets/flags/TR.png)**TR** and ![EU](/assets/flags/EU.png)**EU** in progress! )](#translations)
+Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** and ![TR](/assets/flags/TR.png)**TR** in progress!)](#translations)
 
 <br/>
 
@@ -31,6 +32,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 - **✅ New best practice:** Bullet 6.8 by Josh Hemphill recommends "Protect Users' Passwords/Secrets using BCrypt or Script". It contains an in-depth explanation about when and why each option suits a specific project. Don't miss this short guide with a brief overview of the various hashing options
 
 - **:whale: Node.js + Docker best practices**: We've just released the Docker with Node.js section which includes 15 bullets about better coding techniques with Docker
+
 
 <br/><br/>
 
@@ -221,9 +223,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 
 🔗 [**Read More: failing fast**](/sections/errorhandling/failfast.md)
 
-<br/><br/><br/>
-
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<br/><br/>
 
 ## ![✔] 2.12 Always await promises before returning to avoid a partial stacktrace
 
@@ -274,7 +274,8 @@ function someFunction() {
 }
 
 // Avoid
-function someFunction() {
+function someFunction()
+{
   // code block
 }
 ```
@@ -351,7 +352,7 @@ class SomeClassExample {}
 
 // for const names we use the const keyword and lowerCamelCase
 const config = {
-  key: "value",
+  key: "value"
 };
 
 // for variables and functions names we use lowerCamelCase
@@ -746,7 +747,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 5.19. Install your packages with `npm ci`
+## ![✔] 5.19. Install your packages with `npm ci` 
 
 **TL;DR:** You have to be sure that production code uses the exact version of the packages you have tested it with. Run `npm ci` to strictly do a clean install of your dependencies matching package.json and package-lock.json. Using this command is recommended in automated environments such as continuous integration pipelines.
 
@@ -1254,6 +1255,7 @@ In addition, referring to an image tag means that the base image is subject to c
 
 <br/><br /><br />
 
+
 ## ![✔] 8.15. Lint your Dockerfile
 
 **TL;DR:** Linting your Dockerfile is an important step to identify issues in your Dockerfile which differ from best practices. By checking for potential flaws using a specialised Docker linter, performance and security improvements can be easily identified, saving countless hours of wasted time or security issues in production code.
@@ -1290,7 +1292,6 @@ All translations are contributed by the community. We will be happy to get any h
 - ![KR](/assets/flags/KR.png) [Korean](README.korean.md) - Courtesy of [Sangbeom Han](https://github.com/uronly14me) ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/94))
 - ![ES](/assets/flags/ES.png) [Spanish](https://github.com/goldbergyoni/nodebestpractices/blob/spanish-translation/README.spanish.md) ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/95))
 - ![TR](/assets/flags/TR.png) Turkish ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/139))
-- ![EU](/assets/flags/EU.png) Basque ([Discussion](https://github.com/goldbergyoni/nodebestpractices/issues/842))
 
 <br/><br/>
 
@@ -1368,7 +1369,6 @@ Our collaborators are members who are contributing to the repository on a regula
 <br/>
 
 ## Contributing
-
 If you've ever wanted to contribute to open source, now is your chance! See the [contributing docs](.operations/CONTRIBUTING.md) for more information.
 
 ## Contributors ✨
@@ -1547,6 +1547,7 @@ Thanks goes to these wonderful people who have contributed to this repository!
     <td align="center"><a href="https://vectree.ru"><img src="https://avatars3.githubusercontent.com/u/4215285?v=4?s=100" width="100px;" alt=""/><br /><sub><b>vladthelittleone</b></sub></a><br /><a href="#translation-vladthelittleone" title="Translation">🌍</a></td>
     <td align="center"><a href="https://www.nikolaso.com"><img src="https://avatars0.githubusercontent.com/u/60047271?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nik Osvalds</b></sub></a><br /><a href="#content-nosvalds" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/kdaniel21"><img src="https://avatars0.githubusercontent.com/u/39854385?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniel Kiss</b></sub></a><br /><a href="https://github.com/goldbergyoni/nodebestpractices/commits?author=kdaniel21" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://twitter.com/forresst17"><img src="https://avatars2.githubusercontent.com/u/163352?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Forresst</b></sub></a><br /><a href="#content-forresst" title="Content">🖋</a></td>
   </tr>
 </table>
 
