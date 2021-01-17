@@ -1151,13 +1151,13 @@ CMD [ "node", "dist/app.js" ]
 
 <br /><br /><br />
 
-## ![✔] 8.6. Shutdown smartly and gracefully
+## ![✔] 8.6. シャットダウンをスマートに、そしてグレースフルに
 
-**TL;DR:** Handle the process SIGTERM event and clean-up all existing connection and resources. This should be done while responding to ongoing requests. In Dockerized runtimes shutting down containers is not a rare event, rather a frequent occurrence that happen as part of routine work. Achieving this demands some thoughtful code to orchestrate several moving parts: The load balancer, keep-alive connections, the HTTP server and other resources
+**TL;DR:** プロセス SIGTERM イベントを処理し、既存のすべての接続とリソースをクリーンアップします。これは進行中のリクエストに応答している間に行う必要があります。Docker 化されたランタイムでは、コンテナのシャットダウンは珍しいイベントではなく、むしろルーチン作業の一部として頻繁に発生します。これを実現するためには、いくつかの可動部分をオーケストレーションするための思慮深いコードが必要です: ロードバランサ、キープアライブ接続、HTTP サーバ、その他のリソースです。
 
-**Otherwise:** Dying immediately means not responding to thousands of disappointed users
+**さもないと:** 即座に kill してしまうことは、何千人もの失望したユーザーに対応しないことを意味します。
 
-🔗 [**Read More: Graceful shutdown**](/sections/docker/graceful-shutdown.md)
+🔗 [**さらに読む: グレースフルシャットダウン**](/sections/docker/graceful-shutdown.japanese.md)
 
 <br /><br /><br />
 
@@ -1181,35 +1181,35 @@ CMD [ "node", "dist/app.js" ]
 
 <br /><br /><br />
 
-## ![✔] 8.9. Use explicit image reference, avoid `latest` tag
+## ![✔] 8.9. `latest` タグは避け、明示的なイメージのリファレンスを使用する
 
-**TL;DR:** Specify an explicit image digest or versioned label, never refer to `latest`. Developers are often led to believe that specifying the `latest` tag will provide them with the most recent image in the repository however this is not the case. Using a digest guarantees that every instance of the service is running exactly the same code.
+**TL;DR:** 明示的なイメージダイジェスト、またはバージョンラベルを指定し、`latest` を参照しないようにしてください。開発者はしばしば、`latest` タグを指定することでリポジトリ内の最新のイメージが提供されると思い込みがちですが、そうではありません。ダイジェスト（digest）を利用することで、サービスのすべてのインスタンスが全く同じコードを実行していることが保証されます。
 
-In addition, referring to an image tag means that the base image is subject to change, as image tags cannot be relied upon for a deterministic install. Instead, if a deterministic install is expected, a SHA256 digest can be used to reference an exact image.
+さらに、イメージタグを参照することは、決定論的インストールにおいてイメージタグを頼りにすることができないために、ベースイメージが変更される可能性があることを意味します。代わりに、決定論的なインストールが想定される場合には、SHA256 ダイジェストを使用して正確なイメージを参照することができます。
 
-**Otherwise:** A new version of a base image could be deployed into production with breaking changes, causing unintended application behaviour.
+**さもないと:** 破壊的変更を含むベースイメージの新しいバージョンが本番環境にデプロイされ、意図しないアプリケーションの挙動を引き起こす可能性があります。
 
-🔗 [**Read More: Understand image tags and use the "latest" tag with caution**](/sections/docker/image-tags.md)
-
-<br /><br /><br />
-
-## ![✔] 8.10. Prefer smaller Docker base images
-
-**TL;DR:** Large images lead to higher exposure to vulnerabilities and increased resource consumption. Using leaner Docker images, such as Slim and Alpine Linux variants, mitigates this issue.
-
-**Otherwise:** Building, pushing, and pulling images will take longer, unknown attack vectors can be used by malicious actors and more resources are consumed.
-
-🔗 [**Read More: Prefer smaller images**](/sections/docker/smaller_base_images.md)
+🔗 [**さらに読む: イメージタグを理解して「latest」タグを注意して使う**](/sections/docker/image-tags.japanese.md)
 
 <br /><br /><br />
 
-## ![✔] 8.11. Clean-out build-time secrets, avoid secrets in args
+## ![✔] 8.10. 小さな Docker ベースイメージを優先する
 
-**TL;DR:** Avoid secrets leaking from the Docker build environment. A Docker image is typically shared in multiple environment like CI and a registry that are not as sanitized as production. A typical example is an npm token which is usually passed to a dockerfile as argument. This token stays within the image long after it is needed and allows the attacker indefinite access to a private npm registry. This can be avoided by coping a secret file like `.npmrc` and then removing it using multi-stage build (beware, build history should be deleted as well) or by using Docker build-kit secret feature which leaves zero traces
+**TL;DR:** 大きなイメージは、脆弱性にさらされる可能性を高め、リソースの消費量を増加させます。Slim や Alpine Linux のような、スリムな Docker イメージを使うことで、この問題を軽減することができます。
 
-**Otherwise:** Everyone with access to the CI and docker registry will also get access to some precious organization secrets as a bonus
+**さもないと:** イメージのビルド、プッシュ、プルに時間を要し、未知の攻撃の因子が悪意のあるアクターによって使用され、より多くのリソースが消費されます。
 
-🔗 [**Read More: Clean-out build-time secrets**](/sections/docker/avoid-build-time-secrets.md)
+🔗 [**さらに読む: 小さなイメージを優先する**](/sections/docker/smaller_base_images.japanese.md)
+
+<br /><br /><br />
+
+## ![✔] 8.11. ビルド時のシークレットをクリーンアウトし、引数にシークレットを含めることを避ける
+
+**TL;DR:** Docker のビルド環境からシークレットが漏洩することを避けてください。Docker イメージは一般的に、 CI や本番環境ほどサニタイズされていないレジストリといった複数の環境で共有されます。典型例としては、通常 dockerfile に引数として渡される npm トークンがあります。このトークンは必要となったタイミング以降も残り続け、攻撃者がプライベート npm レジストリにアクセスすることを無期限に許可することになります。これは、シークレットを `.npmrc` のようなファイルにコピーしてマルチステージビルドを用いてそれを削除する（ビルド履歴も削除するべきであることに注意してください）か、トレースを残さない Docker build-kit のシークレット機能を利用することで回避することができます。
+
+**さもないと:** CI と docker レジストリへのアクセス権限を持っている人は誰でも、おまけとして貴重な組織の情報にアクセスできてしまします。
+
+🔗 [**さらに読む: ビルド時のシークレットをクリーンアウトする**](/sections/docker/avoid-build-time-secrets.japanese.md)
 
 <br /><br /><br />
 
