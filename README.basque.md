@@ -1119,7 +1119,7 @@ RUN npm ci --production
 CMD [ "node", "dist/app.js" ]
 ```
 
-🔗 [**Gehiago irakurri: erabili etapa anitzeko konpilazioak**](/sections/docker/multi_stage_builds.md)
+🔗 [**Gehiago irakurri: erabili etapa anitzeko konpilazioak**](/sections/docker/multi_stage_builds.basque.md)
 
 <br /><br /><br />
 
@@ -1131,7 +1131,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** seinalerik pasatzen ez denean, zure kodeak ez du inoiz izango itzalaldien berri, eta, hori gabe, ez da behar bezala itxiko, unean uneko eskaerak eta / edo datuak galduz
 
-[**Gehiago irakurri: Edukiontzia abiarazi 'node' komandoa erabiliz, sahiestu npm hastea**](/sections/docker/bootstrap-using-node.md)
+[**Gehiago irakurri: Edukiontzia abiarazi 'node' komandoa erabiliz, sahiestu npm hastea**](/sections/docker/bootstrap-using-node.basque.md)
 
 <br /><br /><br />
 
@@ -1141,7 +1141,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** edukiontziak huts egiten jarraituko du baliabide faltagatik, eta prozesuen kudeatzaileak behin eta berriro berrabiaraziko du, gelditu gabe. Kubernetes horretaz jabetuko balitz, beste toki zabal batera lekualda lezake
 
-🔗 [**Gehiago irakurri: utzi Dockerren orkestratzaileari prozesuak berrabiaraz eta erreplika ditzala**](/sections/docker/restart-and-replicate-processes.md)
+🔗 [**Gehiago irakurri: utzi Dockerren orkestratzaileari prozesuak berrabiaraz eta erreplika ditzala**](/sections/docker/restart-and-replicate-processes.basque.md)
 
 <br/><br /><br />
 
@@ -1151,7 +1151,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela**: irudira sarbidea duen edonorekin partekatuko dira `.env`, `.aws` eta `.npmrc` bezalako fitxategi sekretu pertsonal arruntak (adibidez, Docker biltegia)
 
-🔗 [**Gehiago irakurri: erabili .dockerignore**](/sections/docker/docker-ignore.md)
+🔗 [**Gehiago irakurri: erabili .dockerignore**](/sections/docker/docker-ignore.basque.md)
 
 <br /><br /><br />
 
@@ -1161,7 +1161,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** npm segurtasun arau hauste ezagun asko garapen paketeen barruan aurkitu izan dira (adibidez, [eslint-scope](https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes))
 
-🔗 Gehiago irakurri: [kendu garapen menpekotasunak](/sections/docker/install-for-production.md)
+🔗 Gehiago irakurri: [kendu garapen menpekotasunak](/sections/docker/install-for-production.basque.md)
 
 <br /><br /><br />
 
