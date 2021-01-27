@@ -49,7 +49,7 @@ Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chines
 ## Table of Contents
 
 1. [Project Structure Practices (5)](#1-project-structure-practices)
-2. [Error Handling Practices (13) ](#2-error-handling-practices)
+2. [Error Handling Practices (11) ](#2-error-handling-practices)
 3. [Code Style Practices (12) ](#3-code-style-practices)
 4. [Testing And Overall Quality Practices (13) ](#4-testing-and-overall-quality-practices)
 5. [Going To Production Practices (19) ](#5-going-to-production-practices)
@@ -236,16 +236,6 @@ Such missing frames would probably complicate the understanding of the flow that
 especially if the cause of the abnormal behavior is inside of the missing function
 
 🔗 [**Read More: returning promises**](/sections/errorhandling/returningpromises.md)
-
-<br/><br/>
-
-## ![✔] 2.13 Give your error's log a context by adding a correlation ID
-
-**TL;DR:** Correlation ID lets you linking log records, even if they belong to different services. It can save your day when a process that including 20 different microservices throws an exception in one of them, and you have no idea where did the problem started across the flow.
-
-**Otherwise:** Once an error will occure, you might read the logs without any context of understanding what caused the unexpected input and which logs of other services are related to your investigated transaction.
-
-🔗 [**Read More: Correlation ID: help your logs tell you a story and give your error a context**](/sections/errorhandling/correlationid.md)
 
 <br/><br/><br/>
 
@@ -855,7 +845,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 6.8. Protect Users' Passwords/Secrets using brypt or scrypt
+## ![✔] 6.8. Protect Users' Passwords/Secrets using bcrypt or scrypt
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
