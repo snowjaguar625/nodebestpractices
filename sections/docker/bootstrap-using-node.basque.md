@@ -1,10 +1,11 @@
-# Bootstrap container using node command instead of npm
+# Edukiontzia abiarazi node komandoa erabiliz, sahiestu npm
 
-## One paragraph explainer
+## Azalpen paragrafoa
 
-We are used to see code examples where folks start their app using `CMD 'npm start'`. This is a bad practice. The `npm` binary will not forward signals to your app which prevents graceful shutdown (see [/sections/docker/graceful-shutdown.md]). If you are using Child-processes they won’t be cleaned up correctly in case of unexpected shutdown, leaving zombie processes on your host. `npm start` also results in having an extra process for no benefit. To start you app use `CMD ['node','server.js']`. If your app spawns child-processes also use `TINI` as an entrypoint.
+Aplikazioen hastea `CMD 'npm start'` erabiltzen duten kode adibideak ikusten ohituak gaude. Hau desegokia da.
+`npm` binarioak ez ditu itzaltze dotorea galaraziko duen seinaleak zure aplikaziora bueltatuko (begiratu [/sections/docker/graceful-shutdown.md]). Azpi prozesuak erabiltzen ari bazara, hauek ez dira behar bezala garbituak izango ustekabeko itzaltze bat gertatzen bada, prozesu zonbiak utziaz. `npm start`ek ere onuragarria ez den prozesu estra bat du. Zure aplikazioa abiarazteko erabili `CMD ['node','server.js']`. Zure aplikazioak azpi prozesuak baditu erabili gainera `TINI` helmuga gisa.
 
-### Code example - Bootsraping using Node
+### Kodearen adibidea: Abiarazi Node erabilita
 
 ```dockerfile
 
@@ -18,14 +19,13 @@ RUN npm ci --production && npm clean cache --force
 CMD ["node", "server.js"]
 ```
 
-
-### Code example - Using Tiny as entrypoint
+### Kodearen adibidea: Erabili Tiny helmuga gisa
 
 ```dockerfile
 
 FROM node:12-slim AS build
 
-# Add Tini if using child-processes
+# Gehitu Tini azpi prozesuak erabiliz gero
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
@@ -39,9 +39,10 @@ ENTRYPOINT ["/tini", "--"]
 CMD ["node", "server.js"]
 ```
 
-### Antipatterns
+### Anti ereduak
 
 Using npm start
+
 ```dockerfile
 
 FROM node:12-slim AS build
@@ -49,11 +50,11 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm ci --production && npm clean cache --force
 
-# don’t do that!
+# ez egin hau!
 CMD "npm start"
 ```
 
-Using node in a single string will start a bash/ash shell process to execute your command. That is almost the same as using `npm`
+Node erabilita string bakarrean bash/ash shell prozesu bat abiatuko du zure komandoa exekutatzeko. Hau ia `npm` erabiltzea moduan da
 
 ```dockerfile
 
@@ -62,11 +63,12 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm ci --production && npm clean cache --force
 
-# don’t do that, it will start bash
+# ez egin hau, bash abiatuko du eta
 CMD "node server.js"
 ```
 
-Starting with npm, here’s the process tree:
+npmrekin abiatuz, hau da prozesuaren zuhaitza:
+
 ```
 $ ps falx
   UID   PID  PPID   COMMAND
@@ -74,12 +76,11 @@ $ ps falx
     0    16     1   sh -c node server.js
     0    17    16    \_ node server.js
 ```
-There is no advantage to those two extra process.
 
-Sources:
+Bi prozesu estra hauek edukitzeak ez du inongo abantailarik ekartzen
 
+Iturriak:
 
 https://maximorlov.com/process-signals-inside-docker-containers/
-
 
 https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#handling-kernel-signals
