@@ -1,197 +1,195 @@
 [✔]: assets/images/checkbox-small-blue.png
 
-# Node.js Best Practices
+# Praktik Terbaik Node.js
 
 <h1 align="center">
-  <img src="assets/images/banner-2.jpg" alt="Node.js Best Practices">
+  <img src="assets/images/banner-2.jpg" alt="Praktik Terbaik Node.js">
 </h1>
 
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20December%2012%202020-green.svg" alt="Last update: November, 2020"> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Updated for Node 14.0.0">
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 item"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20December%2012%202020-green.svg" alt="Pembaruan terakhir: November, 2020"> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Diperbarui untuk Node 14.0.0">
 </div>
 
 <br/>
 
-[![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Follow us on Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
-
-
-<br/>
-
-Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** and ![TR](/assets/flags/TR.png)**TR** in progress!)](#translations)
+[![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Ikuti kami di Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
 
 <br/>
 
-###### Built and maintained by our [Steering Committee](#steering-committee) and [Collaborators](#collaborators)
+Baca dalam bahasa yang berbeda: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** and ![TR](/assets/flags/TR.png)**TR** dalam proses!)](#translations)
 
-# Latest Best Practices and News
+<br/>
 
-- **✅ New best practice:** Bullet 2.12 by [Alexsey](https://github.com/Alexsey) shows how returning without awaiting to async functions leads to partial stacktraces. This might become a big deal when troubleshooting exceptions in productions that lack some of the execution frames
+###### Dibuat dan dijaga oleh [Steering Committee](#steering-committee) dan [kolaborator](#Kolaborator)
 
-- **✅ New best practice:** Bullet 6.8 by Josh Hemphill recommends "Protect Users' Passwords/Secrets using BCrypt or Script". It contains an in-depth explanation about when and why each option suits a specific project. Don't miss this short guide with a brief overview of the various hashing options
+# Praktik Terbaik Terbaru dan Berita
 
-- **:whale: Node.js + Docker best practices**: We've just released the Docker with Node.js section which includes 15 bullets about better coding techniques with Docker
+- **✅ Praktik terbaik baru:** Poin 2.12 oleh [Alexsey](https://github.com/Alexsey) menunjukkan bagimana melakukan return tanpa await ke fungsi asinkron dapat mengarah ke _stacktraces_ parsial. Ini dapat menjadi masalah besar saat melakukan pemecahan masalah exception di produksi yang kekurangan beberapa bingkai eksekusi
 
+- **✅ Praktik terbaik baru:** Poin 6.8 oleh Josh Hemphill menyarankan "Protect Users' Passwords/Secrets using BCrypt or Script". Ini mengandung penjelasan secara mendalam tentang kapan dan kenapa setiap opsi sesuai untuk proyek tertentu. Jangan lewatkan panduan singkat ini dengan gambaran singkat tentang berbagai opsi hashing
 
-<br/><br/>
-
-# Welcome! 3 Things You Ought To Know First
-
-**1. You are reading dozens of the best Node.js articles -** this repository is a summary and curation of the top-ranked content on Node.js best practices, as well as content written here by collaborators
-
-**2. It is the largest compilation, and it is growing every week -** currently, more than 80 best practices, style guides, and architectural tips are presented. New issues and pull requests are created every day to keep this live book updated. We'd love to see you contributing here, whether that is fixing code mistakes, helping with translations, or suggesting brilliant new ideas. See our [writing guidelines here](/.operations/writing-guidelines.md)
-
-**3. Best practices have additional info -** most bullets include a **🔗Read More** link that expands on the practice with code examples, quotes from selected blogs, and more information
+- **:whale: Praktik terbaik Node.js + Docker**: Kami baru saja merilis seksi Docker dengan Node.js yang mengandung 15 poin tentang teknik pengkodean yang lebih baik dengan Docker
 
 <br/><br/>
 
-## Table of Contents
+# Selamat Datang! 3 Hal Yang Harus Anda Ketahui
 
-1. [Project Structure Practices (5)](#1-project-structure-practices)
-2. [Error Handling Practices (11) ](#2-error-handling-practices)
-3. [Code Style Practices (12) ](#3-code-style-practices)
-4. [Testing And Overall Quality Practices (13) ](#4-testing-and-overall-quality-practices)
-5. [Going To Production Practices (19) ](#5-going-to-production-practices)
-6. [Security Practices (25)](#6-security-best-practices)
-7. [Performance Practices (2) (Work In Progress️ ✍️)](#7-draft-performance-best-practices)
-8. [Docker Practices (15)](#8-docker-best-practices)
+**1. Anda sedang membaca berbagai artikel Node.js terbaik -** repository ini adalah ringkasan and kurasi dari konten peringkat teratas dalam praktik terbaik Node.js, serta konten yang ditulis oleh kolaborator
+
+**2. Ini adalah kompilasi terbesar, dan berkembang tiap minggu -** saat ini, lebih dari 80 praktik terbaik, panduan gaya, dan tips arsitektural tersajikan. Issue baru dan pull request dibuat setiap hari agar kontennya tetap diperbarui. Kami senang melihat Anda berkontribusi disini, maupun itu memperbaiki kesalahan kode, membantu dalam terjemahan, atau menyarankan ide cemerlang yang baru. Lihat [pedoman menulis](/.operations/writing-guidelines.md) kami
+
+**3. Praktik terbaik mempunyai informasi tambahan -** kebanyakan poin mempunyai tautan **🔗Baca selengkapnya** yang memperluas praktiknya dengan contoh kode, kutipan dari blog terpilih, and informasi lebih lanjut
 
 <br/><br/>
 
-# `1. Project Structure Practices`
+## Daftar Isi
 
-## ![✔] 1.1 Structure your solution by components
-
-**TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
-
-**Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependent components - deployments become slower and riskier. It's also considered harder to scale-out when all the business units are not separated
-
-🔗 [**Read More: structure by components**](/sections/projectstructre/breakintcomponents.md)
-
-<br/><br/>
-
-## ![✔] 1.2 Layer your components, keep the web layer within its boundaries
-
-**TL;DR:** Each component should contain 'layers' - a dedicated object for the web, logic, and data access code. This not only draws a clean separation of concerns but also significantly eases mocking and testing the system. Though this is a very common pattern, API developers tend to mix layers by passing the web layer objects (e.g. Express req, res) to business logic and data layers - this makes your application dependent on and accessible only by specific web frameworks
-
-**Otherwise:** App that mixes web objects with other layers cannot be accessed by testing code, CRON jobs, triggers from message queues, etc
-
-🔗 [**Read More: layer your app**](/sections/projectstructre/createlayers.md)
+1. [Praktik Struktur Proyek (5)](#1-praktik-struktur-proyek)
+2. [Praktik Penanganan Kesalahan (11) ](#2-praktik-penanganan-kesalahan)
+3. [Praktik Gaya Kode (12) ](#3-code-style-practices)
+4. [Praktik Pengujian dan Kualitas Secara Keseluruhan (13) ](#4-testing-and-overall-quality-practices)
+5. [Praktik Dalam Produksi(19) ](#5-going-to-production-practices)
+6. [Praktik Keamanan (25)](#6-security-best-practices)
+7. [Praktik Peforma (2) (Pekerjaan Dalam Proses ✍️)](#7-draft-performance-best-practices)
+8. [Praktik Docker (15)](#8-docker-best-practices)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as npm packages
+# `1. Praktik Struktur Proyek`
 
-**TL;DR:** In a large app that constitutes a large codebase, cross-cutting-concern utilities like a logger, encryption and alike, should be wrapped by your code and exposed as private npm packages. This allows sharing them among multiple codebases and projects
+## ![✔] 1.1 Susun solusi Anda berdasarkan komponen
 
-**Otherwise:** You'll have to invent your deployment and the dependency wheel
+**TL;DR:** Masalah terburuk pada aplikasi besar adalah mengurus basis kode yang sangat besar dengan ratusan dependensi - monolit seperti itu memperlambat pengembang saat mereka mencoba untuk menambahkan fitur baru. Sebaiknya, partisi kode Anda menjadi beberapa komponen, setiap komponen mendapatkan foldernya sendiri atau basis kode tersendiri, dan pastikan setiap unit untuk tetap kecil dan sederhana. Kunjungi 'Baca selengkapnya' di bawah ini untuk melihat contoh struktur proyek yang benar
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
+**Jika tidak:** Saat pengembang yang menambahkan fitur baru kesusahan untuk melihat dampak dari perubahan mereka dan takut akan merusak komponen lain yang bergantung - _deployments_ menjadi lebih lambat dan berisiko. Kode juga dianggap lebih sulit untuk dikembangkan ketika semua unit bisnis tidak dipisahkan
 
-<br/><br/>
-
-## ![✔] 1.4 Separate Express 'app' and 'server'
-
-**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
-
-**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
-
-🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+🔗 [**Baca selengkapnya: structure by components**](/sections/projectstructre/breakintcomponents.md)
 
 <br/><br/>
 
-## ![✔] 1.5 Use environment aware, secure and hierarchical config
+## ![✔] 1.2 Lapisi komponen Anda, pastikan lapisan web tetap dalam batasannya
 
-**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are a few packages that can help tick most of those boxes like [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), and [convict](https://www.npmjs.com/package/convict).
+**TL;DR:** Setiap komponen harus mengandung 'lapisan' - objek khusus untuk web, logika, dan kode akses data. Hal ini tidak hanya menggambarkan _separation of concerns_ dengan jelas namun juga memudahkan _mocking_ and pengujian sistem. Meskipun ini adalah pola yang sangan umum, pengembang API cenderung mencampur lapisan dengan meneruskan objek lapisan web (misalnya Express req, res) ke logika bisnis dan lapisan data - ini membuat aplikasi Anda bergantung dan hanya bisa diakses oleh frameworks web tertentu
 
-**Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or DevOps team. Probably both
+**Jika tidak:** Aplikasi yang menggabungkan objek web dengan lapisan lain tidak dapat diakses oleh kode test, CRON jobs, triggers dari message queues, dll.
 
-🔗 [**Read More: configuration best practices**](/sections/projectstructre/configguide.md)
+🔗 [**Baca selengkapnya: layer your app**](/sections/projectstructre/createlayers.md)
+
+<br/><br/>
+
+## ![✔] 1.3 Bungkus utilitas umum sebagai paket npm
+
+**TL;DR:** Pada aplikasi besar yang memiliki basis kode yang besar, utilitas _cross-cutting-concern_ seperti logger, enkripsi and yang serupa, harus dibungkus oleh kode Anda dan terekspos sebagai paket npm tersendiri. Ini memungkinkan untuk membagikan utilitas tersebut di antara beberapa basis kode dan projek
+
+**Jika tidak:** Anda harus membuat cara _deployment_ dan _dependency_ Anda sendiri
+
+🔗 [**Baca selengkapnya: Structure by feature**](/sections/projectstructre/wraputilities.md)
+
+<br/><br/>
+
+## ![✔] 1.4 Pisahkan 'app' dan 'server' Express
+
+**TL;DR:** Hindari kebiasaan buruk dalam mendefinisikan seluruh aplikasi [Express](https://expressjs.com/) dalam satu file besar - pisahkan definisi 'Express' Anda menjadi setidaknya dua file: deklarasi untuk API (app.js) dan untuk jaringan (WWW). Untuk struktur yang lebih baik lagi, letak deklarasi API Anda di dalam komponen
+
+**Jika tidak:** API Anda hanya dapat diakses untuk pengujian melalui panggilan HTTP (lebih lambat and lebih susah untuk membuat laporan cakupan pengujian). Mengurus ratusan baris kode dalam satu file mungkin bukanlah hal yang menyenangkan
+
+🔗 [**Baca selengkapnya: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+
+<br/><br/>
+
+## ![✔] 1.5 Gunakan konfigurasi yang sadar atas lingkungan, aman dan hierarkis
+
+**TL;DR:** Pengaturan konfigurasi yang sempurna harus memastikan (a) kunci dapat dibaca dari file DAN dari variabel lingkungan (b) rahasia disimpan di luar kode (c) konfigurasi bersifat hierarkis agar mudah ditemukan. Ada beberapa paket yang dapat mempermudah pengaturan tersebut seperti [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), dan [convict](https://www.npmjs.com/package/convict).
+
+**Jika tidak:** Gagal untuk memenuhi salah satu persyaratan konfigurasi hanya akan menghambat tim pengembang atau DevOps. Mungkin keduanya
+
+🔗 [**Baca selengkapnya: configuration best practices**](/sections/projectstructre/configguide.md)
 
 <br/><br/><br/>
 
 <p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
 
-# `2. Error Handling Practices`
+# `2. Praktik Penanganan Kesalahan`
 
-## ![✔] 2.1 Use Async-Await or promises for async error handling
+## ![✔] 2.1 Gunakan Async-Await atau promise untuk penanganan kesalahan asinkron
 
-**TL;DR:** Handling async errors in callback style is probably the fastest way to hell (a.k.a the pyramid of doom). The best gift you can give to your code is using a reputable promise library or async-await instead which enables a much more compact and familiar code syntax like try-catch
+**TL;DR:** Menangani kesalahan asinkron dalam panggilan balik mungkin adalah cara terburuk (a.k.a the pyramid of doom). Hal terbaik yang dapat Anda berikan ke kode Anda adalah dengan menggunakan pustaka promise dengan reputasi yang baik atau gunakan async-await yang membuat sintaks kode menjadi lebih ringkas dan familier seperti try-catch
 
-**Otherwise:** Node.js callback style, function(err, response), is a promising way to un-maintainable code due to the mix of error handling with casual code, excessive nesting, and awkward coding patterns
+**Jika tidak:** Gaya panggilan balik Node.js, function(err, response), adalah cara yang menjanjikan untuk kode yang tidak dapat dipelihara karena campuran dari penanganan kesalahan dengan kode kasual, bersarang yang berlebihan, dan pola pengkodean yang canggung
 
-🔗 [**Read More: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
-
-<br/><br/>
-
-## ![✔] 2.2 Use only the built-in Error object
-
-**TL;DR:** Many throw errors as a string or as some custom type – this complicates the error handling logic and the interoperability between modules. Whether you reject a promise, throw an exception or emit an error – using only the built-in Error object (or an object that extends the built-in Error object) will increase uniformity and prevent loss of information
-
-**Otherwise:** When invoking some component, being uncertain which type of errors come in return – it makes proper error handling much harder. Even worse, using custom types to describe errors might lead to loss of critical error information like the stack trace!
-
-🔗 [**Read More: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
+🔗 [**Baca selengkapnya: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
 
 <br/><br/>
 
-## ![✔] 2.3 Distinguish operational vs programmer errors
+## ![✔] 2.2 Gunakan hanya objek Error bawaan
 
-**TL;DR:** Operational errors (e.g. API received an invalid input) refer to known cases where the error impact is fully understood and can be handled thoughtfully. On the other hand, programmer error (e.g. trying to read an undefined variable) refers to unknown code failures that dictate to gracefully restart the application
+**TL;DR:** Banyak pengembang melempar error sebagai string atau tipe khusus – ini mempersulit logika penanganan kesalahan dan interoperabilitas antar modul. Maupun Anda menolak sebuah _promise_, melontarkan sebuah pengecualian atau mengeluarkan error – dengan hanya menggunakan objek Error bawaan (atau objek yang memperluas objek Error bawaan) dapat meningkatkan keseragaman dan mencegah hilangnya informasi
 
-**Otherwise:** You may always restart the application when an error appears, but why let ~5000 online users down because of a minor, predicted, operational error? the opposite is also not ideal – keeping the application up when an unknown issue (programmer error) occurred might lead to an unpredicted behavior. Differentiating the two allows acting tactfully and applying a balanced approach based on the given context
+**Jika tidak:** Saat menjalankan beberapa komponen, karena tidak yakin jenis kesalahan yang akan di lempar – ini membuat penanganan kesalahan yang benar jauh lebih sulit. Lebih buruk lagi, menggunakan tipe khusus untuk mendeskripsikan kesalahan dapat menyebabkan hilangnya informasi kesalahan kritis seperti _stack trace_!
 
-🔗 [**Read More: operational vs programmer error**](/sections/errorhandling/operationalvsprogrammererror.md)
-
-<br/><br/>
-
-## ![✔] 2.4 Handle errors centrally, not within a middleware
-
-**TL;DR:** Error handling logic such as mail to admin and logging should be encapsulated in a dedicated and centralized object that all endpoints (e.g. Express middleware, cron jobs, unit-testing) call when an error comes in
-
-**Otherwise:** Not handling errors within a single place will lead to code duplication and probably to improperly handled errors
-
-🔗 [**Read More: handling errors in a centralized place**](/sections/errorhandling/centralizedhandling.md)
+🔗 [**Baca selengkapnya: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
 
 <br/><br/>
 
-## ![✔] 2.5 Document API errors using Swagger or GraphQL
+## ![✔] 2.3 Membedakan kesalahan operasional dan kesalahan pengembang
 
-**TL;DR:** Let your API callers know which errors might come in return so they can handle these thoughtfully without crashing. For RESTful APIs, this is usually done with documentation frameworks like Swagger. If you're using GraphQL, you can utilize your schema and comments as well.
+**TL;DR:** Kesalahan operasional (contohnya API menerima masukan yang tidak valid) merupakan kasus kesalahan yang diketahui di mana dampak dari kesalahannya dapat dipahami sepenuhnya dan dapat ditangani dengan cermat. Di sisi lain, kesalahan pengembang (contohnya mencoba membaca variabel yang tidak ditentukan) merupakan kegagalan kode yang tidak diketahui yang menentukan untuk memulai ulang aplikasi dengan baik
 
-**Otherwise:** An API client might decide to crash and restart only because it received back an error it couldn’t understand. Note: the caller of your API might be you (very typical in a microservice environment)
+**Jika tidak:** Anda selalu dapat memulai ulang aplikasi Anda ketika kesalahan muncul, namun kenapa mengecewakan ~5000 pengguna hanya karena kesalahan operasional yang kecil dan dapat diprediksi? hal sebaliknya juga tidak ideal – membiarkan aplikasi tetap berjalan ketika terdapat kesalahan yang tidak diketahui (kesalahan oleh pengembang) dapat menyebabkan perilaku yang tidak terduga. Membedakan kedua kesalahan tersebut memungkinkan untuk melakukan tindakan yang benar dan menerapkan cara penyelesaian masalah yang sesuai dengan konteks yang diberikan
 
-🔗 [**Read More: documenting API errors in Swagger or GraphQL**](/sections/errorhandling/documentingusingswagger.md)
-
-<br/><br/>
-
-## ![✔] 2.6 Exit the process gracefully when a stranger comes to town
-
-**TL;DR:** When an unknown error occurs (a developer error, see best practice 2.3) - there is uncertainty about the application healthiness. Common practice suggests restarting the process carefully using a process management tool like [Forever](https://www.npmjs.com/package/forever) or [PM2](http://pm2.keymetrics.io/)
-
-**Otherwise:** When an unfamiliar exception occurs, some object might be in a faulty state (e.g. an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
-
-🔗 [**Read More: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
+🔗 [**Baca selengkapnya: operational vs programmer error**](/sections/errorhandling/operationalvsprogrammererror.md)
 
 <br/><br/>
 
-## ![✔] 2.7 Use a mature logger to increase error visibility
+## ![✔] 2.4 Tangani kesalahan secara terpusat, bukan dalam middleware
 
-**TL;DR:** A set of mature logging tools like [Pino](https://github.com/pinojs/pino) or [Log4js](https://www.npmjs.com/package/log4js), will speed-up error discovery and understanding. So forget about console.log
+**TL;DR:** Logika penanganan kesalahan seperti pengiriman pesan ke admin dan pencatatan harus dikemas dalam objek khusus dan terpusat yang dipanggil oleh semua endpoint (contohnya middleware Express, pekerjaan cron, pengujian unit) ketika ada kesalahan
 
-**Otherwise:** Skimming through console.logs or manually through messy text file without querying tools or a decent log viewer might keep you busy at work until late
+**Jika tidak:** Tidak menangani kesalahan dalam satu tempat akan menyebabkan duplikasi kode dan mungkin kesalahan yang tidak ditangani dengan tepat
 
-🔗 [**Read More: using a mature logger**](/sections/errorhandling/usematurelogger.md)
+🔗 [**Baca selengkapnya: handling errors in a centralized place**](/sections/errorhandling/centralizedhandling.md)
 
 <br/><br/>
 
-## ![✔] 2.8 Test error flows using your favorite test framework
+## ![✔] 2.5 Mendokumentasikan kesalahan API menggunakan Swagger atau GraphQL
 
-**TL;DR:** Whether professional automated QA or plain manual developer testing – Ensure that your code not only satisfies positive scenarios but also handles and returns the right errors. Testing frameworks like Mocha & Chai can handle this easily (see code examples within the "Gist popup")
+**TL;DR:** Beri tahu pemanggil API Anda kesalahan apa yang mungkin dapat diterima sehingga mereka dapat menanganinya dengan baik tanpa merusak aplikasinya. Untuk API RESTful, hal ini biasanya dilakukan dengan framework dokumentasi seperti Swagger. Jika Anda menggunakan GraphQL, Anda juga dapat memanfaatkan skema dan komentar.
 
-**Otherwise:** Without testing, whether automatically or manually, you can’t rely on your code to return the right errors. Without meaningful errors – there’s no error handling
+**Jika tidak:** Klien API mungkin memutuskan untuk memberhentikan aplikasi dan memulai ulang hanya karena menerima kesalahan yang tidak dapat dipahami. Catatan: pemanggil API mungkin adalah Anda (sangat umum dalam lingkungan _microservice_)
 
-🔗 [**Read More: testing error flows**](/sections/errorhandling/testingerrorflows.md)
+🔗 [**Baca selengkapnya: documenting API errors in Swagger or GraphQL**](/sections/errorhandling/documentingusingswagger.md)
+
+<br/><br/>
+
+## ![✔] 2.6 Hentikan proses dengan benar ketika orang asing datang ke kota
+
+**TL;DR:** Ketika terjadi kesalahan yang tidak diketahui (kesalahan pengembang, lihat praktik terbaik 2.3) - ada ketidakpastian tentang kesehatan aplikasi. Praktik umum menyarankan untuk memulai kembali proses dengan hati-hati menggunakan alat manajemen proses seperti [Forever](https://www.npmjs.com/package/forever) atau [PM2](http://pm2.keymetrics.io/)
+
+**Jika tidak:** Ketika pengecualian yang tidak dikenal terjadi, beberapa objek mungkin dalam keadaan rusak (contohnya event emitter yang digunakan secara global dan tidak dapat mengaktifkan event lagi karena kesalahan internal) dan semua panggilan yang akan datang mungkin akan gagal atau tidak berperilaku dengan normal
+
+🔗 [**Baca selengkapnya: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
+
+<br/><br/>
+
+## ![✔] 2.7 Gunakan alat pencatat yang baik untuk meningkatkan visibilitas kesehatan
+
+**TL;DR:** Satu set alat pencatat yang baik seperti [Pino](https://github.com/pinojs/pino) atau [Log4js](https://www.npmjs.com/package/log4js), akan mempercepat penemuan dan pemahaman suatu kesalahan. Jadi tinggalkan console.log
+
+**Jika tidak:** Melihat beberapa console.log atau secara manual melalui file teks yang berantakan tanpa alat kueri atau penampil catatan yang baik dapat membuat Anda sibuk di tempat kerja hingga larut
+
+🔗 [**Baca selengkapnya: using a mature logger**](/sections/errorhandling/usematurelogger.md)
+
+<br/><br/>
+
+## ![✔] 2.8 Uji aliran kesalahan menggunakan framework pengujian favorit Anda
+
+**TL;DR:** Maupun itu QA otomatis profesional ataupun pengujian manual oleh pengembang – Pastikan bahwa kode Anda tidak hanya memenuhi skenario positif namun juga menangani dan mengembalikan jenis kesalahan yang tepat. Framework testing seperti Mocha & Chai dapat menangani ini dengan mudah (lihat contoh kode dalam "Gist popup")
+
+**Jika tidak:** Tanpa testing, maupun secara otomatis ataupun manual, Anda tidak dapat mengandalkan kode Anda untuk mengembalikan jenis kesalahan yang tepat. Tanpa jenis kesalahan yang berarti – tidak ada penanganan kesalahan
+
+🔗 [**Baca selengkapnya: testing error flows**](/sections/errorhandling/testingerrorflows.md)
 
 <br/><br/>
 
@@ -274,8 +272,7 @@ function someFunction() {
 }
 
 // Avoid
-function someFunction()
-{
+function someFunction() {
   // code block
 }
 ```
@@ -352,7 +349,7 @@ class SomeClassExample {}
 
 // for const names we use the const keyword and lowerCamelCase
 const config = {
-  key: "value"
+  key: "value",
 };
 
 // for variables and functions names we use lowerCamelCase
@@ -747,7 +744,7 @@ All statements above will return false if used with `===`
 
 <br/><br/>
 
-## ![✔] 5.19. Install your packages with `npm ci` 
+## ![✔] 5.19. Install your packages with `npm ci`
 
 **TL;DR:** You have to be sure that production code uses the exact version of the packages you have tested it with. Run `npm ci` to strictly do a clean install of your dependencies matching package.json and package-lock.json. Using this command is recommended in automated environments such as continuous integration pipelines.
 
@@ -1255,7 +1252,6 @@ In addition, referring to an image tag means that the base image is subject to c
 
 <br/><br /><br />
 
-
 ## ![✔] 8.15. Lint your Dockerfile
 
 **TL;DR:** Linting your Dockerfile is an important step to identify issues in your Dockerfile which differ from best practices. By checking for potential flaws using a specialised Docker linter, performance and security improvements can be easily identified, saving countless hours of wasted time or security issues in production code.
@@ -1369,6 +1365,7 @@ Our collaborators are members who are contributing to the repository on a regula
 <br/>
 
 ## Contributing
+
 If you've ever wanted to contribute to open source, now is your chance! See the [contributing docs](.operations/CONTRIBUTING.md) for more information.
 
 ## Contributors ✨
