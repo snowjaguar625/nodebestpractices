@@ -1,315 +1,311 @@
 [✔]: assets/images/checkbox-small-blue.png
 
-# Node.js Best Practices
+# Praktik Terbaik Node.js
 
 <h1 align="center">
-  <img src="assets/images/banner-2.jpg" alt="Node.js Best Practices">
+  <img src="assets/images/banner-2.jpg" alt="Praktik Terbaik Node.js">
 </h1>
 
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 items"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20December%2012%202020-green.svg" alt="Last update: November, 2020"> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Updated for Node 14.0.0">
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 item"> <img src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20December%2012%202020-green.svg" alt="Pembaruan terakhir: November, 2020"> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Diperbarui untuk Node 14.0.0">
 </div>
 
 <br/>
 
-[![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Follow us on Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
-
-
-<br/>
-
-Read in a different language: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** and ![TR](/assets/flags/TR.png)**TR** in progress!)](#translations)
+[![nodepractices](/assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Ikuti kami di Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
 
 <br/>
 
-###### Built and maintained by our [Steering Committee](#steering-committee) and [Collaborators](#collaborators)
+Baca dalam bahasa yang berbeda: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** dan ![TR](/assets/flags/TR.png)**TR** dalam proses!)](#translations)
 
-# Latest Best Practices and News
+<br/>
 
-- **✅ New best practice:** Bullet 2.12 by [Alexsey](https://github.com/Alexsey) shows how returning without awaiting to async functions leads to partial stacktraces. This might become a big deal when troubleshooting exceptions in productions that lack some of the execution frames
+###### Dibuat dan dijaga oleh [Steering Committee](#steering-committee) dan [kolaborator](#Kolaborator)
 
-- **✅ New best practice:** Bullet 6.8 by Josh Hemphill recommends "Protect Users' Passwords/Secrets using BCrypt or Script". It contains an in-depth explanation about when and why each option suits a specific project. Don't miss this short guide with a brief overview of the various hashing options
+# Praktik Terbaik Terbaru dan Berita
 
-- **:whale: Node.js + Docker best practices**: We've just released the Docker with Node.js section which includes 15 bullets about better coding techniques with Docker
+- **✅ Praktik terbaik baru:** Poin 2.12 oleh [Alexsey](https://github.com/Alexsey) menunjukkan bagaimana melakukan return tanpa await ke fungsi asinkron dapat mengarah ke _stacktraces_ parsial. Ini dapat menjadi masalah besar saat melakukan pemecahan masalah exception di produksi yang kekurangan beberapa bingkai eksekusi
 
+- **✅ Praktik terbaik baru:** Poin 6.8 oleh Josh Hemphill menyarankan "Protect Users' Passwords/Secrets using BCrypt or Script". Ini mengandung penjelasan secara mendalam tentang kapan dan kenapa setiap opsi sesuai untuk proyek tertentu. Jangan lewatkan panduan singkat ini dengan gambaran singkat tentang berbagai opsi hashing
 
-<br/><br/>
-
-# Welcome! 3 Things You Ought To Know First
-
-**1. You are reading dozens of the best Node.js articles -** this repository is a summary and curation of the top-ranked content on Node.js best practices, as well as content written here by collaborators
-
-**2. It is the largest compilation, and it is growing every week -** currently, more than 80 best practices, style guides, and architectural tips are presented. New issues and pull requests are created every day to keep this live book updated. We'd love to see you contributing here, whether that is fixing code mistakes, helping with translations, or suggesting brilliant new ideas. See our [writing guidelines here](/.operations/writing-guidelines.md)
-
-**3. Best practices have additional info -** most bullets include a **🔗Read More** link that expands on the practice with code examples, quotes from selected blogs, and more information
+- **:whale: Praktik terbaik Node.js + Docker**: Kami baru saja merilis seksi Docker dengan Node.js yang mengandung 15 poin tentang teknik pengkodean yang lebih baik dengan Docker
 
 <br/><br/>
 
-## Table of Contents
+# Selamat Datang! 3 Hal Yang Harus Anda Ketahui
 
-1. [Project Structure Practices (5)](#1-project-structure-practices)
-2. [Error Handling Practices (11) ](#2-error-handling-practices)
-3. [Code Style Practices (12) ](#3-code-style-practices)
-4. [Testing And Overall Quality Practices (13) ](#4-testing-and-overall-quality-practices)
-5. [Going To Production Practices (19) ](#5-going-to-production-practices)
-6. [Security Practices (25)](#6-security-best-practices)
-7. [Performance Practices (2) (Work In Progress️ ✍️)](#7-draft-performance-best-practices)
-8. [Docker Practices (15)](#8-docker-best-practices)
+**1. Anda sedang membaca berbagai artikel Node.js terbaik -** repositori ini adalah ringkasan dan kurasi dari konten peringkat teratas dalam praktik terbaik Node.js, serta konten yang ditulis oleh kolaborator
+
+**2. Ini adalah kompilasi terbesar, dan berkembang tiap minggu -** saat ini, lebih dari 80 praktik terbaik, panduan gaya, dan tips arsitektural tersajikan. Issue baru dan pull request dibuat setiap hari agar kontennya tetap diperbarui. Kami senang melihat Anda berkontribusi di sini, maupun itu memperbaiki kesalahan kode, membantu dalam terjemahan, atau menyarankan ide cemerlang yang baru. Lihat [pedoman menulis](/.operations/writing-guidelines.md) kami
+
+**3. Praktik terbaik mempunyai informasi tambahan -** kebanyakan poin mempunyai tautan **🔗Baca selengkapnya** yang memperluas praktiknya dengan contoh kode, kutipan dari blog terpilih, dan informasi lebih lanjut
 
 <br/><br/>
 
-# `1. Project Structure Practices`
+## Daftar Isi
 
-## ![✔] 1.1 Structure your solution by components
-
-**TL;DR:** The worst large applications pitfall is maintaining a huge code base with hundreds of dependencies - such a monolith slows down developers as they try to incorporate new features. Instead, partition your code into components, each gets its folder or a dedicated codebase, and ensure that each unit is kept small and simple. Visit 'Read More' below to see examples of correct project structure
-
-**Otherwise:** When developers who code new features struggle to realize the impact of their change and fear to break other dependent components - deployments become slower and riskier. It's also considered harder to scale-out when all the business units are not separated
-
-🔗 [**Read More: structure by components**](/sections/projectstructre/breakintcomponents.md)
-
-<br/><br/>
-
-## ![✔] 1.2 Layer your components, keep the web layer within its boundaries
-
-**TL;DR:** Each component should contain 'layers' - a dedicated object for the web, logic, and data access code. This not only draws a clean separation of concerns but also significantly eases mocking and testing the system. Though this is a very common pattern, API developers tend to mix layers by passing the web layer objects (e.g. Express req, res) to business logic and data layers - this makes your application dependent on and accessible only by specific web frameworks
-
-**Otherwise:** App that mixes web objects with other layers cannot be accessed by testing code, CRON jobs, triggers from message queues, etc
-
-🔗 [**Read More: layer your app**](/sections/projectstructre/createlayers.md)
+1. [Praktik Struktur Proyek (5)](#1-praktik-struktur-proyek)
+2. [Praktik Penanganan Kesalahan (11) ](#2-praktik-penanganan-kesalahan)
+3. [Praktik Gaya Kode (12) ](#3-praktik-gaya-kode)
+4. [Praktik Pengujian dan Kualitas Secara Keseluruhan (13) ](#4-praktik-pengujian-dan-kualitas-secara-keseluruhan )
+5. [Praktik Dalam Produksi(19) ](#5-praktik-dalam-produksi)
+6. [Praktik Keamanan (25)](#6-praktik-terbaik-keamanan)
+7. [Praktik Performa (2) (Pekerjaan Dalam Proses ✍️)](#7-draf-praktik-terbaik-performa)
+8. [Praktik Docker (15)](#8-docker-best-practices)
 
 <br/><br/>
 
-## ![✔] 1.3 Wrap common utilities as npm packages
+# `1. Praktik Struktur Proyek`
 
-**TL;DR:** In a large app that constitutes a large codebase, cross-cutting-concern utilities like a logger, encryption and alike, should be wrapped by your code and exposed as private npm packages. This allows sharing them among multiple codebases and projects
+## ![✔] 1.1 Susun solusi Anda berdasarkan komponen
 
-**Otherwise:** You'll have to invent your deployment and the dependency wheel
+**TL;DR:** Masalah terburuk pada aplikasi besar adalah mengurus basis kode yang sangat besar dengan ratusan dependensi - monolit seperti itu memperlambat pengembang saat mereka mencoba untuk menambahkan fitur baru. Sebaiknya, partisi kode Anda menjadi beberapa komponen, setiap komponen mendapatkan foldernya sendiri atau basis kode tersendiri, dan pastikan setiap unit untuk tetap kecil dan sederhana. Kunjungi 'Baca selengkapnya' di bawah ini untuk melihat contoh struktur proyek yang benar
 
-🔗 [**Read More: Structure by feature**](/sections/projectstructre/wraputilities.md)
+**Jika tidak:** Saat pengembang yang menambahkan fitur baru kesusahan untuk melihat dampak dari perubahan mereka dan takut akan merusak komponen lain yang bergantung - _deployment_ menjadi lebih lambat dan berisiko. Kode juga dianggap lebih sulit untuk dikembangkan ketika semua unit bisnis tidak dipisahkan
 
-<br/><br/>
-
-## ![✔] 1.4 Separate Express 'app' and 'server'
-
-**TL;DR:** Avoid the nasty habit of defining the entire [Express](https://expressjs.com/) app in a single huge file - separate your 'Express' definition to at least two files: the API declaration (app.js) and the networking concerns (WWW). For even better structure, locate your API declaration within components
-
-**Otherwise:** Your API will be accessible for testing via HTTP calls only (slower and much harder to generate coverage reports). It probably won't be a big pleasure to maintain hundreds of lines of code in a single file
-
-🔗 [**Read More: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+🔗 [**Baca selengkapnya: structure by components**](/sections/projectstructre/breakintcomponents.md)
 
 <br/><br/>
 
-## ![✔] 1.5 Use environment aware, secure and hierarchical config
+## ![✔] 1.2 Lapisi komponen Anda, pastikan lapisan web tetap dalam batasannya
 
-**TL;DR:** A perfect and flawless configuration setup should ensure (a) keys can be read from file AND from environment variable (b) secrets are kept outside committed code (c) config is hierarchical for easier findability. There are a few packages that can help tick most of those boxes like [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), and [convict](https://www.npmjs.com/package/convict).
+**TL;DR:** Setiap komponen harus mengandung 'lapisan' - objek khusus untuk web, logika, dan kode akses data. Hal ini tidak hanya menggambarkan _separation of concerns_ dengan jelas namun juga memudahkan _mocking_ dan pengujian sistem. Meskipun ini adalah pola yang sangan umum, pengembang API cenderung mencampur lapisan dengan meneruskan objek lapisan web (misalnya Express req, res) ke logika bisnis dan lapisan data - ini membuat aplikasi Anda bergantung dan hanya bisa diakses oleh framework web tertentu
 
-**Otherwise:** Failing to satisfy any of the config requirements will simply bog down the development or DevOps team. Probably both
+**Jika tidak:** Aplikasi yang menggabungkan objek web dengan lapisan lain tidak dapat diakses oleh kode pengujian, pekerjaan CRON, triggers dari message queues, dll.
 
-🔗 [**Read More: configuration best practices**](/sections/projectstructre/configguide.md)
+🔗 [**Baca selengkapnya: layer your app**](/sections/projectstructre/createlayers.md)
+
+<br/><br/>
+
+## ![✔] 1.3 Bungkus utilitas umum sebagai paket npm
+
+**TL;DR:** Pada aplikasi besar yang memiliki basis kode yang besar, utilitas _cross-cutting-concern_ seperti logger, enkripsi dan yang serupa, harus dibungkus oleh kode Anda dan terekspos sebagai paket npm tersendiri. Ini memungkinkan untuk membagikan utilitas tersebut di antara beberapa basis kode dan proyek
+
+**Jika tidak:** Anda harus membuat cara _deployment_ dan _dependency_ Anda sendiri
+
+🔗 [**Baca selengkapnya: Structure by feature**](/sections/projectstructre/wraputilities.md)
+
+<br/><br/>
+
+## ![✔] 1.4 Pisahkan 'app' dan 'server' Express
+
+**TL;DR:** Hindari kebiasaan buruk dalam mendefinisikan seluruh aplikasi [Express](https://expressjs.com/) dalam satu file besar - pisahkan definisi 'Express' Anda menjadi setidaknya dua file: deklarasi untuk API (app.js) dan untuk jaringan (WWW). Untuk struktur yang lebih baik lagi, letak deklarasi API Anda di dalam komponen
+
+**Jika tidak:** API Anda hanya dapat diakses untuk pengujian melalui panggilan HTTP (lebih lambat and lebih susah untuk membuat laporan cakupan pengujian). Mengurus ratusan baris kode dalam satu file mungkin bukanlah hal yang menyenangkan
+
+🔗 [**Baca selengkapnya: separate Express 'app' and 'server'**](/sections/projectstructre/separateexpress.md)
+
+<br/><br/>
+
+## ![✔] 1.5 Gunakan konfigurasi yang sadar atas lingkungan, aman dan hierarkis
+
+**TL;DR:** Pengaturan konfigurasi yang sempurna harus memastikan (a) kunci dapat dibaca dari file DAN dari variabel lingkungan (b) rahasia disimpan di luar kode (c) konfigurasi bersifat hierarkis agar mudah ditemukan. Ada beberapa paket yang dapat mempermudah pengaturan tersebut seperti [rc](https://www.npmjs.com/package/rc), [nconf](https://www.npmjs.com/package/nconf), [config](https://www.npmjs.com/package/config), dan [convict](https://www.npmjs.com/package/convict).
+
+**Jika tidak:** Gagal untuk memenuhi salah satu persyaratan konfigurasi hanya akan menghambat tim pengembang atau DevOps. Mungkin keduanya
+
+🔗 [**Baca selengkapnya: configuration best practices**](/sections/projectstructre/configguide.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
-# `2. Error Handling Practices`
+# `2. Praktik Penanganan Kesalahan`
 
-## ![✔] 2.1 Use Async-Await or promises for async error handling
+## ![✔] 2.1 Gunakan Async-Await atau promise untuk penanganan kesalahan asinkron
 
-**TL;DR:** Handling async errors in callback style is probably the fastest way to hell (a.k.a the pyramid of doom). The best gift you can give to your code is using a reputable promise library or async-await instead which enables a much more compact and familiar code syntax like try-catch
+**TL;DR:** Menangani kesalahan asinkron dalam panggilan balik mungkin adalah cara terburuk (a.k.a the pyramid of doom). Hal terbaik yang dapat Anda berikan ke kode Anda adalah dengan menggunakan pustaka promise dengan reputasi yang baik atau gunakan async-await yang membuat sintaks kode menjadi lebih ringkas dan familier seperti try-catch
 
-**Otherwise:** Node.js callback style, function(err, response), is a promising way to un-maintainable code due to the mix of error handling with casual code, excessive nesting, and awkward coding patterns
+**Jika tidak:** Gaya panggilan balik Node.js, function(err, response), adalah cara yang menjanjikan untuk kode yang tidak dapat dipelihara karena campuran dari penanganan kesalahan dengan kode kasual, bersarang yang berlebihan, dan pola pengkodean yang canggung
 
-🔗 [**Read More: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
-
-<br/><br/>
-
-## ![✔] 2.2 Use only the built-in Error object
-
-**TL;DR:** Many throw errors as a string or as some custom type – this complicates the error handling logic and the interoperability between modules. Whether you reject a promise, throw an exception or emit an error – using only the built-in Error object (or an object that extends the built-in Error object) will increase uniformity and prevent loss of information
-
-**Otherwise:** When invoking some component, being uncertain which type of errors come in return – it makes proper error handling much harder. Even worse, using custom types to describe errors might lead to loss of critical error information like the stack trace!
-
-🔗 [**Read More: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
+🔗 [**Baca selengkapnya: avoiding callbacks**](/sections/errorhandling/asyncerrorhandling.md)
 
 <br/><br/>
 
-## ![✔] 2.3 Distinguish operational vs programmer errors
+## ![✔] 2.2 Gunakan hanya objek Error bawaan
 
-**TL;DR:** Operational errors (e.g. API received an invalid input) refer to known cases where the error impact is fully understood and can be handled thoughtfully. On the other hand, programmer error (e.g. trying to read an undefined variable) refers to unknown code failures that dictate to gracefully restart the application
+**TL;DR:** Banyak pengembang melempar error sebagai string atau tipe khusus – ini mempersulit logika penanganan kesalahan dan interoperabilitas antar modul. Maupun Anda menolak sebuah _promise_, melontarkan sebuah pengecualian atau mengeluarkan error – dengan hanya menggunakan objek Error bawaan (atau objek yang memperluas objek Error bawaan) dapat meningkatkan keseragaman dan mencegah hilangnya informasi
 
-**Otherwise:** You may always restart the application when an error appears, but why let ~5000 online users down because of a minor, predicted, operational error? the opposite is also not ideal – keeping the application up when an unknown issue (programmer error) occurred might lead to an unpredicted behavior. Differentiating the two allows acting tactfully and applying a balanced approach based on the given context
+**Jika tidak:** Saat menjalankan beberapa komponen, karena tidak yakin jenis kesalahan yang akan di lempar – ini membuat penanganan kesalahan yang benar jauh lebih sulit. Lebih buruk lagi, menggunakan tipe khusus untuk mendeskripsikan kesalahan dapat menyebabkan hilangnya informasi kesalahan kritis seperti _stack trace_!
 
-🔗 [**Read More: operational vs programmer error**](/sections/errorhandling/operationalvsprogrammererror.md)
-
-<br/><br/>
-
-## ![✔] 2.4 Handle errors centrally, not within a middleware
-
-**TL;DR:** Error handling logic such as mail to admin and logging should be encapsulated in a dedicated and centralized object that all endpoints (e.g. Express middleware, cron jobs, unit-testing) call when an error comes in
-
-**Otherwise:** Not handling errors within a single place will lead to code duplication and probably to improperly handled errors
-
-🔗 [**Read More: handling errors in a centralized place**](/sections/errorhandling/centralizedhandling.md)
+🔗 [**Baca selengkapnya: using the built-in error object**](/sections/errorhandling/useonlythebuiltinerror.md)
 
 <br/><br/>
 
-## ![✔] 2.5 Document API errors using Swagger or GraphQL
+## ![✔] 2.3 Membedakan kesalahan operasional dan kesalahan pengembang
 
-**TL;DR:** Let your API callers know which errors might come in return so they can handle these thoughtfully without crashing. For RESTful APIs, this is usually done with documentation frameworks like Swagger. If you're using GraphQL, you can utilize your schema and comments as well.
+**TL;DR:** Kesalahan operasional (contohnya API menerima masukan yang tidak valid) merupakan kasus kesalahan yang diketahui di mana dampak dari kesalahannya dapat dipahami sepenuhnya dan dapat ditangani dengan cermat. Di sisi lain, kesalahan pengembang (contohnya mencoba membaca variabel yang tidak ditentukan) merupakan kegagalan kode yang tidak diketahui yang menentukan untuk memulai ulang aplikasi dengan baik
 
-**Otherwise:** An API client might decide to crash and restart only because it received back an error it couldn’t understand. Note: the caller of your API might be you (very typical in a microservice environment)
+**Jika tidak:** Anda selalu dapat memulai ulang aplikasi Anda ketika kesalahan muncul, namun kenapa mengecewakan ~5000 pengguna hanya karena kesalahan operasional yang kecil dan dapat diprediksi? hal sebaliknya juga tidak ideal – membiarkan aplikasi tetap berjalan ketika terdapat kesalahan yang tidak diketahui (kesalahan oleh pengembang) dapat menyebabkan perilaku yang tidak terduga. Membedakan kedua kesalahan tersebut memungkinkan untuk melakukan tindakan yang benar dan menerapkan cara penyelesaian masalah yang sesuai dengan konteks yang diberikan
 
-🔗 [**Read More: documenting API errors in Swagger or GraphQL**](/sections/errorhandling/documentingusingswagger.md)
-
-<br/><br/>
-
-## ![✔] 2.6 Exit the process gracefully when a stranger comes to town
-
-**TL;DR:** When an unknown error occurs (a developer error, see best practice 2.3) - there is uncertainty about the application healthiness. Common practice suggests restarting the process carefully using a process management tool like [Forever](https://www.npmjs.com/package/forever) or [PM2](http://pm2.keymetrics.io/)
-
-**Otherwise:** When an unfamiliar exception occurs, some object might be in a faulty state (e.g. an event emitter which is used globally and not firing events anymore due to some internal failure) and all future requests might fail or behave crazily
-
-🔗 [**Read More: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
+🔗 [**Baca selengkapnya: operational vs programmer error**](/sections/errorhandling/operationalvsprogrammererror.md)
 
 <br/><br/>
 
-## ![✔] 2.7 Use a mature logger to increase error visibility
+## ![✔] 2.4 Tangani kesalahan secara terpusat, bukan dalam middleware
 
-**TL;DR:** A set of mature logging tools like [Pino](https://github.com/pinojs/pino) or [Log4js](https://www.npmjs.com/package/log4js), will speed-up error discovery and understanding. So forget about console.log
+**TL;DR:** Logika penanganan kesalahan seperti pengiriman pesan ke admin dan pencatatan harus dikemas dalam objek khusus dan terpusat yang dipanggil oleh semua endpoint (contohnya middleware Express, pekerjaan cron, pengujian unit) ketika ada kesalahan
 
-**Otherwise:** Skimming through console.logs or manually through messy text file without querying tools or a decent log viewer might keep you busy at work until late
+**Jika tidak:** Tidak menangani kesalahan dalam satu tempat akan menyebabkan duplikasi kode dan mungkin kesalahan yang tidak ditangani dengan tepat
 
-🔗 [**Read More: using a mature logger**](/sections/errorhandling/usematurelogger.md)
-
-<br/><br/>
-
-## ![✔] 2.8 Test error flows using your favorite test framework
-
-**TL;DR:** Whether professional automated QA or plain manual developer testing – Ensure that your code not only satisfies positive scenarios but also handles and returns the right errors. Testing frameworks like Mocha & Chai can handle this easily (see code examples within the "Gist popup")
-
-**Otherwise:** Without testing, whether automatically or manually, you can’t rely on your code to return the right errors. Without meaningful errors – there’s no error handling
-
-🔗 [**Read More: testing error flows**](/sections/errorhandling/testingerrorflows.md)
+🔗 [**Baca selengkapnya: handling errors in a centralized place**](/sections/errorhandling/centralizedhandling.md)
 
 <br/><br/>
 
-## ![✔] 2.9 Discover errors and downtime using APM products
+## ![✔] 2.5 Mendokumentasikan kesalahan API menggunakan Swagger atau GraphQL
 
-**TL;DR:** Monitoring and performance products (a.k.a APM) proactively gauge your codebase or API so they can automagically highlight errors, crashes, and slow parts that you were missing
+**TL;DR:** Beri tahu pemanggil API Anda kesalahan apa yang mungkin dapat diterima sehingga mereka dapat menanganinya dengan baik tanpa merusak aplikasinya. Untuk API RESTful, hal ini biasanya dilakukan dengan framework dokumentasi seperti Swagger. Jika Anda menggunakan GraphQL, Anda juga dapat memanfaatkan skema dan komentar.
 
-**Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which are your slowest code parts under real-world scenario and how these affect the UX
+**Jika tidak:** Klien API mungkin memutuskan untuk memberhentikan aplikasi dan memulai ulang hanya karena menerima kesalahan yang tidak dapat dipahami. Catatan: pemanggil API mungkin adalah Anda (sangat umum dalam lingkungan _microservice_)
 
-🔗 [**Read More: using APM products**](/sections/errorhandling/apmproducts.md)
-
-<br/><br/>
-
-## ![✔] 2.10 Catch unhandled promise rejections
-
-**TL;DR:** Any exception thrown within a promise will get swallowed and discarded unless a developer didn’t forget to explicitly handle it. Even if your code is subscribed to `process.uncaughtException`! Overcome this by registering to the event `process.unhandledRejection`
-
-**Otherwise:** Your errors will get swallowed and leave no trace. Nothing to worry about
-
-🔗 [**Read More: catching unhandled promise rejection**](/sections/errorhandling/catchunhandledpromiserejection.md)
+🔗 [**Baca selengkapnya: documenting API errors in Swagger or GraphQL**](/sections/errorhandling/documentingusingswagger.md)
 
 <br/><br/>
 
-## ![✔] 2.11 Fail fast, validate arguments using a dedicated library
+## ![✔] 2.6 Hentikan proses dengan benar ketika orang asing datang ke kota
 
-**TL;DR:** Assert API input to avoid nasty bugs that are much harder to track later. The validation code is usually tedious unless you are using a very cool helper library like [ajv](https://www.npmjs.com/package/ajv) and [Joi](https://www.npmjs.com/package/joi)
+**TL;DR:** Ketika terjadi kesalahan yang tidak diketahui (kesalahan pengembang, lihat praktik terbaik 2.3) - ada ketidakpastian tentang kesehatan aplikasi. Praktik umum menyarankan untuk memulai kembali proses dengan hati-hati menggunakan alat manajemen proses seperti [Forever](https://www.npmjs.com/package/forever) atau [PM2](http://pm2.keymetrics.io/)
 
-**Otherwise:** Consider this – your function expects a numeric argument “Discount” which the caller forgets to pass, later on, your code checks if Discount!=0 (amount of allowed discount is greater than zero), then it will allow the user to enjoy a discount. OMG, what a nasty bug. Can you see it?
+**Jika tidak:** Ketika pengecualian yang tidak dikenal terjadi, beberapa objek mungkin dalam keadaan rusak (contohnya event emitter yang digunakan secara global dan tidak dapat mengaktifkan event lagi karena kesalahan internal) dan semua panggilan yang akan datang mungkin akan gagal atau tidak berperilaku dengan normal
 
-🔗 [**Read More: failing fast**](/sections/errorhandling/failfast.md)
+🔗 [**Baca selengkapnya: shutting the process**](/sections/errorhandling/shuttingtheprocess.md)
 
 <br/><br/>
 
-## ![✔] 2.12 Always await promises before returning to avoid a partial stacktrace
+## ![✔] 2.7 Gunakan alat pencatat yang baik untuk meningkatkan visibilitas kesehatan
 
-**TL;DR:** Always do `return await` when returning a promise to benefit full error stacktrace. If a
-function returns a promise, that function must be declared as `async` function and explicitly
-`await` the promise before returning it
+**TL;DR:** Satu set alat pencatat yang baik seperti [Pino](https://github.com/pinojs/pino) atau [Log4js](https://www.npmjs.com/package/log4js), akan mempercepat penemuan dan pemahaman suatu kesalahan. Jadi tinggalkan console.log
 
-**Otherwise:** The function that returns a promise without awaiting won't appear in the stacktrace.
-Such missing frames would probably complicate the understanding of the flow that leads to the error,
-especially if the cause of the abnormal behavior is inside of the missing function
+**Jika tidak:** Melihat beberapa console.log atau secara manual melalui file teks yang berantakan tanpa alat kueri atau penampil catatan yang baik dapat membuat Anda sibuk di tempat kerja hingga larut
 
-🔗 [**Read More: returning promises**](/sections/errorhandling/returningpromises.md)
+🔗 [**Baca selengkapnya: using a mature logger**](/sections/errorhandling/usematurelogger.md)
+
+<br/><br/>
+
+## ![✔] 2.8 Uji aliran kesalahan menggunakan framework pengujian favorit Anda
+
+**TL;DR:** Maupun itu QA otomatis profesional ataupun pengujian manual oleh pengembang – Pastikan bahwa kode Anda tidak hanya memenuhi skenario positif namun juga menangani dan mengembalikan jenis kesalahan yang tepat. Framework testing seperti Mocha & Chai dapat menangani ini dengan mudah (lihat contoh kode dalam "Gist popup")
+
+**Jika tidak:** Tanpa testing, maupun secara otomatis ataupun manual, Anda tidak dapat mengandalkan kode Anda untuk mengembalikan jenis kesalahan yang tepat. Tanpa jenis kesalahan yang berarti – tidak ada penanganan kesalahan
+
+🔗 [**Baca selengkapnya: testing error flows**](/sections/errorhandling/testingerrorflows.md)
+
+<br/><br/>
+
+## ![✔] 2.9 Temukan kesalahan dan waktu henti menggunakan produk APM
+
+**TL;DR:** Produk pemantauan dan kinerja (a.k.a APM) secara proaktif mengukur basis kode atau API sehingga mereka dapat secara otomatis menyorot kesalahan, kerusakan, dan bagian lambat yang Anda lewatkan
+
+**Jika tidak:** Anda mungkin menghabiskan banyak usaha untuk mengukur kinerja dan waktu henti API, mungkin Anda tidak akan menyadari bagian kode mana yang paling lambat dalam skenario dunia nyata dan bagaimana hal ini dapat memengaruhi pengalaman pengguna
+
+🔗 [**Baca selengkapnya: using APM products**](/sections/errorhandling/apmproducts.md)
+
+<br/><br/>
+
+## ![✔] 2.10 Tangkap penolakan _promise_ yang tidak tertangani
+
+**TL;DR:** Semua pengecualian yang dilemparkan ke dalam _promise_ akan ditelan dan dibuang kecuali pengembang tidak lupa untuk menanganinya secara eksplisit. Meskipun kode Anda berlangganan ke `process.uncaughtException`! Atasi ini dengan mendaftarkan ke event `process.unhandledRejection`
+
+**Jika tidak:** Kesalahan dari kode Anda akan ditelan dan hilang tanpa jejak. Tidak ada yang perlu dikhawatirkan
+
+🔗 [**Baca selengkapnya: catching unhandled promise rejection**](/sections/errorhandling/catchunhandledpromiserejection.md)
+
+<br/><br/>
+
+## ![✔] 2.11 Gagal lebih dini, validasi argumen menggunakan pustaka khusus
+
+**TL;DR:** Tegaskan masukan API untuk menghindari bug yang lebih sulit dilacak nantinya. Kode untuk validasi biasanya berantakan kecuali Anda menggunakan pustaka pembantu yang keren seperti [ajv](https://www.npmjs.com/package/ajv) dan [Joi](https://www.npmjs.com/package/joi)
+
+**Jika tidak:** Anggap seperti ini – jika fungsi Anda mengharapkan argumen numerik “Diskon” yang lupa diletak oleh pemanggil, kemudian, kode Anda memeriksa jika Diskon!=0 (jumlah diskon yang diizinkan lebih besar dari nol), maka itu akan memungkinkan pengguna untuk menikmati diskon. OMG, bug yang sangat buruk. Bisakah Anda melihatnya?
+
+🔗 [**Baca selengkapnya: failing fast**](/sections/errorhandling/failfast.md)
+
+<br/><br/>
+
+## ![✔] 2.12 Selalu _await promise_ sebelum mengembalikan nilai untuk menghindari _stacktrace_ yang tidak lengkap
+
+**TL;DR:** Selalu lakukan `return await` ketika mengembalikan sebuah _promise_ untuk memanfaatkan _stacktrace_ kesalahan yang lengkap. Jika sebuah fungsi mengembalikan _promise_, fungsi tersebut harus dideklarasikan sebagai fungsi `async` dan `await` fungsi tersebut secara eksplisit sebelum mengembalikannya
+
+**Jika tidak:** Fungsi yang mengembalikan _promise_ tanpa `await` tidak akan muncul di _stacktrace_.
+Kerangka yang hilang seperti itu mungkin akan mempersulit pemahaman tentang aliran yang mengarah ke kesalahan,
+terutama jika penyebab perilaku yang tidak normal ada di dalam fungsi yang hilang itu
+
+🔗 [**Baca selengkapnya: returning promises**](/sections/errorhandling/returningpromises.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
-# `3. Code Style Practices`
+# `3. Praktik Gaya Kode`
 
-## ![✔] 3.1 Use ESLint
+## ![✔] 3.1 Gunakan ESLint
 
-**TL;DR:** [ESLint](https://eslint.org) is the de-facto standard for checking possible code errors and fixing code style, not only to identify nitty-gritty spacing issues but also to detect serious code anti-patterns like developers throwing errors without classification. Though ESLint can automatically fix code styles, other tools like [prettier](https://www.npmjs.com/package/prettier) and [beautify](https://www.npmjs.com/package/js-beautify) are more powerful in formatting the fix and work in conjunction with ESLint
+**TL;DR:** [ESLint](https://eslint.org) adalah standar de-facto untuk memeriksa kemungkinan kesalahan kode dan memperbaiki gaya kode, bukan hanya untuk mengidentifikasi masalah spasi tetapi juga untuk mendeteksi kode anti-pola yang serius seperti pengembang melemparkan kesalahan tanpa klasifikasi. Meskipun ESLint dapat memperbaiki gaya kode secara otomatis, alat lain seperti [prettier](https://www.npmjs.com/package/prettier) dan [beautify](https://www.npmjs.com/package/js-beautify) lebih baik dalam memformat perbaikan kodenya dan dapat bekerja sama dengan ESLint
 
-**Otherwise:** Developers will focus on tedious spacing and line-width concerns and time might be wasted overthinking the project's code style
+**Jika tidak:** Pengembang akan fokus pada masalah spasi dan lebar garis dan waktu mungkin akan terbuang hanya untuk memikirkan gaya kode pada proyek
 
-🔗 [**Read More: Using ESLint and Prettier**](/sections/codestylepractices/eslint_prettier.md)
-
-<br/><br/>
-
-## ![✔] 3.2 Node.js specific plugins
-
-**TL;DR:** On top of ESLint standard rules that cover vanilla JavaScript, add Node.js specific plugins like [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node), [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) and [eslint-plugin-node-security](https://www.npmjs.com/package/eslint-plugin-security)
-
-**Otherwise:** Many faulty Node.js code patterns might escape under the radar. For example, developers might require(variableAsPath) files with a variable given as a path which allows attackers to execute any JS script. Node.js linters can detect such patterns and complain early
+🔗 [**Baca selengkapnya: Using ESLint and Prettier**](/sections/codestylepractices/eslint_prettier.md)
 
 <br/><br/>
 
-## ![✔] 3.3 Start a Codeblock's Curly Braces on the Same Line
+## ![✔] 3.2 Plugin khusus Node.js
 
-**TL;DR:** The opening curly braces of a code block should be on the same line as the opening statement
+**TL;DR:** Selain aturan standar ESLint yang mencakup vanilla JavaScript, tambahkan plugin khusus Node.js seperti [eslint-plugin-node](https://www.npmjs.com/package/eslint-plugin-node), [eslint-plugin-mocha](https://www.npmjs.com/package/eslint-plugin-mocha) dan [eslint-plugin-node-security](https://www.npmjs.com/package/eslint-plugin-security)
 
-### Code Example
+**Jika tidak:** Banyak pola kode Node.js yang salah dapat lolos dari radar. Contohnya, pengembang mungkin melakukan require(variableAsPath) pada file dengan variabel sebagai path yang memungkinkan penyerang untuk mengeksekusi skrip JS apa pun. Linters Node.js dapat mendeteksi pola tersebut dan memberikan peringatan lebih awal
+
+<br/><br/>
+
+## ![✔] 3.3 Mulai kurung kurawal pada blok kode pada baris yang sama
+
+**TL;DR:** Tanda kurung kurawal pembuka blok kode harus di baris yang sama dengan statement pembuka
+
+### Contoh Kode
 
 ```javascript
-// Do
+// Lakukan
 function someFunction() {
-  // code block
+  // blok kode
 }
 
-// Avoid
-function someFunction()
+// Hindari
+function someFunction() 
 {
-  // code block
+  // blok kode
 }
 ```
 
-**Otherwise:** Deferring from this best practice might lead to unexpected results, as seen in the StackOverflow thread below:
+**Jika tidak:** Tidak mengikuti praktik terbaik ini dapat menyebabkan hasil yang tidak terduga, seperti yang terlihat pada thread StackOverflow di bawah ini:
 
-🔗 [**Read more:** "Why do results vary based on curly brace placement?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
+🔗 [**Baca selengkapnya:** "Why do results vary based on curly brace placement?" (StackOverflow)](https://stackoverflow.com/questions/3641519/why-does-a-results-vary-based-on-curly-brace-placement)
 
 <br/><br/>
 
-## ![✔] 3.4 Separate your statements properly
+## ![✔] 3.4 Pisahkan statement Anda dengan benar
 
-No matter if you use semicolons or not to separate your statements, knowing the common pitfalls of improper linebreaks or automatic semicolon insertion, will help you to eliminate regular syntax errors.
+Tidak peduli jika Anda menggunakan titik koma atau tidak untuk memisahkan statement Anda, mengetahui akibat umum dari pemutusan baris yang tidak tepat atau penyisipan titik koma otomatis, akan membantu Anda mengurangi kesalahan sintaks biasa.
 
-**TL;DR:** Use ESLint to gain awareness about separation concerns. [Prettier](https://prettier.io/) or [Standardjs](https://standardjs.com/) can automatically resolve these issues.
+**TL;DR:** Gunakan ESLint untuk mendapatkan perhatian tentang masalah pemisahan. [Prettier](https://prettier.io/) atau [Standardjs](https://standardjs.com/) dapat menyelesaikan masalah ini secara otomatis.
 
-**Otherwise:** As seen in the previous section, JavaScript's interpreter automatically adds a semicolon at the end of a statement if there isn't one, or considers a statement as not ended where it should, which might lead to some undesired results. You can use assignments and avoid using immediately invoked function expressions to prevent most of the unexpected errors.
+**Jika tidak:** Seperti yang terlihat di bagian sebelumnya, penerjemah JavaScript secara otomatis menambah titik koma pada akhir statement jika tidak ada, atau anggap sebuah statement tidak diakhiri di tempat yang seharusnya, yang dapat mengarah pada hasil yang tidak diinginkan. Anda dapat menggunakan penetapan dan hindari penggunaan ekspresi fungsi yang langsung dipanggil untuk mencegah sebagian besar masalah yang tidak terduga.
 
-### Code example
+### Contoh kode
 
 ```javascript
-// Do
+// Lakukan
 function doThing() {
     // ...
 }
 
 doThing()
 
-// Do
+// Lakukan
 
 const items = [1, 2, 3]
 items.forEach(console.log)
 
-// Avoid — throws exception
+// Hindari — melempar pengecualian
 const m = new Map()
 const a = [1,2,3]
 [...m.values()].forEach(console.log)
@@ -317,96 +313,96 @@ const a = [1,2,3]
 >  ^^^
 > SyntaxError: Unexpected token ...
 
-// Avoid — throws exception
-const count = 2 // it tries to run 2(), but 2 is not a function
+// Hindari — melempar pengecualian
+const count = 2 // mencoba menjalankan 2(), tapi 2 bukanlah sebuah fungsi
 (function doSomething() {
-  // do something amazing
+  // lakukan sesuatu
 }())
-// put a semicolon before the immediate invoked function, after the const definition, save the return value of the anonymous function to a variable or avoid IIFEs alltogether
+// letakkan titik koma sebelum fungsi yang langsung dipanggil, setelah pendefinisian const, simpan nilai kembali dari fungsi anonim ke sebuah variabel atau hindari IIFE (ekspresi fungsi yang langsung dipanggil) sepenuhnya
 ```
 
-🔗 [**Read more:** "Semi ESLint rule"](https://eslint.org/docs/rules/semi)
-🔗 [**Read more:** "No unexpected multiline ESLint rule"](https://eslint.org/docs/rules/no-unexpected-multiline)
+🔗 [**Baca selengkapnya:** "Semi ESLint rule"](https://eslint.org/docs/rules/semi)
+🔗 [**Baca selengkapnya:** "No unexpected multiline ESLint rule"](https://eslint.org/docs/rules/no-unexpected-multiline)
 
 <br/><br/>
 
-## ![✔] 3.5 Name your functions
+## ![✔] 3.5 Namakan fungsi Anda
 
-**TL;DR:** Name all functions, including closures and callbacks. Avoid anonymous functions. This is especially useful when profiling a node app. Naming all functions will allow you to easily understand what you're looking at when checking a memory snapshot
+**TL;DR:** Namakan semua fungsi, termasuk closure dan panggilan balik. Hindari fungsi anonim. Ini sangat berguna saat mengukur sebuah aplikasi node. Menamakan semua fungsi memungkinkan Anda untuk memahami dengan mudah apa yang Anda lihat saat memeriksa snapshot memori 
 
-**Otherwise:** Debugging production issues using a core dump (memory snapshot) might become challenging as you notice significant memory consumption from anonymous functions
+**Jika tidak:** Men-debug masalah produksi menggunakan core dump (snapshot memori) dapat menjadi tantangan karena Anda melihat konsumsi memori yang signifikan dari fungsi anonim
 
 <br/><br/>
 
-## ![✔] 3.6 Use naming conventions for variables, constants, functions and classes
+## ![✔] 3.6 Gunakan konvensi penamaan untuk variabel, konstanta, fungsi dan kelas
 
-**TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions and **_UpperCamelCase_** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables/functions, and classes that require instantiation. Use descriptive names, but try to keep them short
+**TL;DR:** Gunakan **_lowerCamelCase_** saat memberi nama konstanta, variabel dan fungsi dan **_UpperCamelCase_** (huruf besar pada huruf pertama) saat memberi nama kelas. Ini akan membantu Anda dengan mudah untuk membedakan variabel/fungsi biasa, dan kelas yang membutuhkan instansiasi. Gunakan nama yang deskriptif, tetapi usahakan untuk tetap pendek
 
-**Otherwise:** Javascript is the only language in the world that allows invoking a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase
+**Jiak tidak:** Javascript adalah satu-satunya bahasa di dunia yang memungkinkan pemanggilan konstruktor kelas ("Class") secara langsung tanpa membuat instansinya terlebih dahulu. Akibatnya, kelas dan fungsi-konstruktor dibedakan dimulai dengan UpperCamelCase
 
-### 3.6 Code Example
+### 3.6 Contoh Kode
 
 ```javascript
-// for class name we use UpperCamelCase
+// untuk nama kelas kita gunakan UpperCamelCase
 class SomeClassExample {}
 
-// for const names we use the const keyword and lowerCamelCase
+// untuk nama const kita gunakan kata kunci const dan lowerCamelCase
 const config = {
-  key: "value"
+  key: "value",
 };
 
-// for variables and functions names we use lowerCamelCase
+// untuk nama variabel dan fungsi kita gunakan lowerCamelCase
 let someVariableExample = "value";
 function doSomething() {}
 ```
 
 <br/><br/>
 
-## ![✔] 3.7 Prefer const over let. Ditch the var
+## ![✔] 3.7 Utamakan penggunaan const daripada let. Singkirkan var
 
-**TL;DR:** Using `const` means that once a variable is assigned, it cannot be reassigned. Preferring `const` will help you to not be tempted to use the same variable for different uses, and make your code clearer. If a variable needs to be reassigned, in a for loop, for example, use `let` to declare it. Another important aspect of `let` is that a variable declared using it is only available in the block scope in which it was defined. `var` is function scoped, not block-scoped, and [shouldn't be used in ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) now that you have `const` and `let` at your disposal
+**TL;DR:** Menggunakan `const` berarti bahwa setelah nilai variabel itu ditetapkan, nilainya tidak dapat ditetapkan kembali. Menggunakan `const` akan membantu Anda untuk tidak tergoda untuk menggunakan variabel yang sama untuk penggunaan yang berbeda, dan membuat kode Anda lebih jelas. Jika sebuah variabel perlu ditetapkan kembali nilainya, di dalam perulangan for, misalnya, deklarasikan menggunakan `let`. Aspek penting lainnya dari `let` adalah variabel yang dideklarasikan menggunakan `let` hanya tersedia di dalam cakupan blok di mana variabel itu didefinisikan. `var` memiliki cakupan dalam fungsi, bukan dalam blok, dan [tidak boleh digunakan di ES6](https://hackernoon.com/why-you-shouldnt-use-var-anymore-f109a58b9b70) setelah Anda mempunyai `const` dan `let`
 
-**Otherwise:** Debugging becomes way more cumbersome when following a variable that frequently changes
+**Jika tidak:** Men-debug menjadi lebih rumit saat mengikuti variabel yang sering berubah
 
-🔗 [**Read more: JavaScript ES6+: var, let, or const?** ](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75)
-
-<br/><br/>
-
-## ![✔] 3.8 Require modules first, not inside functions
-
-**TL;DR:** Require modules at the beginning of each file, before and outside of any functions. This simple best practice will not only help you easily and quickly tell the dependencies of a file right at the top but also avoids a couple of potential problems
-
-**Otherwise:** Requires are run synchronously by Node.js. If they are called from within a function, it may block other requests from being handled at a more critical time. Also, if a required module or any of its dependencies throw an error and crash the server, it is best to find out about it as soon as possible, which might not be the case if that module is required from within a function
+🔗 [**Baca selengkapnya: JavaScript ES6+: var, let, or const?** ](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75)
 
 <br/><br/>
 
-## ![✔] 3.9 Require modules by folders, as opposed to the files directly
+## ![✔] 3.8 _Require_ modul terlebih dahulu, bukan di dalam fungsi
 
-**TL;DR:** When developing a module/library in a folder, place an index.js file that exposes the module's internals so every consumer will pass through it. This serves as an 'interface' to your module and eases future changes without breaking the contract
+**TL;DR:** _Require_ modul di awal setiap file, sebelum dan di luar semua fungsi. Praktik terbaik sederhana ini tidak hanya membantu Anda dengan mudah dan cepat untuk mengetahui dependensi file di awal sebuah file tetapi juga menghindari beberapa potensi masalah
 
-**Otherwise:** Changing the internal structure of files or the signature may break the interface with clients
+**Jika tidak:** _Require_ dijalankan secara sinkron oleh Node.js. Jika mereka dipanggil dalam sebuah fungsi, ini mungkin dapat memblokir permintaan lain untuk ditangani pada waktu yang lebih kritis. Selain itu, jika modul yang diperlukan atau salah satu dependensinya menimbulkan kesalahan dan merusak server, akan lebih baik untuk mengetahuinya sesegera mungkin, yang mungkin tidak akan terjadi jika modul itu dipanggil dalam sebuah fungsi
 
-### 3.9 Code example
+<br/><br/>
+
+## ![✔] 3.9 _Require_ modul berdasarkan folder, bukan file secara langsung
+
+**TL;DR:** Saat mengembangkan sebuah modul/pustaka dalam sebuah folder, letak file index.js yang mengekspos modul internal sehingga setiap konsumen akan melewatinya. Ini berfungsi sebagai 'antarmuka' ke modul Anda dan memudahkan perubahan di masa mendatang tanpa merusak kontrak
+
+**Jika tidak:** Mengubah struktur internal sebuah file atau tanda tangannya dapat merusak antarmuka dengan klien
+
+### 3.9 Contoh kode
 
 ```javascript
-// Do
+// Lakukan
 module.exports.SMSProvider = require("./SMSProvider");
 module.exports.SMSNumberResolver = require("./SMSNumberResolver");
 
-// Avoid
+// Hindari
 module.exports.SMSProvider = require("./SMSProvider/SMSProvider.js");
 module.exports.SMSNumberResolver = require("./SMSNumberResolver/SMSNumberResolver.js");
 ```
 
 <br/><br/>
 
-## ![✔] 3.10 Use the `===` operator
+## ![✔] 3.10 Gunakan operator `===`
 
-**TL;DR:** Prefer the strict equality operator `===` over the weaker abstract equality operator `==`. `==` will compare two variables after converting them to a common type. There is no type conversion in `===`, and both variables must be of the same type to be equal
+**TL;DR:** Utamakan operator persamaan ketat `===` daripada operator persamaan abstrak `==` yang lebih lemah. `==` akan membandingkan dua variabel setelah mengubahnya ke tipe umum. Tidak ada konversi tipe di `===`, dan kedua variabel harus sejenis agar sama 
 
-**Otherwise:** Unequal variables might return true when compared with the `==` operator
+**Jika tidak:** Variabel yang tidak sama dapat mengembalikan _true_ ketika dibandingkan dengan operator `==`
 
-### 3.10 Code example
+### 3.10 Contoh kode
 
 ```javascript
 "" == "0"; // false
@@ -423,536 +419,536 @@ null == undefined; // true
 " \t\r\n " == 0; // true
 ```
 
-All statements above will return false if used with `===`
+Semua pernyataan di atas akan mengembalikan nilai _false_ jika menggunakan `===`
 
 <br/><br/>
 
-## ![✔] 3.11 Use Async Await, avoid callbacks
+## ![✔] 3.11 Gunakan Async Await, hindari panggilan balik
 
-**TL;DR:** Node 8 LTS now has full support for Async-await. This is a new way of dealing with asynchronous code which supersedes callbacks and promises. Async-await is non-blocking, and it makes asynchronous code look synchronous. The best gift you can give to your code is using async-await which provides a much more compact and familiar code syntax like try-catch
+**TL;DR:** Node 8 LTS sekarang memiliki dukungan penuh untuk Async-await. Ini adalah cara baru untuk menangani kode asinkron yang menggantikan panggilan balik dan _promise_. Async-await bersifat tidak memblokir, dan ini membuat kode asinkron terlihat seperti sinkron. Hadiah terbaik yang dapat Anda berikan untuk kode Anda adalah menggunakan async-await yang menyediakan sintaks yang lebih ringkas dan akrab seperti try-catch
 
-**Otherwise:** Handling async errors in callback style are probably the fastest way to hell - this style forces to check errors all over, deal with awkward code nesting, and makes it difficult to reason about the code flow
+**Jika tidak:** Menangani kesalahan asinkron dalam gaya panggilan balik mungkin adalah cara terburuk - gaya ini memeriksa kesalahan secara menyeluruh, menangani tumpukan kode yang canggung, dan menyulitkan untuk menjelaskan aliran kode
 
-🔗[**Read more:** Guide to async-await 1.0](https://github.com/yortus/asyncawait)
+🔗[**Baca selengkapnya:** Guide to async-await 1.0](https://github.com/yortus/asyncawait)
 
 <br/><br/>
 
-## ![✔] 3.12 Use arrow function expressions (=>)
+## ![✔] 3.12 Gunakan ekspresi fungsi panah (=>)
 
-**TL;DR:** Though it's recommended to use async-await and avoid function parameters when dealing with older APIs that accept promises or callbacks - arrow functions make the code structure more compact and keep the lexical context of the root function (i.e. `this`)
+**TL;DR:** Meskipun disarankan untuk menggunakan async-await dan menghindari parameter fungsi saat berurusan dengan API lama yang menerima promise atau panggilan balik - fungsi panah membuat struktur kode lebih ringkas dan menjaga konteks leksikal dari akar fungsi (contohnya `this`)
 
-**Otherwise:** Longer code (in ES5 functions) is more prone to bugs and cumbersome to read
+**Jika tidak:** Kode yang lebih panjang (dalam fungsi ES5) lebih rentan terhadap masalah dan rumit untuk dibaca
 
-🔗 [**Read more: It’s Time to Embrace Arrow Functions**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
+🔗 [**Baca selengkapnya: It’s Time to Embrace Arrow Functions**](https://medium.com/javascript-scene/familiarity-bias-is-holding-you-back-its-time-to-embrace-arrow-functions-3d37e1a9bb75)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
-# `4. Testing And Overall Quality Practices`
+# `4. Praktik Pengujian dan Kualitas Secara Keseluruhan `
 
-## ![✔] 4.1 At the very least, write API (component) testing
+## ![✔] 4.1 Paling tidak, buat pengujian API (komponen)
 
-**TL;DR:** Most projects just don't have any automated testing due to short timetables or often the 'testing project' ran out of control and was abandoned. For that reason, prioritize and start with API testing which is the easiest way to write and provides more coverage than unit testing (you may even craft API tests without code using tools like [Postman](https://www.getpostman.com/). Afterward, should you have more resources and time, continue with advanced test types like unit testing, DB testing, performance testing, etc
+**TL;DR:** Sebagian besar proyek tidak memiliki pengujian otomatis karena jadwal yang singkat atau 'proyek pengujian' sering tidak terkendali dan ditinggalkan. Oleh karena itu, prioritaskan dan mulailah dengan pengujian API yang merupakan cara termudah untuk menulis dan memberikan cakupan yang lebih dari pengujian unit (Anda bahkan dapat membuat pengujian API tanpa kode menggunakan alat seperti [Postman](https://www.getpostman.com/). Setelah itu, jika Anda mempunyai waktu dan sumber daya yang lebih, lanjutkan dengan pengujian yang lebih tinggi seperti pengujian unit, pengujian DB, pengujian performa, dll.
 
-**Otherwise:** You may spend long days on writing unit tests to find out that you got only 20% system coverage
-
-<br/><br/>
-
-## ![✔] 4.2 Include 3 parts in each test name
-
-**TL;DR:** Make the test speak at the requirements level so it's self-explanatory also to QA engineers and developers who are not familiar with the code internals. State in the test name what is being tested (unit under test), under what circumstances, and what is the expected result
-
-**Otherwise:** A deployment just failed, a test named “Add product” failed. Does this tell you what exactly is malfunctioning?
-
-🔗 [**Read More: Include 3 parts in each test name**](/sections/testingandquality/3-parts-in-name.md)
+**Jika tidak:** Anda mungkin menghabiskan waktu yang lama untuk menulis pengujian unit untuk mengetahui bahwa Anda hanya mencakup 20% dari sistem
 
 <br/><br/>
 
-## ![✔] 4.3 Structure tests by the AAA pattern
+## ![✔] 4.2 Sertakan 3 bagian di setiap nama pengujian
 
-**TL;DR:** Structure your tests with 3 well-separated sections: Arrange, Act & Assert (AAA). The first part includes the test setup, then the execution of the unit under test, and finally the assertion phase. Following this structure guarantees that the reader spends no brain CPU on understanding the test plan
+**TL;DR:** Buatlah pengujian yang setara dengan tingkat persyaratan sehingga cukup jelas untuk _Engineer_ QA dan pengembang yang tidak terbiasa dengan kode internal. Sebutkan dalam nama pengujian apa yang akan diuji (unit dalam pengujian), dalam keadaan apa, dan apa hasil yang diharapkan
 
-**Otherwise:** Not only you spend long daily hours on understanding the main code, but now also what should have been the simple part of the day (testing) stretches your brain
+**Jika tidak:** Deployment baru saja gagal, sebuah pengujian bernama “Tambah produk” gagal. Apakah ini memberi tahu Anda dengan tepat apa yang tidak berfungsi?
 
-🔗 [**Read More: Structure tests by the AAA pattern**](/sections/testingandquality/aaa.md)
-
-<br/><br/>
-
-## ![✔] 4.4 Detect code issues with a linter
-
-**TL;DR:** Use a code linter to check the basic quality and detect anti-patterns early. Run it before any test and add it as a pre-commit git-hook to minimize the time needed to review and correct any issue. Also check [Section 3](#3-code-style-practices) on Code Style Practices
-
-**Otherwise:** You may let pass some anti-pattern and possible vulnerable code to your production environment.
+🔗 [**Baca selengkapnya: Include 3 parts in each test name**](/sections/testingandquality/3-parts-in-name.md)
 
 <br/><br/>
 
-## ![✔] 4.5 Avoid global test fixtures and seeds, add data per-test
+## ![✔] 4.3 Strukturkan pengujian Anda dengan pola AAA
 
-**TL;DR:** To prevent test coupling and easily reason about the test flow, each test should add and act on its own set of DB rows. Whenever a test needs to pull or assume the existence of some DB data - it must explicitly add that data and avoid mutating any other records
+**TL;DR:** Strukturkan pengujian dengan 3 bagian yang terpisah dengan baik: _Arrange, Act & Assert_ (AAA). Bagian pertama mencakup penyiapan untuk pengujian, kemudian eksekusi unit yang akan diuji, dan yang terakhir fase _assertion_. Mengikuti struktur ini menjamin bahwa pembaca tidak menghabiskan tenaga otak untuk memahami rencana pengujian
 
-**Otherwise:** Consider a scenario where deployment is aborted due to failing tests, team is now going to spend precious investigation time that ends in a sad conclusion: the system works well, the tests however interfere with each other and break the build
+**Jika tidak:** Tidak hanya Anda menghabiskan waktu yang lama untuk memahami kode utama, tetapi sekarang hal paling mudah dari hari Anda (melakukan pengujian) dapat meregangkan otak Anda
 
-🔗 [**Read More: Avoid global test fixtures**](/sections/testingandquality/avoid-global-test-fixture.md)
-
-<br/><br/>
-
-## ![✔] 4.6 Constantly inspect for vulnerable dependencies
-
-**TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities. This can get easily tamed using community and commercial tools such as 🔗 [npm audit](https://docs.npmjs.com/cli/audit) and 🔗 [snyk.io](https://snyk.io) that can be invoked from your CI on every build
-
-**Otherwise:** Keeping your code clean from vulnerabilities without dedicated tools will require to constantly follow online publications about new threats. Quite tedious
+🔗 [**Baca selengkapnya: Structure tests by the AAA pattern**](/sections/testingandquality/aaa.md)
 
 <br/><br/>
 
-## ![✔] 4.7 Tag your tests
+## ![✔] 4.4 Deteksi masalah kode dengan _linter_
 
-**TL;DR:** Different tests must run on different scenarios: quick smoke, IO-less, tests should run when a developer saves or commits a file, full end-to-end tests usually run when a new pull request is submitted, etc. This can be achieved by tagging tests with keywords like #cold #api #sanity so you can grep with your testing harness and invoke the desired subset. For example, this is how you would invoke only the sanity test group with [Mocha](https://mochajs.org/): mocha --grep 'sanity'
+**TL;DR:** Gunakan _linter_ kode untuk memeriksa kualitas dasar dan mendeteksi anti-pola sejak dini. Jalankan _linter_ sebelum pengujian dan tambahkan _linter_ sebagai pra-commit git-hook untuk meminimalkan waktu yang dibutuhkan untuk meninjau dan memperbaiki masalah apa pun. Periksa juga [Bagian 3](#3-praktik-gaya-kode) tentang Praktik Gaya Kode
 
-**Otherwise:** Running all the tests, including tests that perform dozens of DB queries, any time a developer makes a small change can be extremely slow and keeps developers away from running tests
-
-<br/><br/>
-
-## ![✔] 4.8 Check your test coverage, it helps to identify wrong test patterns
-
-**TL;DR:** Code coverage tools like [Istanbul](https://github.com/istanbuljs/istanbuljs)/[NYC](https://github.com/istanbuljs/nyc) are great for 3 reasons: it comes for free (no effort is required to benefit this reports), it helps to identify a decrease in testing coverage, and last but not least it highlights testing mismatches: by looking at colored code coverage reports you may notice, for example, code areas that are never tested like catch clauses (meaning that tests only invoke the happy paths and not how the app behaves on errors). Set it to fail builds if the coverage falls under a certain threshold
-
-**Otherwise:** There won't be any automated metric telling you when a large portion of your code is not covered by testing
+**Jika Tidak:** Anda dapat membiarkan beberapa kode dengan anti-pola dan mungkin kode yang tidak aman masuk ke lingkungan produksi Anda.
 
 <br/><br/>
 
-## ![✔] 4.9 Inspect for outdated packages
+## ![✔] 4.5 Hindari perlengkapan dan benih global pada pengujian, tambah data pada setiap pengujian
 
-**TL;DR:** Use your preferred tool (e.g. 'npm outdated' or [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) to detect installed outdated packages, inject this check into your CI pipeline and even make a build fail in a severe scenario. For example, a severe scenario might be when an installed package is 5 patch commits behind (e.g. local version is 1.3.1 and repository version is 1.3.8) or it is tagged as deprecated by its author - kill the build and prevent deploying this version
+**TL;DR:** Untuk mencegah pengujian yang tersambung dan memudahkan untuk memahami alur pengujian, setiap pengujian harus menambah dan bertindak pada kumpulan data di DB-nya sendiri. Setiap kali pengujian perlu menarik atau mengasumsikan keberadaan suatu data pada DB - pengujian tersebut harus menambah data tersebut secara eksplisit dan hindari memutasi kumpulan data lainnya
 
-**Otherwise:** Your production will run packages that have been explicitly tagged by their author as risky
+**Jika tidak:** Anggap sebuah skenario di mana _deployment_ gagal karena pengujian yang gagal, tim sekarang akan menghabiskan waktu yang berharga untuk melakukan investigasi yang berakhir dengan kesimpulan yang menyedihkan: sistem berfungsi dengan baik, namun pengujian saling mengganggu dan merusak _build_-nya
 
-<br/><br/>
-
-## ![✔] 4.10 Use production-like environment for e2e testing
-
-**TL;DR:** End to end (e2e) testing which includes live data used to be the weakest link of the CI process as it depends on multiple heavy services like DB. Use an environment which is as close to your real production environment as possible like a-continue (Missed -continue here, needs content. Judging by the **Otherwise** clause, this should mention docker-compose)
-
-**Otherwise:** Without docker-compose, teams must maintain a testing DB for each testing environment including developers' machines, keep all those DBs in sync so test results won't vary across environments
+🔗 [**Baca selengkapnya: Avoid global test fixtures**](/sections/testingandquality/avoid-global-test-fixture.md)
 
 <br/><br/>
 
-## ![✔] 4.11 Refactor regularly using static analysis tools
+## ![✔] 4.6 Periksa terus menerus dependensi yang rentan
 
-**TL;DR:** Using static analysis tools helps by giving objective ways to improve code quality and keeps your code maintainable. You can add static analysis tools to your CI build to fail when it finds code smells. Its main selling points over plain linting are the ability to inspect quality in the context of multiple files (e.g. detect duplications), perform advanced analysis (e.g. code complexity), and follow the history and progress of code issues. Two examples of tools you can use are [Sonarqube](https://www.sonarqube.org/) (2,600+ [stars](https://github.com/SonarSource/sonarqube)) and [Code Climate](https://codeclimate.com/) (1,500+ [stars](https://github.com/codeclimate/codeclimate)).
+**TL;DR:** Bahkan dependensi yang paling terkemuka seperti Express memiliki kerentanan yang diketahui. Hal ini dapat dimitigasi dengan mudah menggunakan alat dari komunitas atau komersial seperti 🔗 [npm audit](https://docs.npmjs.com/cli/audit) dan 🔗 [snyk.io](https://snyk.io) yang dapat dipanggil dari CI Anda pada setiap _build_
 
-**Otherwise:** With poor code quality, bugs and performance will always be an issue that no shiny new library or state of the art features can fix
-
-🔗 [**Read More: Refactoring!**](/sections/testingandquality/refactoring.md)
+**Jika tidak:** Menjaga kode Anda bersih dari kerentanan tanpa alat khusus mengharuskan Anda untuk mengikuti publikasi online tentang ancaman baru. Cukup membosankan
 
 <br/><br/>
 
-## ![✔] 4.12 Carefully choose your CI platform (Jenkins vs CircleCI vs Travis vs Rest of the world)
+## ![✔] 4.7 Tandai pengujian Anda
 
-**TL;DR:** Your continuous integration platform (CICD) will host all the quality tools (e.g test, lint) so it should come with a vibrant ecosystem of plugins. [Jenkins](https://jenkins.io/) used to be the default for many projects as it has the biggest community along with a very powerful platform at the price of a complex setup that demands a steep learning curve. Nowadays, it has become much easier to set up a CI solution using SaaS tools like [CircleCI](https://circleci.com) and others. These tools allow crafting a flexible CI pipeline without the burden of managing the whole infrastructure. Eventually, it's a trade-off between robustness and speed - choose your side carefully
+**TL;DR:** Pengujian yang berbeda harus dijalankan pada skenario yang berbeda: _quick smoke_, _IO-less_, pengujian harus dijalankan ketika pengembang menyimpan atau melakukan _commit_ pada file, pengujian _end-to-end_ biasanya dijalankan saat _pull request_ baru dikirimkan, dst. Hal ini dapat dicapai dengan menandai pengujian dengan kata kunci seperti _#cold #api #sanity_ sehingga Anda dapat melakukan `grep` pada pengujian Anda dan menjalankan subset yang diinginkan. Contohnya, ini adalah cara untuk memanggil pengujian pada kelompok _sanity_ dengan [Mocha](https://mochajs.org/): mocha --grep 'sanity'
 
-**Otherwise:** Choosing some niche vendor might get you blocked once you need some advanced customization. On the other hand, going with Jenkins might burn precious time on infrastructure setup
+**Jika tidak:** Menjalankan semua pengujian, termasuk pengujian yang menjalankan banyak kueri DB, setiap kali pengembang membuat perubahan kecil bisa sangat lambat dan menjauhkan pengembang dari menjalankan pengujian
 
-🔗 [**Read More: Choosing CI platform**](/sections/testingandquality/citools.md)
+<br/><br/>
 
-## ![✔] 4.13 Test your middlewares in isolation
+## ![✔] 4.8 Periksa cakupan pengujian Anda, ini membantu untuk mengidentifikasikan pola pengujian yang salah
 
-**TL;DR:** When a middleware holds some immense logic that spans many requests, it is worth testing it in isolation without waking up the entire web framework. This can be easily achieved by stubbing and spying on the {req, res, next} objects
+**TL;DR:** Alat cakupan kode seperti [Istanbul](https://github.com/istanbuljs/istanbuljs)/[NYC](https://github.com/istanbuljs/nyc) sangat bagus karena 3 alasan: gratis (sangat mudah untuk memanfaatkan laporan ini), alat ini membantu mengidentifikasikan pengurangan cakupan pengujian, dan yang terakhir, alat ini menyoroti ketidakcocokan pengujian: dengan melihat kode warna pada laporan cakupan Anda dapat melihat, misalnya, area kode yang tidak pernah diuji seperti klausa _catch_ (artinya pengujian hanya mengambil jalur yang benar dan bukan bagaimana aplikasi akan berperilaku jika ada kesalahan). Setel agar _build_-nya gagal jika cakupannya berada di bawah batas tertentu
 
-**Otherwise:** A bug in Express middleware === a bug in all or most requests
+**Jika tidak:** Tidak akan ada metrik otomatis yang memberi tahu Anda saat sebagian besar kode Anda tidak tercakup dalam pengujian
 
-🔗 [**Read More: Test middlewares in isolation**](/sections/testingandquality/test-middlewares.md)
+<br/><br/>
+
+## ![✔] 4.9 Periksa paket yang kedaluwarsa
+
+**TL;DR:** Gunakan alat pilihan Anda (misalnya 'npm outdated' atau [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) untuk mendeteksi paket yang kedaluwarsa, masukkan pemeriksaan ini ke _pipeline CI_ dan bahkan gagalkan _build_-nya dalam skenario yang buruk. Contohnya, skenario yang buruk mungkin terjadi ketika paket yang digunakan tertinggal 5 _patch commit_ (misalnya versi lokal adalah 1.3.1 dan versi repositori adalah 1.3.8) atau paketnya ditandai _deprecated_ oleh pembuatnya - matikan _build_-nya dan cegah _deployment_ pada versi ini
+
+**Jika tidak:** Produksi Anda akan menggunakan paket yang ditandai berisiko oleh pembuatnya secara eksplisit
+
+<br/><br/>
+
+## ![✔] 4.10 Gunakan lingkungan yang mirip dengan produksi untuk pengujian e2e
+
+**TL;DR:** Pengujian _End to end_ (e2e) yang mencakup data asli dulunya merupakan titik terlemah pada proses CI karena pengujian itu bergantung pada beberapa layanan berat seperti DB. Gunakan lingkungan yang semirip mungkin dengan lingkungan pada produksi Anda seperti a-seterusnya (-seterusnya hilang, konten dibutuhkan. Dilihat dari klausa **Jika tidak**, hal ini seharusnya menyebutkan tentang docker-compose)
+
+**Jika tidak:** Tanpa docker-compose, tim harus mengurus DB pengujian untuk setiap lingkungan pengujian termasuk mesin yang dimiliki oleh pengembang, pastikan semua DB tersebut tetap sinkron sehingga hasil pengujian tidak akan berbeda di lingkungan yang berbeda
+
+<br/><br/>
+
+## ![✔] 4.11 Sering lakukan refactor menggunakan alat analisis statis
+
+**TL;DR:** Menggunakan alat analisis statis membantu dengan memberikan cara yang obyektif untuk meningkatkan kualitas kode dan tetap menjaga kode Anda. Anda dapat menambahkan alat analisis statis ke _build_ CI untuk menggagalkan _build_-nya jika alat itu menemukan kode yang jelek. Nilai jual utamanya dibandingkan dengan _linting_ biasa adalah kemampuan untuk memeriksa kualitas dalam konteks beberapa file (contohnya mendeteksi duplikasi), melakukan analisis lanjutan (contohnya kompleksitas kode), dan mengikuti riwayat dan perkembangan masalah kode. Dua contoh alat yang dapat Anda gunakan adalah [Sonarqube](https://www.sonarqube.org/) (2,600+ [bintang](https://github.com/SonarSource/sonarqube)) dan [Code Climate](https://codeclimate.com/) (1,500+ [bintang](https://github.com/codeclimate/codeclimate)).
+
+**Jika tidak:** Dengan kualitas kode yang buruk, _bug_ dan performa selalu akan selalu menjadi masalah yang tidak dapat diperbaiki oleh pustaka baru atau fitur-fitur canggih
+
+🔗 [**Baca selengkapnya: Refactoring!**](/sections/testingandquality/refactoring.md)
+
+<br/><br/>
+
+## ![✔] 4.12 Pilih platform CI Anda dengan hati-hati (Jenkins vs CircleCI vs Travis vs yang lainnya)
+
+**TL;DR:** Platform _continuous integration_ (CICD) Anda akan mempunyai semua alat berkualitas (seperti test, lint) sehingga seharusnya dilengkapi dengan ekosistem plugin yang dinamis. [Jenkins](https://jenkins.io/) dulunya merupakan aplikasi default untuk banyak proyek karena mempunyai komunitas terbesar bersama dengan platform yang sangat kuat dengan kekurangan persiapan yang rumit yang menuntut kurva pembelajaran yang tajam. Saat ini, persiapan solusi CI jauh lebih mudah menggunakan alat SaaS seperti [CircleCI](https://circleci.com) dan lainnya. Alat ini memungkinkan pembuatan pipeline CI yang fleksibel tanpa beban untuk mengelola seluruh infrastruktur. Pada akhirnya, ini merupakan keseimbangan antara kecepatan dan kekuatan - pilih dengan hati-hati
+
+**Jika tidak:** Memilih vendor khusus mungkin akan membatasi Anda ketika Anda membutuhkan penyesuaian tingkat lanjut. Di sisi lain, menggunakan Jenkins dapat menghabiskan waktu berharga dalam penyiapan infrastruktur
+
+🔗 [**Baca selengkapnya: Choosing CI platform**](/sections/testingandquality/citools.md)
+
+## ![✔] 4.13 Uji middleware Anda secara terpisah
+
+**TL;DR:** Ketika middleware mempunyai beberapa logika besar yang mencakup banyak permintaan, ada baiknya untuk mengujinya secara terpisah tanpa membangun seluruh framework web. Hal ini dapat dicapai dengan mudah dengan melakukan _stubbing_ dan _spying_ pada objek {req, res, next}
+
+**Otherwise:** Sebuah _bug_ di middleware Express === sebuah bug di semua atau banyak _request_
+
+🔗 [**Baca selengkapnya: Test middlewares in isolation**](/sections/testingandquality/test-middlewares.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
-# `5. Going To Production Practices`
+# `5. Praktik Dalam Produksi`
 
-## ![✔] 5.1. Monitoring
+## ![✔] 5.1. Pemantauan
 
-**TL;DR:** Monitoring is a game of finding out issues before customers do – obviously this should be assigned unprecedented importance. The market is overwhelmed with offers thus consider starting with defining the basic metrics you must follow (my suggestions inside), then go over additional fancy features and choose the solution that ticks all boxes. Click ‘The Gist’ below for an overview of the solutions
+**TL;DR:** Pemantauan adalah permainan mencari suatu masalah sebelum pelanggan menemukannya terlebih dahulu – yang jelas masalah itu merupakan masalah yang belum pernah terjadi sebelumnya. Pasar kewalahan dengan penawaran sehingga mempertimbangkan untuk memulai dengan menentukan metrik dasar yang harus Anda ikuti (saran saya di dalam), kemudian pertimbangkan fitur-fitur mewah tambahan dan pilih solusi yang mencentang semua kotak. Klik ‘Intinya’ di bawah untuk ringkasan dari berbagai solusi
 
-**Otherwise:** Failure === disappointed customers. Simple
+**Jika tidak:** Kegagalan === pelanggan kecewa. Sederhana
 
-🔗 [**Read More: Monitoring!**](/sections/production/monitoring.md)
-
-<br/><br/>
-
-## ![✔] 5.2. Increase transparency using smart logging
-
-**TL;DR:** Logs can be a dumb warehouse of debug statements or the enabler of a beautiful dashboard that tells the story of your app. Plan your logging platform from day 1: how logs are collected, stored and analyzed to ensure that the desired information (e.g. error rate, following an entire transaction through services and servers, etc) can really be extracted
-
-**Otherwise:** You end up with a black box that is hard to reason about, then you start re-writing all logging statements to add additional information
-
-🔗 [**Read More: Increase transparency using smart logging**](/sections/production/smartlogging.md)
+🔗 [**Baca selengkapnya: Monitoring!**](/sections/production/monitoring.md)
 
 <br/><br/>
 
-## ![✔] 5.3. Delegate anything possible (e.g. gzip, SSL) to a reverse proxy
+## ![✔] 5.2. Tingkatkan transparansi dengan menggunakan logging yang cerdas
 
-**TL;DR:** Node is awfully bad at doing CPU intensive tasks like gzipping, SSL termination, etc. You should use ‘real’ middleware services like nginx, HAproxy or cloud vendor services instead
+**TL;DR:** _Log_ dapat menjadi gudang statement debug yang bodoh atau papan cantik yang menceritakan kisah aplikasi Anda. Rencanakan platform logging Anda dari hari pertama: bagaimana log dikumpulkan, disimpan dan dianalisis untuk memastikan bahwa informasi yang diinginkan (misalnya tingkat kesalahan, mengikuti seluruh transaksi melalui layanan dan server, dst.) benar-benar dapat diekstrak
 
-**Otherwise:** Your poor single thread will stay busy doing infrastructural tasks instead of dealing with your application core and performance will degrade accordingly
+**Jika tidak:** Anda berakhir dengan kotak hitam yang sulit dimengerti, kemudian Anda mulai menulis ulang semua statement log untuk menambahkan informasi tambahan
 
-🔗 [**Read More: Delegate anything possible (e.g. gzip, SSL) to a reverse proxy**](/sections/production/delegatetoproxy.md)
-
-<br/><br/>
-
-## ![✔] 5.4. Lock dependencies
-
-**TL;DR:** Your code must be identical across all environments, but amazingly npm lets dependencies drift across environments by default – when you install packages at various environments it tries to fetch packages’ latest patch version. Overcome this by using npm config files, .npmrc, that tell each environment to save the exact (not the latest) version of each package. Alternatively, for finer grained control use `npm shrinkwrap`. \*Update: as of NPM5, dependencies are locked by default. The new package manager in town, Yarn, also got us covered by default
-
-**Otherwise:** QA will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code
-
-🔗 [**Read More: Lock dependencies**](/sections/production/lockdependencies.md)
+🔗 [**Baca selengkapnya: Increase transparency using smart logging**](/sections/production/smartlogging.md)
 
 <br/><br/>
 
-## ![✔] 5.5. Guard process uptime using the right tool
+## ![✔] 5.3. Delegasikan apa pun yang mungkin (misalnya gzip, SSL) ke sebuah _reverse proxy_
 
-**TL;DR:** The process must go on and get restarted upon failures. For simple scenarios, process management tools like PM2 might be enough but in today's ‘dockerized’ world, cluster management tools should be considered as well
+**TL;DR:** Node sangat buruk dalam melakukan pekerjaan yang intensif CPU seperti melakukan gzip, penghentian SSL, dll. Anda harus menggunakan layanan middleware yang ‘asli’ seperti nginx, HAproxy atau layanan vendor cloud
 
-**Otherwise:** Running dozens of instances without a clear strategy and too many tools together (cluster management, docker, PM2) might lead to DevOps chaos
+**Jika tidak:** Thread utama Anda akan tetap sibuk melakukan tugas infrastruktur alih-alih menangani inti aplikasi Anda dan performa akan menurun karenanya
 
-🔗 [**Read More: Guard process uptime using the right tool**](/sections/production/guardprocess.md)
-
-<br/><br/>
-
-## ![✔] 5.6. Utilize all CPU cores
-
-**TL;DR:** At its basic form, a Node app runs on a single CPU core while all others are left idling. It’s your duty to replicate the Node process and utilize all CPUs – For small-medium apps you may use Node Cluster or PM2. For a larger app consider replicating the process using some Docker cluster (e.g. K8S, ECS) or deployment scripts that are based on Linux init system (e.g. systemd)
-
-**Otherwise:** Your app will likely utilize only 25% of its available resources(!) or even less. Note that a typical server has 4 CPU cores or more, naive deployment of Node.js utilizes only 1 (even using PaaS services like AWS beanstalk!)
-
-🔗 [**Read More: Utilize all CPU cores**](/sections/production/utilizecpu.md)
+🔗 [**Baca selengkapnya: Delegate anything possible (e.g. gzip, SSL) to a reverse proxy**](/sections/production/delegatetoproxy.md)
 
 <br/><br/>
 
-## ![✔] 5.7. Create a ‘maintenance endpoint’
+## ![✔] 5.4. Kunci dependensi
 
-**TL;DR:** Expose a set of system-related information, like memory usage and REPL, etc in a secured API. Although it’s highly recommended to rely on standard and battle-tests tools, some valuable information and operations are easier done using code
+**TL;DR:** Kode Anda harus identik di semua lingkungan, namun npm dapat membiarkan dependensi berubah di lingkungan yang berbeda – saat Anda menginstal paket di lingkungan lain npm mencoba menginstal versi terbaru dari paket tersebut. Atasi ini dengan menggunakan file konfigurasi , .npmrc, yang memberi tahu setiap lingkungan untuk menyimpan versi yang tepat (bukan yang terbaru) dari setiap paket. Alternatifnya, untuk kontrol yang lebih baik, gunakan `npm shrinkwrap`. \*Pembaruan: pada NPM5, dependensi dikunci secara default. Manajer paket yang baru, Yarn, juga melakukan hal ini
 
-**Otherwise:** You’ll find that you’re performing many “diagnostic deploys” – shipping code to production only to extract some information for diagnostic purposes
+**Jika tidak:** QA akan menguji kode secara menyeluruh dan menyetujui versi yang kemudian akan berperilaku berbeda dalam produksi. Lebih buruk lagi, server yang berbeda dalam kelompok produksi mungkin menjalankan kode yang berbeda
 
-🔗 [**Read More: Create a ‘maintenance endpoint’**](/sections/production/createmaintenanceendpoint.md)
-
-<br/><br/>
-
-## ![✔] 5.8. Discover errors and downtime using APM products
-
-**TL;DR:** Application monitoring and performance products (a.k.a APM) proactively gauge codebase and API so they can auto-magically go beyond traditional monitoring and measure the overall user-experience across services and tiers. For example, some APM products can highlight a transaction that loads too slow on the end-users side while suggesting the root cause
-
-**Otherwise:** You might spend great effort on measuring API performance and downtimes, probably you’ll never be aware which is your slowest code parts under real-world scenario and how these affect the UX
-
-🔗 [**Read More: Discover errors and downtime using APM products**](/sections/production/apmproducts.md)
+🔗 [**Baca selengkapnya: Lock dependencies**](/sections/production/lockdependencies.md)
 
 <br/><br/>
 
-## ![✔] 5.9. Make your code production-ready
+## ![✔] 5.5. Jaga uptime proses menggunakan alat yang tepat
 
-**TL;DR:** Code with the end in mind, plan for production from day 1. This sounds a bit vague so I’ve compiled a few development tips that are closely related to production maintenance (click Gist below)
+**TL;DR:** Proses harus tetap berjalan dan dimulai ulang jika terjadi kegagalan. Untuk skenario simpel, alat manajemen proses seperti PM2 mungkin sudah cukup namun di era ‘dockerized’, alat management cluster juga harus dipertimbangkan
 
-**Otherwise:** A world champion IT/DevOps guy won’t save a system that is badly written
+**Jika tidak:** Menjalankan banyak instansi tanpa strategi yang jelas dan terlalu banyak alat (manajemen cluster, docker, PM2) dapat menyebabkan kekacauan DevOps
 
-🔗 [**Read More: Make your code production-ready**](/sections/production/productioncode.md)
-
-<br/><br/>
-
-## ![✔] 5.10. Measure and guard the memory usage
-
-**TL;DR:** Node.js has controversial relationships with memory: the v8 engine has soft limits on memory usage (1.4GB) and there are known paths to leak memory in Node’s code – thus watching Node’s process memory is a must. In small apps, you may gauge memory periodically using shell commands but in medium-large apps consider baking your memory watch into a robust monitoring system
-
-**Otherwise:** Your process memory might leak a hundred megabytes a day like how it happened at [Walmart](https://www.joyent.com/blog/walmart-node-js-memory-leak)
-
-🔗 [**Read More: Measure and guard the memory usage**](/sections/production/measurememory.md)
+🔗 [**Baca selengkapnya: Guard process uptime using the right tool**](/sections/production/guardprocess.md)
 
 <br/><br/>
 
-## ![✔] 5.11. Get your frontend assets out of Node
+## ![✔] 5.6. Manfaatkan semua core CPU
 
-**TL;DR:** Serve frontend content using dedicated middleware (nginx, S3, CDN) because Node performance really gets hurt when dealing with many static files due to its single-threaded model
+**TL;DR:** Pada dasarnya, aplikasi Node berjalan pada satu core CPU sementara core lainnya tidak digunakan. Ini merupakan tugas Anda untuk mereplika proses Node dan menggunakan semua CPU – Untuk aplikasi kecil-menengah Anda dapat menggunakan Node Cluster atau PM2. Untuk aplikasi yang lebih besar pertimbangkan untuk mereplika proses menggunakan beberapa Docker cluster (misalnya K8S, ECS) atau skrip _deployment_ yang didasarkan pada sistem Linux init (misalnya systemd)
 
-**Otherwise:** Your single Node thread will be busy streaming hundreds of html/images/angular/react files instead of allocating all its resources for the task it was born for – serving dynamic content
+**Jika tidak:** Aplikasi Anda kemungkinan hanya menggunakan 25% dari sumber daya yang tersedia(!) atau bahkan kurang. Ingat bahwa server tipikal memiliki 4 core CPU atau lebih, _deployment_ Node.js yang naif hanya menggunakan 1 (bahkan jika menggunakan layanan PaaS seperti AWS beanstalk!)
 
-🔗 [**Read More: Get your frontend assets out of Node**](/sections/production/frontendout.md)
-
-<br/><br/>
-
-## ![✔] 5.12. Be stateless, kill your servers almost every day
-
-**TL;DR:** Store any type of data (e.g. user sessions, cache, uploaded files) within external data stores. Consider ‘killing’ your servers periodically or use ‘serverless’ platform (e.g. AWS Lambda) that explicitly enforces a stateless behavior
-
-**Otherwise:** Failure at a given server will result in application downtime instead of just killing a faulty machine. Moreover, scaling-out elasticity will get more challenging due to the reliance on a specific server
-
-🔗 [**Read More: Be stateless, kill your Servers almost every day**](/sections/production/bestateless.md)
+🔗 [**Baca selengkapnya: Utilize all CPU cores**](/sections/production/utilizecpu.md)
 
 <br/><br/>
 
-## ![✔] 5.13. Use tools that automatically detect vulnerabilities
+## ![✔] 5.7. Buat ‘endpoint pemeliharaan’
 
-**TL;DR:** Even the most reputable dependencies such as Express have known vulnerabilities (from time to time) that can put a system at risk. This can be easily tamed using community and commercial tools that constantly check for vulnerabilities and warn (locally or at GitHub), some can even patch them immediately
+**TL;DR:** Sediakan sekumpulan informasi terkait sistem, seperti pengunaan memori dan REPL, dll. dalam API yang aman. Meskipun sangat disarankan untuk mengandalkan alat standard dan battle-test, beberapa informasi penting dan operasi lebih mudah dilakukan melalui kode
 
-**Otherwise:** Keeping your code clean from vulnerabilities without dedicated tools will require you to constantly follow online publications about new threats. Quite tedious
+**Jika tidak:** Anda akan melakukan banyak “deploy diagnostik” – mendeploy kode ke produksi hanya untuk mengekstrak beberapa informasi untuk keperluan diagnostik
 
-🔗 [**Read More: Use tools that automatically detect vulnerabilities**](/sections/production/detectvulnerabilities.md)
-
-<br/><br/>
-
-## ![✔] 5.14. Assign a transaction id to each log statement
-
-**TL;DR:** Assign the same identifier, transaction-id: {some value}, to each log entry within a single request. Then when inspecting errors in logs, easily conclude what happened before and after. Unfortunately, this is not easy to achieve in Node due to its async nature, see code examples inside
-
-**Otherwise:** Looking at a production error log without the context – what happened before – makes it much harder and slower to reason about the issue
-
-🔗 [**Read More: Assign ‘TransactionId’ to each log statement**](/sections/production/assigntransactionid.md)
+🔗 [**Baca selengkapnya: Create a ‘maintenance endpoint’**](/sections/production/createmaintenanceendpoint.md)
 
 <br/><br/>
 
-## ![✔] 5.15. Set NODE_ENV=production
+## ![✔] 5.8. Temukan kesalahan dan downtime menggunakan produk APM
 
-**TL;DR:** Set the environment variable NODE_ENV to ‘production’ or ‘development’ to flag whether production optimizations should get activated – many npm packages determine the current environment and optimize their code for production
+**TL;DR:** _Application monitoring and performance products_ (a.k.a APM) secara proaktif mengukur basis kode dan API sehingga mereka dapat secara otomatis melampaui pemantauan tradisional dan mengukur pengalaman pengguna secara keseluruhan di semua layanan dan tingkatan. Misalnya, beberapa produk APM dapat menyoroti transaksi yang terlalu lambat di sisi pengguna sambil menyarankan penyebab utamanya
 
-**Otherwise:** Omitting this simple property might greatly degrade performance. For example, when using Express for server-side rendering omitting `NODE_ENV` makes it slower by a factor of three!
+**Jika tidak:** Anda mungkin menghabiskan banyak tenaga untuk mengukur kinerja dan downtime API, mungkin Anda tidak akan pernah tau bagian kode mana yang paling lambat dalam skenario dunia nyata dan bagaimana hal ini dapat memengaruhi pengalaman pengguna
 
-🔗 [**Read More: Set NODE_ENV=production**](/sections/production/setnodeenv.md)
-
-<br/><br/>
-
-## ![✔] 5.16. Design automated, atomic and zero-downtime deployments
-
-**TL;DR:** Research shows that teams who perform many deployments lower the probability of severe production issues. Fast and automated deployments that don’t require risky manual steps and service downtime significantly improve the deployment process. You should probably achieve this using Docker combined with CI tools as they became the industry standard for streamlined deployment
-
-**Otherwise:** Long deployments -> production downtime & human-related error -> team unconfident in making deployment -> fewer deployments and features
+🔗 [**Baca selengkapnya: Discover errors and downtime using APM products**](/sections/production/apmproducts.md)
 
 <br/><br/>
 
-## ![✔] 5.17. Use an LTS release of Node.js
+## ![✔] 5.9. Buat kode Anda siap produksi
 
-**TL;DR:** Ensure you are using an LTS version of Node.js to receive critical bug fixes, security updates and performance improvements
+**TL;DR:** Buat kode dengan tujuan akhir ada dalam pikiran Anda, rencanakan untuk produksi dari hari pertama. Ini terdengar kurang jelas jadi saya telah mengumpulkan beberapa tips pengembangan yang berkaitan erat dengan perawatan produksi (klik intinya di bawah)
 
-**Otherwise:** Newly discovered bugs or vulnerabilities could be used to exploit an application running in production, and your application may become unsupported by various modules and harder to maintain
+**Jika tidak:** Seorang juara dunia IT/DevOps tidak akan memperbaiki sistem yang ditulis dengan buruk
 
-🔗 [**Read More: Use an LTS release of Node.js**](/sections/production/LTSrelease.md)
-
-<br/><br/>
-
-## ![✔] 5.18. Don't route logs within the app
-
-**TL;DR:** Log destinations should not be hard-coded by developers within the application code, but instead should be defined by the execution environment the application runs in. Developers should write logs to `stdout` using a logger utility and then let the execution environment (container, server, etc.) pipe the `stdout` stream to the appropriate destination (i.e. Splunk, Graylog, ElasticSearch, etc.).
-
-**Otherwise:** Application handling log routing === hard to scale, loss of logs, poor separation of concerns
-
-🔗 [**Read More: Log Routing**](/sections/production/logrouting.md)
+🔗 [**Baca selengkapnya: Make your code production-ready**](/sections/production/productioncode.md)
 
 <br/><br/>
 
-## ![✔] 5.19. Install your packages with `npm ci` 
+## ![✔] 5.10. Ukur dan jaga penggunaan memori
 
-**TL;DR:** You have to be sure that production code uses the exact version of the packages you have tested it with. Run `npm ci` to strictly do a clean install of your dependencies matching package.json and package-lock.json. Using this command is recommended in automated environments such as continuous integration pipelines.
+**TL;DR:** Node.js memiliki hubungan yang kontroversial dengan memori: mesin v8 memiliki batas memori yang rendah (1.4GB) dan terdapat cara yang diketahui untuk terjadinya kebocoran memori dalam kode Node – sehingga mengamati memori proses Node adalah suatu keharusan. Pada aplikasi kecil, Anda dapat mengukur memori Anda secara berkala menggunakan perintah _shell_ namun di aplikasi menengah-besar pertimbangkan untuk membuat sistem pemantauan yang kuat untuk mengamati memori
 
-**Otherwise:** QA will thoroughly test the code and approve a version that will behave differently in production. Even worse, different servers in the same production cluster might run different code.
+**Jika tidak:** Memori proses Anda mungkin bocor ratusan megabyte sehari seperti yang terjadi pada [Walmart](https://www.joyent.com/blog/walmart-node-js-memory-leak)
 
-🔗 [**Read More: Use npm ci**](/sections/production/installpackageswithnpmci.md)
+🔗 [**Baca selengkapnya: Measure and guard the memory usage**](/sections/production/measurememory.md)
+
+<br/><br/>
+
+## ![✔] 5.11. Keluarkan aset _frontend_ Anda dari Node
+
+**TL;DR:** Sajikan konten _frontend_ menggunakan middleware khusus (nginx, S3, CDN) karena performa Node dapat berkurang ketika menangani banyak file statis karena model thread tunggalnya
+
+**Jika tidak:** Thread tunggal Node Anda akan sibuk mengirimkan ratusan file html/gambar/angular/react alih-alih mengalokasikan semua sumber dayanya untuk tugas yang seharusnya – menyajikan konten dinamis
+
+🔗 [**Baca selengkapnya: Get your frontend assets out of Node**](/sections/production/frontendout.md)
+
+<br/><br/>
+
+## ![✔] 5.12. Buat aplikasi yang stateless, matikan server Anda hampir setiap hari
+
+**TL;DR:** Simpan semua jenis data (misalnya sesi pengguna, cache, file yang diunggah) ke tempat penyimpanan eksternal. Pertimbangkan untuk ‘mematikan’ server Anda secara berkala atau gunakan platform ‘serverless’ (misalnya AWS Lambda) yang secara eksplisit mengharuskan sifat stateless
+
+**Jika tidak:** Kegagalan di server tertentu akan mengakibatkan downtime aplikasi, bukannya hanya mematikan mesin yang rusak. Selain itu, elastisitas penskalaan akan menjadi lebih sulit karena ketergantungan pada server tertentu
+
+🔗 [**Baca selengkapnya: Be stateless, kill your Servers almost every day**](/sections/production/bestateless.md)
+
+<br/><br/>
+
+## ![✔] 5.13. Gunakan alat yang pendeteksi kerentanan secara otomatis
+
+**TL;DR:** Bahkan dependensi yang paling terkemuka seperti Express memiliki kerentanan yang diketahui (dari waktu ke waktu) yang dapat membahayakan sistem. Hal ini dapat dimitigasi dengan mudah menggunakan alat dari komunitas atau komersial yang terus-menerus memeriksa kerentanan dan memberi peringatan (secara lokal atau di GitHub), beberapa bahkan dapat lansung memperbaikinya
+
+**Jika tidak:** Menjaga kode Anda bersih dari kerentanan tanpa alat khusus mengharuskan Anda untuk mengikuti publikasi online tentang ancaman baru. Cukup membosankan
+
+🔗 [**Baca selengkapnya: Use tools that automatically detect vulnerabilities**](/sections/production/detectvulnerabilities.md)
+
+<br/><br/>
+
+## ![✔] 5.14. Tetapkan id transaksi di seetiap statement catatan
+
+**TL;DR:** Tetapkan pengenal yang sama, transaksi-id: {sebuah nilai}, ke setiap entri catatan dalam satu permintaan. Kemudian saat memeriksa kesalahan di dalam catatan, simpulkan dengan mudah apa yang terjadi sebelum dan sesudahnya. Sayangnya, hal ini tidak mudah untuk dicapai di Node karena sifat asinkron-nya, lihat contoh kode di dalam
+
+**Jika tidak:** Melihat catatan kesalahan produksi tanpa konteks – apa yang terjadi sebelumnya – membuat Anda lebih sulit untuk memahami penyebab kesalahannya
+
+🔗 [**Baca selengkapnya: Assign ‘TransactionId’ to each log statement**](/sections/production/assigntransactionid.md)
+
+<br/><br/>
+
+## ![✔] 5.16. Atur NODE_ENV=production
+
+**TL;DR:** Atur variabel lingkungan NODE_ENV ke ‘production’ or ‘development’ untuk menandai apakah pengoptimalan produksi harus diaktifkan – banyak paket npm melihat lingkungan yang digunakan dan mengoptimalkan kodenya untuk produksi
+
+**Jika tidak:** Mengabaikan properti sederhana ini dapat menurunkan performa. Contohnya, pada saat menggunakan Express untuk rendering sisi server menghilangkan `NODE_ENV` membuat proses render lebih lambat hingga 3 kali lipat!
+
+🔗 [**Baca selengkapnya: Set NODE_ENV=production**](/sections/production/setnodeenv.md)
+
+<br/><br/>
+
+## ![✔] 5.16. Rancang deployment otomatis, atomic dan tanpa downtime
+
+**TL;DR:** Penelitian menunjukkan bahwa tim yang melakukan banyak deployment menurunkan kemungkinan masalah produksi yang buruk. Deployment yang otomatis dan cepat tidak memerlukan langkah manual yang berisiko dan waktu downtime layanan meningkatkan proses deployment. Anda mungkin harus melakukan ini menggunakan Docker yang dikombinasikan dengan alat CI karena mereka menjadi standar industri untuk deployment yang efisien
+
+**Jika tidak:** Deployment yang lama -> downtime produksi & kesalahan oleh manusia -> tim ragu dalam melakukan deployment -> lebih sedikit deployment dan fitur
+
+<br/><br/>
+
+## ![✔] 5.17. Gunakan versi LTS pada Node.js
+
+**TL;DR:** Pastikan Anda menggunakan versi LTS pada Node.js untuk menerima perbaikan bug yang kritis, pembaruan keamanan dan peningkatan performa
+
+**Otherwise:** Bug atau kerentanan yang baru ditemukan dapat digunakan untuk mengeksploitasi aplikasi yang sedang berjalan dalam produksi, dan aplikasi Anda mungkin menjadi tidak didukung oleh berbagai modul dan lebih sulit untuk di dipelihara
+
+🔗 [**Baca selengkapnya: Use an LTS release of Node.js**](/sections/production/LTSrelease.md)
+
+<br/><br/>
+
+## ![✔] 5.18. Jangan rutekan catatan di dalam aplikasi
+
+**TL;DR:** Tempat catatan tidak boleh dibuat oleh pengembang dalam kode aplikasi, tetapi harus ditentukan oleh lingkungan eksekusi dimana aplikasi itu dijalankan. Pengembang harus menuliskan catatan ke `stdout` menggunakan utilitas logger dan membiarkan lingkungan eksekusi (container, server, dll.) menyalurkan `stdout` ke tujuan yang sesuai (misalnya Splunk, Graylog, ElasticSearch, dll.).
+
+**Jika tidak:** Aplikasi menangani rute catatan === sulit untuk dikembangkan, kehilangan catatan, dan _separation of concerns_ yang buruk
+
+🔗 [**Baca selengkapnya: Log Routing**](/sections/production/logrouting.md)
+
+<br/><br/>
+
+## ![✔] 5.19. Install paket menggunakan `npm ci`
+
+**TL;DR:** Anda harus memastikan bahwa kode produksi menggunakan versi paket yang sama dengan yang Anda gunakan pada saat pengujian. Jalankan `npm ci` untuk melakukan instalasi bersih dari dependensi di dalam package.json dan package-lock.json. Penggunaan perintah ini sangat direkomendasikan dalam lingkungan otomatis seperti pipeline continuous integration.
+
+**Jika tidak:** QA akan menguji kode secara menyeluruh dan menyetujui versi yang kemudian akan berperilaku berbeda dalam produksi. Lebih buruk lagi, server yang berbeda dalam kelompok produksi mungkin menjalankan kode yang berbeda.
+
+🔗 [**Baca selengkapnya: Use npm ci**](/sections/production/installpackageswithnpmci.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
-# `6. Security Best Practices`
+# `6. Praktik Terbaik Keamanan`
 
 <div align="center">
 <img src="https://img.shields.io/badge/OWASP%20Threats-Top%2010-green.svg" alt="54 items"/>
 </div>
 
-## ![✔] 6.1. Embrace linter security rules
+## ![✔] 6.1. Terapkan aturan keamanan linter
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20XSS%20-green.svg" alt=""/></a>
 
-**TL;DR:** Make use of security-related linter plugins such as [eslint-plugin-security](https://github.com/nodesecurity/eslint-plugin-security) to catch security vulnerabilities and issues as early as possible, preferably while they're being coded. This can help catching security weaknesses like using eval, invoking a child process or importing a module with a string literal (e.g. user input). Click 'Read more' below to see code examples that will get caught by a security linter
+**TL;DR:** Manfaatkan plugin linter yang berhubungan dengan keamanan seperti [eslint-plugin-security](https://github.com/nodesecurity/eslint-plugin-security) untuk menangkap kerentanan dan masalah keamanan sedini mungkin, lebih baik lagi jika dalam proses pembuatan kode. Hal ini dapat membantu menangkap keamanan yang lemah seperti penggunaan eval, menjalankan child process atau memanggil modul menggunakan literal string (misalnya masukan pengguna). Klik 'Baca selengkapnya' di bawah ini untuk melihat contoh kode yang akan dideteksi oleh linter keamanan
 
-**Otherwise:** What could have been a straightforward security weakness during development becomes a major issue in production. Also, the project may not follow consistent code security practices, leading to vulnerabilities being introduced, or sensitive secrets committed into remote repositories
+**Jika tidak:** Kelemahan keamanan yang jelas selama masa pengembangan malah menjadi menjadi masalah besar dalam produksi. Selain itu, proyek mungkin tidak mengikuti praktik kode keamanan yang konsisten, yang mengarah ke kerentanan baru, atau rahasia sensitif yang ter-_commit_ ke dalam repositori remote
 
-🔗 [**Read More: Lint rules**](/sections/security/lintrules.md)
+🔗 [**Baca selengkapnya: Lint rules**](/sections/security/lintrules.md)
 
 <br/><br/>
 
-## ![✔] 6.2. Limit concurrent requests using a middleware
+## ![✔] 6.2. Batasi request serentak dengan menggunakan middleware
 
 <a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** DOS attacks are very popular and relatively easy to conduct. Implement rate limiting using an external service such as cloud load balancers, cloud firewalls, nginx, [rate-limiter-flexible](https://www.npmjs.com/package/rate-limiter-flexible) package, or (for smaller and less critical apps) a rate-limiting middleware (e.g. [express-rate-limit](https://www.npmjs.com/package/express-rate-limit))
+**TL;DR:** Serangan DOS sangat populer dan relatif mudah untuk dilakukan. Terapkan pembatasan rate menggunakan layanan eksternal seperti _cloud load balancers_, _cloud firewalls_, nginx, paket [rate-limiter-flexible](https://www.npmjs.com/package/rate-limiter-flexible), atau (untuk aplikasi yang lebih kecil dan kurang penting) sebuah middleware _rate-limiting_ (misalnya [express-rate-limit](https://www.npmjs.com/package/express-rate-limit))
 
-**Otherwise:** An application could be subject to an attack resulting in a denial of service where real users receive a degraded or unavailable service.
+**Jika tidak:** Aplikasi dapat terkena serangan _denial of service_ sementara pengguna asli menggunakan layanan yang terdegradasi atau tidak tersedia.
 
-🔗 [**Read More: Implement rate limiting**](/sections/security/limitrequests.md)
+🔗 [**Baca selengkapnya: Implement rate limiting**](/sections/security/limitrequests.md)
 
 <br/><br/>
 
-## ![✔] 6.3 Extract secrets from config files or use packages to encrypt them
+## ![✔] 6.3 Keluarkan rahasia dari file konfigurasi atau gunakan paket untuk mengenkripsinya
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A3-Sensitive_Data_Exposure" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A3:Sensitive%20Data%20Exposure%20-green.svg" alt=""/></a>
 
-**TL;DR:** Never store plain-text secrets in configuration files or source code. Instead, make use of secret-management systems like Vault products, Kubernetes/Docker Secrets, or using environment variables. As a last resort, secrets stored in source control must be encrypted and managed (rolling keys, expiring, auditing, etc). Make use of pre-commit/push hooks to prevent committing secrets accidentally
+**TL;DR:** Jangan pernah menyimpan rahasia dalam bentuk teks biasa dalam file konfigurasi atau kode sumber. Sebagai gantinya, gunakan sistem manajemen rahasia seperti produk _Vault_, _Kubernetes/Docker Secrets_, atau gunakan variabel lingkungan. Sebagai cara terakhir, rahasia yang disimpan di kontrol kode harus terenkripsi dan teratur (kunci bergulir, kedaluwarsa, audit, dll.). Manfaatkan hook pra-_commit_/_push_ untuk mencegah agar rahasia tidak ter-_commit_  secara tidak sengaja
 
-**Otherwise:** Source control, even for private repositories, can mistakenly be made public, at which point all secrets are exposed. Access to source control for an external party will inadvertently provide access to related systems (databases, apis, services, etc).
+**Jika tidak:** Kontrol sumber, bahkan untuk repositori pribadi, dapat di buat publik secara tidak sengaja, di mana semua rahasia dapat terungkap. Akses kontrol sumber dari pihak eksternal dapat memberikan akses ke sistem terkait (database, api, layanan, dll.) secara tidak sengaja.
 
-🔗 [**Read More: Secret management**](/sections/security/secretmanagement.md)
+🔗 [**Baca selengkapnya: Secret management**](/sections/security/secretmanagement.md)
 
 <br/><br/>
 
-## ![✔] 6.4. Prevent query injection vulnerabilities with ORM/ODM libraries
+## ![✔] 6.4. Cegah  injeksi kueri dengan menggunakan pustaka ORM/ODM
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a>
 
-**TL;DR:** To prevent SQL/NoSQL injection and other malicious attacks, always make use of an ORM/ODM or a database library that escapes data or supports named or indexed parameterized queries, and takes care of validating user input for expected types. Never just use JavaScript template strings or string concatenation to inject values into queries as this opens your application to a wide spectrum of vulnerabilities. All the reputable Node.js data access libraries (e.g. [Sequelize](https://github.com/sequelize/sequelize), [Knex](https://github.com/tgriesser/knex), [mongoose](https://github.com/Automattic/mongoose)) have built-in protection against injection attacks.
+**TL;DR:** Untuk mencegah injeksi SQL/NoSQL dan serangan buruk lainnya, selalu gunakan ORM/ODM atau pustaka database yang melakukan _escape_ pada data atau mendukung kueri berparameter yang bernama atau diindeks, dan tangani validasi input pengguna agar sesuai dengan tipe yang diharapkan. Jangan pernah hanya menggunakan template string JavaScript atau penggabungan string untuk memasukkan nilai ke dalam kueri karena ini membuka aplikasi Anda ke spektrum kerentanan yang luas. Semua pustaka akses data pada Node.js (misalnya [Sequelize](https://github.com/sequelize/sequelize), [Knex](https://github.com/tgriesser/knex), [mongoose](https://github.com/Automattic/mongoose)) memiliki perlindungan bawaan untuk menghindari serangan injeksi.
 
-**Otherwise:** Unvalidated or unsanitized user input could lead to operator injection when working with MongoDB for NoSQL, and not using a proper sanitization system or ORM will easily allow SQL injection attacks, creating a giant vulnerability.
+**Jika tidak:** Masukan pengguna yang tidak divalidasi atau tidak disanitasi dapat menyebabkan injeksi operator saat menggunakan MongoDB untuk NoSQL, dan dengan tidak menggunakan sistem sanitasi atau ORM dapat memungkinkan serangan injeksi SQL, membuat suatu kerentanan yang besar.
 
-🔗 [**Read More: Query injection prevention using ORM/ODM libraries**](/sections/security/ormodmusage.md)
-
-<br/><br/>
-
-## ![✔] 6.5. Collection of generic security best practices
-
-**TL;DR:** This is a collection of security advice that is not related directly to Node.js - the Node implementation is not much different than any other language. Click read more to skim through.
-
-🔗 [**Read More: Common security best practices**](/sections/security/commonsecuritybestpractices.md)
+🔗 [**Baca selengkapnya: Query injection prevention using ORM/ODM libraries**](/sections/security/ormodmusage.md)
 
 <br/><br/>
 
-## ![✔] 6.6. Adjust the HTTP response headers for enhanced security
+## ![✔] 6.5. Kumpulan praktik terbaik keamanan umum
+
+**TL;DR:** Ini adalah kumpulan saran keamanan yang tidak berhubungan langsung dengan Node.js - implementasi pada Node tidak jauh berbeda dengan implementasi pada bahasa lain. Klik 'Baca selengkapnya' untuk membaca kilasannya.
+
+🔗 [**Baca selengkapnya: Common security best practices**](/sections/security/commonsecuritybestpractices.md)
+
+<br/><br/>
+
+## ![✔] 6.6. Sesuaikan header response HTTP untuk meningkatkan keamanan
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A6-Security_Misconfiguration" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A6:Security%20Misconfiguration%20-green.svg" alt=""/></a>
 
-**TL;DR:** Your application should be using secure headers to prevent attackers from using common attacks like cross-site scripting (XSS), clickjacking and other malicious attacks. These can be configured easily using modules like [helmet](https://www.npmjs.com/package/helmet).
+**TL;DR:** Aplikasi Anda harus menggunakan _header_ yang aman untuk mencegah penyerang dari serangan umum seperti _cross-site scripting_ (XSS), _clickjacking_ dan serangan berbahaya lainnya. Hal ini dapat dikonfigurasikan dengan mudah menggunakan modul seperti [helmet](https://www.npmjs.com/package/helmet).
 
-**Otherwise:** Attackers could perform direct attacks on your application's users, leading to huge security vulnerabilities
+**Jika tidak:** Penyerang dapat melakukan serangan langsung pada pengguna aplikasi, yang menyebabkan kerentanan keamanan yang sangat besar
 
-🔗 [**Read More: Using secure headers in your application**](/sections/security/secureheaders.md)
+🔗 [**Baca selengkapnya: Using secure headers in your application**](/sections/security/secureheaders.md)
 
 <br/><br/>
 
-## ![✔] 6.7. Constantly and automatically inspect for vulnerable dependencies
+## ![✔] 6.7. Selalu periksa dependensi dari kerentanan secara otomatis
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Known%20Vulnerabilities%20-green.svg" alt=""/></a>
 
-**TL;DR:** With the npm ecosystem it is common to have many dependencies for a project. Dependencies should always be kept in check as new vulnerabilities are found. Use tools like [npm audit](https://docs.npmjs.com/cli/audit) or [snyk](https://snyk.io/) to track, monitor and patch vulnerable dependencies. Integrate these tools with your CI setup so you catch a vulnerable dependency before it makes it to production.
+**TL;DR:** Dengan ekosistem npm, sangat umum pada suatu proyek untuk memiliki banyak dependensi. Dependensi harus selalu diperiksa ketika kerentanan baru ditemukan. Gunakan alat seperti [npm audit](https://docs.npmjs.com/cli/audit) atau [snyk](https://snyk.io/) untuk melacak, memantau dan memperbaiki dependensi yang rentan. Integrasikan alat-alat ini dengan setup CI Anda sehingga Anda dapat menemukan dependensi yang rentan sebelum masuk ke produksi.
 
-**Otherwise:** An attacker could detect your web framework and attack all its known vulnerabilities.
+**Jika tidak:** Penyerang dapat mendeteksi framework web Anda dan menyerang semua kerentanan yang diketahui.
 
-🔗 [**Read More: Dependency security**](/sections/security/dependencysecurity.md)
+🔗 [**Baca selengkapnya: Dependency security**](/sections/security/dependencysecurity.md)
 
 <br/><br/>
 
-## ![✔] 6.8. Protect Users' Passwords/Secrets using brypt or scrypt
+## ![✔] 6.8. Lindungi kata sandi/rahasia pengguna menggunakan bcrypt atau scrypt
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** Passwords or secrets (e.g. API keys) should be stored using a secure hash + salt function like `bcrypt`,`scrypt`, or worst case `pbkdf2`.
+**TL;DR:** Kata sandi atau rahasia (seperti API keys) harus disimpan menggunakan fungsi hash + salt yang aman seperti `bcrypt`,`scrypt`, atau setidaknya `pbkdf2`.
 
-**Otherwise:** Passwords and secrets that are stored without using a secure function are vulnerable to brute forcing and dictionary attacks that will lead to their disclosure eventually.
+**Jika tidak:** Kata sandi dan rahasia yang disimpan tanpa fungsi yang aman akan rentan terhadap _brute force_ dan penyerangan kamus yang pada akhirnya akan mengarah pada data rahasia yang terekspos.
 
-🔗 [**Read More: User Passwords**](/sections/security/userpasswords.md)
+🔗 [**Baca selengkapnya: User Passwords**](/sections/security/userpasswords.md)
 
 <br/><br/>
 
-## ![✔] 6.9. Escape HTML, JS and CSS output
+## ![✔] 6.9. Escape keluaran HTML, JS dan CSS
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a>
 
-**TL;DR:** Untrusted data that is sent down to the browser might get executed instead of just being displayed, this is commonly referred as a cross-site-scripting (XSS) attack. Mitigate this by using dedicated libraries that explicitly mark the data as pure content that should never get executed (i.e. encoding, escaping)
+**TL;DR:** Data yang tidak terpercaya yang dikirim ke browser mungkin akan tereksekusi alih-alih hanya ditampilkan, hal ini biasanya disebut dengan serangan _cross-site-scripting_ (XSS). Hindari hal ini dengan menggunakan pustaka khusus yang secara eksplisit menandai data sebagai konten yang tidak boleh dieksekusi (misalnya encoding, escaping)
 
-**Otherwise:** An attacker might store malicious JavaScript code in your DB which will then be sent as-is to the poor clients
+**Jika tidak:** Penyerang mungkin menyimpan kode JavaScript yang berbahaya di DB Anda yang kemudian akan dikirim apa adanya ke pengguna
 
-🔗 [**Read More: Escape output**](/sections/security/escape-output.md)
+🔗 [**Baca selengkapnya: Escape output**](/sections/security/escape-output.md)
 
 <br/><br/>
 
-## ![✔] 6.10. Validate incoming JSON schemas
+## ![✔] 6.10. Validasi skema JSON yang diterima
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7: XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A8:Insecured%20Deserialization%20-green.svg" alt=""/></a>
 
-**TL;DR:** Validate the incoming requests' body payload and ensure it meets expectations, fail fast if it doesn't. To avoid tedious validation coding within each route you may use lightweight JSON-based validation schemas such as [jsonschema](https://www.npmjs.com/package/jsonschema) or [joi](https://www.npmjs.com/package/joi)
+**TL;DR:** Validasi muatan _body_ pada request dan pastikan agar muatan memenuhi ekspektasi, gagalkan dengan cepat jika muatan tidak memenuhi ekspektasi. Untuk menghindari kode validasi yang berantakan dalam setiap rute Anda dapat menggunakan validasi skema berbasis JSON yang ringan seperti [jsonschema](https://www.npmjs.com/package/jsonschema) atau [joi](https://www.npmjs.com/package/joi)
 
-**Otherwise:** Your generosity and permissive approach greatly increases the attack surface and encourages the attacker to try out many inputs until they find some combination to crash the application
+**Jika tidak:** Kemurahan hati dan cara permisif Anda dapat meningkatkan kemungkinan penyerangan dan mendorong penyerang untuk mencoba banyak masukan sampai mereka menemukan beberapa kombinasi untuk merusak aplikasi
 
-🔗 [**Read More: Validate incoming JSON schemas**](/sections/security/validation.md)
+🔗 [**Baca selengkapnya: Validate incoming JSON schemas**](/sections/security/validation.md)
 
 <br/><br/>
 
-## ![✔] 6.11. Support blacklisting JWTs
+## ![✔] 6.11. Dukung daftar hitam JWT
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** When using JSON Web Tokens (for example, with [Passport.js](https://github.com/jaredhanson/passport)), by default there's no mechanism to revoke access from issued tokens. Once you discover some malicious user activity, there's no way to stop them from accessing the system as long as they hold a valid token. Mitigate this by implementing a blacklist of untrusted tokens that are validated on each request.
+**TL;DR:** Ketika menggunakan _JSON Web Tokens_ (misalnya, dengan [Passport.js](https://github.com/jaredhanson/passport)), secara default tidak ada cara untuk mencabut akses dari token yang dibuat. Setelah Anda menemukan beberapa aktifitas pengguna yang berbahaya, tidak ada cara untuk mengentikan mereka dari mengakses sistem selama mereka mempunyai token yang valid. Hindari ini dengan menerapkan daftar hitam untuk token yang tidak tepercaya yang divalidasi pada setiap request.
 
-**Otherwise:** Expired, or misplaced tokens could be used maliciously by a third party to access an application and impersonate the owner of the token.
+**Jika tidak:** Token yang kedaluwarsa atau salah ditempatkan dapat digunakan secara jahat oleh pihak ketiga untuk mengakses aplikasi dan menyamar sebagai pemilik token.
 
-🔗 [**Read More: Blacklist JSON Web Tokens**](/sections/security/expirejwt.md)
+🔗 [**Baca selengkapnya: Blacklist JSON Web Tokens**](/sections/security/expirejwt.md)
 
 <br/><br/>
 
-## ![✔] 6.12. Prevent brute-force attacks against authorization
+## ![✔] 6.12. Cegah serangan _brute-force_ terhadap otorisasi
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A2-Broken_Authentication" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A9:Broken%20Authentication%20-green.svg" alt=""/></a>
 
-**TL;DR:** A simple and powerful technique is to limit authorization attempts using two metrics:
+**TL;DR:** Teknik sederhana dan kuat adalah membatasi upaya otorisasi menggunakan dua metrik:
 
-1. The first is number of consecutive failed attempts by the same user unique ID/name and IP address.
-2. The second is number of failed attempts from an IP address over some long period of time. For example, block an IP address if it makes 100 failed attempts in one day.
+1. Pertama adalah upaya gagal berturut-turut oleh ID / nama unik dan alamat IP yang sama.
+2. Kedua adalah jumlah upaya gagal dari sebuah alamat IP selama jangka waktu yang lama. Misalnya, blokir alamat IP jika IP tersebut melakukan 100 upaya gagal dalam satu hari.
 
-**Otherwise:** An attacker can issue unlimited automated password attempts to gain access to privileged accounts on an application
+**Jika tidak:** Penyerang dapat melakukan percobaan kata sandi otomatis tanpa batas untuk mendapatkan akses ke akun yang memiliki hak istimewa pada suatu aplikasi
 
-🔗 [**Read More: Login rate limiting**](/sections/security/login-rate-limit.md)
+🔗 [**Baca selengkapnya: Login rate limiting**](/sections/security/login-rate-limit.md)
 
 <br/><br/>
 
-## ![✔] 6.13. Run Node.js as non-root user
+## ![✔] 6.13. Jalankan Node.js sebagai pengguna yang bukan root
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A5-Broken_Access_Control" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A5:Broken%20Access%20Access%20Control-green.svg" alt=""/></a>
 
-**TL;DR:** There is a common scenario where Node.js runs as a root user with unlimited permissions. For example, this is the default behaviour in Docker containers. It's recommended to create a non-root user and either bake it into the Docker image (examples given below) or run the process on this user's behalf by invoking the container with the flag "-u username"
+**TL;DR:** Ada skenario umum di mana Node.js dijalankan sebagai pengguna root dengan izin tanpa batas. Misalnya, ini adalah perilaku default di kontainer Docker. Direkomendasikan untuk membuat pengguna yang bukan root dan _bake_ pengguna itu kedalam _Docker image_ (contoh ada di bawah) atau jalankan proses atas nama pengguna ini dengan menjalankan kontainer dengan _flag_ "-u username"
 
-**Otherwise:** An attacker who manages to run a script on the server gets unlimited power over the local machine (e.g. change iptable and re-route traffic to his server)
+**Jika tidak:** Penyerang yang berhasil menjalankan skrip di server mendapatkan kekuatan tak terbatas atas mesin lokal (misalnya mengganti iptable dan merutekan ulang traffic ke servernya)
 
-🔗 [**Read More: Run Node.js as non-root user**](/sections/security/non-root-user.md)
+🔗 [**Baca selengkapnya: Run Node.js as non-root user**](/sections/security/non-root-user.md)
 
 <br/><br/>
 
-## ![✔] 6.14. Limit payload size using a reverse-proxy or a middleware
+## ![✔] 6.14. Batasi ukuran payload menggunakan reverse-proxy atau middleware
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A8-Insecure_Deserialization" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A8:Insecured%20Deserialization%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** The bigger the body payload is, the harder your single thread works in processing it. This is an opportunity for attackers to bring servers to their knees without tremendous amount of requests (DOS/DDOS attacks). Mitigate this limiting the body size of incoming requests on the edge (e.g. firewall, ELB) or by configuring [express body parser](https://github.com/expressjs/body-parser) to accept only small-size payloads
+**TL;DR:** Semakin besar ukuran payload-nya, semakin sulit thread tunggal Anda untuk memprosesnya. Ini adalah kesempatan bagi penyerang untuk membuat server bertekuk lutut tanpa banyak mengirimkan request (penyerangan DOS/DDOS). Hindari ini dengan membatasi ukuran body dari request yang masuk di ujung (misalnya firewall, ELB) atau mengonfigurasi [express body parser](https://github.com/expressjs/body-parser) agar hanya menerima payload dengan ukuran kecil
 
-**Otherwise:** Your application will have to deal with large requests, unable to process the other important work it has to accomplish, leading to performance implications and vulnerability towards DOS attacks
+**Jika tidak:** Aplikasi Anda harus menangani request yang besar, tidak dapat memproses pekerjaan penting lainnya yang harus diselesaikan, yang mengarah ke implikasi performa dan kerentanan terhadap serangan DOS
 
-🔗 [**Read More: Limit payload size**](/sections/security/requestpayloadsizelimit.md)
+🔗 [**Baca selengkapnya: Limit payload size**](/sections/security/requestpayloadsizelimit.md)
 
 <br/><br/>
 
-## ![✔] 6.15. Avoid JavaScript eval statements
+## ![✔] 6.15. Hindari statement eval pada JavaScript
 
 <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A7:XSS%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A1-Injection" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A1:Injection%20-green.svg" alt=""/></a> <a href="https://www.owasp.org/index.php/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20A4:External%20Entities%20-green.svg" alt=""/></a>
 
-**TL;DR:** `eval` is evil as it allows executing custom JavaScript code during run time. This is not just a performance concern but also an important security concern due to malicious JavaScript code that may be sourced from user input. Another language feature that should be avoided is `new Function` constructor. `setTimeout` and `setInterval` should never be passed dynamic JavaScript code either.
+**TL;DR:** `eval` sangat buruk karena memungkinkan untuk mengeksekusi kode JavaScript dalam _run time_. Ini bukan hanya menjadi perhatian dalam performa tetapi juga pehatian dalam masalah keamanan penting karena kode JavaScript dapat bersumber dari masukan pengguna. Fitur bahasa lain yang harus dihindari adalah konstruktor `new Function`. `setTimeout` dan `setInterval` juga tidak boleh diberikan kode JavaScript yang dinamis.
 
-**Otherwise:** Malicious JavaScript code finds a way into text passed into `eval` or other real-time evaluating JavaScript language functions, and will gain complete access to JavaScript permissions on the page. This vulnerability is often manifested as an XSS attack.
+**Jika tidak:** Kode JavaScript yang berbahaya menemukan jalan ke dalam teks yang diteruskan ke `eval` atau fungsi evaluasi _real-time_ bahasa Javascript lainnya, dan akan mendapatkan akses penuh ke izin JavaScript di halaman tersebut. Kerentanan ini sering kali diwujudkan sebagai serangan XSS.
 
-🔗 [**Read More: Avoid JavaScript eval statements**](/sections/security/avoideval.md)
+🔗 [**Baca selengkapnya: Avoid JavaScript eval statements**](/sections/security/avoideval.md)
 
 <br/><br/>
 
-## ![✔] 6.16. Prevent evil RegEx from overloading your single thread execution
+## ![✔] 6.16. Cegah RegEx yang buruk agar tidak membebani eksekusi thread tunggal Anda
 
 <a href="https://www.owasp.org/index.php/Denial_of_Service" target="_blank"><img src="https://img.shields.io/badge/%E2%9C%94%20OWASP%20Threats%20-%20DDOS%20-green.svg" alt=""/></a>
 
-**TL;DR:** Regular Expressions, while being handy, pose a real threat to JavaScript applications at large, and the Node.js platform in particular. A user input for text to match might require an outstanding amount of CPU cycles to process. RegEx processing might be inefficient to an extent that a single request that validates 10 words can block the entire event loop for 6 seconds and set the CPU on 🔥. For that reason, prefer third-party validation packages like [validator.js](https://github.com/chriso/validator.js) instead of writing your own Regex patterns, or make use of [safe-regex](https://github.com/substack/safe-regex) to detect vulnerable regex patterns
+**TL;DR:** _Regular Expressions_, meskipun berguna, dapat menimbulkan ancaman pada aplikasi JavaScript secara luas, dan platform Node.js pada khususnya. Masukan teks pengguna mungkin memerlukan jumlah siklus CPU yang luar biasa untuk diproses. Pemrosesan RegEx mungkin tidak efisien sampai-sampai satu request yang memvalidasi 10 kata dapat memblokir seluruh event loop selama 6 detik dan membuat CPU-nya 🔥. Oleh karena itu, gunakan paket validasi pihak ketiga seperti [validator.js](https://github.com/chriso/validator.js) daripada menuliskan pola Regex Anda sendiri, atau gunakan [safe-regex](https://github.com/substack/safe-regex) untuk mendeteksi pola regex yang rentan
 
-**Otherwise:** Poorly written regexes could be susceptible to Regular Expression DoS attacks that will block the event loop completely. For example, the popular `moment` package was found vulnerable with malicious RegEx usage in November of 2017
+**Jika tidak:** Regex yang ditulis dengan buruk dapat rentan terhadap serangan DoS Regular Expression yang akan memblokir event loop sepenuhnya. MIsalnya, paket `moment` yang populer ditemukan rentan terhadap penggunaan Regex pada November 2017
 
-🔗 [**Read More: Prevent malicious RegEx**](/sections/security/regex.md)
+🔗 [**Baca selengkapnya: Prevent malicious RegEx**](/sections/security/regex.md)
 
 <br/><br/>
 
@@ -1059,36 +1055,36 @@ All statements above will return false if used with `===`
 🔗 [**Read More: Avoid publishing secrets**](/sections/security/avoid_publishing_secrets.md)
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
-# `7. Draft: Performance Best Practices`
+# `7. Draf: Praktik Terbaik Performa`
 
-## Our contributors are working on this section. [Would you like to join?](https://github.com/goldbergyoni/nodebestpractices/issues/256)
+## Kontributor kami sedang mengerjakan bagian ini. [Ingin bergabung?](https://github.com/goldbergyoni/nodebestpractices/issues/256)
 
 <br/><br/>
 
-## ![✔] 7.1. Don't block the event loop
+## ![✔] 7.1. Jangan memblokir _event loop_
 
-**TL;DR:** Avoid CPU intensive tasks as they will block the mostly single-threaded Event Loop and offload those to a dedicated thread, process or even a different technology based on the context.
+**TL;DR:** Hindari pekerjaan yang intensif CPU karena mereka akan memblokir _Event Loop_ dalam satu _thread_ dan pindahkan pekerjaan ini ke _thread_ khusus, proses atau  bahkan teknologi yang berbeda berdasarkan konteksnya.
 
-**Otherwise:** As the Event Loop is blocked, Node.js will be unable to handle other request thus causing delays for concurrent users. **3000 users are waiting for a response, the content is ready to be served, but one single request blocks the server from dispatching the results back**
+**Jika tidak:** Ketika _Event Loop_ diblokir, Node.js tidak akan dapat menangani permintaan lain sehingga menyebabkan penundaan bagi pengguna lain. **3000 pengguna sedang menunggu tanggapan, konten siap diberikan, tapi satu permintaan mencegah server-nya untuk mengirimkan hasilnya**
 
-🔗 [**Read More: Do not block the event loop**](/sections/performance/block-loop.md)
+🔗 [**Baca selengkapnya: Do not block the event loop**](/sections/performance/block-loop.md)
 
 <br /><br /><br />
 
-## ![✔] 7.2. Prefer native JS methods over user-land utils like Lodash
+## ![✔] 7.2. Utamakan penggunaan metode JS asli daripada utilitas berlebihan seperti Lodash
 
-**TL;DR:** It's often more penalising to use utility libraries like `lodash` and `underscore` over native methods as it leads to unneeded dependencies and slower performance.
-Bear in mind that with the introduction of the new V8 engine alongside the new ES standards, native methods were improved in such a way that it's now about 50% more performant than utility libraries.
+**TL;DR:** Sering kali lebih merugikan jika menggunakan pustaka seperti `lodash` dan `underscore` daripada metode asli karena mengarah kepada dependensi yang tidak diperlukan dan memperlambat performa.
+Ingatlah bahwa dengan diperkenalkannya mesin V8 baru bersama dengan standar ES baru, metode asli telah ditingkatkan sehingga sekarang sekitar 50% lebih baik daripada pustaka utilitas.
 
-**Otherwise:** You'll have to maintain less performant projects where you could have simply used what was **already** available or dealt with a few more lines in exchange of a few more files.
+**Jika tidak:** Anda harus mengurus proyek dengan kinerja yang lebih rendah di mana Anda dapat menggunakan apa yang **sudah** ada atau berurusan dengan lebih sedikit baris namun lebih banyak file sebagai gantinya.
 
-🔗 [**Read More: Native over user land utils**](/sections/performance/nativeoverutil.md)
+🔗 [**Baca selengkapnya: Native over user land utils**](/sections/performance/nativeoverutil.md)
 
 <br/><br/><br/>
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
 # `8. Docker Best Practices`
 
@@ -1255,7 +1251,6 @@ In addition, referring to an image tag means that the base image is subject to c
 
 <br/><br /><br />
 
-
 ## ![✔] 8.15. Lint your Dockerfile
 
 **TL;DR:** Linting your Dockerfile is an important step to identify issues in your Dockerfile which differ from best practices. By checking for potential flaws using a specialised Docker linter, performance and security improvements can be easily identified, saving countless hours of wasted time or security issues in production code.
@@ -1266,7 +1261,7 @@ In addition, referring to an image tag means that the base image is subject to c
 
 <br/><br /><br />
 
-<p align="right"><a href="#table-of-contents">⬆ Return to top</a></p>
+<p align="right"><a href="#daftar-isi">⬆ Kembali ke atas</a></p>
 
 # Milestones
 
@@ -1369,6 +1364,7 @@ Our collaborators are members who are contributing to the repository on a regula
 <br/>
 
 ## Contributing
+
 If you've ever wanted to contribute to open source, now is your chance! See the [contributing docs](.operations/CONTRIBUTING.md) for more information.
 
 ## Contributors ✨
