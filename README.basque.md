@@ -18,7 +18,7 @@
 
 <br/>
 
-Irakurri beste hizkuntza batzuetan: [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** eta ![TR](/assets/flags/TR.png)**TR** aribidean!)](#translations)
+Irakurri beste hizkuntza batzuetan: [![EN](/assets/flags/EN.png)**EN**](/README.md), [![CN](/assets/flags/CN.png)**CN**](/README.chinese.md), [![BR](/assets/flags/BR.png)**BR**](/README.brazilian-portuguese.md), [![RU](/assets/flags/RU.png)**RU**](/README.russian.md), [![PL](/assets/flags/PL.png)**PL**](/README.polish.md) [(![ES](/assets/flags/ES.png)**ES**, ![FR](/assets/flags/FR.png)**FR**, ![HE](/assets/flags/HE.png)**HE**, ![KR](/assets/flags/KR.png)**KR** eta ![TR](/assets/flags/TR.png)**TR** aribidean!)](#translations)
 
 <br/>
 
@@ -939,7 +939,7 @@ edo hornitzaileen lainoko zerbitzuak
 
 **Bestela:** Javascript kode gaiztoak bidea aurkitzen du `eval` testura edo JavaScript hizkuntzak denbora errealean ebaluatzeko dituen funtzioetara sartzeko, eta sarbide osoa lortuko du JavaScripten orrialdeko baimenetara. Ahultasun hori XSS eraso gisa agertzen da askotan
 
-🔗 [**Gehiago irakurri: saihestu JavaScript eval adierazpenak**](/sections/security/avoideval.md)
+🔗 [**Gehiago irakurri: saihestu JavaScript eval adierazpenak**](/sections/security/avoideval.basque.md)
 
 <br/><br/>
 
@@ -951,7 +951,7 @@ edo hornitzaileen lainoko zerbitzuak
 
 **Bestela:** gaizki idatzitako ohiko adierazpenek Regular Expression DoSen erasoak jasan ditzakete, gertaeren begizta erabat blokeatuko dutenak. Adibidez, 2017ko azaroan, RegExen erabilera gaiztoak agerian jarri zuen `moment` pakete ezagunaren ahultasuna
 
-🔗 [**Gehiago irakurri: saihestu RegEx gaiztoa erabiltzea**](/sections/security/regex.md)
+🔗 [**Gehiago irakurri: saihestu RegEx gaiztoa erabiltzea**](/sections/security/regex.basque.md)
 
 <br/><br/>
 
@@ -1066,13 +1066,13 @@ edo hornitzaileen lainoko zerbitzuak
 
 <br/><br/>
 
-## ![✔] 7.1. Ez blokeatu gertaeraren begizta
+## ![✔] 7.1. Ez blokeatu gertaeren begizta
 
-**TL;PL:** saihestu PUZen zeregin intentsiboak, gertaeraren begizta blokeatuko baitute. Izan ere, gertaera horietako gehienak azpiprozesu bakarrekoak dira, eta deskargatuak izango baitira azpiprozesu dedikatu batean, prozesu batean edo teknologia desberdinetan, dauden testuinguruaren arabera
+**TL;PL:** saihestu PUZen zeregin intentsiboak, gertaeren begizta blokeatuko baitute. Izan ere, gertaera horietako gehienak azpiprozesu bakarrekoak dira, eta deskargatuak izango baitira azpiprozesu dedikatu batean, prozesu batean edo teknologia desberdinetan, dauden testuinguruaren arabera
 
-**Bestela:** gertaeraren begizta blokeatuta dagoenez, Node.jsk ezin izango du beste eskaera bat kudeatu eta, ondorioz, atzerapena eragin diezaieke erabiltzaileei. **3000 erabiltzaile erantzunaren zain daude, edukia zerbitzatzeko prest dago, baina eskaera bakar batek emaitzak berriro bidaltzea galarazten dio zerbitzariari**
+**Bestela:** gertaeren begizta blokeatuta dagoenez, Node.jsk ezin izango du beste eskaera bat kudeatu eta, ondorioz, atzerapena eragin diezaieke erabiltzaileei. **3000 erabiltzaile erantzunaren zain daude, edukia zerbitzatzeko prest dago, baina eskaera bakar batek emaitzak berriro bidaltzea galarazten dio zerbitzariari**
 
-🔗 [**Gehiago irakurri: ez blokeatu gertaeraren begizta**](/sections/performance/block-loop.md)
+🔗 [**Gehiago irakurri: ez blokeatu gertaeren begizta**](/sections/performance/block-loop.basque.md)
 
 <br /><br /><br />
 
@@ -1082,7 +1082,7 @@ edo hornitzaileen lainoko zerbitzuak
 
 **Bestela:** errendimendu txikiagoko proiektuak mantendu beharko zenituzke, non **dagoeneko** eskura zenuena erabili beharko baitzenuke edo, fitxategi batzu gehiagoren truke, beste zenbait lerro landu
 
-🔗 [**Gehiago irakurri: erabiltzaileen jatorrizko baliabideak**](/sections/performance/nativeoverutil.md)
+🔗 [**Gehiago irakurri: erabiltzaileen jatorrizko baliabideak**](/sections/performance/nativeoverutil.basque.md)
 
 <br/><br/><br/>
 
@@ -1119,7 +1119,7 @@ RUN npm ci --production
 CMD [ "node", "dist/app.js" ]
 ```
 
-🔗 [**Gehiago irakurri: erabili etapa anitzeko konpilazioak**](/sections/docker/multi_stage_builds.md)
+🔗 [**Gehiago irakurri: erabili etapa anitzeko konpilazioak**](/sections/docker/multi_stage_builds.basque.md)
 
 <br /><br /><br />
 
@@ -1131,7 +1131,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** seinalerik pasatzen ez denean, zure kodeak ez du inoiz izango itzalaldien berri, eta, hori gabe, ez da behar bezala itxiko, unean uneko eskaerak eta / edo datuak galduz
 
-[**Gehiago irakurri: Edukiontzia abiarazi 'node' komandoa erabiliz, sahiestu npm hastea**](/sections/docker/bootstrap-using-node.md)
+[**Gehiago irakurri: Edukiontzia abiarazi 'node' komandoa erabiliz, sahiestu npm hastea**](/sections/docker/bootstrap-using-node.basque.md)
 
 <br /><br /><br />
 
@@ -1141,7 +1141,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** edukiontziak huts egiten jarraituko du baliabide faltagatik, eta prozesuen kudeatzaileak behin eta berriro berrabiaraziko du, gelditu gabe. Kubernetes horretaz jabetuko balitz, beste toki zabal batera lekualda lezake
 
-🔗 [**Gehiago irakurri: utzi Dockerren orkestratzaileari prozesuak berrabiaraz eta erreplika ditzala**](/sections/docker/restart-and-replicate-processes.md)
+🔗 [**Gehiago irakurri: utzi Dockerren orkestratzaileari prozesuak berrabiaraz eta erreplika ditzala**](/sections/docker/restart-and-replicate-processes.basque.md)
 
 <br/><br /><br />
 
@@ -1151,7 +1151,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela**: irudira sarbidea duen edonorekin partekatuko dira `.env`, `.aws` eta `.npmrc` bezalako fitxategi sekretu pertsonal arruntak (adibidez, Docker biltegia)
 
-🔗 [**Gehiago irakurri: erabili .dockerignore**](/sections/docker/docker-ignore.md)
+🔗 [**Gehiago irakurri: erabili .dockerignore**](/sections/docker/docker-ignore.basque.md)
 
 <br /><br /><br />
 
@@ -1161,7 +1161,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** npm segurtasun arau hauste ezagun asko garapen paketeen barruan aurkitu izan dira (adibidez, [eslint-scope](https://eslint.org/blog/2018/07/postmortem-for-malicious-package-publishes))
 
-🔗 Gehiago irakurri: [kendu garapen menpekotasunak](/sections/docker/install-for-production.md)
+🔗 Gehiago irakurri: [kendu garapen menpekotasunak](/sections/docker/install-for-production.basque.md)
 
 <br /><br /><br />
 
@@ -1171,7 +1171,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** berehala hiltzeak etsita dauden milaka erabiltzaileri ez erantzutea ekarriko du
 
-🔗 [**Gehiago irakurri: itzalaldi dotorea**](/sections/docker/graceful-shutdown.md)
+🔗 [**Gehiago irakurri: itzalaldi dotorea**](/sections/docker/graceful-shutdown.basque.md)
 
 <br /><br /><br />
 
@@ -1181,7 +1181,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** Dockerren definizioa beharrezkoa da eskalatutako erabakiak burutzeko eta beste herritarrak gosez hiltzea ekiditeko. V8rren mugak zehaztu gabe ere, edukiontziaren baliabideak erabiliko ditu. Argibide espliziturik gabe, baliabideen %50-60a erabiltzean huts egiten du
 
-🔗 [**Gehiago irakurri: ezarri memoria mugak Docker erabiliz soilik**](/sections/docker/memory-limit.md)
+🔗 [**Gehiago irakurri: ezarri memoria mugak Docker erabiliz soilik**](/sections/docker/memory-limit.basque.md)
 
 <br /><br /><br />
 
@@ -1191,7 +1191,7 @@ CMD [ "node", "dist/app.js" ]
 
 **Bestela:** Docker eraikitzeak oso luze jo dezake eta baliabide asko kontsumituko ditu, nahiz eta aldaketa txikiak egin
 
-🔗 [**Gehiago irakurri: baliatu cachea eraikitze denborak murrizteko**](/sections/docker/use-cache-for-shorter-build-time.md)
+🔗 [**Gehiago irakurri: baliatu cachea eraikitze denborak murrizteko**](/sections/docker/use-cache-for-shorter-build-time.basque.md)
 
 <br /><br /><br />
 
@@ -1205,7 +1205,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **Bestela:** oinarrizko irudi baten bertsio berri bat erabiliz gero, aldaketa handiak gerta litezke produkzioan, horrek aplikazioaren nahigabeko portaera sortuz
 
-🔗 [**Gehiago irakurri: ulertu irudi etiketak eta erabili "latest" etiketa kontu handiz**](/sections/docker/image-tags.md)
+🔗 [**Gehiago irakurri: ulertu irudi etiketak eta erabili "latest" etiketa kontu handiz**](/sections/docker/image-tags.basque.md)
 
 <br /><br /><br />
 
@@ -1215,7 +1215,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **Bestela:** batetik, denbora gehiago beharko da irudiak eraiki, txertatu eta ateratzeko; bestetik, erabiltzaile maltzurrek eraso bektore ezezagunak erabil ditzakete; eta, azkenik, baliabide gehiago beharko dira
 
-🔗 [**Gehiago irakurri: hobetsi irudi txikiagoa**](/sections/docker/smaller_base_images.md)
+🔗 [**Gehiago irakurri: hobetsi irudi txikiagoa**](/sections/docker/smaller_base_images.basque.md)
 
 <br /><br /><br />
 
@@ -1225,7 +1225,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **Bestela:** IE eta docker erregistroan sartzeko aukera duten guztiek erakundearen sekretu preziatuak ere eskuratzeko aukera izango dute onura gehigarri gisa
 
-🔗 [**Gehiago irakurri: garbitu eraikitze faseko sekretuak**](/sections/docker/avoid-build-time-secrets.md)
+🔗 [**Gehiago irakurri: garbitu eraikitze faseko sekretuak**](/sections/docker/avoid-build-time-secrets.basque.md)
 
 <br /><br /><br />
 
@@ -1235,7 +1235,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **Bestela:** baliteke zure kodeak ahultasunik ez izatea. Hala ere, baliteke oraindik ere hackeatua izatea, aplikazioek normalean erabiltzen dituzten sistema eragilearen mailako binarioen bertsioak ahultasunak dituelako (adibidez, OpenSSL, TarBall)
 
-🔗 [**Gehiago irakurri: Dockerren praktika arruntak**](/sections/docker/scan-images.md)
+🔗 [**Gehiago irakurri: Dockerren praktika arruntak**](/sections/docker/scan-images.basque.md)
 
 <br /><br /><br />
 
@@ -1245,7 +1245,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **Bestela:** ekoizpenera bidaliko den irudiak % 30 gehiago pisatuko du, inoiz erabiliko ez diren fitxategiak direla eta
 
-🔗 [**Gehiago irakurri: garbitu NODE_MODULE cachea**](/sections/docker/clean-cache.md)
+🔗 [**Gehiago irakurri: garbitu NODE_MODULE cachea**](/sections/docker/clean-cache.basque.md)
 
 <br /><br /><br />
 
@@ -1253,7 +1253,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **TL;PL:** hemen duzu Node.jsekin zuzenean loturarik ez duen Docker aholkuen bilduma. Ez dago alderik Noderen eta beste edozein lengoaiaren inplementazioen artean. Egin klik “irakurri gehiago” botoian
 
-🔗 [**Gehiago irakurri: Dockeren praktika arruntak**](/sections/docker/generic-tips.md)
+🔗 [**Gehiago irakurri: Dockeren praktika arruntak**](/sections/docker/generic-tips.basque.md)
 
 <br/><br /><br />
 
@@ -1263,7 +1263,7 @@ Gainera, irudi etiketa bat aipatzen bada, oinarrizko irudia aldatu egin daiteke,
 
 **Bestela:** okerrez, Dockerfileren sortzaileak root bat utzi zuen produkzio erabiltzaile moduan, eta jatorri ezezaguneko biltegi irudi bat ere erabili zuen. Hori liner soil batekin ekidin liteke.
 
-🔗 [**Gehiago irakurri: garbitu zure Dockerfilea**](/sections/docker/lint-dockerfile.md)
+🔗 [**Gehiago irakurri: garbitu zure Dockerfilea**](/sections/docker/lint-dockerfile.basque.md)
 
 <br/><br /><br />
 
