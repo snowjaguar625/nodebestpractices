@@ -11,15 +11,11 @@
 ### Code example: each test acts on its own set of data
 ```javascript
 it('When updating site name, get successful confirmation', async () => {
-  //Arrange - test is adding a fresh new records and acting on the records only
+  //test is adding a fresh new records and acting on the records only
   const siteUnderTest = await SiteService.addSite({
     name: 'siteForUpdateTest'
   });
-
-  //Act
   const updateNameResult = await SiteService.changeName(siteUnderTest, 'newName');
-
-  //Assert
   expect(updateNameResult).to.be(true);
 });
 ```
@@ -29,26 +25,18 @@ it('When updating site name, get successful confirmation', async () => {
 ### Code Example – Anti Pattern:  tests are not independent and assume the existence of some pre-configured data
 ```javascript
 before(() => {
-  //Arrange - adding sites and admins data to our DB. Where is the data? outside. At some external json or migration framework
+  //adding sites and admins data to our DB. Where is the data? outside. At some external json or migration framework
   await DB.AddSeedDataFromJson('seed.json');
 });
-
 it('When updating site name, get successful confirmation', async () => {
-  //Arrange - I know that site name 'portal' exists - I saw it in the seed files
+  //I know that site name 'portal' exists - I saw it in the seed files
   const siteToUpdate = await SiteService.getSiteByName('Portal');
-
-  //Act
   const updateNameResult = await SiteService.changeName(siteToUpdate, 'newName');
-
-  //Assert
   expect(updateNameResult).to.be(true);
 });
-
 it('When querying by site name, get the right site', async () => {
-  //Act - I know that site name 'portal' exists - I saw it in the seed files
+  //I know that site name 'portal' exists - I saw it in the seed files
   const siteToCheck = await SiteService.getSiteByName('Portal');
-
-  //Assert
   expect(siteToCheck.name).to.be.equal('Portal'); //Failure! The previous test change the name :[
 });
 ```
