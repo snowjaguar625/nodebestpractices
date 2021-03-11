@@ -37,12 +37,12 @@ describe.skip('Customer classifier', () => {
 ### Code Example – Anti Pattern: no separation, one bulk, harder to interpret
 ```javascript
 test('Should be classified as premium', () => {
-    const customerToClassify = {spent:505, joined: new Date(), id:1}
-    const DBStub = sinon.stub(dataAccess, 'getCustomer')
-        .reply({id:1, classification: 'regular'});
-    const receivedClassification = customerClassifier.classifyCustomer(customerToClassify);
-    expect(receivedClassification).toMatch('premium');
-});
+        const customerToClassify = {spent:505, joined: new Date(), id:1}
+        const DBStub = sinon.stub(dataAccess, 'getCustomer')
+            .reply({id:1, classification: 'regular'});
+        const receivedClassification = customerClassifier.classifyCustomer(customerToClassify);
+        expect(receivedClassification).toMatch('premium');
+    });
 ```
 
 <br/><br/>
@@ -59,3 +59,8 @@ test('Should be classified as premium', () => {
 From the book [XUnit Patterns](http://xunitpatterns.com/Four%20Phase%20Test.html):
 
 > It is important for the test reader to be able to quickly determine what behavior the test is verifying. It can be very confusing when various behaviors of the system under test (SUT) are being invoked, some to set up the pre-test state (fixture) of the SUT, others to exercise the SUT and yet others to verify the post-test state of the SUT. Clearly identifying the four phases makes the intent of the test much easier to see.
+
+
+### "Once you get used to this pattern, you can read and understand the tests more easily"
+From the book [Unit Testing, Principles, Practices, and Patterns](https://freecontent.manning.com/making-better-unit-tests-part-1-the-aaa-pattern/)
+> The 3A pattern is simple and provides a uniform structure for all tests in the suite. This uniform structure is one of its biggest advantages: once you get used to this pattern, you can read and understand the tests more easily. That, in turn, reduces the maintenance cost for your entire test suite.
