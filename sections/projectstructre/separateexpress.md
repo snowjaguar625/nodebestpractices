@@ -57,7 +57,6 @@ const server = http.createServer(app);
 <summary><strong>Javascript</strong></summary>
 
 ```javascript
-const request = require('supertest');
 const app = express();
 
 app.get('/user', (req, res) => {
@@ -80,7 +79,6 @@ request(app)
 <summary><strong>Typescript</strong></summary>
 
 ```typescript
-import * as request from "supertest";
 const app = express();
 
 app.get('/user', (req: Request, res: Response) => {
