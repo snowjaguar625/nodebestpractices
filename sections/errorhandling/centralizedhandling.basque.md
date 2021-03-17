@@ -1,4 +1,4 @@
-# Kudeatu erroreak gune bakar batean, Express middlewarea erabili partez
+# Kudeatu erroreak gune bakar batean, Express middleware erabili partez
 
 ### Azalpen paragrafoa
 
