@@ -112,4 +112,4 @@ CMD ["node", "dist/server.js"]
 
 ## Useful links
 
-Docker docs: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache
+Docker docks: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#leverage-build-cache
