@@ -35,11 +35,11 @@ app.use(async (err, req, res, next) => {
 
 process.on("uncaughtException", error => {
   errorHandler.handleError(error);
-    });
+});
 
-    process.on("unhandledRejection", (reason) => {
-        errorHandler.handleError(reason);
-    });
+process.on("unhandledRejection", (reason) => {
+  errorHandler.handleError(reason);
+});
 ```
 </details>
 
@@ -72,11 +72,11 @@ await errorHandler.handleError(err, res);
 
 process.on("uncaughtException", (error:Error) => {
   errorHandler.handleError(error);
-    });
+});
 
-    process.on("unhandledRejection", (reason) => {
-        errorHandler.handleError(reason);
-    });
+process.on("unhandledRejection", (reason) => {
+  errorHandler.handleError(reason);
+});
 ```
 </details>
 
@@ -104,7 +104,7 @@ function errorHandler() {
 
 ```typescript
 class ErrorHandler {
-  public async handleError(err: Error, responseStream: Response): Promise<void> {
+  public async handleError(error: Error, responseStream: Response): Promise<void> {
     await logger.logError(error);
     await fireMonitoringMetric(error);
     await crashIfUntrustedErrorOrSendResponse(error, responseStream);      

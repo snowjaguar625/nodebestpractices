@@ -1,6 +1,6 @@
-# Erabili erregistratze tresna helduak erroreen ikusgaitasuna handitzeko
+# Erabili erregistratze tresna heldu bat erroreen ikusgaitasuna handitzeko
 
-### Azalpena
+### Azalpen paragrafoa
 
 
 Gustuko dugu console.log, baina [Pino][pino] bezalako erregistratzaile tresna ospetsu eta iraunkorra (errendimenduan zentratutako aukera berriagoa) ezinbestekoa da proiektu serioetarako. Errendimendu handiko erregistratze tresnek erroreak eta arazo posibleak identifikatzen laguntzen dute. Erregistratze aholkuen artean:
@@ -33,7 +33,7 @@ StrongLoop blogetik hartua ("Winston eta Bunyanen Node.js Erregistratzaile siste
 >
 > 1. Denboran seilatu erregistro ilara bakoitza. Nahiko argi dago, erregistroko sarrera bakoitza noiz gertatu den esateko gai izan behar duzu
 > 2. Erregistro formatua ulergarria izan behar da bai gizakientzat eta baita makinentzat ere
-> 3. Korronte ezberdin ugari onartu behar ditu. Adibidez, errore erregistroak fitxategi batean idazten ari den unean erroreren bat atzemanez gero, fitxategi beraren barruan idatzi, errorearen fitxategian ere idatzi, eta posta elektronikoa bidali, dena aldi berean, egiteko aukera eman behar du
+> 3. Korronte ezberdin ugari onartu behar ditu. Adibidez, errore erregistroak fitxategi batean idazten ari den unean errorereb bat atzemanez gero, fitxategi beraren barruan idatzi, errorearen fitxategian ere idatzi, eta posta elektronikoa bidali, dena aldi berean, egiteko aukera eman behar du
 
 ### Non dago Winston?
 
