@@ -14,7 +14,8 @@ Kubernetes のような Docker ランタイムオーケストレータは、コ�
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # ビルドロジックはこちら
@@ -31,7 +32,7 @@ CMD ["node", "index.js"]
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
 FROM node:12-slim
 
 # ビルドロジックはこちら

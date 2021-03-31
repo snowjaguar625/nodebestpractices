@@ -10,15 +10,15 @@ Il est important de noter que si un projet utilise à la fois des fichiers `.npm
 ### Exemple de code
 Fichier d'exemple .npmignore
 ```
-# Tests
+#tests
 test
 coverage
 
-# Build tools
+#build tools
 .travis.yml
 .jenkins.yml
 
-# Environment
+#environment
 .env
 .config
 
@@ -26,7 +26,7 @@ coverage
 
 Exemple d'usage du tableau files de package.json
 
-```json
+```
 { 
   "files" : [
     "dist/moment.js",

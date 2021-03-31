@@ -10,15 +10,15 @@ Ważne jest, aby pamiętać, że jeśli projekt wykorzystuje zarówno pliki `.np
 ### Przykład kodu
 Example .npmignore file
 ```
-# Tests
+#tests
 test
 coverage
 
-# Build tools
+#build tools
 .travis.yml
 .jenkins.yml
 
-# Environment
+#environment
 .env
 .config
 
@@ -26,7 +26,7 @@ coverage
 
 Przykład zastosowania tablicy plików w package.json
 
-```json
+```
 { 
   "files" : [
     "dist/moment.js",

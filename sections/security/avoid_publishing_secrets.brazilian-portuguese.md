@@ -10,15 +10,15 @@ Para obter uma visão do que o npm publish realmente publicará no registro, o s
 ### Exemplo de Código
 Exemplo de arquivo .npmignore
 ```
-# Tests
+#tests
 test
 coverage
 
-# Build tools
+#build tools
 .travis.yml
 .jenkins.yml
 
-# Environment
+#environment
 .env
 .config
 
@@ -26,7 +26,7 @@ coverage
 
 Exemplo uso de uma lista de arquivos no package.json
 
-```json
+```
 { 
   "files" : [
     "dist/moment.js",

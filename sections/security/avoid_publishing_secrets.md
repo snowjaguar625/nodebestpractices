@@ -10,15 +10,15 @@ It is important to note that if a project is utilising both `.npmignore` and `.g
 ### Code example
 Example .npmignore file
 ```
-# Tests
+#tests
 test
 coverage
 
-# Build tools
+#build tools
 .travis.yml
 .jenkins.yml
 
-# Environment
+#environment
 .env
 .config
 
@@ -26,7 +26,7 @@ coverage
 
 Example use of files array in package.json
 
-```json
+```
 { 
   "files" : [
     "dist/moment.js",

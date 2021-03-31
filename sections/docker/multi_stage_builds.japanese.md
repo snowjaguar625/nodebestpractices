@@ -39,7 +39,6 @@ FROM node:14.4.0 AS build
 COPY --chown=node:node . .
 RUN yarn install --frozen-lockfile && yarn build
 
-
 FROM node:14.4.0
 
 USER node
@@ -59,7 +58,6 @@ FROM node:14.4.0 AS build
 
 COPY --chown=node:node . .
 RUN yarn install --frozen-lockfile && yarn build
-
 
 # ランタイム用に最小のベースイメージを使用
 FROM node:14.4.0-alpine
@@ -95,7 +93,6 @@ COPY --chown=node:node src ./src
 
 # コードのビルド
 RUN yarn build
-
 
 # ランタイムステージ
 FROM node:14.4.0-alpine

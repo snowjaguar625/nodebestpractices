@@ -14,7 +14,8 @@ Kubernetes bezalako exekuzio ingurune Dockerizatu batean, edukiontziak sarri jai
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # Eraikitze logika hemen dago
@@ -34,7 +35,8 @@ CMD ["node", "index.js"]
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # Eraikitze logika hemen dago
@@ -59,7 +61,8 @@ CMD ["node", "index.js"]
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # Eraikitze logika hemen dator

@@ -7,7 +7,7 @@ HTML e outras linguagens da Web combinam conteúdo com código executável - um 
 
 ### Exemplo de código: não coloque dados não confiáveis ​​no seu HTML
 
-```html
+```javascript
 <script>...NUNCA COLOQUE DADOS NÃO CONFIÁVEIS AQUI...</script>   direto em um script
  
  <!--...NUNCA COLOQUE DADOS NÃO CONFIÁVEIS AQUI...-->             dentro de um comentário HTML
@@ -22,7 +22,7 @@ HTML e outras linguagens da Web combinam conteúdo com código executável - um 
 
 ### Exemplo de código - Conteúdo mal-intencionado que pode ser injetado em um banco de dados
 
-```html
+```javascript
 <div>
   <b>A pseudo comment to the a post</b>
   <script>

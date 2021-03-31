@@ -37,7 +37,6 @@ FROM node:14.4.0 AS build
 COPY --chown=node:node . .
 RUN yarn install --frozen-lockfile && yarn build
 
-
 FROM node:14.4.0
 
 USER node
@@ -57,7 +56,6 @@ FROM node:14.4.0 AS build
 
 COPY --chown=node:node . .
 RUN yarn install --frozen-lockfile && yarn build
-
 
 # Honek exekuzio garairako oinarri-irudi minimoa erabiliko du
 FROM node:14.4.0-alpine
@@ -93,7 +91,6 @@ COPY --chown=node:node src ./src
 
 # Kodea eraiki
 RUN yarn build
-
 
 # Exekuzio-garaiaren etapa
 FROM node:14.4.0-alpine

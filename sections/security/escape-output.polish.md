@@ -6,7 +6,7 @@ HTML i inne języki internetowe mieszają zawartość z kodem wykonywalnym - poj
 
 ### Przykład kodu - Nie umieszczaj niezaufanych danych w swoim HTML
 
-```html
+```javascript
 <script>...NEVER PUT UNTRUSTED DATA HERE...</script>   directly in a script
  
  <!--...NEVER PUT UNTRUSTED DATA HERE...-->             inside an HTML comment
@@ -21,7 +21,7 @@ HTML i inne języki internetowe mieszają zawartość z kodem wykonywalnym - poj
 
 ### Przykład kodu - złośliwe treści, które mogą zostać wstrzyknięte do bazy danych
 
-```html
+```javascript
 <div>
   <b>A pseudo comment to the a post</b>
   <script>

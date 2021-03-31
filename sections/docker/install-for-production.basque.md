@@ -14,9 +14,8 @@ Garapen menpekotasunek asko handitzen dute edukiontziaren eraso azalera (esatera
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
 FROM node:12-slim AS build
-
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm ci --production && npm clean cache --force
@@ -34,19 +33,16 @@ RUN npm ci --production && npm clean cache --force
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
 FROM node:14.8.0-alpine AS build
-
 COPY --chown=node:node package.json package-lock.json ./
 # ✅ Instalazio segurua
 RUN npm ci
 COPY --chown=node:node src ./src
 RUN npm run build
 
-
 # Run-time stage
 FROM node:14.8.0-alpine
-
 COPY --chown=node:node --from=build package.json package-lock.json ./
 COPY --chown=node:node --from=build node_modules ./node_modules
 COPY --chown=node:node --from=build dist ./dist
@@ -67,9 +63,9 @@ CMD [ "node", "dist/app.js" ]
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
-FROM node:12-slim AS build
+```
 
+FROM node:12-slim AS build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 # Bi akatz hemen: Garapen menpekotasunak instalatu eta cachea ez ezabatu npm install egin ondoren

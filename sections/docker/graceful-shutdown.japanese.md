@@ -15,7 +15,8 @@ Kubernetes のような Docker 化されたランタイムでは、コンテナ�
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # ビルドロジックはここ
@@ -35,7 +36,8 @@ CMD ["node", "index.js"]
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # ビルドロジックはここ
@@ -60,7 +62,8 @@ CMD ["node", "index.js"]
 
 <summary><strong>Dockerfile</strong></summary>
 
-```dockerfile
+```
+
 FROM node:12-slim
 
 # ビルドロジックはここ

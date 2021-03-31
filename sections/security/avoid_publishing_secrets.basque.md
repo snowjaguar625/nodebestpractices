@@ -13,15 +13,15 @@ Garrantzitsua da kontutan edukitzea, proiektu batek `.npmignore` eta `.gitignore
 .npmignore fitxategiaren adibidea
 
 ```
-# Probak
+#probak
 test
 coverage
 
-# Eraikitze tresnak
+#eraikitze tresnak
 .travis.yml
 .jenkins.yml
 
-# Ingurunea
+#ingurunea
 .env
 .config
 
@@ -29,7 +29,7 @@ coverage
 
 "files" zerrenda package.jsonen erabiltzearen adibidea
 
-```json
+```
 {
   "files" : [
     "dist/moment.js",
