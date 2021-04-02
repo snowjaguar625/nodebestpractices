@@ -269,8 +269,7 @@ function edozeinFuntzio() {
 }
 
 // Baztertu
-function edozeinFuntzio()
-{
+function edozeinFuntzio() {
   // kode blokea
 }
 ```
