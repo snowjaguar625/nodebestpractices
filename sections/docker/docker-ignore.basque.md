@@ -8,7 +8,7 @@ Docker konpilazio komandoak tokian tokiko fitxategiak konpilazioaren testuinguru
 
 <br/><br/>
 
-### Kode adibidea: .dockerignore fitxategi lehenetsi ona Node.jsrentzat
+### Kode adibidea: .dockerignore fitxategi lehenetsi ona Node.jsentzat
 
 <details>
 <summary><strong>.dockerignore</strong></summary>

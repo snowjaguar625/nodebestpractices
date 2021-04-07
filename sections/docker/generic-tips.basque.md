@@ -1,8 +1,8 @@
 [✔]: ../../assets/images/checkbox-small-blue.png
 
-# Common Node.js Dockeren praktika onak
+# Common Node.js Dockeren jardunbide egokienak
 
-Dockeren praktika arrunten atal honek programazio lengoaia guztietan araupetuta dauden praktika onak biltzen ditu, ez dira Node.jsrentzat bakarrik
+Dockeren jardunbide arrunten atal honek programazio lengoaia guztietan araupetuta dauden jardunbide egokiak biltzen ditu, ez dira Node.jsentzat bakarrik
 
 ## ![✔] Nahiago COPY, ADD komandoa baino
 
