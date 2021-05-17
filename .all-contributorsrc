@@ -1397,6 +1397,33 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "benjaminudoh10",
+      "name": "Benjamin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9018331?v=4",
+      "profile": "https://github.com/benjaminudoh10",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "yjoer",
+      "name": "Yeoh Joer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47742486?v=4",
+      "profile": "https://www.yjoer.com",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "Miigon",
+      "name": "Miigon",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16161991?v=4",
+      "profile": "https://blog.miigon.net",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "projectName": "nodebestpractices",
