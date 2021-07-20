@@ -10,4 +10,4 @@
 
 ### Совместное использование собственных общих утилит в средах и компонентах
 
-![alt text](../../assets/images/Privatenpm.png "Structuring solution by components")
+![alt text](https://github.com/goldbergyoni/nodebestpractices/blob/master/assets/images/Privatenpm.png "Structuring solution by components")
