@@ -16,6 +16,9 @@
 
 [![nodepractices](./assets/images/twitter-s.png)](https://twitter.com/nodepractices/) **Follow us on Twitter!** [**@nodepractices**](https://twitter.com/nodepractices/)
 
+👨‍🏫 [Nodeconf 2021](https://www.nodeconfremote.com/#workshops) is just around the corner, and will **host a 5 hours testing workshop with Yoni Goldberg**. [Register here](https://www.nodeconfremote.com/#workshops)
+
+
 <br/>
 
 Read in a different language: [![CN](./assets/flags/CN.png)**CN**](./README.chinese.md), [![FR](./assets/flags/FR.png)**FR**](./README.french.md), [![BR](./assets/flags/BR.png)**BR**](./README.brazilian-portuguese.md), [![RU](./assets/flags/RU.png)**RU**](./README.russian.md), [![PL](./assets/flags/PL.png)**PL**](./README.polish.md), [![JA](./assets/flags/JA.png)**JA**](./README.japanese.md), [![EU](./assets/flags/EU.png)**EU**](./README.basque.md) [(![ES](./assets/flags/ES.png)**ES**, ![HE](./assets/flags/HE.png)**HE**, ![KR](./assets/flags/KR.png)**KR** and ![TR](./assets/flags/TR.png)**TR** in progress! )](#translations)
@@ -338,41 +341,24 @@ const count = 2 // it tries to run 2(), but 2 is not a function
 
 ## ![✔] 3.6 Use naming conventions for variables, constants, functions and classes
 
-**TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions, **_UpperCamelCase_** (capital first letter as well) when naming classes and **_UPPER_SNAKE_CASE_** when naming global or static variables. This will help you to easily distinguish between plain variables, functions, classes that require instantiation and variables declared at global module scope. Use descriptive names, but try to keep them short
+**TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions and **_UpperCamelCase_** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables/functions, and classes that require instantiation. Use descriptive names, but try to keep them short
 
 **Otherwise:** JavaScript is the only language in the world that allows invoking a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase
 
 ### 3.6 Code Example
 
 ```javascript
-// for global variables names we use the const/let keyword and UPPER_SNAKE_CASE
-let MUTABLE_GLOBAL = "mutable value"
-const GLOBAL_CONSTANT = "immutable value";
-const CONFIG = {
+// for class name we use UpperCamelCase
+class SomeClassExample {}
+
+// for const names we use the const keyword and lowerCamelCase
+const config = {
   key: "value",
 };
 
-// examples of UPPER_SNAKE_CASE convetion in nodejs/javascript ecosystem
-// in javascript Math.PI module
-const PI = 3.141592653589793;
-
-// https://github.com/nodejs/node/blob/b9f36062d7b5c5039498e98d2f2c180dca2a7065/lib/internal/http2/core.js#L303
-// in nodejs http2 module
-const HTTP_STATUS_OK = 200;
-const HTTP_STATUS_CREATED = 201;
-
-// for class name we use UpperCamelCase
-class SomeClassExample {
-  // for static class properties we use UPPER_SNAKE_CASE
-  static STATIC_PROPERTY = "value";
-}
-
-// for functions names we use lowerCamelCase
-function doSomething() {
-  // for scoped variable names we use the const/let keyword and lowerCamelCase
-  const someConstExample = "immutable value";
-  let someMutableExample = "mutable value";
-}
+// for variables and functions names we use lowerCamelCase
+let someVariableExample = "value";
+function doSomething() {}
 ```
 
 <br/><br/>
