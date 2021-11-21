@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 items"/> <img id="last-update-badge" src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20August%2015%2C%202021-green.svg" alt="Last update: August 15, 2021" /> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Updated for Node 14.0.0"/>
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 items"/> <img id="last-update-badge" src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20November%2019%2C%202021-green.svg" alt="Last update: November 19, 2021" /> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Updated for Node 14.0.0"/>
 </div>
 
 <br/>
@@ -19,7 +19,6 @@
 <br/>
 
 ✨ 👨‍🏫 [Nodeconf 2021](https://www.nodeconfremote.com/#workshops) is just around the corner, and will **host a 5 hours advanced Node.js testing workshop with Yoni Goldberg**. [Register here](https://www.nodeconfremote.com/#workshops)
-
 
 <br/>
 
@@ -919,7 +918,7 @@ Also known as correlation id / transit id / tracing id / request id / request co
 
 **TL;DR:** There is a common scenario where Node.js runs as a root user with unlimited permissions. For example, this is the default behaviour in Docker containers. It's recommended to create a non-root user and either bake it into the Docker image (examples given below) or run the process on this user's behalf by invoking the container with the flag "-u username"
 
-**Otherwise:** An attacker who manages to run a script on the server gets unlimited power over the local machine (e.g. change iptable and re-route traffic to his server)
+**Otherwise:** An attacker who manages to run a script on the server gets unlimited power over the local machine (e.g. change iptable and re-route traffic to their server)
 
 🔗 [**Read More: Run Node.js as non-root user**](./sections/security/non-root-user.md)
 
@@ -1607,6 +1606,10 @@ Thanks goes to these wonderful people who have contributed to this repository!
     <td align="center"><a href="https://www.linkedin.com/in/rafaelconcept/"><img src="https://avatars.githubusercontent.com/u/43880669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rafael Brito</b></sub></a><br /><a href="#translation-rafaelconcept" title="Translation">🌍</a></td>
     <td align="center"><a href="https://emiliano-peralta-portfolio.vercel.app/"><img src="https://avatars.githubusercontent.com/u/63617637?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emiliano Peralta</b></sub></a><br /><a href="#translation-emiperalta" title="Translation">🌍</a></td>
     <td align="center"><a href="https://lannex.github.io"><img src="https://avatars.githubusercontent.com/u/7369541?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shin, SJ</b></sub></a><br /><a href="#content-lannex" title="Content">🖋</a></td>
+    <td align="center"><a href="http://www.benjaminforster.com"><img src="https://avatars.githubusercontent.com/u/12589522?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Benjamin Forster</b></sub></a><br /><a href="#content-e-e-e" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/DanieleFedeli"><img src="https://avatars.githubusercontent.com/u/37077048?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniele Fedeli</b></sub></a><br /><a href="#content-DanieleFedeli" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/djob195"><img src="https://avatars.githubusercontent.com/u/17146669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>djob195</b></sub></a><br /><a href="#content-djob195" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/antspk"><img src="https://avatars.githubusercontent.com/u/78955792?v=4?s=100" width="100px;" alt=""/><br /><sub><b>antspk</b></sub></a><br /><a href="#content-antspk" title="Content">🖋</a></td>
   </tr>
 </table>
 
