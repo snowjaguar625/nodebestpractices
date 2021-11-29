@@ -9,7 +9,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 items"/> <img id="last-update-badge" src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20August%2015%2C%202021-green.svg" alt="Last update: August 15, 2021" /> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Updated for Node 14.0.0"/>
+  <img src="https://img.shields.io/badge/⚙%20Item%20count%20-%20102%20Best%20Practices-blue.svg" alt="102 items"/> <img id="last-update-badge" src="https://img.shields.io/badge/%F0%9F%93%85%20Last%20update%20-%20November%2021%2C%202021-green.svg" alt="Last update: November 21, 2021" /> <img src="https://img.shields.io/badge/ %E2%9C%94%20Updated%20For%20Version%20-%20Node%2014.0.0-brightgreen.svg" alt="Updated for Node 14.0.0"/>
 </div>
 
 <br/>
@@ -18,9 +18,6 @@
 
 <br/>
 
-✨ 👨‍🏫 [Nodeconf 2021](https://www.nodeconfremote.com/#workshops) is just around the corner, and will **host a 5 hours advanced Node.js testing workshop with Yoni Goldberg**. [Register here](https://www.nodeconfremote.com/#workshops)
-
-<br/>
 
 Read in a different language: [![CN](./assets/flags/CN.png)**CN**](./README.chinese.md), [![FR](./assets/flags/FR.png)**FR**](./README.french.md), [![BR](./assets/flags/BR.png)**BR**](./README.brazilian-portuguese.md), [![RU](./assets/flags/RU.png)**RU**](./README.russian.md), [![PL](./assets/flags/PL.png)**PL**](./README.polish.md), [![JA](./assets/flags/JA.png)**JA**](./README.japanese.md), [![EU](./assets/flags/EU.png)**EU**](./README.basque.md) [(![ES](./assets/flags/ES.png)**ES**, ![HE](./assets/flags/HE.png)**HE**, ![KR](./assets/flags/KR.png)**KR** and ![TR](./assets/flags/TR.png)**TR** in progress! )](#translations)
 
@@ -55,11 +52,11 @@ Read in a different language: [![CN](./assets/flags/CN.png)**CN**](./README.chin
     <a href="#1-project-structure-practices">1. Project Structure Practices (5)</a>
   </summary>
 
-&emsp;&emsp;[1.1 Structure your solution by components](#-11-structure-your-solution-by-components)</br>
+&emsp;&emsp;[1.1 Structure your solution by components `strategic`](#-11-structure-your-solution-by-components)</br>
 &emsp;&emsp;[1.2 Layer your components, keep the web layer within its boundaries](#-12-layer-your-components-keep-the-web-layer-within-its-boundaries)</br>
 &emsp;&emsp;[1.3 Wrap common utilities as npm packages](#-13-wrap-common-utilities-as-npm-packages)</br>
 &emsp;&emsp;[1.4 Separate Express 'app' and 'server'](#-14-separate-express-app-and-server)</br>
-&emsp;&emsp;[1.5 Use environment aware, secure and hierarchical config](#-15-use-environment-aware-secure-and-hierarchical-config)</br>
+&emsp;&emsp;[1.5 Use environment aware, secure and hierarchical config `modified-recently`](#-15-use-environment-aware-secure-and-hierarchical-config)</br>
 
 </details>
 
@@ -69,17 +66,17 @@ Read in a different language: [![CN](./assets/flags/CN.png)**CN**](./README.chin
   </summary>
 
 &emsp;&emsp;[2.1 Use Async-Await or promises for async error handling](#-21-use-async-await-or-promises-for-async-error-handling)</br>
-&emsp;&emsp;[2.2 Use only the built-in Error object](#-22-use-only-the-built-in-error-object)</br>
+&emsp;&emsp;[2.2 Use only the built-in Error object `strategic`](#-22-use-only-the-built-in-error-object)</br>
 &emsp;&emsp;[2.3 Distinguish operational vs programmer errors](#-23-distinguish-operational-vs-programmer-errors)</br>
 &emsp;&emsp;[2.4 Handle errors centrally, not within a middleware](#-24-handle-errors-centrally-not-within-a-middleware)</br>
 &emsp;&emsp;[2.5 Document API errors using Swagger or GraphQL](#-25-document-api-errors-using-swagger-or-graphql)</br>
-&emsp;&emsp;[2.6 Exit the process gracefully when a stranger comes to town](#-26-exit-the-process-gracefully-when-a-stranger-comes-to-town)</br>
+&emsp;&emsp;[2.6 Exit the process gracefully when a stranger comes to town `strategic`](#-26-exit-the-process-gracefully-when-a-stranger-comes-to-town)</br>
 &emsp;&emsp;[2.7 Use a mature logger to increase error visibility](#-27-use-a-mature-logger-to-increase-error-visibility)</br>
 &emsp;&emsp;[2.8 Test error flows using your favorite test framework](#-28-test-error-flows-using-your-favorite-test-framework)</br>
 &emsp;&emsp;[2.9 Discover errors and downtime using APM products](#-29-discover-errors-and-downtime-using-apm-products)</br>
 &emsp;&emsp;[2.10 Catch unhandled promise rejections](#-210-catch-unhandled-promise-rejections)</br>
 &emsp;&emsp;[2.11 Fail fast, validate arguments using a dedicated library](#-211-fail-fast-validate-arguments-using-a-dedicated-library)</br>
-&emsp;&emsp;[2.12 Always await promises before returning to avoid a partial stacktrace](#-212-always-await-promises-before-returning-to-avoid-a-partial-stacktrace)</br>
+&emsp;&emsp;[2.12 Always await promises before returning to avoid a partial stacktrace `new`](#-212-always-await-promises-before-returning-to-avoid-a-partial-stacktrace)</br>
 
 </details>
 
@@ -499,24 +496,41 @@ const count = 2 // it tries to run 2(), but 2 is not a function
 
 ## ![✔] 3.6 Use naming conventions for variables, constants, functions and classes
 
-**TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions and **_UpperCamelCase_** (capital first letter as well) when naming classes. This will help you to easily distinguish between plain variables/functions, and classes that require instantiation. Use descriptive names, but try to keep them short
+**TL;DR:** Use **_lowerCamelCase_** when naming constants, variables and functions, **_UpperCamelCase_** (capital first letter as well) when naming classes and **_UPPER_SNAKE_CASE_** when naming global or static variables. This will help you to easily distinguish between plain variables, functions, classes that require instantiation and variables declared at global module scope. Use descriptive names, but try to keep them short
 
 **Otherwise:** JavaScript is the only language in the world that allows invoking a constructor ("Class") directly without instantiating it first. Consequently, Classes and function-constructors are differentiated by starting with UpperCamelCase
 
 ### 3.6 Code Example
 
 ```javascript
-// for class name we use UpperCamelCase
-class SomeClassExample {}
-
-// for const names we use the const keyword and lowerCamelCase
-const config = {
+// for global variables names we use the const/let keyword and UPPER_SNAKE_CASE
+let MUTABLE_GLOBAL = "mutable value"
+const GLOBAL_CONSTANT = "immutable value";
+const CONFIG = {
   key: "value",
 };
 
-// for variables and functions names we use lowerCamelCase
-let someVariableExample = "value";
-function doSomething() {}
+// examples of UPPER_SNAKE_CASE convetion in nodejs/javascript ecosystem
+// in javascript Math.PI module
+const PI = 3.141592653589793;
+
+// https://github.com/nodejs/node/blob/b9f36062d7b5c5039498e98d2f2c180dca2a7065/lib/internal/http2/core.js#L303
+// in nodejs http2 module
+const HTTP_STATUS_OK = 200;
+const HTTP_STATUS_CREATED = 201;
+
+// for class name we use UpperCamelCase
+class SomeClassExample {
+  // for static class properties we use UPPER_SNAKE_CASE
+  static STATIC_PROPERTY = "value";
+}
+
+// for functions names we use lowerCamelCase
+function doSomething() {
+  // for scoped variable names we use the const/let keyword and lowerCamelCase
+  const someConstExample = "immutable value";
+  let someMutableExample = "mutable value";
+}
 ```
 
 <br/><br/>
@@ -1075,7 +1089,7 @@ Also known as correlation id / transit id / tracing id / request id / request co
 
 **TL;DR:** There is a common scenario where Node.js runs as a root user with unlimited permissions. For example, this is the default behaviour in Docker containers. It's recommended to create a non-root user and either bake it into the Docker image (examples given below) or run the process on this user's behalf by invoking the container with the flag "-u username"
 
-**Otherwise:** An attacker who manages to run a script on the server gets unlimited power over the local machine (e.g. change iptable and re-route traffic to his server)
+**Otherwise:** An attacker who manages to run a script on the server gets unlimited power over the local machine (e.g. change iptable and re-route traffic to their server)
 
 🔗 [**Read More: Run Node.js as non-root user**](./sections/security/non-root-user.md)
 
@@ -1763,6 +1777,14 @@ Thanks goes to these wonderful people who have contributed to this repository!
     <td align="center"><a href="https://www.linkedin.com/in/rafaelconcept/"><img src="https://avatars.githubusercontent.com/u/43880669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Rafael Brito</b></sub></a><br /><a href="#translation-rafaelconcept" title="Translation">🌍</a></td>
     <td align="center"><a href="https://emiliano-peralta-portfolio.vercel.app/"><img src="https://avatars.githubusercontent.com/u/63617637?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Emiliano Peralta</b></sub></a><br /><a href="#translation-emiperalta" title="Translation">🌍</a></td>
     <td align="center"><a href="https://lannex.github.io"><img src="https://avatars.githubusercontent.com/u/7369541?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shin, SJ</b></sub></a><br /><a href="#content-lannex" title="Content">🖋</a></td>
+    <td align="center"><a href="http://www.benjaminforster.com"><img src="https://avatars.githubusercontent.com/u/12589522?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Benjamin Forster</b></sub></a><br /><a href="#content-e-e-e" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/DanieleFedeli"><img src="https://avatars.githubusercontent.com/u/37077048?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Daniele Fedeli</b></sub></a><br /><a href="#content-DanieleFedeli" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/djob195"><img src="https://avatars.githubusercontent.com/u/17146669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>djob195</b></sub></a><br /><a href="#content-djob195" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/antspk"><img src="https://avatars.githubusercontent.com/u/78955792?v=4?s=100" width="100px;" alt=""/><br /><sub><b>antspk</b></sub></a><br /><a href="#content-antspk" title="Content">🖋</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://jjy0821.tistory.com/"><img src="https://avatars.githubusercontent.com/u/88075341?v=4?s=100" width="100px;" alt=""/><br /><sub><b>정진영</b></sub></a><br /><a href="#content-jjy821" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/kkk-cashwalk"><img src="https://avatars.githubusercontent.com/u/91455122?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kkk-cashwalk</b></sub></a><br /><a href="#content-kkk-cashwalk" title="Content">🖋</a></td>
   </tr>
 </table>
 
