@@ -18,7 +18,6 @@
 
 <br/>
 
-
 Read in a different language: [![CN](./assets/flags/CN.png)**CN**](./README.chinese.md), [![FR](./assets/flags/FR.png)**FR**](./README.french.md), [![BR](./assets/flags/BR.png)**BR**](./README.brazilian-portuguese.md), [![RU](./assets/flags/RU.png)**RU**](./README.russian.md), [![PL](./assets/flags/PL.png)**PL**](./README.polish.md), [![JA](./assets/flags/JA.png)**JA**](./README.japanese.md), [![EU](./assets/flags/EU.png)**EU**](./README.basque.md) [(![ES](./assets/flags/ES.png)**ES**, ![HE](./assets/flags/HE.png)**HE**, ![KR](./assets/flags/KR.png)**KR** and ![TR](./assets/flags/TR.png)**TR** in progress! )](#translations)
 
 <br/>
@@ -28,7 +27,6 @@ Read in a different language: [![CN](./assets/flags/CN.png)**CN**](./README.chin
 # Latest Best Practices and News
 
 - **🔖 New menu and tags**: Our menu is collapsible now and include `#tags`. New visitors can read `#strategic` items first. Returning visitors can focus on `#new` content. Seniors can filter for `#advanced` items. Courtesy of the one and only [Rubek Joshi](https://github.com/rubek-joshi@rubek-joshi)
-
 
 - **👨‍👩‍👧‍👦 New family member!**: A new repository joins our family - [Node.js Integration Tests Best Practices ✨](https://github.com/testjavascript/nodejs-integration-tests-best-practices). It includes 40+ best practices for writing awesome and performant Node.js component tests
 
@@ -432,7 +430,7 @@ function someFunction() {
 }
 
 // Avoid
-function someFunction() 
+function someFunction()
 {
   // code block
 }
@@ -1801,7 +1799,6 @@ Thanks goes to these wonderful people who have contributed to this repository!
     <td align="center"><a href="https://github.com/apainintheneck"><img src="https://avatars.githubusercontent.com/u/42982186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>apainintheneck</b></sub></a><br /><a href="#content-apainintheneck" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/koyanyaroo"><img src="https://avatars.githubusercontent.com/u/9715368?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fajar Budhi Iswanda</b></sub></a><br /><a href="#content-koyanyaroo" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/jutiger"><img src="https://avatars.githubusercontent.com/u/97490806?v=4?s=100" width="100px;" alt=""/><br /><sub><b>이주호</b></sub></a><br /><a href="#content-jutiger" title="Content">🖋</a></td>
-    <td align="center"><a href="https://github.com/MisterSingh"><img src="https://avatars.githubusercontent.com/u/44462019?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Singh</b></sub></a><br /><a href="#content-MisterSingh" title="Content">🖋</a></td>
   </tr>
 </table>
 
